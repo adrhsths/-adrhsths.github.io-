@@ -14915,7 +14915,7 @@ App.prototype = {
                     self.shelvingGroup_section1_1 = new THREE.Group();
                     self.options.posShelf1_sect1_1 = 12
 
-                    self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
+                    self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length+1));
 
                 } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                 document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
@@ -15025,7 +15025,7 @@ App.prototype = {
                         self.shelvingGroup_section1_1 = new THREE.Group();
                         self.options.posShelf1_sect1_1 = 12
 
-                        self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
+                        self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length +1 ));
 
                         document.getElementById("InternalShelving1_S1").style.display = "flex";
                         document.getElementById("InternalShelving2_S1").style.display = "none";
@@ -15047,8 +15047,8 @@ App.prototype = {
                         self.options.posShelf1_sect1_1 = 12
                         self.options.posShelf2_sect1_1 = 22
 
-                        self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length),
-                        self.createShelfToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length)
+                        self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length+1),
+                        self.createShelfToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length+1)
                         );
                         document.getElementById("InternalShelving1_S1").style.display = "flex";
                         document.getElementById("InternalShelving2_S1").style.display = "flex";
@@ -15069,8 +15069,8 @@ App.prototype = {
                         self.options.posShelf2_sect1_1 = 22
                         self.options.posShelf3_sect1_1 = 32
                     
-                        self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length),
-                        self.createShelfToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length), self.createShelfToGroup(self.options.posShelf3_sect1_1, 3, '1_1', self.options.section1Length)
+                        self.shelvingGroup_section1_1.add(self.createShelfToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length+1),
+                        self.createShelfToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length+1), self.createShelfToGroup(self.options.posShelf3_sect1_1, 3, '1_1', self.options.section1Length+1)
                         );
                         document.getElementById("InternalShelving1_S1").style.display = "flex";
                         document.getElementById("InternalShelving2_S1").style.display = "flex";
