@@ -972,7 +972,7 @@ App.prototype = {
 
 
         this.light2 = new THREE.SpotLight(0xffffff, 61.680);
-        this.light2.position.set(-166.310,84.470, -913.570);
+        this.light2.position.set(-166.310, 84.470, -913.570);
         this.light2.target.position.set(-12, 35, -980);
         this.light2.target.updateMatrixWorld()
         this.light2.castShadow = true
@@ -11355,7 +11355,6 @@ App.prototype = {
                     VerticalSection1_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection1_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S1_1.style.display = "flex";
-                    moveHorizontalPartition1_1.style.display = "flex";
                     moveHorizontalPartition1_1_UpButton.style.display = "block";
                     moveHorizontalPartition1_1_DownButton.style.display = "block";
                     moveHorizontalPartition1_2.style.display = "flex";
@@ -13437,7 +13436,6 @@ App.prototype = {
                     VerticalSection3_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection3_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S3_1.style.display = "flex";
-                    moveHorizontalPartition3_1.style.display = "flex";
                     moveHorizontalPartition3_2.style.display = "flex";
                     SectionRemoving_S3_1.style.display = "flex";
                     MainHorizontalPartition_S3_1.style.display = "none";
@@ -14433,7 +14431,6 @@ App.prototype = {
                     VerticalSection4_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection4_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S4_1.style.display = "flex";
-                    moveHorizontalPartition4_1.style.display = "flex";
                     moveHorizontalPartition4_1_3_DownButton.style.display = "none";
                     moveHorizontalPartition4_1_3_UpButton.style.display = "none";
                     moveHorizontalPartition4_1_2_DownButton.style.display = "none";
@@ -15412,7 +15409,8 @@ App.prototype = {
 
                 } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                 document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                document.getElementById('internalShelving_sect1_1').value = 0}
+                document.getElementById('internalShelving_sect1_1').value = 0
+                self.options.shelvesCounterSection1_1 = 0;}
 
 
                 if (self.options.shelvesCounterSection1_1 != 0) {
@@ -15535,7 +15533,8 @@ App.prototype = {
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
                     document.getElementById("InternalShelving1_S1").style.display = "none";
-                    document.getElementById('internalShelving_sect1_1').value = 0}
+                    document.getElementById('internalShelving_sect1_1').value = 0
+                    self.options.shelvesCounterSection1_1 = 0;}
 
                 break;
 
@@ -15563,7 +15562,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S1").style.display = "none";
-                    document.getElementById('internalShelving_sect1_1').value = 1}
+                    document.getElementById('internalShelving_sect1_1').value = 1
+                    self.options.shelvesCounterSection1_1 = 1;}
 
                 break;
 
@@ -15781,6 +15781,7 @@ App.prototype = {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
                     document.getElementById('internalShelving_sect1_2').value = 0
+                    self.options.shelvesCounterSection1_2 = 0;
                 }
 
                 if (self.options.shelvesCounterSection1_2 != 0) {
@@ -15897,7 +15898,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect1_2').value = 0}
+                    document.getElementById('internalShelving_sect1_2').value = 0
+                    self.options.shelvesCounterSection1_2 = 0;}
                 break;
 
                 case 2:
@@ -15925,7 +15927,8 @@ App.prototype = {
                         
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect1_2').value = 1}
+                    document.getElementById('internalShelving_sect1_2').value = 1
+                    self.options.shelvesCounterSection1_2 = 1;}
 
                 
                 break;
@@ -16138,7 +16141,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect1_1_2').value = 0}
+                    document.getElementById('internalShelving_sect1_1_2').value = 0
+                    self.options.shelvesCounterSection1_1_2 = 0;}
 
 
                 if (self.options.shelvesCounterSection1_1_2 != 0) {
@@ -16252,7 +16256,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect1_1_2').value = 0}
+                    document.getElementById('internalShelving_sect1_1_2').value = 0
+                    self.options.shelvesCounterSection1_1_2 = 0;}
                 break;
 
                 default:
@@ -16376,7 +16381,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect1_2_2').value = 0}
+                    document.getElementById('internalShelving_sect1_2_2').value = 0
+                    self.options.shelvesCounterSection1_2_2 = 0;}
 
                 if (self.options.shelvesCounterSection1_2_2 != 0) {
 
@@ -16490,7 +16496,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect1_2_2').value = 0}
+                    document.getElementById('internalShelving_sect1_2_2').value = 0
+                    self.options.shelvesCounterSection1_2_2 = 0;}
                 break;
 
                 default:
@@ -16621,7 +16628,8 @@ App.prototype = {
 
                 } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                 document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                document.getElementById('internalShelving_sect2_1').value = 0}
+                document.getElementById('internalShelving_sect2_1').value = 0
+                self.options.shelvesCounterSection2_1 = 0;}
 
 
                 if (self.options.shelvesCounterSection2_1 != 0) {
@@ -16742,7 +16750,8 @@ App.prototype = {
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
                     document.getElementById("InternalShelving1_S2_1").style.display = "none";
-                    document.getElementById('internalShelving_sect2_1').value = 0}
+                    document.getElementById('internalShelving_sect2_1').value = 0
+                    self.options.shelvesCounterSection2_1 = 0;}
                 break;
 
                 case 2:
@@ -16768,7 +16777,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S2_1").style.display = "none";
-                    document.getElementById('internalShelving_sect2_1').value = 1}
+                    document.getElementById('internalShelving_sect2_1').value = 1
+                    self.options.shelvesCounterSection2_1 = 1;}
 
                 break;
 
@@ -16965,9 +16975,11 @@ App.prototype = {
 
 
                 } else {
+                    self.options.shelvesCounterSection2_2 = 1;
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect2_2').value = 0}
+                    document.getElementById('internalShelving_sect2_2').value = 0
+                    self.options.shelvesCounterSection2_2 = 0;}
 
                 if (self.options.shelvesCounterSection2_2 != 0) {
 
@@ -17015,6 +17027,7 @@ App.prototype = {
 
             self.options.heigh1Shelf2_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) 
             self.options.heigh0Shelf2_2 = self.options.heigh1Shelf2_2
+
         };
 
         document.getElementById("subButtonMinus_Shelves2_2").addEventListener('click', requestChangeShelving2_2); 
@@ -17039,7 +17052,7 @@ App.prototype = {
 
         //🥬
         function createInternalShelving_sect2_2() {
-
+            console.log (self.options.shelvesCounterSection2_2);
 
             switch (parseInt(document.getElementById("internalShelving_sect2_2").value, 10)) {
                 case 0:
@@ -17072,7 +17085,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                    document.getElementById('internalShelving_sect2_2').value = 0}
+                    document.getElementById('internalShelving_sect2_2').value = 0
+                    self.options.shelvesCounterSection2_2 = 0;}
                 break;
 
                 case 2:
@@ -17099,6 +17113,7 @@ App.prototype = {
                         document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                         document.getElementById("InternalShelving2_S2_2").style.display = "none";
                         document.getElementById('internalShelving_sect2_2').value = 1
+                        self.options.shelvesCounterSection2_2 = 1;
                     }
                 break;
 
@@ -17292,7 +17307,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect2_1_2').value = 0}
+                    document.getElementById('internalShelving_sect2_1_2').value = 0
+                    self.options.shelvesCounterSection2_1_2 = 0;}
 
                 if (self.options.shelvesCounterSection2_1_2 != 0) {
 
@@ -17389,7 +17405,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect2_1_2').value = 0}
+                    document.getElementById('internalShelving_sect2_1_2').value = 0
+                    self.options.shelvesCounterSection2_1_2 = 0;}
                 break;
 
                 default:
@@ -17513,7 +17530,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect2_2_2').value = 0}
+                    document.getElementById('internalShelving_sect2_2_2').value = 0
+                    self.options.shelvesCounterSection2_2_2 = 0;}
 
                 if (self.options.shelvesCounterSection2_2_2 != 0) {
 
@@ -17612,7 +17630,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect2_2_2').value = 0}
+                    document.getElementById('internalShelving_sect2_2_2').value = 0
+                    self.options.shelvesCounterSection2_2_2 = 0;}
                 break;
 
                 default:
@@ -17735,7 +17754,8 @@ App.prototype = {
 
                 } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                 document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                document.getElementById('internalShelving_sect3_1').value = 0}
+                document.getElementById('internalShelving_sect3_1').value = 0
+                self.options.shelvesCounterSection3_1 = 0;}
 
 
                 if (self.options.shelvesCounterSection3_1 != 0) {
@@ -17845,7 +17865,8 @@ App.prototype = {
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
                     document.getElementById("InternalShelving1_S3_1").style.display = "none";
-                    document.getElementById('internalShelving_sect3_1').value = 0}
+                    document.getElementById('internalShelving_sect3_1').value = 0
+                    self.options.shelvesCounterSection3_1 = 0;}
                 break;
 
                 case 2:
@@ -17871,7 +17892,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S3_1").style.display = "none";
-                    document.getElementById('internalShelving_sect3_1').value = 1}
+                    document.getElementById('internalShelving_sect3_1').value = 1
+                    self.options.shelvesCounterSection3_1 = 1;}
 
                 break;
 
@@ -18069,7 +18091,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_2').value = 0}
+                    document.getElementById('internalShelving_sect3_2').value = 0
+                    self.options.shelvesCounterSection3_2 = 0;}
 
                 if (self.options.shelvesCounterSection3_2 != 0) {
 
@@ -18175,7 +18198,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_2').value = 0}
+                    document.getElementById('internalShelving_sect3_2').value = 0
+                    self.options.shelvesCounterSection3_2 = 0;}
                 break;
 
                 case 2:
@@ -18199,7 +18223,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S3_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_2').value = 1}
+                    document.getElementById('internalShelving_sect3_2').value = 1
+                    self.options.shelvesCounterSection3_2 = 0;}
 
                 break;
 
@@ -18401,7 +18426,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_1_2').value = 0}
+                    document.getElementById('internalShelving_sect3_1_2').value = 0
+                    self.options.shelvesCounterSection3_1_2 = 0;}
 
                 if (self.options.shelvesCounterSection3_1_2 != 0) {
 
@@ -18499,7 +18525,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_1_2').value = 0}
+                    document.getElementById('internalShelving_sect3_1_2').value = 0
+                    self.options.shelvesCounterSection3_1_2 = 0;}
                 break;
 
                 default:
@@ -18620,7 +18647,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_2_2').value = 0}
+                    document.getElementById('internalShelving_sect3_2_2').value = 0
+                    self.options.shelvesCounterSection3_2_2 = 0;}
 
                 if (self.options.shelvesCounterSection3_2_2 != 0) {
 
@@ -18720,7 +18748,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect3_2_2').value = 0}
+                    document.getElementById('internalShelving_sect3_2_2').value = 0
+                    self.options.shelvesCounterSection3_2_2 = 0;}
                 break;
 
                 default:
@@ -18846,7 +18875,8 @@ App.prototype = {
 
                 } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                 document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                document.getElementById('internalShelving_sect4_1').value = 0}
+                document.getElementById('internalShelving_sect4_1').value = 0
+                self.options.shelvesCounterSection4_1 = 0;}
 
 
                 if (self.options.shelvesCounterSection4_1 != 0) {
@@ -18955,7 +18985,8 @@ App.prototype = {
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
                     document.getElementById("InternalShelving1_S4_1").style.display = "none";
-                    document.getElementById('internalShelving_sect4_1').value = 0}
+                    document.getElementById('internalShelving_sect4_1').value = 0
+                    self.options.shelvesCounterSection4_1 = 0;}
                 break;
 
                 case 2:
@@ -18981,7 +19012,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S4_1").style.display = "none";
-                    document.getElementById('internalShelving_sect4_1').value = 1}
+                    document.getElementById('internalShelving_sect4_1').value = 1
+                    self.options.shelvesCounterSection4_1 = 1;}
 
                 break;
 
@@ -19178,7 +19210,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_2').value = 0}
+                    document.getElementById('internalShelving_sect4_2').value = 0
+                    self.options.shelvesCounterSection4_2 = 0;}
 
                 if (self.options.shelvesCounterSection4_2 != 0) {
 
@@ -19281,7 +19314,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_2').value = 0}
+                    document.getElementById('internalShelving_sect4_2').value = 0
+                    self.options.shelvesCounterSection4_2 = 0;}
                 break;
 
                 case 2:
@@ -19305,7 +19339,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height";
                     document.getElementById("InternalShelving2_S4_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_2').value = 1}
+                    document.getElementById('internalShelving_sect4_2').value = 1
+                    self.options.shelvesCounterSection4_2 = 1;}
 
 
                 break;
@@ -19505,7 +19540,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_1_2').value = 0}
+                    document.getElementById('internalShelving_sect4_1_2').value = 0
+                    self.options.shelvesCounterSection4_1_2 = 0;}
 
                 if (self.options.shelvesCounterSection4_1_2 != 0) {
 
@@ -19602,7 +19638,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_1_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_1_2').value = 0}
+                    document.getElementById('internalShelving_sect4_1_2').value = 0
+                    self.options.shelvesCounterSection4_1_2 = 0;}
                 break;
 
                 default:
@@ -19725,7 +19762,8 @@ App.prototype = {
                 } else {
                     document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_2_2').value = 0}
+                    document.getElementById('internalShelving_sect4_2_2').value = 0
+                    self.options.shelvesCounterSection4_2_2 = 0;}
 
                 if (self.options.shelvesCounterSection4_2_2 != 0) {
 
@@ -19823,7 +19861,8 @@ App.prototype = {
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_2_2").style.display = "none";
-                    document.getElementById('internalShelving_sect4_2_2').value = 0}
+                    document.getElementById('internalShelving_sect4_2_2').value = 0
+                    self.options.shelvesCounterSection4_2_2 = 0;}
                 break;
 
                 default:
@@ -39106,7 +39145,7 @@ App.prototype = {
         var self = this;
 
         var geometry = new THREE.PlaneGeometry(1500, 1500);
-        var material = new THREE.MeshStandardMaterial({color: 0x949494, side: THREE.DoubleSide});
+        var material = new THREE.MeshBasicMaterial({color: 0xE0E0E0, side: THREE.DoubleSide, emissive : 0xDFDEDA});
         var wall = new THREE.Mesh(geometry, material);
         wall.castShadow = true
         wall.receiveShadow = true
@@ -39131,7 +39170,7 @@ App.prototype = {
 
 
         var geometry2 = new THREE.PlaneGeometry(1000, 1000);
-        var material2 = new THREE.MeshStandardMaterial({color: 0x949494, side: THREE.DoubleSide});
+        var material2 = new THREE.MeshBasicMaterial({color: 0xE0E0E0, side: THREE.DoubleSide, emissive : 0xDFDEDA});
         var wall2 = new THREE.Mesh(geometry2, material2);
         wall2.castShadow = true
         wall2.receiveShadow = true
@@ -39155,7 +39194,7 @@ App.prototype = {
 
 
         var geometry3 = new THREE.PlaneGeometry(1000, 1000);
-        var material3 = new THREE.MeshStandardMaterial({color: 0x949494, side: THREE.BackSide});
+        var material3 = new THREE.MeshBasicMaterial({color: 0xE0E0E0, side: THREE.BackSide, emissive : 0xE0E0E0});
         var wall3 = new THREE.Mesh(geometry3, material3);
         wall3.castShadow = true
         wall3.receiveShadow = true
@@ -39196,7 +39235,7 @@ App.prototype = {
     createHuman: function() {
         var self = this;
         var geometry = new THREE.PlaneGeometry(38, 140);
-        var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 0.15,   side: THREE.DoubleSide,});
+        var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 0.05,   side: THREE.DoubleSide,});
 
         var human = new THREE.Mesh(geometry, material);
         
@@ -42751,12 +42790,10 @@ App.prototype = {
         SectionRemoving_S1_1.style.display = "none";
         MainHorizontalPartition_S1_1.style.display = "flex";
         moveHorizontalPartition_S1_1.style.display = "none";
-        moveHorizontalPartition1_1.style.display = "none";
         moveHorizontalPartition1_1_2_UpButton.style.display = "none";
         moveHorizontalPartition1_1_2_DownButton.style.display = "none";
         moveHorizontalPartition1_1_3_UpButton.style.display = "none";
         moveHorizontalPartition1_1_3_DownButton.style.display = "none";
-        moveHorizontalPartition1_2_2.style.display = "none";
         moveHorizontalPartition1_2_2_DownButton.style.display = "none";
         moveHorizontalPartition1_2_2_UpButton.style.display = "none";
         moveHorizontalPartition1_2_3_DownButton.style.display = "none";
@@ -43038,7 +43075,6 @@ App.prototype = {
         moveHorizontalPartition2_1_2_UpButton.style.display = "none";
         moveHorizontalPartition2_1_3_DownButton.style.display = "none";
         moveHorizontalPartition2_1_3_UpButton.style.display = "none";
-        moveHorizontalPartition2_2_2.style.display = "none";
         moveHorizontalPartition2_2_2_DownButton.style.display = "none";
         moveHorizontalPartition2_2_2_UpButton.style.display = "none";
         moveHorizontalPartition2_2_3_DownButton.style.display = "none";
@@ -43318,7 +43354,6 @@ App.prototype = {
         moveHorizontalPartition3_1_3_UpButton.style.display = "none";
         moveHorizontalPartition3_1_3_DownButton.style.display = "none";
 
-        moveHorizontalPartition3_2_2.style.display = "none";
         moveHorizontalPartition3_2_3_DownButton.style.display = "none";
         moveHorizontalPartition3_2_3_UpButton.style.display = "none";
         moveHorizontalPartition3_2_2_DownButton.style.display = "block";
@@ -43594,9 +43629,7 @@ App.prototype = {
 
         SectionRemoving_S4_1.style.display = "none";
         moveHorizontalPartition_S4_1.style.display = "none";
-        moveHorizontalPartition4_1.style.display = "none";
         moveHorizontalPartition4_1_2.style.display = "none";
-        moveHorizontalPartition4_2_2.style.display = "none";
         moveHorizontalPartition4_2.style.display = "none";
         moveHorizontalPartitionS4_2_2__1.style.display = "none";
         MainHorizontalPartition_S4_1_2.style.display = "none";
@@ -43605,7 +43638,6 @@ App.prototype = {
         MainHorizontalPartition_S4_1.style.display = "flex";
 
 
-        moveHorizontalPartition4_2_2.style.display = "none";
         moveHorizontalPartition4_2_3_DownButton.style.display = "none";
         moveHorizontalPartition4_2_3_UpButton.style.display = "none";
         moveHorizontalPartition4_2_2_DownButton.style.display = "block";
@@ -47344,7 +47376,7 @@ App.prototype = {
     createFloor: function() {
         var self = this;
         var geometry = new THREE.PlaneGeometry(this.roomSizeMin, this.roomSizeMin);
-        var material = new THREE.MeshStandardMaterial({color: this.options.floor.color, side: THREE.DoubleSide, metalness: 0.3});
+        var material = new THREE.MeshBasicMaterial({color: 0xE7E7E7, side: THREE.DoubleSide, emissive : 0xE7E7E7});
         var floor = new THREE.Mesh(geometry, material);
         floor.position.y = -1 //1.8def
         floor.position.x = 78.63
@@ -47383,7 +47415,6 @@ App.prototype = {
 
 
     //dat.gui
-    //🍌
 
     initGui: function() {
         var self = this;
@@ -47415,40 +47446,38 @@ App.prototype = {
  
         
 
-        /* controller = folder.add(this.light.shadow, 'bias', -100, 100).name('bias');
+        controller = folder.add(this.light.shadow, 'bias', -100, 100).name('bias');
         controller = folder.add(this.light.shadow.camera, 'near', -100, 100).name('near');
         controller = folder.add(this.light.shadow.camera, 'far', -100, 100).name('far');
-        controller = folder.add(this.light.shadow, 'radius', -100, 100).name('rad'); */
+        controller = folder.add(this.light.shadow, 'radius', -100, 100).name('rad');
 
 
 
-/* 
-
-/* 
+ 
         gui.add(this.light.target.position, 'x', -10, 10).onChange(this.light.target.updateMatrixWorld());
         gui.add(this.light.target.position, 'z', -10, 10);
-        gui.add(this.light.target.position, 'y', 0, 10);  */
+        gui.add(this.light.target.position, 'y', 0, 10);  
 
 
         //controller = folder.add(this.light.shadow.bias, 'bias', 0, 2, 0.01).name('bias');
         //controller = folder.add(this.light.shadow, 'bias', -10000, 10000).name('x position');
 
 
-        /* controller = folder.add(this.light.target.position, 'y', -10000, 10000).name('y position', this.spotLightHelper.update());
+         controller = folder.add(this.light.target.position, 'y', -10000, 10000).name('y position', this.spotLightHelper.update());
 
 
         //gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
-       /*  gui.add(this.light, 'intensity', 0, 2, 0.01);
+         gui.add(this.light, 'intensity', 0, 2, 0.01);
         gui.add(this.light, 'distance', 0, 40).onChange(this.updateLight);
-        gui.add(this.light, 'penumbra', 0, 1, 0.01); */
+        gui.add(this.light, 'penumbra', 0, 1, 0.01); 
 
 
-       /*  controller = folder.add(this.light.position, 'y', -10000, 10000).name('y position');
+        controller = folder.add(this.light.position, 'y', -10000, 10000).name('y position');
         controller = folder.add(this.light.position, 'z', -10000, 10000).name('z position');
-          */
-        /* controller = folder.add(this.light.target.position, 'x', -10000, 10000).name('x target');
+         
+        controller = folder.add(this.light.target.position, 'x', -10000, 10000).name('x target');
         controller = folder.add(this.light.target.position, 'y', -10000, 10000).name('y target');
-        controller = folder.add(this.light.target.position, 'z', -10000, 10000).name('z target');  */
+        controller = folder.add(this.light.target.position, 'z', -10000, 10000).name('z target'); 
 
         folder.open();
 
@@ -48118,7 +48147,7 @@ App.prototype = {
             //sect3
             if (self.scene.getObjectByName('RayCastRecieverSection3_1') != undefined) {
                 //w
-                var wsec3_1 = new THREE.TextGeometry( ( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +" ", {
+                var wsec3_1 = new THREE.TextGeometry( ( parseFloat(document.getElementById('pillar3PositionField_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", {
                     font: font,
                     size: 2,
                     height: 0.1,
@@ -48136,7 +48165,7 @@ App.prototype = {
                 )
 
                 //height
-                var hsec3_1 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                var hsec3_1 = new THREE.TextGeometry( ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_1", true ) != undefined) {
                     var hsec3_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }
@@ -48149,17 +48178,22 @@ App.prototype = {
                     var hsec3_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                     var hsec3_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }
-                if ( self.options.shelvesCounterSection2_2 === 1 ) {
-                    var hsec2_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-                    var hsec2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                if ( self.options.shelvesCounterSection3_2 === 1 ) {
+                    var hsec3_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec3_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }
-                if ( self.options.shelvesCounterSection2_2 === 2 ) {
-                    var hsec2_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-                    var hsec2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-                    var hsec2_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                if ( self.options.shelvesCounterSection3_2 === 2 ) {
+                    var hsec3_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec3_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec3_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ) != undefined) {
                     var hsec3_1_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+
+                    if ( self.options.shelvesCounterSection3_1_2 === 1 ) {
+                        var hsec3_1_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_1_3", true ) != undefined) {
                     var hsec3_1_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -48169,6 +48203,12 @@ App.prototype = {
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_2_2", true ) != undefined) {
                     var hsec3_2_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+
+                    if ( self.options.shelvesCounterSection3_2_2 === 1 ) {
+                        var hsec3_2_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_2_3", true ) != undefined) {
                     var hsec3_2_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -48183,6 +48223,52 @@ App.prototype = {
                 self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.y,
                 self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
                 )
+                dimensionsFontGroup.add(wsec3_1Mesh,hsec3_1Mesh); 
+                if ( self.options.shelvesCounterSection3_1 === 1) {
+                    dimensionsFontGroup.remove(hsec3_1Mesh); 
+                    dimensionsFontGroup.remove(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh);
+                    var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
+                    hsec3_1_shelf1Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec3_1_shelf0Mesh = new THREE.Mesh(hsec3_1_shelf0, self.fontColor);
+                    hsec3_1_shelf0Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    dimensionsFontGroup.add(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh);
+                }
+                if ( self.options.shelvesCounterSection3_1 === 2) {
+                    dimensionsFontGroup.remove(hsec3_1Mesh); 
+                    dimensionsFontGroup.remove(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh);
+                    var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
+                    hsec3_1_shelf1Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec3_1_shelf0Mesh = new THREE.Mesh(hsec3_1_shelf0, self.fontColor);
+                    hsec3_1_shelf0Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec3_1_shelf2Mesh = new THREE.Mesh(hsec3_1_shelf2, self.fontColor);
+                    hsec3_1_shelf2Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    dimensionsFontGroup.add(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh);
+                }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_1", true ) != undefined) {
                     var hsec3_2Mesh = new THREE.Mesh(hsec3_2, self.fontColor);
                     hsec3_2Mesh.position.set(
@@ -48191,6 +48277,52 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec3_2Mesh);
+
+                    if ( self.options.shelvesCounterSection3_2 === 1) {
+                        dimensionsFontGroup.remove(hsec3_2Mesh); 
+                        dimensionsFontGroup.remove(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh);
+                        var hsec3_2_shelf1Mesh = new THREE.Mesh(hsec3_2_shelf1, self.fontColor);
+                        hsec3_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec3_2_shelf0Mesh = new THREE.Mesh(hsec3_2_shelf0, self.fontColor);
+                        hsec3_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection3_2 === 2) {
+                        dimensionsFontGroup.remove(hsec3_2Mesh); 
+                        dimensionsFontGroup.remove(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh);
+                        var hsec3_2_shelf1Mesh = new THREE.Mesh(hsec3_2_shelf1, self.fontColor);
+                        hsec3_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec3_2_shelf0Mesh = new THREE.Mesh(hsec3_2_shelf0, self.fontColor);
+                        hsec3_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec3_2_shelf2Mesh = new THREE.Mesh(hsec3_2_shelf2, self.fontColor);
+                        hsec3_2_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ) != undefined) {
                     var hsec3_1_2Mesh = new THREE.Mesh(hsec3_1_2, self.fontColor);
@@ -48200,6 +48332,26 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection3_1_2", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec3_1_2Mesh);
+
+                    if ( self.options.shelvesCounterSection3_1_2 === 1) {
+                        dimensionsFontGroup.remove(hsec3_1_2Mesh); 
+                        dimensionsFontGroup.remove(hsec3_1_2_shelf1Mesh, hsec3_1_2_shelf0Mesh);
+                        var hsec3_1_2_shelf1Mesh = new THREE.Mesh(hsec3_1_2_shelf1, self.fontColor);
+                        hsec3_1_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_1_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec3_1_2_shelf0Mesh = new THREE.Mesh(hsec3_1_2_shelf0, self.fontColor);
+                        hsec3_1_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec3_1_2_shelf1Mesh, hsec3_1_2_shelf0Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_1_3", true ) != undefined) {
                     var hsec3_1_3Mesh = new THREE.Mesh(hsec3_1_3, self.fontColor);
@@ -48227,6 +48379,26 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection3_2_2", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec3_2_2Mesh);
+
+                    if ( self.options.shelvesCounterSection3_2_2 === 1) {
+                        dimensionsFontGroup.remove(hsec3_2_2Mesh); 
+                        dimensionsFontGroup.remove(hsec3_2_2_shelf1Mesh, hsec3_2_2_shelf0Mesh);
+                        var hsec3_2_2_shelf1Mesh = new THREE.Mesh(hsec3_2_2_shelf1, self.fontColor);
+                        hsec3_2_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec3_2_2_shelf0Mesh = new THREE.Mesh(hsec3_2_2_shelf0, self.fontColor);
+                        hsec3_2_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection3_2_2", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec3_2_2_shelf1Mesh, hsec3_2_2_shelf0Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection3_2_3", true ) != undefined) {
                     var hsec3_2_3Mesh = new THREE.Mesh(hsec3_2_3, self.fontColor);
@@ -48247,14 +48419,14 @@ App.prototype = {
                     dimensionsFontGroup.add(hsec3_2_4Mesh);
                 }
 
-                dimensionsFontGroup.add(wsec3_1Mesh,hsec3_1Mesh); 
+    
 
             } 
 
             //sect4
             if (self.scene.getObjectByName('RayCastRecieverSection4_1') != undefined) {
                 //w
-                var wsec4_1 = new THREE.TextGeometry( ( self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +" ", {
+                var wsec4_1 = new THREE.TextGeometry( ( parseFloat(document.getElementById('pillar4PositionField_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", {
                     font: font,
                     size: 2,
                     height: 0.1,
@@ -48273,12 +48445,35 @@ App.prototype = {
                
 
                 //height
-                var hsec4_1 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                var hsec4_1 = new THREE.TextGeometry( ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1", true ) != undefined) {
                     var hsec4_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }
+                if ( self.options.shelvesCounterSection4_1 === 1 ) {
+                    var hsec4_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec4_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                }
+                if ( self.options.shelvesCounterSection4_1 === 2 ) {
+                    var hsec4_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec4_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec4_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                }
+                if ( self.options.shelvesCounterSection4_2 === 1 ) {
+                    var hsec4_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec4_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                }
+                if ( self.options.shelvesCounterSection4_2 === 2 ) {
+                    var hsec4_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec4_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec4_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ) != undefined) {
                     var hsec4_1_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+
+                    if ( self.options.shelvesCounterSection4_1_2 === 1 ) {
+                        var hsec4_1_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1_3", true ) != undefined) {
                     var hsec4_1_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -48288,6 +48483,11 @@ App.prototype = {
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_2_2", true ) != undefined) {
                     var hsec4_2_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+
+                    if ( self.options.shelvesCounterSection4_2_2 === 1 ) {
+                        var hsec4_2_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_2_3", true ) != undefined) {
                     var hsec4_2_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -48302,6 +48502,52 @@ App.prototype = {
                 self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.y,
                 self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
                 )
+                dimensionsFontGroup.add(wsec4_1Mesh,hsec4_1Mesh);
+                if ( self.options.shelvesCounterSection4_1 === 1) {
+                    dimensionsFontGroup.remove(hsec4_1Mesh); 
+                    dimensionsFontGroup.remove(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh);
+                    var hsec4_1_shelf1Mesh = new THREE.Mesh(hsec4_1_shelf1, self.fontColor);
+                    hsec4_1_shelf1Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec4_1_shelf0Mesh = new THREE.Mesh(hsec4_1_shelf0, self.fontColor);
+                    hsec4_1_shelf0Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    dimensionsFontGroup.add(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh);
+                }
+                if ( self.options.shelvesCounterSection4_1 === 2) {
+                    dimensionsFontGroup.remove(hsec4_1Mesh); 
+                    dimensionsFontGroup.remove(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh);
+                    var hsec4_1_shelf1Mesh = new THREE.Mesh(hsec4_1_shelf1, self.fontColor);
+                    hsec4_1_shelf1Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec4_1_shelf0Mesh = new THREE.Mesh(hsec4_1_shelf0, self.fontColor);
+                    hsec4_1_shelf0Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec4_1_shelf2Mesh = new THREE.Mesh(hsec4_1_shelf2, self.fontColor);
+                    hsec4_1_shelf2Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y + 4,
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    dimensionsFontGroup.add(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh);
+                }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1", true ) != undefined) {
                     var hsec4_2Mesh = new THREE.Mesh(hsec4_2, self.fontColor);
                     hsec4_2Mesh.position.set(
@@ -48310,6 +48556,52 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec4_2Mesh);
+
+                    if ( self.options.shelvesCounterSection4_2 === 1) {
+                        dimensionsFontGroup.remove(hsec4_2Mesh); 
+                        dimensionsFontGroup.remove(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh);
+                        var hsec4_2_shelf1Mesh = new THREE.Mesh(hsec4_2_shelf1, self.fontColor);
+                        hsec4_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec4_2_shelf0Mesh = new THREE.Mesh(hsec4_2_shelf0, self.fontColor);
+                        hsec4_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection4_2 === 2) {
+                        dimensionsFontGroup.remove(hsec4_2Mesh); 
+                        dimensionsFontGroup.remove(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh);
+                        var hsec4_2_shelf1Mesh = new THREE.Mesh(hsec4_2_shelf1, self.fontColor);
+                        hsec4_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec4_2_shelf0Mesh = new THREE.Mesh(hsec4_2_shelf0, self.fontColor);
+                        hsec4_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec4_2_shelf2Mesh = new THREE.Mesh(hsec4_2_shelf2, self.fontColor);
+                        hsec4_2_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ) != undefined) {
                     var hsec4_1_2Mesh = new THREE.Mesh(hsec4_1_2, self.fontColor);
@@ -48319,6 +48611,27 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection4_1_2", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec4_1_2Mesh);
+
+                    if ( self.options.shelvesCounterSection4_1_2 === 1) {
+                        dimensionsFontGroup.remove(hsec4_1_2Mesh); 
+                        dimensionsFontGroup.remove(hsec4_1_2_shelf1Mesh, hsec4_1_2_shelf0Mesh);
+                        var hsec4_1_2_shelf1Mesh = new THREE.Mesh(hsec4_1_2_shelf1, self.fontColor);
+                        hsec4_1_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_1_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec4_1_2_shelf0Mesh = new THREE.Mesh(hsec4_1_2_shelf0, self.fontColor);
+                        hsec4_1_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec4_1_2_shelf1Mesh, hsec4_1_2_shelf0Mesh);
+                    }
+
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1_3", true ) != undefined) {
                     var hsec4_1_3Mesh = new THREE.Mesh(hsec4_1_3, self.fontColor);
@@ -48346,6 +48659,26 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection4_2_2", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec4_2_2Mesh);
+
+                    if ( self.options.shelvesCounterSection4_2_2 === 1) {
+                        dimensionsFontGroup.remove(hsec4_2_2Mesh); 
+                        dimensionsFontGroup.remove(hsec4_2_2_shelf1Mesh, hsec4_2_2_shelf0Mesh);
+                        var hsec4_2_2_shelf1Mesh = new THREE.Mesh(hsec4_2_2_shelf1, self.fontColor);
+                        hsec4_2_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_2_shelf1", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec4_2_2_shelf0Mesh = new THREE.Mesh(hsec4_2_2_shelf0, self.fontColor);
+                        hsec4_2_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_2_2", true ).position.y + 4,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec4_2_2_shelf1Mesh, hsec4_2_2_shelf0Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_2_3", true ) != undefined) {
                     var hsec4_2_3Mesh = new THREE.Mesh(hsec4_2_3, self.fontColor);
@@ -48364,9 +48697,7 @@ App.prototype = {
                     self.scene.getObjectByName( "RayCastRecieverSection4_2_4", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec4_2_4Mesh);
-                }
-
-                dimensionsFontGroup.add(wsec4_1Mesh,hsec4_1Mesh);   
+                }   
 
             } 
 
