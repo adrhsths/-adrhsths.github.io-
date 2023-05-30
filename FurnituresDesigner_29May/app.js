@@ -39235,7 +39235,7 @@ App.prototype = {
     createHuman: function() {
         var self = this;
         var geometry = new THREE.PlaneGeometry(38, 140);
-        var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 0.05,   side: THREE.DoubleSide,});
+        var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 0.01,   side: THREE.DoubleSide,});
 
         var human = new THREE.Mesh(geometry, material);
         
@@ -45043,7 +45043,7 @@ App.prototype = {
 
                         object.traverse(function(child) {
                             if (child instanceof THREE.Mesh) {
-                                child.material = new THREE.MeshStandardMaterial({color: 0x555555, metalness: 0.7, roughness: 0.1, /* envMap: textureCube, */});
+                                child.material = new THREE.MeshStandardMaterial({color: 0x555555, metalness: 0.75, roughness: 0.4, /* envMap: textureCube, */});
                             }
                         });
                         
