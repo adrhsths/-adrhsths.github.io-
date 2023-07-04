@@ -27,12 +27,12 @@ App.prototype = {
     showFps: true,
     showWorldAxis: true,
     antialias: true,
-    fov: 13,
+    fov: 14,
     sceneSize: 10000,
 
     tempWidth: 0,
     
-    cameraInitialPosition: [19, 280, -800],
+    cameraInitialPosition: [-50, 250, -100],
     
     assetsPath: 'assets/',
 
@@ -46,11 +46,11 @@ App.prototype = {
 
     sectionsNumMax: 3,
     shelvesNumMax: 20,
-
+    
     distanceFromFloorMin: 0,
     distanceFromFloorMax: 0,
     distanceFromFloorStep: 1,
-    distanceFromTopMin: 0,
+    distanceFromTopMin: 0,      
     distanceFromTopMax: 0,
     distanceFromTopStep: 1,
 
@@ -418,15 +418,7 @@ App.prototype = {
 
         shelf: {
             
-            //length:75,
             length: 75,
-           /*  if (localStorage.getItem('wasItUsedOrNo') == 1) {
-                length: localStorage.getItem("options_shelf_length"),
-            } else { 
-                length: parseInt(document.getElementById("subdomainWidthCabinet_Dimensions").value, 10)
-            } */
-    
-
             width: 45,
             thickness: 2,
             color: '#fdfdfd',
@@ -650,7 +642,8 @@ App.prototype = {
 
         statusHideDoor: 0,
         statusHideRoom: 0,
-        statusHideHint: 1,
+        statusHideHint: 0,
+        statusOpenaButtonsPanel: 0,
         statusHideBackPlate: 0,
         statusLegs: 0,
         statusShowDimensions: 0,
@@ -871,7 +864,7 @@ App.prototype = {
             this.showError('Unfortunately your browser is not supported');
             return this;
         }
-        
+        this.params = new URLSearchParams(window.location.search);
         this.scene = new THREE.Scene();
         this.engine = new THREE.WebGLRenderer({
             antialias: true,
@@ -886,7 +879,7 @@ App.prototype = {
         this.camera.position.set(
             this.cameraInitialPosition[0], this.cameraInitialPosition[1], -this.cameraInitialPosition[2]
         );
-        this.camera.lookAt(new THREE.Vector3(-100, 100, 100));
+        this.camera.lookAt(new THREE.Vector3(20, 0, -100));
         
 
         //
@@ -895,8 +888,8 @@ App.prototype = {
         this.controls.maxPolarAngle = 88 * Utils.PI_180;
         this.controls.minPolarAngle = 48 * Utils.PI_180;
         this.controls.target.set(19, 20, -999);
-        this.controls.minDistance = 1050;
-        this.controls.maxDistance = 1400; //1350
+        this.controls.minDistance = 1000;
+        this.controls.maxDistance = 1300; //1350
         this.controls.enableDamping = true; 
         this.controls.dampingFactor = 0.03
         this.controls.rotateSpeed = 0.09;
@@ -919,8 +912,15 @@ App.prototype = {
         //lights and renderer 
 
         this.scene.background = null; 
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        this.engine.setSize(window.innerWidth, window.innerHeight, true);
+        if (isMobile) {
+            // If on mobile, set canvas to 100% width and 70% height of the viewport
+            this.engine.setSize(window.innerWidth * 0.7, window.innerHeight * 0.7, true);
+        } else {
+            // If on desktop, use the current behavior
+            this.engine.setSize(window.innerWidth, window.innerHeight * 1, true);
+        }
         //this.scene.background = new THREE.Color('#fff');
         this.engine.setClearColor (0x000000, 0);
         //🍌if you feel slow work of the app, try this option... (/2)
@@ -1101,6 +1101,7 @@ App.prototype = {
                             self.RayCastRecieverSection1_1.material.opacity = 0.2
                             self.section1_WireframeMesh1_1.material.opacity = 0.2
                             
+                            MenuForMobileVersion1.style.display = 'flex';
                             VerticalSection1_1.style.animation = 'animShowFromLeft 0.4s';
                             VerticalSection1_1.style.transform = "translateX(-0%)"; 
                             
@@ -9606,7 +9607,7 @@ App.prototype = {
 
                 
             break;
-        }
+          }
 
             document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = Math.floor(self.options.sectionHeight_1_1 - 0.6 - (1.8*2)) +"cm";
 
@@ -9655,7 +9656,6 @@ App.prototype = {
 
     function ChangeVerticalPartition () {
 
-
         var max = parseInt(this.max);
         if (parseInt(this.value) > max) {
             this.value = max; 
@@ -9674,16 +9674,17 @@ App.prototype = {
         //localStorage.setItem("verticals",  document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value);
 
         if ( self.options.shelvesCounterSection4_1_2 != 0 || self.options.shelvesCounterSection4_1 != 0 || self.options.shelvesCounterSection4_2 != 0 || self.options.shelvesCounterSection4_2_2 != 0 || self.scene.getObjectByName( "doorSection4_1Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_1Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_1_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_1_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_1_3Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_1_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_1_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_1_4Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_2_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_2_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_2_3Group", true ) != undefined ||self.scene.getObjectByName( "drawerSection4_2_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_2_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_2_4Group", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_1", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_1_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_1_4", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_2_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_2_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection4_2_4", true ) != undefined || self.options.shelvesCounterSection3_1_2 != 0 || self.options.shelvesCounterSection3_1 != 0 || self.options.shelvesCounterSection3_2 != 0 || self.options.shelvesCounterSection3_2_2 != 0 || self.scene.getObjectByName( "doorSection3_1Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_1Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_1_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_1_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_1_3Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_1_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_1_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_1_4Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_2_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_2_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_2_3Group", true ) != undefined ||self.scene.getObjectByName( "drawerSection3_2_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection3_2_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection3_2_4Group", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_1", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_1_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_1_4", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_2_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_2_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection3_2_4", true ) != undefined || self.options.shelvesCounterSection2_1_2 != 0 || self.options.shelvesCounterSection2_1 != 0 || self.options.shelvesCounterSection2_2 != 0 || self.options.shelvesCounterSection2_2_2 != 0 || self.scene.getObjectByName( "doorSection2_1Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_1Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_1_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_1_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_1_3Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_1_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_1_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_1_4Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_2_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_2_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_2_3Group", true ) != undefined ||self.scene.getObjectByName( "drawerSection2_2_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection2_2_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection2_2_4Group", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_1", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_1_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_1_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_1_4", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_2_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_2_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection2_2_4", true ) != undefined || self.options.shelvesCounterSection1_1_2 != 0 || self.options.shelvesCounterSection1_1 != 0 || self.options.shelvesCounterSection1_2 != 0 || self.options.shelvesCounterSection1_2_2 != 0 || self.scene.getObjectByName( "doorSection1_1Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_1Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_1_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_1_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_1_3Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_1_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_1_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_1_4Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_2_2Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_2_2Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_2_3Group", true ) != undefined ||self.scene.getObjectByName( "drawerSection1_2_3Group", true ) != undefined || self.scene.getObjectByName( "doorSection1_2_4Group", true ) != undefined || self.scene.getObjectByName( "drawerSection1_2_4Group", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_1", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_1_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_1_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_1_4", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_2_2", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_2_3", true ) != undefined || self.scene.getObjectByName( "horizontalDividerSection1_2_4", true ) != undefined ) {
-	            if (confirm('Are you sure you want to change type of feet? The current progress inside the sections might of them be lost then')) {
+	            if (confirm('Are you sure you want to change amount of vertical partition? The current progress inside the sections might of them be lost then')) {
                     self.startVerticals();
 
                     }else {
                         document.getElementById("HintPanel").innerHTML = "Okay let's continue!";
+                        document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = self.options.amountOfSections-1;
                         return;
                     }
                 }else {
                     self.startVerticals();
-
+                    
                 }
         
     }
@@ -11229,7 +11230,7 @@ App.prototype = {
         });
 
 
-        function createHorizontalPartition_S1_1() {
+        function createHorizontalPartition_S1_1(savedCorrection) {            
 
             if (document.getElementById("HorizontalPartition_S1_1").checked == true || self.options.s1_horizDividStatus == 0) {
 
@@ -11238,7 +11239,7 @@ App.prototype = {
                         if (child.name.includes('door')  && child.name.includes('section1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_doorStatus = 0
+                            self.options.s1_doorStatus = 1
                             
                         }
                     });
@@ -11271,11 +11272,16 @@ App.prototype = {
                 });
 
                 //🍍
-                self.createHorizontalDividerSection1_1('saved');
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection1_1('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createHorizontalDividerSection1_1('savedURL');
+                } else {
+                    self.createHorizontalDividerSection1_1();
+                }
 
-                self.createHorizontalDividerSection1_1();
                 self.scene.getObjectByName('horizontalDividerSection1_1').material.map = self.textures[self.options.shelf.texture].map;
-                //🟦add for first 
+
                 self.options.section1_currentStateUpDivider = 1;
                 self.options.s1_AmountOfHorDividers += 1;
 
@@ -11288,8 +11294,7 @@ App.prototype = {
                     VerticalSection1_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S1_1.style.display = "flex";
                     moveHorizontalPartition1_1_UpButton.style.display = "block";
-                    moveHorizontalPartition1_1_DownButton.style.display = "block";
-                    moveHorizontalPartition1_2.style.display = "flex";
+                    moveHorizontalPartition1_1_DownButton.style.display = "inline-block";
                     SectionRemoving_S1_1.style.display = "flex";
                     MainHorizontalPartition_S1_1.style.display = "none";
                 },600);
@@ -11298,7 +11303,6 @@ App.prototype = {
                 if (checkBox_InternalShelving_S1_1.checked == true) {
                     self.options.shelvesCounterSection1_1 = 0
                 self.scene.remove(self.shelvingGroup_section1_1);
-               //self.scene.dispose(self.shelvingGroup_section1_1);
 
                 document.getElementById("InternalShelving1_S1").style.display = "none";
                 document.getElementById("InternalShelving2_S1").style.display = "none";
@@ -11309,8 +11313,18 @@ App.prototype = {
                 }else {}
 
 
-                document.getElementById("Height_HorizontalPartition_S1_1").innerHTML =  Math.floor(self.options.sectionHeight_1_1 - ((4.2 + 1.8 * (self.options.s1_AmountOfHorDividers - 1) ) / self.options.s1_AmountOfHorDividers )) +"cm";
-                document.getElementById("Height_HorizontalPartition_S1_2").innerHTML =  Math.floor(self.options.sectionHeight_1_2 - ((4.2 + 1.8 * (self.options.s1_AmountOfHorDividers - 1) ) / self.options.s1_AmountOfHorDividers )) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2");
+                    document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_1').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_1')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_2').innerHTML = Math.floor(self.params.get('ovHHP_S1_2')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_1").innerHTML =  Math.floor(self.options.sectionHeight_1_1 - ((4.2 + 1.8 * (self.options.s1_AmountOfHorDividers - 1) ) / self.options.s1_AmountOfHorDividers )) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_2").innerHTML =  Math.floor(self.options.sectionHeight_1_2 - ((4.2 + 1.8 * (self.options.s1_AmountOfHorDividers - 1) ) / self.options.s1_AmountOfHorDividers )) +"cm";
+                }
+                
                 
 
                 self.updateDoorButtons();
@@ -11381,7 +11395,7 @@ App.prototype = {
             createHorizontalPartition_S1_1_2(); 
         });
     
-        function createHorizontalPartition_S1_1_2() {  
+        function createHorizontalPartition_S1_1_2(savedCorrection) {  
 
             if (document.getElementById("HorizontalPartition_S1_1_2").checked == true || self.options.s1_1_2_horizDividStatus == 0) {
 
@@ -11390,7 +11404,7 @@ App.prototype = {
                         if (child.name.includes('door')  && child.name.includes('section1_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_1_2_doorStatus = 0
+                            self.options.s1_1_2_doorStatus = 1
                         }
                     });
                 }catch(e){       
@@ -11408,8 +11422,15 @@ App.prototype = {
                     console.clear();
                 };
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection1_1_2('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createHorizontalDividerSection1_1_2('savedURL');
+                } else {
+                    self.createHorizontalDividerSection1_1_2();
+                }
 
-                self.createHorizontalDividerSection1_1_2();
                 self.scene.getObjectByName('horizontalDividerSection1_1_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section1_currentStateUpDivider = 2;
                 self.options.s1_AmountOfHorDividers += 1;
@@ -11435,7 +11456,7 @@ App.prototype = {
                     VerticalSection1_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S1_1_2.style.display = "flex";
                     moveHorizontalPartition1_1_2_UpButton.style.display = "block";
-                    moveHorizontalPartition1_1_2_DownButton.style.display = "block";
+                    moveHorizontalPartition1_1_2_DownButton.style.display = "inline-block";
                     moveHorizontalPartition1_1_DownButton.style.display = "none";
                     moveHorizontalPartition1_1_UpButton.style.display = "none";
                     MainHorizontalPartition_S1_1_2.style.display = "none";
@@ -11466,9 +11487,18 @@ App.prototype = {
                     document.getElementById("InternalShelving_S1_1_2").checked = false;
                 }else {}
 
-                 //🟦
-                document.getElementById("Height_HorizontalPartition_S1_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S1_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1");
+                    document.getElementById("Height_HorizontalPartition_S1_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1_2");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_1').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_1')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_1_2').innerHTML = Math.floor(self.params.get('ovHHP_S1_1_2')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
+                
 
 
                 self.updateDoorButtons();
@@ -11533,7 +11563,7 @@ App.prototype = {
             createHorizontalPartition_S1_1_3(); 
         });
         
-        function createHorizontalPartition_S1_1_3() { 
+        function createHorizontalPartition_S1_1_3(savedCorrection) { 
 
             if (document.getElementById("HorizontalPartition_S1_1_3").checked == true || self.options.s1_1_3_horizDividStatus == 0) {
 
@@ -11542,7 +11572,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section1_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_1_3_doorStatus = 0
+                            self.options.s1_1_3_doorStatus = 1
                         }
                     });
                 }catch(e){       
@@ -11574,6 +11604,15 @@ App.prototype = {
                 }
                 });
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection1_1_3('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createhorizontalDividerSection1_1_3('savedURL');
+                } else {
+                    self.createhorizontalDividerSection1_1_3();
+                }
+
                 self.createhorizontalDividerSection1_1_3();
                 self.scene.getObjectByName('horizontalDividerSection1_1_3').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section1_currentStateUpDivider = 3;
@@ -11587,7 +11626,7 @@ App.prototype = {
                     VerticalSection1_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S1_1_3.style.display = "flex";
                     moveHorizontalPartition1_1_3_UpButton.style.display = "block";
-                    moveHorizontalPartition1_1_3_DownButton.style.display = "block";
+                    moveHorizontalPartition1_1_3_DownButton.style.display = "inline-block";
                     moveHorizontalPartition1_1_2_UpButton.style.display = "none";
                     moveHorizontalPartition1_1_2_DownButton.style.display = "none";
                     MainHorizontalPartition_S1_1_2.style.display = "none";
@@ -11607,10 +11646,19 @@ App.prototype = {
                     document.getElementById("InternalShelving_S1").checked = false;
                 }else {}
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1");
+                    document.getElementById("Height_HorizontalPartition_S1_1_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1_2");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_1').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_1')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_1_3').innerHTML = Math.floor(self.params.get('ovHHP_S1_1_3')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                //🟦
-                document.getElementById("Height_HorizontalPartition_S1_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S1_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -11646,7 +11694,6 @@ App.prototype = {
                         document.getElementById("HintPanel").innerHTML = "Okay let's continue!";
                         document.getElementById("RemoveHorizontalPartition_S1_1_3").checked = true;
                         return;
-                        //🟦
                     }
                 }else {
                     self.removeHorizontalDividers();
@@ -11676,7 +11723,7 @@ App.prototype = {
             createHorizontalPartition_S1_1_4(); 
         });
         
-        function createHorizontalPartition_S1_1_4() {  
+        function createHorizontalPartition_S1_1_4(savedCorrection) {  
 
 
             if (document.getElementById("HorizontalPartition_S1_1_4").checked == true || self.options.s1_1_4_horizDividStatus == 0) {
@@ -11686,7 +11733,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section1_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_1_4_doorStatus = 0
+                            self.options.s1_1_4_doorStatus = 1
                         }
                     });
                 }catch(e){       
@@ -11719,7 +11766,15 @@ App.prototype = {
                 } else {}
                 });  
 
-                self.createhorizontalDividerSection1_1_4();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection1_1_4('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createhorizontalDividerSection1_1_4('savedURL');
+                } else {
+                    self.createhorizontalDividerSection1_1_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection1_1_4').material.map = self.textures[self.options.shelf.texture].map; 
                 self.options.section1_currentStateUpDivider = 4; 
                 self.options.s1_AmountOfHorDividers += 1;
@@ -11730,18 +11785,26 @@ App.prototype = {
                 setTimeout(function(){
                     VerticalSection1_1_2.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection1_1_2.style.transform = "translateX(-0%)";
-                    moveHorizontalPartitionS1_1_2__4_DownButton.style.display = "block";
+                    moveHorizontalPartitionS1_1_2__4_DownButton.style.display = "inline-block";
                     moveHorizontalPartitionS1_1_2__4_UpButton.style.display = "block";
                     moveHorizontalPartitionS1_1_2__1_DownButton.style.display = "none";
                     moveHorizontalPartitionS1_1_2__1_UpButton.style.display = "none";
                     MainHorizontalPartition_S1_1_2_1.style.display = "none";
                     MainInternalShelving_S1_1_2.style.display = "none";
-                    },600);
+                },600);
 
-                //🟦
-                document.getElementById("Height_HorizontalPartition_S1_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S1_1_4__2").innerHTML = document.getElementById("Height_HorizontalPartition_S1_1_4").innerHTML;
-                document.getElementById("Height_HorizontalPartition_S1_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_1_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1_4");
+                    document.getElementById("Height_HorizontalPartition_S1_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_1_2");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_1_4').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_1_4')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_1_2').innerHTML = Math.floor(self.params.get('ovHHP_S1_1_2')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
+                
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -11804,7 +11867,7 @@ App.prototype = {
             createHorizontalPartition_S1_2_2(); 
         });
         
-        function createHorizontalPartition_S1_2_2() {
+        function createHorizontalPartition_S1_2_2(savedCorrection) {
 
             if (document.getElementById("HorizontalPartition_S1_2_2").checked == true || self.options.s1_2_2_horizDividStatus == 0) {
 
@@ -11813,7 +11876,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section1_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_2_2_doorStatus = 0
+                            self.options.s1_2_2_doorStatus = 1
                         }
 
                     });
@@ -11846,7 +11909,15 @@ App.prototype = {
                 }
                 });
 
-                self.createHorizontalDividerSection1_2_2();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection1_2_2('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createHorizontalDividerSection1_2_2('savedURL');
+                } else {
+                    self.createHorizontalDividerSection1_2_2();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection1_2_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section1_currentStateDivider2 = 2;
                 self.options.s1_AmountOfHorDividers += 1;
@@ -11878,9 +11949,19 @@ App.prototype = {
                     document.getElementById("InternalShelving_S1_2").checked = false;
                 }else {}
 
-                //🟦
-                document.getElementById("Height_HorizontalPartition_S1_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2");
+                    document.getElementById("Height_HorizontalPartition_S1_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2_2");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_2').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_2')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_2_2').innerHTML = Math.floor(self.params.get('ovHHP_S1_2_2')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
+
+
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -11990,7 +12071,7 @@ App.prototype = {
             createHorizontalPartition_S1_2_3(); 
         });
             
-        function createHorizontalPartition_S1_2_3() {
+        function createHorizontalPartition_S1_2_3(savedCorrection) {
 
             if (document.getElementById("HorizontalPartition_S1_2_3").checked == true || self.options.s1_2_3_horizDividStatus == 0) {
 
@@ -11999,7 +12080,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section1_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_2_3_doorStatus = 0
+                            self.options.s1_2_3_doorStatus = 1
 
                         }
                     });
@@ -12032,7 +12113,15 @@ App.prototype = {
                 }
                 });
 
-                self.createhorizontalDividerSection1_2_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection1_2_3('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createhorizontalDividerSection1_2_3('savedURL');
+                } else {
+                    self.createhorizontalDividerSection1_2_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection1_2_3').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section1_currentStateDivider2 = 3; 
                 self.options.s1_AmountOfHorDividers += 1;
@@ -12070,9 +12159,17 @@ App.prototype = {
                     document.getElementById("InternalShelving_S1_2").checked = false;
                 }else {}
 
-                //🟦
-                document.getElementById("Height_HorizontalPartition_S1_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_2_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2_3");
+                    document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_2_3').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_2_3')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_2').innerHTML = Math.floor(self.params.get('ovHHP_S1_2')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -12137,7 +12234,7 @@ App.prototype = {
             createHorizontalPartition_S1_2_4(); 
         });
                 
-        function createHorizontalPartition_S1_2_4() {
+        function createHorizontalPartition_S1_2_4(savedCorrection) {
     
             if (document.getElementById("HorizontalPartition_S1_2_4").checked == true || self.options.s1_2_4_horizDividStatus == 0) {
 
@@ -12146,7 +12243,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section1_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s1_2_4_doorStatus = 0
+                            self.options.s1_2_4_doorStatus = 1
 
                         }
                     });
@@ -12179,7 +12276,16 @@ App.prototype = {
                 }
                 });
 
-                self.createhorizontalDividerSection1_2_4();
+
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection1_2_4('saved');
+                } else if(savedCorrection === 'savedCorrectionURL'){
+                    self.createhorizontalDividerSection1_2_4('savedURL');
+                } else {
+                    self.createhorizontalDividerSection1_2_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection1_2_4').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section1_currentStateDivider2 = 4; 
                 self.options.s1_AmountOfHorDividers += 1;
@@ -12197,10 +12303,18 @@ App.prototype = {
                     },600);
 
 
-                //🟦
-                document.getElementById("Height_HorizontalPartition_S1_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S1_2_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2_4");
+                    document.getElementById("Height_HorizontalPartition_S1_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S1_2_2");
+                } else if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S1_2_4').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S1_2_4')) +"cm";                    document.getElementById('Height_HorizontalPartition_S1_2_2').innerHTML = Math.floor(self.params.get('ovHHP_S1_2_2')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S1_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
                 
-                document.getElementById("Height_HorizontalPartition_S1_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S1_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -12268,7 +12382,7 @@ App.prototype = {
             createHorizontalPartition_S2_1(); 
         });
                     
-        function createHorizontalPartition_S2_1() {
+        function createHorizontalPartition_S2_1(savedCorrection) {
         
             if (document.getElementById("HorizontalPartition_S2_1").checked == true || self.options.s2_horizDividStatus == 0) {
 
@@ -12278,7 +12392,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s2_doorStatus = 0
+                            self.options.s2_doorStatus = 1
 
                         }
                     });
@@ -12319,7 +12433,13 @@ App.prototype = {
                 }
                 });
 
-                self.createHorizontalDividerSection2_1();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection2_1('saved');
+                } else {
+                    self.createHorizontalDividerSection2_1();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_1').material.map = self.textures[self.options.shelf.texture].map;
 
                 self.options.s2_AmountOfHorDividers += 1;
@@ -12334,16 +12454,22 @@ App.prototype = {
                     VerticalSection2_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection2_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S2_1.style.display = "flex";
-                    moveHorizontalPartition2_1_DownButton.style.display = "block";
+                    moveHorizontalPartition2_1_DownButton.style.display = "inline-block";
                     moveHorizontalPartition2_1_UpButton.style.display = "block";
                     moveHorizontalPartition2_2.style.display = "flex";
                     SectionRemoving_S2_1.style.display = "flex";
                     MainHorizontalPartition_S2_1.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1");
+                    document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_1").innerHTML =  Math.floor(self.options.sectionHeight_2_1 - ((4.2 + 1.8 * (self.options.s2_AmountOfHorDividers - 1) ) / self.options.s2_AmountOfHorDividers )) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_2").innerHTML =  Math.floor(self.options.sectionHeight_2_2 - ((4.2 + 1.8 * (self.options.s2_AmountOfHorDividers - 1) ) / self.options.s2_AmountOfHorDividers )) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S2_1").innerHTML =  Math.floor(self.options.sectionHeight_2_1 - ((4.2 + 1.8 * (self.options.s2_AmountOfHorDividers - 1) ) / self.options.s2_AmountOfHorDividers )) +"cm";
-                document.getElementById("Height_HorizontalPartition_S2_2").innerHTML =  Math.floor(self.options.sectionHeight_2_2 - ((4.2 + 1.8 * (self.options.s2_AmountOfHorDividers - 1) ) / self.options.s2_AmountOfHorDividers )) +"cm";
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -12409,7 +12535,7 @@ App.prototype = {
             createHorizontalPartition_S2_1_2(); 
         });
                     
-        function createHorizontalPartition_S2_1_2() {
+        function createHorizontalPartition_S2_1_2(savedCorrection) {
         
             if (document.getElementById("HorizontalPartition_S2_1_2").checked == true || self.options.s2_1_2_horizDividStatus == 0) {
 
@@ -12465,7 +12591,13 @@ App.prototype = {
                 });
 
 
-                self.createHorizontalDividerSection2_1_2();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection2_1_2('saved');
+                } else {
+                    self.createHorizontalDividerSection2_1_2();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_1_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.s2_AmountOfHorDividers += 1;
                 self.options.section2_currentStateUpDivider = 2;
@@ -12477,16 +12609,22 @@ App.prototype = {
                     VerticalSection2_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection2_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S2_1_2.style.display = "flex";
-                    moveHorizontalPartition2_1_2_DownButton.style.display = "block";
+                    moveHorizontalPartition2_1_2_DownButton.style.display = "inline-block";
                     moveHorizontalPartition2_1_2_UpButton.style.display = "block";
                     moveHorizontalPartition2_1_DownButton.style.display = "none";
                     moveHorizontalPartition2_1_UpButton.style.display = "none";
                     MainHorizontalPartition_S2_1_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1_2");
+                    document.getElementById("Height_HorizontalPartition_S2_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S2_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S2_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -12554,7 +12692,7 @@ App.prototype = {
             createHorizontalPartition_S2_1_3(); 
         });
                     
-        function createHorizontalPartition_S2_1_3() {
+        function createHorizontalPartition_S2_1_3(savedCorrection) {
         
             if (document.getElementById("HorizontalPartition_S2_1_3").checked == true || self.options.s2_1_3_horizDividStatus == 0) {
 
@@ -12602,13 +12740,16 @@ App.prototype = {
                 }
                 });
 
-                self.createhorizontalDividerSection2_1_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection2_1_3('saved');
+                } else {
+                    self.createhorizontalDividerSection2_1_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_1_3').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section2_currentStateUpDivider = 3;
                 self.options.s2_AmountOfHorDividers += 1;
-
-
-
 
                 VerticalSection2_1.style.transform = "translateX(-150%)";
                 VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
@@ -12616,16 +12757,22 @@ App.prototype = {
                     VerticalSection2_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection2_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S2_1_3.style.display = "flex";
-                    moveHorizontalPartition2_1_3_DownButton.style.display = "block";
+                    moveHorizontalPartition2_1_3_DownButton.style.display = "inline-block";
                     moveHorizontalPartition2_1_3_UpButton.style.display = "block";
                     moveHorizontalPartition2_1_2_DownButton.style.display = "none";
                     moveHorizontalPartition2_1_2_UpButton.style.display = "none";
                     MainHorizontalPartition_S2_1_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_1_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1_3");
+                    document.getElementById("Height_HorizontalPartition_S2_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S2_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S2_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -12693,7 +12840,7 @@ App.prototype = {
             createHorizontalPartition_S2_1_4(); 
         });
                     
-        function createHorizontalPartition_S2_1_4() {
+        function createHorizontalPartition_S2_1_4(savedCorrection) {
             
             if (document.getElementById("HorizontalPartition_S2_1_4").checked == true || self.options.s2_1_4_horizDividStatus == 0) {
 
@@ -12728,7 +12875,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection2_1_4();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection2_1_4('saved');
+                } else {
+                    self.createhorizontalDividerSection2_1_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_1_4').material.map = self.textures[self.options.shelf.texture].map; 
                 self.options.section2_currentStateUpDivider = 4; 
                 self.options.s2_AmountOfHorDividers += 1;
@@ -12759,13 +12912,17 @@ App.prototype = {
                     moveHorizontalPartitionS2_1_2__1_DownButton.style.display = "none";
                     moveHorizontalPartitionS2_1_2__1_UpButton.style.display = "none";
                     MainInternalShelving_S2_1_2.style.display = "none";
-                    },600);
+                },600);
 
 
-
-                document.getElementById("Height_HorizontalPartition_S2_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-
-                document.getElementById("Height_HorizontalPartition_S2_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_1_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1_4");
+                    document.getElementById("Height_HorizontalPartition_S2_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_1_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -12831,7 +12988,7 @@ App.prototype = {
             createHorizontalPartition_S2_2_2(); 
         });
                     
-        function createHorizontalPartition_S2_2_2() {
+        function createHorizontalPartition_S2_2_2(savedCorrection) {
                 
             if (document.getElementById("HorizontalPartition_S2_2_2").checked == true || self.options.s2_2_2_horizDividStatus == 0) {
 
@@ -12865,7 +13022,13 @@ App.prototype = {
                 };
 
 
-                self.createHorizontalDividerSection2_2_2();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection2_2_2('saved');
+                } else {
+                    self.createHorizontalDividerSection2_2_2();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_2_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section2_currentStateDivider2 = 2;
                 self.options.s2_AmountOfHorDividers += 1;
@@ -12899,10 +13062,14 @@ App.prototype = {
                     MainInternalShelving_S2_2.style.display = "none";
                 },600);
   
-                
-
-                document.getElementById("Height_HorizontalPartition_S2_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2_2");
+                    document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }                
 
 
                 self.updateDoorButtons();
@@ -13012,7 +13179,7 @@ App.prototype = {
             createHorizontalPartition_S2_2_3(); 
         });
                     
-        function createHorizontalPartition_S2_2_3() {
+        function createHorizontalPartition_S2_2_3(savedCorrection) {
                     
             if (document.getElementById("HorizontalPartition_S2_2_3").checked == true || self.options.s2_2_3_horizDividStatus == 0) {
 
@@ -13021,7 +13188,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section2_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s2_2_3_doorStatus = 0;
+                            self.options.s2_2_3_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -13045,7 +13212,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection2_2_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection2_2_3('saved');
+                } else {
+                    self.createhorizontalDividerSection2_2_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_2_3').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section2_currentStateDivider2 = 3; 
                 self.options.s2_AmountOfHorDividers += 1;
@@ -13084,8 +13257,15 @@ App.prototype = {
                     moveHorizontalPartitionS2_2_2__2.style.display = "flex";
                 },600);
 
-                document.getElementById("Height_HorizontalPartition_S2_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_2_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2_3");
+                    document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
+
                 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -13152,7 +13332,7 @@ App.prototype = {
             createHorizontalPartition_S2_2_4(); 
         });
                         
-        function createHorizontalPartition_S2_2_4() {
+        function createHorizontalPartition_S2_2_4(savedCorrection) {
                         
             if (document.getElementById("HorizontalPartition_S2_2_4").checked == true || self.options.s2_2_4_horizDividStatus == 0) {
 
@@ -13161,7 +13341,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section2_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s2_2_4_doorStatus = 0;
+                            self.options.s2_2_4_doorStatus = 1;
                             
                         }
                     });
@@ -13185,7 +13365,13 @@ App.prototype = {
                     console.clear();
                 };
 
-                self.createhorizontalDividerSection2_2_4();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection2_2_4('saved');
+                } else {
+                    self.createhorizontalDividerSection2_2_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection2_2_4').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section2_currentStateDivider2 = 4; 
                 self.options.s2_AmountOfHorDividers += 1;
@@ -13217,9 +13403,15 @@ App.prototype = {
                     MainHorizontalPartition_S2_2_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S2_2_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2_4");
+                    document.getElementById("Height_HorizontalPartition_S2_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S2_2_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S2_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S2_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S2_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S2_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
 
 
 
@@ -13288,7 +13480,7 @@ App.prototype = {
             createHorizontalPartition_S3_1(); 
         });
                             
-        function createHorizontalPartition_S3_1() {
+        function createHorizontalPartition_S3_1(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_1").checked == true || self.options.s3_horizDividStatus == 0) {
 
@@ -13297,7 +13489,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section3_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s3_doorStatus = 0;
+                            self.options.s3_doorStatus = 1;
                         }
                     });
                     
@@ -13323,8 +13515,13 @@ App.prototype = {
                     console.clear();
                 };
 
-                
-                self.createHorizontalDividerSection3_1();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection3_1('saved');
+                } else {
+                    self.createHorizontalDividerSection3_1();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_1').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section3_currentStateUpDivider = 1
                 self.options.s3_AmountOfHorDividers += 1;
@@ -13356,9 +13553,15 @@ App.prototype = {
                     MainHorizontalPartition_S3_1.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1");
+                    document.getElementById("Height_HorizontalPartition_S3_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_1").innerHTML = Math.floor(self.options.sectionHeight_3_1 - ((4.2 + 1.8 * (self.options.s3_AmountOfHorDividers - 1) ) / self.options.s3_AmountOfHorDividers)) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_2").innerHTML = Math.floor(self.options.sectionHeight_3_2 - ((4.2 + 1.8 * (self.options.s3_AmountOfHorDividers -1 ) ) / self.options.s3_AmountOfHorDividers)) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S3_1").innerHTML = Math.floor(self.options.sectionHeight_3_1 - ((4.2 + 1.8 * (self.options.s3_AmountOfHorDividers - 1) ) / self.options.s3_AmountOfHorDividers)) +"cm";
-                document.getElementById("Height_HorizontalPartition_S3_2").innerHTML = Math.floor(self.options.sectionHeight_3_2 - ((4.2 + 1.8 * (self.options.s3_AmountOfHorDividers -1 ) ) / self.options.s3_AmountOfHorDividers)) +"cm";
                 
 
                 self.updateDoorButtons();
@@ -13425,7 +13628,7 @@ App.prototype = {
             createHorizontalPartition_S3_1_2(); 
         });
                             
-        function createHorizontalPartition_S3_1_2() {
+        function createHorizontalPartition_S3_1_2(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_1_2").checked == true || self.options.s3_1_2_horizDividStatus == 0) {
 
@@ -13434,7 +13637,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section3_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s3_1_2_doorStatus = 0;
+                            self.options.s3_1_2_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -13465,7 +13668,13 @@ App.prototype = {
                 };
 
 
-                self.createHorizontalDividerSection3_1_2();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection3_1_2('saved');
+                } else {
+                    self.createHorizontalDividerSection3_1_2();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_1_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section3_currentStateUpDivider = 2;
                 self.options.s3_AmountOfHorDividers += 1;
@@ -13492,7 +13701,7 @@ App.prototype = {
                 setTimeout(function(){
                     VerticalSection3_1.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection3_1.style.transform = "translateX(-0%)";
-                    moveHorizontalPartition3_1_2_DownButton.style.display = "block";
+                    moveHorizontalPartition3_1_2_DownButton.style.display = "inline-block";
                     moveHorizontalPartition3_1_2_UpButton.style.display = "block";
                     moveHorizontalPartition3_1_DownButton.style.display = "none";
                     moveHorizontalPartition3_1_UpButton.style.display = "none";
@@ -13500,10 +13709,16 @@ App.prototype = {
                     MainHorizontalPartition_S3_1_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1_2");
+                    document.getElementById("Height_HorizontalPartition_S3_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
 
-                document.getElementById("Height_HorizontalPartition_S3_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S3_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -13567,7 +13782,7 @@ App.prototype = {
             createHorizontalPartition_S3_1_3(); 
         });
                             
-        function createHorizontalPartition_S3_1_3() {
+        function createHorizontalPartition_S3_1_3(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_1_3").checked == true || self.options.s3_1_3_horizDividStatus == 0) {
 
@@ -13601,7 +13816,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection3_1_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection3_1_3('saved');
+                } else {
+                    self.createhorizontalDividerSection3_1_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_1_3').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section3_currentStateUpDivider = 3;
                 self.options.s3_AmountOfHorDividers += 1;
@@ -13630,18 +13851,22 @@ App.prototype = {
                     moveHorizontalPartition3_1_2_DownButton.style.display = "none";
                     moveHorizontalPartition3_1_DownButton.style.display = "none";
                     moveHorizontalPartition3_1_UpButton.style.display = "none";
-                    moveHorizontalPartition3_1_3_DownButton.style.display = "block";
-                    moveHorizontalPartition3_1_3_DownButton.style.display = "block";
+                    moveHorizontalPartition3_1_3_DownButton.style.display = "inline-block";
+                    moveHorizontalPartition3_1_3_UpButton.style.display = "block";
                     
                     MainHorizontalPartition_S3_1_2.style.display = "none";
                 },600);
 
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_1_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1_3");
+                    document.getElementById("Height_HorizontalPartition_S3_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S3_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-
-                document.getElementById("Height_HorizontalPartition_S3_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -13703,7 +13928,7 @@ App.prototype = {
             createHorizontalPartition_S3_1_4(); 
         });
                             
-        function createHorizontalPartition_S3_1_4() {
+        function createHorizontalPartition_S3_1_4(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_1_4").checked == true || self.options.s3_1_4_horizDividStatus == 0) {
 
@@ -13712,7 +13937,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section3_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s3_1_4_doorStatus = 0;
+                            self.options.s3_1_4_doorStatus = 1;
 
                         }
                     });
@@ -13738,7 +13963,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection3_1_4();
+                 //🍍
+                 if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection3_1_4('saved');
+                } else {
+                    self.createhorizontalDividerSection3_1_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_1_4').material.map = self.textures[self.options.shelf.texture].map; 
                 self.options.section3_currentStateUpDivider = 4; 
                 self.options.s3_AmountOfHorDividers += 1;
@@ -13765,7 +13996,7 @@ App.prototype = {
                     VerticalSection3_1_2.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection3_1_2.style.transform = "translateX(-0%)";
                     moveHorizontalPartitionS3_1_2__4_UpButton.style.display = "block";
-                    moveHorizontalPartitionS3_1_2__4_DownButton.style.display = "block";
+                    moveHorizontalPartitionS3_1_2__4_DownButton.style.display = "inline-block";
                     moveHorizontalPartitionS3_1_2__1_DownButton.style.display = "none";
                     moveHorizontalPartitionS3_1_2__1_UpButton.style.display = "none";
 
@@ -13773,9 +14004,15 @@ App.prototype = {
                     MainInternalShelving_S3_1_2.style.display = "none";
                 },600);
 
-                document.getElementById("Height_HorizontalPartition_S3_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S3_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_1_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1_4");
+                    document.getElementById("Height_HorizontalPartition_S3_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_1_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }               
+
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -13837,7 +14074,7 @@ App.prototype = {
             createHorizontalPartition_S3_2_2(); 
         });
                             
-        function createHorizontalPartition_S3_2_2() {
+        function createHorizontalPartition_S3_2_2(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_2_2").checked == true || self.options.s3_2_2_horizDividStatus == 0) {
 
@@ -13846,8 +14083,8 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section3_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s3_2_2_doorStatus = 0;
-                            self.options.s3_2_doorStatus = 0;
+                            self.options.s3_2_2_doorStatus = 1;
+                            self.options.s3_2_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -13871,7 +14108,13 @@ App.prototype = {
                     console.clear();
                 };
 
-                self.createHorizontalDividerSection3_2_2();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection3_2_2('saved');
+                } else {
+                    self.createHorizontalDividerSection3_2_2();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_2_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section3_currentStateDivider2 = 2;
                 self.options.s3_AmountOfHorDividers += 1;
@@ -13903,10 +14146,15 @@ App.prototype = {
                     MainInternalShelving_S3_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2_2");
+                    document.getElementById("Height_HorizontalPartition_S3_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S3_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S3_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
                 
 
                 self.updateDoorButtons();
@@ -14010,7 +14258,7 @@ App.prototype = {
             createHorizontalPartition_S3_2_3(); 
         });
                             
-        function createHorizontalPartition_S3_2_3() {
+        function createHorizontalPartition_S3_2_3(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_2_3").checked == true || self.options.s3_2_3_horizDividStatus == 0) {
 
@@ -14019,7 +14267,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section3_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s3_2_3_doorStatus = 0;
+                            self.options.s3_2_3_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -14042,7 +14290,13 @@ App.prototype = {
                     console.clear();
                 };
 
-                self.createhorizontalDividerSection3_2_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection3_2_3('saved');
+                } else {
+                    self.createhorizontalDividerSection3_2_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_2_3').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section3_currentStateDivider2 = 3; 
                 self.options.s3_AmountOfHorDividers += 1;
@@ -14068,7 +14322,7 @@ App.prototype = {
                 setTimeout(function(){
                     VerticalSection3_2.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection3_2.style.transform = "translateX(-0%)";
-                    moveHorizontalPartition3_2_3_DownButton.style.display = "block";
+                    moveHorizontalPartition3_2_3_DownButton.style.display = "inline-block";
                     moveHorizontalPartition3_2_3_UpButton.style.display = "block";
                     moveHorizontalPartition3_2_2_DownButton.style.display = "none";
                     moveHorizontalPartition3_2_2_UpButton.style.display = "none";
@@ -14080,10 +14334,15 @@ App.prototype = {
                     moveHorizontalPartitionS3_2_2__2.style.display = "flex";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_2_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2_3");
+                    document.getElementById("Height_HorizontalPartition_S3_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S3_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S3_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
                 
 
                 self.updateDoorButtons();
@@ -14146,7 +14405,7 @@ App.prototype = {
             createHorizontalPartition_S3_2_4(); 
         });
                             
-        function createHorizontalPartition_S3_2_4() {
+        function createHorizontalPartition_S3_2_4(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S3_2_4").checked == true || self.options.s3_2_4_horizDividStatus == 0) {
 
@@ -14155,7 +14414,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section3_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s3_2_4_doorStatus = 0;
+                            self.options.s3_2_4_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -14180,7 +14439,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection3_2_4();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection3_2_4('saved');
+                } else {
+                    self.createhorizontalDividerSection3_2_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection3_2_4').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section3_currentStateDivider2 = 4; 
                 self.options.s3_AmountOfHorDividers += 1;
@@ -14211,9 +14476,15 @@ App.prototype = {
                     MainHorizontalPartition_S3_2_2.style.display = "none";
                 },600);
 
-                document.getElementById("Height_HorizontalPartition_S3_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S3_2_4__2").innerHTML = document.getElementById("Height_HorizontalPartition_S3_2_4").innerHTML;
-                document.getElementById("Height_HorizontalPartition_S3_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S3_2_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2_4");
+                    document.getElementById("Height_HorizontalPartition_S3_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S3_2_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S3_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S3_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }                
+
                 
 
                 self.updateDoorButtons();
@@ -14280,7 +14551,7 @@ App.prototype = {
             createHorizontalPartition_S4_1(); 
         });
                             
-        function createHorizontalPartition_S4_1() {
+        function createHorizontalPartition_S4_1(savedCorrection) {
                             
             if (document.getElementById("HorizontalPartition_S4_1").checked == true || self.options.s4_horizDividStatus == 0) {
 
@@ -14289,7 +14560,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s4_doorStatus = 0;
+                            self.options.s4_doorStatus = 1;
 
                         }
                     });
@@ -14316,8 +14587,13 @@ App.prototype = {
                     console.clear();
                 };
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection4_1('saved');
+                } else {
+                    self.createHorizontalDividerSection4_1();
+                }
                 
-                self.createHorizontalDividerSection4_1();
                 self.scene.getObjectByName('horizontalDividerSection4_1').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section4_currentStateUpDivider = 1;
                 self.options.s4_AmountOfHorDividers += 1;
@@ -14348,7 +14624,7 @@ App.prototype = {
                     moveHorizontalPartition4_1_3_UpButton.style.display = "none";
                     moveHorizontalPartition4_1_2_DownButton.style.display = "none";
                     moveHorizontalPartition4_1_2_UpButton.style.display = "none";
-                    moveHorizontalPartition4_1_DownButton.style.display = "block";
+                    moveHorizontalPartition4_1_DownButton.style.display = "inline-block";
                     moveHorizontalPartition4_1_UpButton.style.display = "block";
                     
                     moveHorizontalPartition4_2.style.display = "flex";
@@ -14356,9 +14632,15 @@ App.prototype = {
                     MainHorizontalPartition_S4_1.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1");
+                    document.getElementById("Height_HorizontalPartition_S4_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_1").innerHTML = Math.floor(self.options.sectionHeight_4_1 - ((4.2 + 1.8 * (self.options.s4_AmountOfHorDividers - 1) ) / self.options.s4_AmountOfHorDividers )) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_2").innerHTML = Math.floor(self.options.sectionHeight_4_2 - ((4.2 + 1.8 * (self.options.s4_AmountOfHorDividers - 1) ) / self.options.s4_AmountOfHorDividers )) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S4_1").innerHTML = Math.floor(self.options.sectionHeight_4_1 - ((4.2 + 1.8 * (self.options.s4_AmountOfHorDividers - 1) ) / self.options.s4_AmountOfHorDividers )) +"cm";
-                document.getElementById("Height_HorizontalPartition_S4_2").innerHTML = Math.floor(self.options.sectionHeight_4_2 - ((4.2 + 1.8 * (self.options.s4_AmountOfHorDividers - 1) ) / self.options.s4_AmountOfHorDividers )) +"cm";
                 
 
                 self.updateDoorButtons();
@@ -14422,7 +14704,7 @@ App.prototype = {
             createHorizontalPartition_S4_1_2(); 
         });
                             
-        function createHorizontalPartition_S4_1_2() {
+        function createHorizontalPartition_S4_1_2(savedCorrection) {
                                 
             if (document.getElementById("HorizontalPartition_S4_1_2").checked == true || self.options.s4_1_2_horizDividStatus == 0) {
 
@@ -14431,7 +14713,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s4_1_2_doorStatus = 0;
+                            self.options.s4_1_2_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -14460,8 +14742,13 @@ App.prototype = {
                     console.clear();
                 };
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection4_1_2('saved');
+                } else {
+                    self.createHorizontalDividerSection4_1_2();
+                }
 
-                self.createHorizontalDividerSection4_1_2();
                 self.scene.getObjectByName('horizontalDividerSection4_1_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section4_currentStateUpDivider = 2;
                 self.options.s4_AmountOfHorDividers += 1;
@@ -14488,7 +14775,7 @@ App.prototype = {
                     moveHorizontalPartition4_1_3_DownButton.style.display = "none";
                     moveHorizontalPartition4_1_3_UpButton.style.display = "none";
 
-                    moveHorizontalPartition4_1_2_DownButton.style.display = "block";
+                    moveHorizontalPartition4_1_2_DownButton.style.display = "inline-block";
                     moveHorizontalPartition4_1_2_UpButton.style.display = "block";
                     moveHorizontalPartition4_1_DownButton.style.display = "none";
                     moveHorizontalPartition4_1_UpButton.style.display = "none";
@@ -14496,11 +14783,16 @@ App.prototype = {
                     MainHorizontalPartition_S4_1_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1");
+                    document.getElementById("Height_HorizontalPartition_S4_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S4_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
 
-                document.getElementById("Height_HorizontalPartition_S4_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -14563,7 +14855,7 @@ App.prototype = {
             createHorizontalPartition_S4_1_3(); 
         });
                             
-        function createHorizontalPartition_S4_1_3() {
+        function createHorizontalPartition_S4_1_3(savedCorrection) {
                                 
             if (document.getElementById("HorizontalPartition_S4_1_3").checked == true || self.options.s4_1_3_horizDividStatus == 0) {
 
@@ -14572,7 +14864,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s2_doorStatus = 0;
+                            self.options.s2_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -14596,7 +14888,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection4_1_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection4_1_3('saved');
+                } else {
+                    self.createhorizontalDividerSection4_1_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection4_1_3').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section4_currentStateUpDivider = 3;
                 self.options.s4_AmountOfHorDividers += 1;
@@ -14625,7 +14923,7 @@ App.prototype = {
                     VerticalSection4_1.style.transform = "translateX(-0%)";
                     moveHorizontalPartition_S4_1_3.style.display = "flex";
 
-                    moveHorizontalPartition4_1_3_DownButton.style.display = "block";
+                    moveHorizontalPartition4_1_3_DownButton.style.display = "inline-block";
                     moveHorizontalPartition4_1_3_UpButton.style.display = "block";
                     moveHorizontalPartition4_1_2_DownButton.style.display = "none";
                     moveHorizontalPartition4_1_2_UpButton.style.display = "none";
@@ -14635,10 +14933,15 @@ App.prototype = {
                     MainHorizontalPartition_S4_1_2.style.display = "none";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_1").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1");
+                    document.getElementById("Height_HorizontalPartition_S4_1_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1_3");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm"; 
+                    document.getElementById("Height_HorizontalPartition_S4_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S4_1_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S4_1").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
                 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -14702,7 +15005,7 @@ App.prototype = {
             createHorizontalPartition_S4_1_4(); 
         });
                             
-        function createHorizontalPartition_S4_1_4() {
+        function createHorizontalPartition_S4_1_4(savedCorrection) {
                                 
             if (document.getElementById("HorizontalPartition_S4_1_4").checked == true || self.options.s4_1_4_horizDividStatus == 0) {
 
@@ -14711,7 +15014,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_1')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s4_1_4_doorStatus = 0;
+                            self.options.s4_1_4_doorStatus = 1;
 
                         }
                     });
@@ -14736,7 +15039,13 @@ App.prototype = {
                 };
 
 
-                self.createhorizontalDividerSection4_1_4();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection4_1_4('saved');
+                } else {
+                    self.createhorizontalDividerSection4_1_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection4_1_4').material.map = self.textures[self.options.shelf.texture].map; 
                 self.options.section4_currentStateUpDivider = 4; 
                 self.options.s4_AmountOfHorDividers += 1;
@@ -14762,7 +15071,7 @@ App.prototype = {
                 setTimeout(function(){
                     VerticalSection4_1_2.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection4_1_2.style.transform = "translateX(-0%)";
-                    moveHorizontalPartitionS4_1_2__4_DownButton.style.display = "block";
+                    moveHorizontalPartitionS4_1_2__4_DownButton.style.display = "inline-block";
                     moveHorizontalPartitionS4_1_2__4_UpButton.style.display = "block";
                     moveHorizontalPartitionS4_1_2__1_DownButton.style.display = "none";
                     moveHorizontalPartitionS4_1_2__1_UpButton.style.display = "none";
@@ -14770,10 +15079,15 @@ App.prototype = {
                     MainInternalShelving_S4_1_2.style.display = "none";
                 },600);
 
-                document.getElementById("Height_HorizontalPartition_S4_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S4_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
-                
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_1_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1_4");
+                    document.getElementById("Height_HorizontalPartition_S4_1_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_1_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_1_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";     
+                    document.getElementById("Height_HorizontalPartition_S4_1_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
+
 
                 self.updateDoorButtons();
                 self.calculateOutput();
@@ -14836,7 +15150,7 @@ App.prototype = {
             createHorizontalPartition_S4_2_2(); 
         });
                             
-        function createHorizontalPartition_S4_2_2() {
+        function createHorizontalPartition_S4_2_2(savedCorrection) {
                                 
             if (document.getElementById("HorizontalPartition_S4_2_2").checked == true || self.options.s4_2_2_horizDividStatus == 0) {
 
@@ -14845,8 +15159,8 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s4_2_doorStatus = 0;
-                            self.options.s4_2_2_doorStatus = 0;
+                            self.options.s4_2_doorStatus = 1;
+                            self.options.s4_2_2_doorStatus = 1;
 
 
                         }
@@ -14872,7 +15186,13 @@ App.prototype = {
                 };
 
 
-                self.createHorizontalDividerSection4_2_2();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createHorizontalDividerSection4_2_2('saved');
+                } else {
+                    self.createHorizontalDividerSection4_2_2();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection4_2_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.section4_currentStateDivider2 = 2;
                 self.options.s4_AmountOfHorDividers += 1;
@@ -14904,10 +15224,14 @@ App.prototype = {
                     MainInternalShelving_S4_2.style.display = "none";
                 },600);
             
-
-                document.getElementById("Height_HorizontalPartition_S4_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S4_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2_2");
+                    document.getElementById("Height_HorizontalPartition_S4_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
                 
 
                 self.updateDoorButtons();
@@ -15013,7 +15337,7 @@ App.prototype = {
             createHorizontalPartition_S4_2_3(); 
         });
                             
-        function createHorizontalPartition_S4_2_3() {
+        function createHorizontalPartition_S4_2_3(savedCorrection) {
                                     
             if (document.getElementById("HorizontalPartition_S4_2_3").checked == true || self.options.s4_2_3_horizDividStatus == 0) {
 
@@ -15022,7 +15346,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s4_2_3_doorStatus = 0;
+                            self.options.s4_2_3_doorStatus = 1;
 
                         }
                     });
@@ -15046,7 +15370,13 @@ App.prototype = {
                     console.clear();
                 };
 
-                self.createhorizontalDividerSection4_2_3();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection4_2_3('saved');
+                } else {
+                    self.createhorizontalDividerSection4_2_3();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection4_2_3').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section4_currentStateDivider2 = 3; 
                 self.options.s4_AmountOfHorDividers += 1;
@@ -15073,7 +15403,7 @@ App.prototype = {
                     VerticalSection4_2.style.animation = 'animShowFromLeft 0.4s';
                     VerticalSection4_2.style.transform = "translateX(-0%)";
                     moveHorizontalPartition4_2_2.style.display = "flex";
-                    moveHorizontalPartition4_2_3_DownButton.style.display = "block";
+                    moveHorizontalPartition4_2_3_DownButton.style.display = "inline-block";
                     moveHorizontalPartition4_2_3_UpButton.style.display = "block";
                     moveHorizontalPartition4_2_2_DownButton.style.display = "none";
                     moveHorizontalPartition4_2_2_UpButton.style.display = "none";
@@ -15086,10 +15416,15 @@ App.prototype = {
                     moveHorizontalPartitionS4_2_2__2.style.display = "flex";
                 },600);
 
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_2_3").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2_3");
+                    document.getElementById("Height_HorizontalPartition_S4_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S4_2_3").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                
-                document.getElementById("Height_HorizontalPartition_S4_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
                 
 
                 self.updateDoorButtons();
@@ -15153,7 +15488,7 @@ App.prototype = {
             createHorizontalPartition_S4_2_4(); 
         });
                             
-        function createHorizontalPartition_S4_2_4() {
+        function createHorizontalPartition_S4_2_4(savedCorrection) {
                                     
             if (document.getElementById("HorizontalPartition_S4_2_4").checked == true || self.options.s4_2_4_horizDividStatus == 0) {
 
@@ -15162,7 +15497,7 @@ App.prototype = {
                         if (child.name.includes('door') && child.name.includes('section4_2')) {
                             document.getElementById("HintPanel").innerHTML = "❗️ Please remember if you change core width after adding doors or internal shelving, those might be deleted after that then. Be aware to proceed";
                             self.scene.remove(child.parent)
-                            self.options.s4_2_3_doorStatus = 0;
+                            self.options.s4_2_3_doorStatus = 1;
                         }
                     });
                 }catch(e){       
@@ -15185,7 +15520,13 @@ App.prototype = {
                     console.clear();
                 };
 
-                self.createhorizontalDividerSection4_2_4();
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    self.createhorizontalDividerSection4_2_4('saved');
+                } else {
+                    self.createhorizontalDividerSection4_2_4();
+                }
+
                 self.scene.getObjectByName('horizontalDividerSection4_2_4').material.map = self.textures[self.options.shelf.texture].map;  
                 self.options.section4_currentStateDivider2 = 4; 
                 self.options.s4_AmountOfHorDividers += 1;
@@ -15216,10 +15557,16 @@ App.prototype = {
                     MainHorizontalPartition_S4_2_2.style.display = "none";
                 },600);
 
-                document.getElementById("Height_HorizontalPartition_S4_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
-                document.getElementById("Height_HorizontalPartition_S4_2_4__2").innerHTML = document.getElementById("Height_HorizontalPartition_S4_2_4").innerHTML;
+                //🍍
+                if(savedCorrection === 'savedCorrection'){
+                    document.getElementById("Height_HorizontalPartition_S4_2_4").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2_4");
+                    document.getElementById("Height_HorizontalPartition_S4_2_2").innerHTML = localStorage.getItem("options_value_Height_HorizontalPartition_S4_2_2");
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_2_4").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 - 0.9) +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+                }
 
-                document.getElementById("Height_HorizontalPartition_S4_2_2").innerHTML =  Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) / 2 -0.9) +"cm";
+
                 
 
                 self.updateDoorButtons();
@@ -15346,7 +15693,7 @@ App.prototype = {
                 document.getElementById("InternalShelving1_S1").style.display = "flex";
                 document.getElementById("InternalShelving2_S1").style.display = "none";
 
-                document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
                 self.options.s1_internlShelvinStatus = 1
                 
@@ -15440,7 +15787,7 @@ App.prototype = {
                         document.getElementById("InternalShelving2_S1").style.display = "none";
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
@@ -15555,7 +15902,7 @@ App.prototype = {
 
         document.getElementById("MoveInternalShelving1_S1_1_DOWN").addEventListener('click', function() {
                     
-            if (self.options.sectionHeight_1_1 > 10) { 
+            if (self.options.sectionHeight_1_1 > 11) { 
 
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2) != undefined) {
 
@@ -15574,7 +15921,7 @@ App.prototype = {
                     } else { document.getElementById("HintPanel").innerHTML = "Minimum height is 10cm between shelves"; }
                 } else {
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8 >= 11) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 13) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y -= 1.05
     
@@ -16565,7 +16912,7 @@ App.prototype = {
                 document.getElementById("InternalShelving1_S2_1").style.display = "flex";
                 document.getElementById("InternalShelving2_S2_1").style.display = "none";
 
-                document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
               
                 self.options.s2_internlShelvinStatus = 1
@@ -16658,7 +17005,7 @@ App.prototype = {
                         document.getElementById("InternalShelving2_S2_1").style.display = "none";
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
@@ -16781,7 +17128,7 @@ App.prototype = {
                     } else { document.getElementById("HintPanel").innerHTML = "Minimum height is 10cm between shelves"; }
                 } else {
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8 >= 11) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 13 ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y -= 1.05
     
@@ -17692,7 +18039,7 @@ App.prototype = {
                 
                 self.options.s3_internlShelvinStatus = 1
 
-                document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
             } 
             else {
@@ -17772,7 +18119,7 @@ App.prototype = {
                         document.getElementById("InternalShelving2_S3_1").style.display = "none";
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
@@ -17894,7 +18241,7 @@ App.prototype = {
                     } else { document.getElementById("HintPanel").innerHTML = "Minimum height is 10cm between shelves"; }
                 } else {
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8 >= 11) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 13) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y -= 1.05
     
@@ -18811,7 +19158,7 @@ App.prototype = {
                 document.getElementById("InternalShelving1_S4_1").style.display = "flex";
                 document.getElementById("InternalShelving2_S4_1").style.display = "none";
 
-                document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
                 self.options.s4_internlShelvinStatus = 1
                 
@@ -18892,7 +19239,7 @@ App.prototype = {
                         document.getElementById("InternalShelving2_S4_1").style.display = "none";
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8) / 2 ) +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = Math.floor( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) -1) / 2 ) +"cm";
 
                     } else {document.getElementById("HintPanel").innerHTML = "Sorry you can't add more shelves with this height"
                     document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
@@ -19014,7 +19361,7 @@ App.prototype = {
                     } else { document.getElementById("HintPanel").innerHTML = "Minimum height is 10cm between shelves"; }
                 } else {
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) -1.8 >= 11) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 13 ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y -= 1.05
     
@@ -27743,22 +28090,14 @@ App.prototype = {
                
 
                 document.getElementById("pillar3PositionField_S3_1").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1__2").innerHTML = document.getElementById("pillar3PositionField_S3_1").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
-                document.getElementById("pillar3PositionField_S3_1_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_4").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_4").innerHTML;
 
 
                 document.getElementById("pillar2PositionField_S2_1").innerHTML = Math.floor( self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
@@ -27875,22 +28214,14 @@ App.prototype = {
 
 
                 document.getElementById("pillar3PositionField_S3_1").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1__2").innerHTML = document.getElementById("pillar3PositionField_S3_1").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
-                document.getElementById("pillar3PositionField_S3_1_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_4").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_4").innerHTML;
 
                 document.getElementById("pillar2PositionField_S2_1").innerHTML = Math.floor( self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
 
@@ -28005,22 +28336,14 @@ App.prototype = {
                
                 //...as well as updating interface
                 document.getElementById("pillar3PositionField_S3_1").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1__2").innerHTML = document.getElementById("pillar3PositionField_S3_1").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
-                document.getElementById("pillar3PositionField_S3_1_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_4").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_4").innerHTML;
 
                 document.getElementById("pillar4PositionField_S4_1").innerHTML = Math.floor( self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
                 document.getElementById("pillar4PositionField_S4_1_3").innerHTML = Math.floor( self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
@@ -28121,22 +28444,14 @@ App.prototype = {
                 
 
                 document.getElementById("pillar3PositionField_S3_1").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1__2").innerHTML = document.getElementById("pillar3PositionField_S3_1").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
                 document.getElementById("pillar3PositionField_S3_1_2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
-                document.getElementById("pillar3PositionField_S3_1_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_1_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_1_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_1_4").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_2").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_2__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_2").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_3").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_3__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_3").innerHTML;
                 document.getElementById("pillar3PositionField_S3_2_4").innerHTML = Math.floor( self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
-                document.getElementById("pillar3PositionField_S3_2_4__2").innerHTML = document.getElementById("pillar3PositionField_S3_2_4").innerHTML;
 
 
                 document.getElementById("pillar4PositionField_S4_1").innerHTML = Math.floor( self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) +"cm";
@@ -28247,40 +28562,6 @@ App.prototype = {
             groupName.position.y = groupPositionY
             groupName.position.z = -self.options.room.width / 2 + self.options.shelf.width - (self.options.shelf.thickness)
 
-            /* groupName.getObjectByName(doorName_1).material.map = self.textures[self.options.doors.texture].map;
-
-            var texture = groupName.getObjectByName(doorName_1).material.map;
-            if ( doorWidth_1 > doorHeight_1) {
-                texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-                texture.repeat.x = self.options.shelf.length / self.boardTextureStep * self.boardTextureRepeatXPerStep;  
-                texture.repeat.y = self.options.shelf.width / self.boardTextureStep * self.boardTextureRepeatYPerStep;
-                texture.rotation = 89.5;
-                groupName.getObjectByName(doorName_1).material.needsUpdate = true;
-            } else {
-                texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-                texture.repeat.x = self.options.shelf.length / self.boardTextureStep * self.boardTextureRepeatXPerStep;  
-                texture.repeat.y = self.options.shelf.width / self.boardTextureStep * self.boardTextureRepeatYPerStep;
-                texture.rotation = 0;
-                groupName.getObjectByName(doorName_1).material.needsUpdate = true;
-            }
-
-            groupName.getObjectByName(doorName_2).material.map = self.textures[self.options.doors.texture].map;
-
-            var texture2 = groupName.getObjectByName(doorName_2).material.map;
-            if ( doorWidth_2 > doorHeight_2) {
-                texture2.wrapS = texture2.wrapT = THREE.RepeatWrapping;
-                texture2.repeat.x = self.options.shelf.length / self.boardTextureStep * self.boardTextureRepeatXPerStep;  
-                texture2.repeat.y = self.options.shelf.width / self.boardTextureStep * self.boardTextureRepeatYPerStep;
-                texture2.rotation = 89.5;
-                groupName.getObjectByName(doorName_2).material.needsUpdate = true;
-            } else {
-                texture2.wrapS = texture.wrapT = THREE.RepeatWrapping;
-                texture2.repeat.x = self.options.shelf.length / self.boardTextureStep * self.boardTextureRepeatXPerStep;  
-                texture2.repeat.y = self.options.shelf.width / self.boardTextureStep * self.boardTextureRepeatYPerStep;
-                texture2.rotation = 0;
-                groupName.getObjectByName(doorName_2).material.needsUpdate = true;
-            }
- */
             groupName.getObjectByName(doorName_2).position.x = doorWidth_1 / 2
             // groupName.getObjectByName(handleName_2).position.x = doorWidth_1 / 2
 
@@ -28332,43 +28613,1686 @@ App.prototype = {
         //🥝
         // after quickd delay onload restoring of colors and stuff
 
-                //save /load via url🍍
+        //save /load via url🍍
 
+        function loadStateFromURL() {
+            const params = new URLSearchParams(window.location.search);
+        
+            // Load cube position from URL parameters
+            if (params.has('w')) {
+                document.getElementById("subdomainWidthCabinet_Dimensions").value = parseFloat(params.get('w'))
+                changeWidth();
+            }
+            if (params.has('h')) {
+                document.getElementById("subdomainHeightCabinet_Dimensions").value = parseFloat(params.get('h'))
+                changeHeight();
+            }
+            if (params.has('d')) {
+                document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value = parseFloat(params.get('d'))
+                changeDepth();
+            }
+            if (params.has('f')) {
+                let value = params.get('f');
+                document.getElementById("typeFeet").value = value;
+                changeLegs();
+            }
+            if (params.has('v')) {
+                document.getElementById("subdomainNumberElementCorpus_Cabinet_Dimensionsz").value = parseFloat(params.get('v'))
+                self.startVerticals();
+            }
 
-                function loadStateFromURL() {
-                    const params = new URLSearchParams(window.location.search);
-                
-                    // Load cube position from URL parameters
-                    if (params.has('cl')) {
-                        document.getElementById("subdomainWidthCabinet_Dimensions").value = parseFloat(params.get('cl'))
-                        changeWidth();
-                    }
+            //color
+            if (params.has('DC')) {
+                self.options.doors.texture = params.get('DC');
+                setUpStartColors(); 
+                self.updateShelfProtoMaterial();
+            }
+            if (params.has('FC')) {
+                self.options.shelf.texture = params.get('FC');
+            }        
+
+            //s1 horizontals
+            if (params.has('s1_hDS')) {
+                self.options.s1_horizDividStatus = params.get('s1_hDS');
+            }    
+            if (params.has('s1_hDS') == 1) {
+
+                document.getElementById("HorizontalPartition_S1_1").checked = true;
+
+                if (params.has('s1_SUD')) {
+                    self.options.section1_currentStateUpDivider = params.get('s1_SUD');
+                }  
+                if (params.has('s1_SUD2')) {
+                    self.options.section1_currentStateDivider2 = params.get('s1_SUD2');
+                }  
+
+                switch(params.get('s1_SUD')){
+                    case '1':    
+                        if (params.has('s1_hDS') == 1) {    
+
+                            self.options.sectionHeight_1_2 = params.get('H_S1_2');
+                            self.options.sectionHeight_1_1 = params.get('H_S1_1');
+                            
+                            createHorizontalPartition_S1_1('savedCorrectionURL')
+                        } else {};
+                    break;
+                    case '2':
+                        if ( params.has('s1_1_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S1_1_2").checked = true;
+
+                            self.options.sectionHeight_1_2 = params.get('H_S1_2');
+                            self.options.sectionHeight_1_1 = params.get('H_S1_1');
+                            self.options.sectionHeight_1_1_2 = params.get('H_S1_1_2');
+
+                            createHorizontalPartition_S1_1('savedCorrectionURL')
+                            createHorizontalPartition_S1_1_2('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s1_1_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S1_1_3").checked = true;
+
+                            self.options.sectionHeight_1_2 = params.get('H_S1_2');
+                            self.options.sectionHeight_1_1 = params.get('H_S1_1');
+                            self.options.sectionHeight_1_1_2 = params.get('H_S1_1_2');
+                            self.options.sectionHeight_1_1_3 = params.get('H_S1_1_3');
+
+                            createHorizontalPartition_S1_1('savedCorrectionURL')
+                            createHorizontalPartition_S1_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S1_1_3('savedCorrectionURL')
+
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s1_1_4_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S1_1_4").checked = true;
+
+                            self.options.sectionHeight_1_1_2 = params.get('H_S1_1_2');
+                            self.options.sectionHeight_1_1_4 = params.get('H_S1_1_4');
+
+                            createHorizontalPartition_S1_1('savedCorrectionURL')
+                            createHorizontalPartition_S1_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S1_1_4('savedCorrectionURL')
+
+                            if ( params.has('s1_1_3_hDS') == 1 ) {
+
+                                document.getElementById("HorizontalPartition_S1_1_3").checked = true;
+                                self.options.sectionHeight_1_1_3 = params.get('H_S1_1_3');
+                                createHorizontalPartition_S1_1_3('savedCorrectionURL')
+
+                            } else {};
+                        } else {};
+                    break;
                 }
-        
-        
-                function saveStateToURL() {
-        
-                    const params = new URLSearchParams();
-                
-                    // Suppose your state includes the x, y, z position of a cube
-                    params.set('cl', parseInt(document.getElementById("subdomainWidthCabinet_Dimensions").value, 10));
-                
-                    // Update the URL without causing a page refresh
-                    window.history.replaceState({}, '', '?' + params.toString());
-                }
-        
-        
-                
-                document.getElementById("saveURLButton").addEventListener('click', function() {saveStateToURL()});
 
-        //load/save states
+                switch(params.has('s1_SUD2')){
+                    case '2':
+                        if (  params.has('s1_2_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S1_2_2").checked = true;
+
+                            self.options.sectionHeight_1_2 = params.get('H_S1_2');
+                            self.options.sectionHeight_1_2_2 = params.get('H_S1_2_2');
+
+                            createHorizontalPartition_S1_2_2('savedCorrection')
+
+    
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s1_2_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S1_2_3").checked = true;
+    
+                            self.options.sectionHeight_1_2 = params.get('H_S1_2');
+                            self.options.sectionHeight_1_2_2 = params.get('H_S1_2_2');
+                            self.options.sectionHeight_1_2_3 = params.get('H_S1_2_3');
+
+                            createHorizontalPartition_S1_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S1_2_3('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s1_2_4_hDS') == 1 ) {
+    
+                            document.getElementById("HorizontalPartition_S1_2_4").checked = true;
+
+                            self.options.sectionHeight_1_2 = params.get('H_S1_2');
+                            self.options.sectionHeight_1_2_2 = params.get('H_S1_2_2');
+                            self.options.sectionHeight_1_2_4 = params.get('H_S1_2_4');
+
+                            createHorizontalPartition_S1_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S1_2_4('savedCorrectionURL')
+
+                            if ( localStorage.getItem("s1_2_3_horizDividStatus") == 1 ) {
+
+                                document.getElementById("HorizontalPartition_S1_2_3").checked = true;
+                                self.options.sectionHeight_1_2_3 = params.get('H_S1_2_3');
+                                createHorizontalPartition_S1_2_3('savedCorrectionURL')
+        
+                            } else {};
+    
+                        } else {};
+                    break;
+                }
+
+            } else {}  
+
+
+            //s2 horizontals
+            if (params.has('s2_hDS')) {
+                self.options.s2_horizDividStatus = params.get('s2_hDS');
+            }    
+            if (params.has('s2_hDS') == 1) {
+
+                document.getElementById("HorizontalPartition_S2_1").checked = true;
+
+                if (params.has('s2_SUD')) {
+                    self.options.section2_currentStateUpDivider = params.get('s2_SUD');
+                }  
+                if (params.has('s2_SUD2')) {
+                    self.options.section2_currentStateDivider2 = params.get('s2_SUD2');
+                }  
+
+                switch(params.get('s2_SUD')){
+                    case '1':    
+                        if (params.has('s2_hDS') == 1) {    
+
+                            self.options.sectionHeight_2_2 = params.get('H_S2_2');
+                            self.options.sectionHeight_2_1 = params.get('H_S2_1');
+                            
+                            createHorizontalPartition_S2_1('savedCorrectionURL')
+                        } else {};
+                    break;
+                    case '2':
+                        if ( params.has('s2_1_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S2_1_2").checked = true;
+
+                            self.options.sectionHeight_2_2 = params.get('H_S2_2');
+                            self.options.sectionHeight_2_1 = params.get('H_S2_1');
+                            self.options.sectionHeight_2_1_2 = params.get('H_S2_1_2');
+
+                            createHorizontalPartition_S2_1('savedCorrectionURL')
+                            createHorizontalPartition_S2_1_2('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s2_1_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S2_1_3").checked = true;
+
+                            self.options.sectionHeight_2_2 = params.get('H_S2_2');
+                            self.options.sectionHeight_2_1 = params.get('H_S2_1');
+                            self.options.sectionHeight_2_1_2 = params.get('H_S2_1_2');
+                            self.options.sectionHeight_2_1_3 = params.get('H_S2_1_3');
+
+                            createHorizontalPartition_S2_1('savedCorrectionURL')
+                            createHorizontalPartition_S2_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S2_1_3('savedCorrectionURL')
+
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s2_1_4_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S2_1_4").checked = true;
+
+                            self.options.sectionHeight_2_1_2 = params.get('H_S2_1_2');
+                            self.options.sectionHeight_2_1_4 = params.get('H_S2_1_4');
+
+                            createHorizontalPartition_S2_1('savedCorrectionURL')
+                            createHorizontalPartition_S2_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S2_1_4('savedCorrectionURL')
+
+                            if ( params.has('s2_1_3_hDS') == 1 ) {
+
+                                document.getElementById("HorizontalPartition_S2_1_3").checked = true;
+                                self.options.sectionHeight_2_1_3 = params.get('H_S2_1_3');
+                                createHorizontalPartition_S2_1_3('savedCorrectionURL')
+
+                            } else {};
+                        } else {};
+                    break;
+                }
+
+                switch(params.has('s2_SUD2')){
+                    case '2':
+                        if (  params.has('s2_2_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S2_2_2").checked = true;
+
+                            self.options.sectionHeight_2_2 = params.get('H_S2_2');
+                            self.options.sectionHeight_2_2_2 = params.get('H_S2_2_2');
+
+                            createHorizontalPartition_S2_2_2('savedCorrection')
+
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s2_2_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S2_2_3").checked = true;
+    
+                            self.options.sectionHeight_2_2 = params.get('H_S2_2');
+                            self.options.sectionHeight_2_2_2 = params.get('H_S2_2_2');
+                            self.options.sectionHeight_2_2_3 = params.get('H_S2_2_3');
+
+                            createHorizontalPartition_S2_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S2_2_3('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s2_2_4_hDS') == 1 ) {
+    
+                            document.getElementById("HorizontalPartition_S2_2_4").checked = true;
+
+                            self.options.sectionHeight_2_2 = params.get('H_S2_2');
+                            self.options.sectionHeight_2_2_2 = params.get('H_S2_2_2');
+                            self.options.sectionHeight_2_2_4 = params.get('H_S2_2_4');
+
+                            createHorizontalPartition_S2_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S2_2_4('savedCorrectionURL')
+
+                            if ( localStorage.getItem("s2_2_3_horizDividStatus") == 1 ) {
+
+                                document.getElementById("HorizontalPartition_S2_2_3").checked = true;
+                                self.options.sectionHeight_2_2_3 = params.get('H_S2_2_3');
+                                createHorizontalPartition_S2_2_3('savedCorrectionURL')
+        
+                            } else {};
+    
+                        } else {};
+                    break;
+                }
+
+            } else {}              
+            
+            
+            //s3 horizontals
+            if (params.has('s3_hDS')) {
+                self.options.s3_horizDividStatus = params.get('s3_hDS');
+            }    
+            if (params.has('s3_hDS') == 1) {
+
+                document.getElementById("HorizontalPartition_S3_1").checked = true;
+
+                if (params.has('s3_SUD')) {
+                    self.options.section3_currentStateUpDivider = params.get('s3_SUD');
+                }  
+                if (params.has('s3_SUD2')) {
+                    self.options.section3_currentStateDivider2 = params.get('s3_SUD2');
+                }  
+
+                switch(params.get('s3_SUD')){
+                    case '1':    
+                        if (params.has('s3_hDS') == 1) {    
+
+                            self.options.sectionHeight_3_2 = params.get('H_S3_2');
+                            self.options.sectionHeight_3_1 = params.get('H_S3_1');
+                            
+                            createHorizontalPartition_S3_1('savedCorrectionURL')
+                        } else {};
+                    break;
+                    case '2':
+                        if ( params.has('s3_1_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S3_1_2").checked = true;
+
+                            self.options.sectionHeight_3_2 = params.get('H_S3_2');
+                            self.options.sectionHeight_3_1 = params.get('H_S3_1');
+                            self.options.sectionHeight_3_1_2 = params.get('H_S3_1_2');
+
+                            createHorizontalPartition_S3_1('savedCorrectionURL')
+                            createHorizontalPartition_S3_1_2('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s3_1_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S3_1_3").checked = true;
+
+                            self.options.sectionHeight_3_2 = params.get('H_S3_2');
+                            self.options.sectionHeight_3_1 = params.get('H_S3_1');
+                            self.options.sectionHeight_3_1_2 = params.get('H_S3_1_2');
+                            self.options.sectionHeight_3_1_3 = params.get('H_S3_1_3');
+
+                            createHorizontalPartition_S3_1('savedCorrectionURL')
+                            createHorizontalPartition_S3_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S3_1_3('savedCorrectionURL')
+
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s3_1_4_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S3_1_4").checked = true;
+
+                            self.options.sectionHeight_3_1_2 = params.get('H_S3_1_2');
+                            self.options.sectionHeight_3_1_4 = params.get('H_S3_1_4');
+
+                            createHorizontalPartition_S3_1('savedCorrectionURL')
+                            createHorizontalPartition_S3_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S3_1_4('savedCorrectionURL')
+
+                            if ( params.has('s3_1_3_hDS') == 1 ) {
+                                document.getElementById("HorizontalPartition_S3_1_3").checked = true;
+                                self.options.sectionHeight_3_1_3 = params.get('H_S3_1_3');
+                                createHorizontalPartition_S3_1_3('savedCorrectionURL')
+                            } else {};
+
+                        } else {};
+                    break;
+                }
+
+                switch(params.has('s3_SUD2')){
+                    case '2':
+                        if (  params.has('s3_2_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S3_2_2").checked = true;
+
+                            self.options.sectionHeight_3_2 = params.get('H_S3_2');
+                            self.options.sectionHeight_3_2_2 = params.get('H_S3_2_2');
+
+                            createHorizontalPartition_S3_2_2('savedCorrection')
+
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s3_2_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S3_2_3").checked = true;
+    
+                            self.options.sectionHeight_3_2 = params.get('H_S3_2');
+                            self.options.sectionHeight_3_2_2 = params.get('H_S3_2_2');
+                            self.options.sectionHeight_3_2_3 = params.get('H_S3_2_3');
+
+                            createHorizontalPartition_S3_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S3_2_3('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s3_2_4_hDS') == 1 ) {
+    
+                            document.getElementById("HorizontalPartition_S3_2_4").checked = true;
+
+                            self.options.sectionHeight_3_2 = params.get('H_S3_2');
+                            self.options.sectionHeight_3_2_2 = params.get('H_S3_2_2');
+                            self.options.sectionHeight_3_2_4 = params.get('H_S3_2_4');
+
+                            createHorizontalPartition_S3_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S3_2_4('savedCorrectionURL')
+
+                            if ( localStorage.getItem("s3_2_3_horizDividStatus") == 1 ) {
+                                document.getElementById("HorizontalPartition_S3_2_3").checked = true;
+                                self.options.sectionHeight_3_2_3 = params.get('H_S3_2_3');
+                                createHorizontalPartition_S3_2_3('savedCorrectionURL')
+                            } else {};
+
+                        } else {};
+                    break;
+                }
+
+            } else {}        
+
+
+            //s4 horizontals
+            if (params.has('s4_hDS')) {
+                self.options.s3_horizDividStatus = params.get('s4_hDS');
+            }    
+            if (params.has('s4_hDS') == 1) {
+
+                document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                if (params.has('s4_SUD')) {
+                    self.options.section4_currentStateUpDivider = params.get('s4_SUD');
+                }  
+                if (params.has('s4_SUD2')) {
+                    self.options.section4_currentStateDivider2 = params.get('s4_SUD2');
+                }  
+
+                switch(params.get('s4_SUD')){
+                    case '1':    
+                        if (params.has('s4_hDS') == 1) {    
+
+                            self.options.sectionHeight_4_2 = params.get('H_S4_2');
+                            self.options.sectionHeight_4_1 = params.get('H_S4_1');
+                            
+                            createHorizontalPartition_S4_1('savedCorrectionURL')
+                        } else {};
+                    break;
+                    case '2':
+                        if ( params.has('s4_1_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S4_1_2").checked = true;
+
+                            self.options.sectionHeight_4_2 = params.get('H_S4_2');
+                            self.options.sectionHeight_4_1 = params.get('H_S4_1');
+                            self.options.sectionHeight_4_1_2 = params.get('H_S4_1_2');
+
+                            createHorizontalPartition_S4_1('savedCorrectionURL')
+                            createHorizontalPartition_S4_1_2('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s4_1_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S4_1_3").checked = true;
+
+                            self.options.sectionHeight_4_2 = params.get('H_S4_2');
+                            self.options.sectionHeight_4_1 = params.get('H_S4_1');
+                            self.options.sectionHeight_4_1_2 = params.get('H_S4_1_2');
+                            self.options.sectionHeight_4_1_3 = params.get('H_S4_1_3');
+
+                            createHorizontalPartition_S4_1('savedCorrectionURL')
+                            createHorizontalPartition_S4_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S4_1_3('savedCorrectionURL')
+
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s4_1_4_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S4_1_4").checked = true;
+
+                            self.options.sectionHeight_4_1_2 = params.get('H_S4_1_2');
+                            self.options.sectionHeight_4_1_4 = params.get('H_S4_1_4');
+
+                            createHorizontalPartition_S4_1('savedCorrectionURL')
+                            createHorizontalPartition_S4_1_2('savedCorrectionURL')
+                            createHorizontalPartition_S4_1_4('savedCorrectionURL')
+
+                            if ( params.has('s4_1_3_hDS') == 1 ) {
+                                document.getElementById("HorizontalPartition_S4_1_3").checked = true;
+                                self.options.sectionHeight_4_1_3 = params.get('H_S4_1_3');
+                                createHorizontalPartition_S4_1_3('savedCorrectionURL')
+                            } else {};
+                            
+                        } else {};
+                    break;
+                }
+
+                switch(params.has('s4_SUD2')){
+                    case '2':
+                        if (  params.has('s4_2_2_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S4_2_2").checked = true;
+
+                            self.options.sectionHeight_4_2 = params.get('H_S4_2');
+                            self.options.sectionHeight_4_2_2 = params.get('H_S4_2_2');
+
+                            createHorizontalPartition_S4_2_2('savedCorrection')
+
+                        } else {};
+                    break;
+                    case '3':                    
+                        if ( params.has('s4_2_3_hDS') == 1 ) {
+
+                            document.getElementById("HorizontalPartition_S4_2_3").checked = true;
+    
+                            self.options.sectionHeight_4_2 = params.get('H_S4_2');
+                            self.options.sectionHeight_4_2_2 = params.get('H_S4_2_2');
+                            self.options.sectionHeight_4_2_3 = params.get('H_S4_2_3');
+
+                            createHorizontalPartition_S4_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S4_2_3('savedCorrectionURL')
+    
+                        } else {};
+                    break;
+                    case '4':            
+                        if ( params.has('s4_2_4_hDS') == 1 ) {
+    
+                            document.getElementById("HorizontalPartition_S4_2_4").checked = true;
+
+                            self.options.sectionHeight_4_2 = params.get('H_S4_2');
+                            self.options.sectionHeight_4_2_2 = params.get('H_S4_2_2');
+                            self.options.sectionHeight_4_2_4 = params.get('H_S4_2_4');
+
+                            createHorizontalPartition_S4_2_2('savedCorrectionURL')
+                            createHorizontalPartition_S4_2_4('savedCorrectionURL')
+
+                            if ( localStorage.getItem("s4_2_3_horizDividStatus") == 1 ) {
+                                document.getElementById("HorizontalPartition_S4_2_3").checked = true;
+                                self.options.sectionHeight_4_2_3 = params.get('H_S4_2_3');
+                                createHorizontalPartition_S4_2_3('savedCorrectionURL')
+                            } else {};
+
+                        } else {};
+                    break;
+                }
+
+            } else {}    
+
+
+            //restore doors, drawwers  
+            if (params.has('s1_d')) {
+                self.options.s1_doorStatus = params.get('s1_d');
+                switch (self.options.s1_doorStatus) {
+                    case '1':
+                        createEmpty_S1();
+                    break;
+                    case '2':
+                        createDoorLeft_S1();
+                    break;
+                    case '3':
+                        createDoorRight_S1();
+                    break
+                    case '4':
+                        createDoubleDoor_S1();
+                    break;
+                    case '5':
+                        createDrawer_S1();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }         
+            if (params.has('s1_1_2_d')) {
+                self.options.s1_1_2_doorStatus = params.get('s1_1_2_d');
+
+                self.options.s1_1_2_doorStatus = localStorage.getItem
+                ("s1_1_2_doorStatus");
+                switch (self.options.s1_1_2_doorStatus) {
+                    case '1':
+                        createEmpty_S1_1_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_1_2();
+                    break;
+                    case '3':
+                        createDoorRight_S1_1_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_1_2();
+                    break;
+                    case '5':
+                        createDrawer_S1_1_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }     
+            if (params.has('s1_1_3_d')) {
+                self.options.s1_1_3_doorStatus = params.get('s1_1_3_d');
+                switch (self.options.s1_1_3_doorStatus) {
+                    case '1':
+                        createEmpty_S1_1_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_1_3();
+                    break;
+                    case '3':
+                        createDoorRight_S1_1_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_1_3();
+                    break;
+                    case '5':
+                        createDrawer_S1_1_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }  
+            if (params.has('s1_1_4_d')) {
+                self.options.s1_1_4_doorStatus = params.get('s1_1_4_d');
+                switch (self.options.s1_1_4_doorStatus) {
+                    case '1':
+                        createEmpty_S1_1_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_1_4();
+                    break;
+                    case '4':
+                        createDoorRight_S1_1_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_1_4();
+                    break;
+                    case '5':
+                        createDrawer_S1_1_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            }  
+            if (params.has('s1_2_d')) {
+                self.options.s1_2_doorStatus = params.get('s1_2_d');
+                switch (self.options.s1_2_doorStatus) {
+                    case '1':
+                        createEmpty_S1_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_2();
+                    break;
+                    case '3':
+                        createDoorRight_S1_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_2();
+                    break;
+                    case '5':
+                        createDrawer_S1_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }                    
+            if (params.has('s1_2_2_d')) {
+                self.options.s1_2_2_doorStatus = params.get('s1_2_2_d');
+                switch (self.options.s1_2_2_doorStatus) {
+                    case '1':
+                        createEmpty_S1_2_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_2_2();
+                    break;
+                    case '3':
+                        createDoorRight_S1_2_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_2_2();
+                    break;
+                    case '5':
+                        createDrawer_S1_2_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }  
+            if (params.has('s1_2_3_d')) {
+                self.options.s1_2_3_doorStatus = params.get('s1_2_3_d');
+                switch (self.options.s1_2_3_doorStatus) {
+                    case '1':
+                        createEmpty_S1_2_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_2_3();
+                    break;
+                    case '3':
+                        createDoorRight_S1_2_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_2_3();
+                    break;
+                    case '5':
+                        createDrawer_S1_2_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s1_2_4_d')) {
+                self.options.s1_2_4_doorStatus = params.get('s1_2_4_d');
+                switch (self.options.s1_2_4_doorStatus) {
+                    case '1':
+                        createEmpty_S1_2_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S1_2_4();
+                    break;
+                    case '4':
+                        createDoorRight_S1_2_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S1_2_4();
+                    break;
+                    case '5':
+                        createDrawer_S1_2_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            } 
+
+            if (params.has('s2_d')) {
+                self.options.s2_doorStatus = params.get('s2_d');
+                switch (self.options.s2_doorStatus) {
+                    case '1':
+                        createEmpty_S2();
+                    break;
+                    case '2':
+                        createDoorLeft_S2();
+                    break;
+                    case '3':
+                        createDoorRight_S2();
+                    break
+                    case '4':
+                        createDoubleDoor_S2();
+                    break;
+                    case '5':
+                        createDrawer_S2();
+                    break;
+                    default:
+                        //
+                    break;
+                };  
+            }                      
+            if (params.has('s2_1_2_d')) {
+                self.options.s2_1_2_doorStatus = params.get('s2_1_2_d');
+                switch (self.options.s2_1_2_doorStatus) {
+                    case '1':
+                        createEmpty_S2_1_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S2_1_2();
+                    break;
+                    case '3':
+                        createDoorRight_S2_1_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S2_1_2();
+                    break;
+                    case '5':
+                        createDrawer_S2_1_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }  
+            if (params.has('s2_1_3_d')) {
+                self.options.s2_1_3_doorStatus = params.get('s2_1_3_d');
+                switch (self.options.s2_1_3_doorStatus) {
+                case '1':
+                    createEmpty_S2_1_3();
+                break;
+                case '2':
+                    createDoorLeft_S2_1_3();
+                break;
+                case '3':
+                    createDoorRight_S2_1_3();
+                break
+                case '4':
+                    createDoubleDoor_S2_1_3();
+                break;
+                case '5':
+                    createDrawer_S2_1_3();
+                break;
+                default:
+                    //
+                break;
+                }; 
+            } 
+            if (params.has('s2_1_4_d')) {
+                self.options.s2_1_4_doorStatus = params.get('s2_1_4_d');
+                switch (self.options.s2_1_4_doorStatus) {
+                    case '1':
+                        createEmpty_S2_1_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S2_1_4();
+                    break;
+                    case '3':
+                        createDoorRight_S2_1_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S2_1_4();
+                    break;
+                    case '5':
+                        createDrawer_S2_1_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            } 
+            if (params.has('s2_2_d')) {
+                self.options.s2_2_doorStatus = params.get('s2_2_d');
+                switch (self.options.s2_2_doorStatus) {
+                    case '1':
+                        createEmpty_S2_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S2_2();
+                    break;
+                    case '3':
+                        createDoorRight_S2_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S2_2();
+                    break;
+                    case '5':
+                        createDrawer_S2_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s2_2_2_d')) {
+                self.options.s2_2_2_doorStatus = params.get('s2_2_2_d');
+                switch (self.options.s2_2_2_doorStatus) {
+                    case '1':
+                        createEmpty_S2_2_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S2_2_2();
+                    break;
+                    case '3':
+                        createDoorRight_S2_2_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S2_2_2();
+                    break;
+                    case '5':
+                        createDrawer_S2_2_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s2_2_3_d')) {
+                self.options.s2_2_3_doorStatus = params.get('s2_2_3_d');
+                switch (self.options.s2_2_3_doorStatus) {
+                    case '1':
+                        createEmpty_S2_2_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S2_2_3();
+                    break;
+                    case '3':
+                        createDoorRight_S2_2_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S2_2_3();
+                    break;
+                    case '5':
+                        createDrawer_S2_2_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s2_2_4_d')) {
+                self.options.s2_2_4_doorStatus = params.get('s2_2_4_d');
+                switch (self.options.s2_2_4_doorStatus) {
+                    case '1':
+                        createEmpty_S2_2_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S2_2_4();
+                    break;
+                    case '4':
+                        createDoorRight_S2_2_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S2_2_4();
+                    break;
+                    case '5':
+                        createDrawer_S2_2_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            } 
+
+            if (params.has('s3_d')) {
+                self.options.s3_doorStatus = params.get('s3_d');
+                switch (self.options.s3_doorStatus) {
+                    case '1':
+                        createEmpty_S3();
+                    break;
+                    case '2':
+                        createDoorLeft_S3();
+                    break;
+                    case '3':
+                        createDoorRight_S3();
+                    break
+                    case '4':
+                        createDoubleDoor_S3();
+                    break;
+                    case '5':
+                        createDrawer_S3();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            } 
+            if (params.has('s3_1_2_d')) {
+                self.options.s3_1_2_doorStatus = params.get('s3_1_2_d');
+                switch (self.options.s3_1_2_doorStatus) {
+                    case '1':
+                        createEmpty_S3_1_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_1_2();
+                    break;
+                    case '3':
+                        createDoorRight_S3_1_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_1_2();
+                    break;
+                    case '5':
+                        createDrawer_S3_1_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s3_1_3_d')) {
+                self.options.s3_1_3_doorStatus = params.get('s3_1_3_d');
+                switch (self.options.s3_1_3_doorStatus) {
+                    case '1':
+                        createEmpty_S3_1_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_1_3();
+                    break;
+                    case '3':
+                        createDoorRight_S3_1_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_1_3();
+                    break;
+                    case '5':
+                        createDrawer_S3_1_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s3_1_4_d')) {
+                self.options.s3_1_4_doorStatus = params.get('s3_1_4_d');
+                switch (self.options.s3_1_4_doorStatus) {
+                    case '1':
+                        createEmpty_S3_1_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_1_4();
+                    break;
+                    case '4':
+                        createDoorRight_S3_1_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_1_4();
+                    break;
+                    case '5':
+                        createDrawer_S3_1_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            } 
+            if (params.has('s3_2_d')) {
+                self.options.s3_2_doorStatus = params.get('s3_2_d');
+                switch (self.options.s3_2_doorStatus) {
+                    case '1':
+                        createEmpty_S3_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_2();
+                    break;
+                    case '3':
+                        createDoorRight_S3_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_2();
+                    break;
+                    case '5':
+                        createDrawer_S3_2();
+                    break;
+                    default:
+                        //
+                    break;
+                };   
+            }             
+            if (params.has('s3_2_2_d')) {
+                self.options.s3_2_2_doorStatus = params.get('s3_2_2_d');
+                switch (self.options.s3_2_2_doorStatus) {
+                    case '1':
+                        createEmpty_S3_2_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_2_2();
+                    break;
+                    case '3':
+                        createDoorRight_S3_2_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_2_2();
+                    break;
+                    case '5':
+                        createDrawer_S3_2_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s3_2_3_d')) {
+                self.options.s3_2_3_doorStatus = params.get('s3_2_3_d');
+                switch (self.options.s3_2_3_doorStatus) {
+                    case '1':
+                        createEmpty_S3_2_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_2_3();
+                    break;
+                    case '3':
+                        createDoorRight_S3_2_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_2_3();
+                    break;
+                    case '5':
+                        createDrawer_S3_2_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            } 
+            if (params.has('s3_2_4_d')) {
+                self.options.s3_2_4_doorStatus = params.get('s3_2_4_d');
+                switch (self.options.s3_2_4_doorStatus) {
+                    case '1':
+                        createEmpty_S3_2_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S3_2_4();
+                    break;
+                    case '4':
+                        createDoorRight_S3_2_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S3_2_4();
+                    break;
+                    case '5':
+                        createDrawer_S3_2_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            }
+
+            if (params.has('s4_d')) {
+                self.options.s4_doorStatus = params.get('s4_d');
+                switch (self.options.s4_doorStatus) {
+                    case '1':
+                        createEmpty_S4();
+                    break;
+                    case '2':
+                        createDoorLeft_S4();
+                    break;
+                    case '3':
+                        createDoorRight_S4();
+                    break
+                    case '4':
+                        createDoubleDoor_S4();
+                    break;
+                    case '5':
+                        createDrawer_S4();
+                    break;
+                    default:
+                        //
+                    break;
+                };  
+            }                
+            if (params.has('s4_1_2_d')) {
+                self.options.s4_1_2_doorStatus = params.get('s4_1_2_d');
+                switch (self.options.s4_1_2_doorStatus) {
+                    case '1':
+                        createEmpty_S4_1_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_1_2();
+                    break;
+                    case '3':
+                        createDoorRight_S4_1_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_1_2();
+                    break;
+                    case '5':
+                        createDrawer_S4_1_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }                
+            if (params.has('s4_1_3_d')) {
+                self.options.s4_1_3_doorStatus = params.get('s4_1_3_d');
+                switch (self.options.s4_1_3_doorStatus) {
+                    case '1':
+                        createEmpty_S4_1_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_1_3();
+                    break;
+                    case '3':
+                        createDoorRight_S4_1_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_1_3();
+                    break;
+                    case '5':
+                        createDrawer_S4_1_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }                
+            if (params.has('s4_1_4_d')) {
+                self.options.s4_1_4_doorStatus = params.get('s4_1_4_d');
+                switch (self.options.s4_1_4_doorStatus) {
+                    case '1':
+                        createEmpty_S4_1_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_1_4();
+                    break;
+                    case '4':
+                        createDoorRight_S4_1_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_1_4();
+                    break;
+                    case '5':
+                        createDrawer_S4_1_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            }                
+            if (params.has('s4_2_d')) {
+                self.options.s4_2_doorStatus = params.get('s4_2_d');
+                switch (self.options.s4_2_doorStatus) {
+                    case '1':
+                        createEmpty_S4_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_2();
+                    break;
+                    case '3':
+                        createDoorRight_S4_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_2();
+                    break;
+                    case '5':
+                        createDrawer_S4_2();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            }                                 
+            if (params.has('s4_2_2_d')) {
+                self.options.s4_2_2_doorStatus = params.get('s4_2_2_d');
+                switch (self.options.s4_2_2_doorStatus) {
+                    case '1':
+                        createEmpty_S4_2_2();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_2_2();
+                    break;
+                    case '3':
+                        createDoorRight_S4_2_2();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_2_2();
+                    break;
+                    case '5':
+                        createDrawer_S4_2_2();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }                                 
+            if (params.has('s4_2_3_d')) {
+                self.options.s4_2_3_doorStatus = params.get('s4_2_3_d');
+                switch (self.options.s4_2_3_doorStatus) {
+                    case '1':
+                        createEmpty_S4_2_3();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_2_3();
+                    break;
+                    case '3':
+                        createDoorRight_S4_2_3();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_2_3();
+                    break;
+                    case '5':
+                        createDrawer_S4_2_3();
+                    break;
+                    default:
+                        //
+                    break;
+                }; 
+            }                                 
+            if (params.has('s4_2_4_d')) {
+                self.options.s4_2_4_doorStatus = params.get('s4_2_4_d');
+                switch (self.options.s4_2_4_doorStatus) {
+                    case '1':
+                        createEmpty_S4_2_4();
+                    break;
+                    case '2':
+                        createDoorLeft_S4_2_4();
+                    break;
+                    case '4':
+                        createDoorRight_S4_2_4();
+                    break
+                    case '4':
+                        createDoubleDoor_S4_2_4();
+                    break;
+                    case '5':
+                        createDrawer_S4_2_4();
+                    break;
+                    default:
+                        //
+                    break;
+                };
+            }
+
+            //backpalte
+            if (params.has('BP')) {
+                this.options.statusHideBackPlate = params.get('BP');
+                self.createBackPlate();
+            }  
+            if ( params.has('BP') == 0) {
+                self.scene.remove(self.scene.getObjectByName('BackPlate'));
+            } 
+            if ( params.has('BP') == 1 ) {
+                self.options.statusHideBackPlate = params.get('BP');
+                self.createBackPlate();
+            } 
+            self.defaultLeftMenu();
+
+
+        }
+
+
+        function saveStateToURL() {
+
+            const params = new URLSearchParams();
+        
+            // Suppose your state includes the x, y, z position of a cube
+            params.set('w', parseInt(document.getElementById("subdomainWidthCabinet_Dimensions").value, 10));
+            params.set('h', parseInt(document.getElementById("subdomainHeightCabinet_Dimensions").value, 10));
+            params.set('d', parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10));
+
+            params.set('f', document.getElementById("typeFeet").value);
+            
+            params.set('v', parseInt(document.getElementById("subdomainNumberElementCorpus_Cabinet_Dimensionsz").value, 10));
+
+            //colors
+            params.set('DC', self.options.doors.texture);
+            params.set('FC', self.options.shelf.texture);
+
+            //s1 horizontals
+            params.set('RCS1_1_pY', self.scene.getObjectByName( "RayCastRecieverSection1_1").position.y ); 
+            params.set('WRS1_1_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1").position.y) ); 
+            params.set('H_S1_1', self.options.sectionHeight_1_1); 
+            params.set("ovHHP_S1_1", parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) );
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2")) {
+                params.set('RCS1_2_pY', self.scene.getObjectByName( "RayCastRecieverSection1_2").position.y ); 
+                params.set('WRS1_2_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2").position.y) ); 
+                params.set('s1_hDS', self.options.s1_horizDividStatus);
+                params.set('hDS1_1', self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y ); 
+                params.set("s1_SUD", self.options.section1_currentStateUpDivider); 
+                params.set("ovHHP_S1_2", parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_2', self.options.sectionHeight_1_2); 
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_1_2")) {
+                params.set('RCS1_1_2_pY', self.scene.getObjectByName( "RayCastRecieverSection1_1_2").position.y ); 
+                params.set('WRS1_1_2_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1_2").position.y) ); 
+                params.set('s1_1_2_hDS', self.options.s1_1_2_horizDividStatus);
+                params.set('hDS1_1_2', self.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y ); 
+                params.set("s1_SUD", self.options.section1_currentStateUpDivider); 
+                params.set("ovHHP_S1_1_2", parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_1_2', self.options.sectionHeight_1_1_2);
+            }            
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_1_3")) {
+                params.set('RCS1_1_3_pY', self.scene.getObjectByName( "RayCastRecieverSection1_1_3").position.y ); 
+                params.set('WRS1_1_3_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1_3").position.y) ); 
+                params.set('s1_1_3_hDS', self.options.s1_1_3_horizDividStatus);
+                params.set('hDS1_1_3', self.scene.getObjectByName( "horizontalDividerSection1_1_3", true ).position.y ); 
+                params.set("s1_SUD", self.options.section1_currentStateUpDivider); 
+                params.set("ovHHP_S1_1_3", parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_1_3', self.options.sectionHeight_1_1_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_1_4")) {
+                params.set('RCS1_1_4_pY', self.scene.getObjectByName( "RayCastRecieverSection1_1_4").position.y ); 
+                params.set('WRS1_1_4_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1_4").position.y) ); 
+                params.set('s1_1_4_hDS', self.options.s1_1_4_horizDividStatus);
+                params.set('hDS1_1_4', self.scene.getObjectByName( "horizontalDividerSection1_1_4", true ).position.y ); 
+                params.set("s1_SUD", self.options.section1_currentStateUpDivider); 
+                params.set("ovHHP_S1_1_4", parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_1_4', self.options.sectionHeight_1_1_4);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2_2")) {
+                params.set('RCS1_2_2_pY', self.scene.getObjectByName( "RayCastRecieverSection1_2_2").position.y ); 
+                params.set('WRS1_2_2_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2_2").position.y) ); 
+                params.set('s1_2_2_hDS', self.options.s1_2_2_horizDividStatus);
+                params.set('hDS1_2_2', self.scene.getObjectByName( "horizontalDividerSection1_2_2", true ).position.y ); 
+                params.set("s1_SUD2", self.options.section1_currentStateDivider2); 
+                params.set("ovHHP_S1_2_2", parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_2_2', self.options.sectionHeight_1_2_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2_3")) {
+                params.set('RCS1_2_3_pY', self.scene.getObjectByName( "RayCastRecieverSection1_2_3").position.y ); 
+                params.set('WRS1_2_3_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2_3").position.y) ); 
+                params.set('s1_2_3_hDS', self.options.s1_2_3_horizDividStatus);
+                params.set('hDS1_2_3', self.scene.getObjectByName( "horizontalDividerSection1_2_3", true ).position.y ); 
+                params.set("s1_SUD2", self.options.section1_currentStateDivider2); 
+                params.set("ovHHP_S1_2_3", parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_2_3', self.options.sectionHeight_1_2_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2_4")) {
+                params.set('RCS1_2_4_pY', self.scene.getObjectByName( "RayCastRecieverSection1_2_4").position.y ); 
+                params.set('WRS1_2_4_pY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2_4").position.y) ); 
+                params.set('s1_2_4_hDS', self.options.s1_2_4_horizDividStatus);
+                params.set('hDS1_2_4', self.scene.getObjectByName( "horizontalDividerSection1_2_4", true ).position.y ); 
+                params.set("s1_SUD2", self.options.section1_currentStateDivider2); 
+                params.set("ovHHP_S1_2_4", parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S1_2_4', self.options.sectionHeight_1_2_4);
+            }
+
+            //s2 horizontals
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1")) {
+                params.set('RCS2_1_pY', self.scene.getObjectByName( "RayCastRecieverSection2_1").position.y ); 
+                params.set('WRS2_1_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1").position.y) ); 
+                params.set('H_S2_1', self.options.sectionHeight_2_1); 
+                params.set("ovHHP_S2_1", parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) );
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2")) {
+                params.set('RCS2_2_pY', self.scene.getObjectByName( "RayCastRecieverSection2_2").position.y ); 
+                params.set('WRS2_2_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2").position.y) ); 
+                params.set('s2_hDS', self.options.s1_horizDividStatus);
+                params.set('hDS2_1', self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y ); 
+                params.set("s2_SUD", self.options.section2_currentStateUpDivider); 
+                params.set("ovHHP_S2_2", parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_2', self.options.sectionHeight_2_2); 
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1_2")) {
+                params.set('RCS2_1_2_pY', self.scene.getObjectByName( "RayCastRecieverSection2_1_2").position.y ); 
+                params.set('WRS2_1_2_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1_2").position.y) ); 
+                params.set('s2_1_2_hDS', self.options.s2_1_2_horizDividStatus);
+                params.set('hDS2_1_2', self.scene.getObjectByName( "horizontalDividerSection2_1_2", true ).position.y ); 
+                params.set("s2_SUD", self.options.section2_currentStateUpDivider); 
+                params.set("ovHHP_S2_1_2", parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_1_2', self.options.sectionHeight_2_1_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1_3")) {
+                params.set('RCS2_1_3_pY', self.scene.getObjectByName( "RayCastRecieverSection2_1_3").position.y ); 
+                params.set('WRS2_1_3_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1_3").position.y) ); 
+                params.set('s2_1_3_hDS', self.options.s2_1_3_horizDividStatus);
+                params.set('hDS2_1_3', self.scene.getObjectByName( "horizontalDividerSection2_1_3", true ).position.y ); 
+                params.set("s2_SUD", self.options.section2_currentStateUpDivider); 
+                params.set("ovHHP_S2_1_3", parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_1_3', self.options.sectionHeight_2_1_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1_4")) {
+                params.set('RCS2_1_4_pY', self.scene.getObjectByName( "RayCastRecieverSection2_1_4").position.y ); 
+                params.set('WRS2_1_4_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1_4").position.y) ); 
+                params.set('s2_1_4_hDS', self.options.s2_1_4_horizDividStatus);
+                params.set('hDS2_1_4', self.scene.getObjectByName( "horizontalDividerSection2_1_4", true ).position.y ); 
+                params.set("s2_SUD", self.options.section2_currentStateUpDivider); 
+                params.set("ovHHP_S2_1_4", parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_1_4', self.options.sectionHeight_2_1_4);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2_2")) {
+                params.set('RCS2_2_2_pY', self.scene.getObjectByName( "RayCastRecieverSection2_2_2").position.y ); 
+                params.set('WRS2_2_2_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2_2").position.y) ); 
+                params.set('s2_2_2_hDS', self.options.s2_2_2_horizDividStatus);
+                params.set('hDS2_2_2', self.scene.getObjectByName( "horizontalDividerSection2_2_2", true ).position.y ); 
+                params.set("s2_SUD2", self.options.section2_currentStateDivider2); 
+                params.set("ovHHP_S2_2_2", parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_2_2', self.options.sectionHeight_2_2_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2_3")) {
+                params.set('RCS2_2_3_pY', self.scene.getObjectByName( "RayCastRecieverSection2_2_3").position.y ); 
+                params.set('WRS2_2_3_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2_3").position.y) ); 
+                params.set('s2_2_3_hDS', self.options.s2_2_3_horizDividStatus);
+                params.set('hDS2_2_3', self.scene.getObjectByName( "horizontalDividerSection2_2_3", true ).position.y ); 
+                params.set("s2_SUD2", self.options.section2_currentStateDivider2); 
+                params.set("ovHHP_S2_2_3", parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_2_3', self.options.sectionHeight_2_2_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2_4")) {
+                params.set('RCS2_2_4_pY', self.scene.getObjectByName( "RayCastRecieverSection2_2_4").position.y ); 
+                params.set('WRS2_2_4_pY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2_4").position.y) ); 
+                params.set('s2_2_4_hDS', self.options.s2_2_4_horizDividStatus);
+                params.set('hDS2_2_4', self.scene.getObjectByName( "horizontalDividerSection2_2_4", true ).position.y ); 
+                params.set("s2_SUD2", self.options.section2_currentStateDivider2); 
+                params.set("ovHHP_S2_2_4", parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S2_2_4', self.options.sectionHeight_2_2_4);
+            }
+
+            //s3 horizontals
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1")) {
+                params.set('RCS3_1_pY', self.scene.getObjectByName( "RayCastRecieverSection3_1").position.y ); 
+                params.set('WRS3_1_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1").position.y) ); 
+                params.set('H_S3_1', self.options.sectionHeight_3_1); 
+                params.set("ovHHP_S3_1", parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) );
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2")) {
+                params.set('RCS3_2_pY', self.scene.getObjectByName( "RayCastRecieverSection3_2").position.y ); 
+                params.set('WRS3_2_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2").position.y) ); 
+                params.set('s3_hDS', self.options.s3_horizDividStatus);
+                params.set('hDS3_1', self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y ); 
+                params.set("s3_SUD", self.options.section3_currentStateUpDivider); 
+                params.set("ovHHP_S3_2", parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_2', self.options.sectionHeight_3_2); 
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1_2")) {
+                params.set('RCS3_1_2_pY', self.scene.getObjectByName( "RayCastRecieverSection3_1_2").position.y ); 
+                params.set('WRS3_1_2_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1_2").position.y) ); 
+                params.set('s3_1_2_hDS', self.options.s3_1_2_horizDividStatus);
+                params.set('hDS3_1_2', self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ).position.y ); 
+                params.set("s3_SUD", self.options.section3_currentStateUpDivider); 
+                params.set("ovHHP_S3_1_2", parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_1_2', self.options.sectionHeight_3_1_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1_3")) {
+                params.set('RCS3_1_3_pY', self.scene.getObjectByName( "RayCastRecieverSection3_1_3").position.y ); 
+                params.set('WRS3_1_3_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1_3").position.y) ); 
+                params.set('s3_1_3_hDS', self.options.s3_1_3_horizDividStatus);
+                params.set('hDS3_1_3', self.scene.getObjectByName( "horizontalDividerSection3_1_3", true ).position.y ); 
+                params.set("s3_SUD", self.options.section3_currentStateUpDivider); 
+                params.set("ovHHP_S3_1_3", parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_1_3', self.options.sectionHeight_3_1_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1_4")) {
+                params.set('RCS3_1_4_pY', self.scene.getObjectByName( "RayCastRecieverSection3_1_4").position.y ); 
+                params.set('WRS3_1_4_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1_4").position.y) ); 
+                params.set('s3_1_4_hDS', self.options.s3_1_4_horizDividStatus);
+                params.set('hDS3_1_4', self.scene.getObjectByName( "horizontalDividerSection3_1_4", true ).position.y ); 
+                params.set("s3_SUD", self.options.section3_currentStateUpDivider); 
+                params.set("ovHHP_S3_1_4", parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_1_4', self.options.sectionHeight_3_1_4);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2_2")) {
+                params.set('RCS3_2_2_pY', self.scene.getObjectByName( "RayCastRecieverSection3_2_2").position.y ); 
+                params.set('WRS3_2_2_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2_2").position.y) ); 
+                params.set('s3_2_2_hDS', self.options.s3_2_2_horizDividStatus);
+                params.set('hDS3_2_2', self.scene.getObjectByName( "horizontalDividerSection3_2_2", true ).position.y ); 
+                params.set("s3_SUD2", self.options.section3_currentStateDivider2); 
+                params.set("ovHHP_S3_2_2", parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_2_2', self.options.sectionHeight_3_2_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2_3")) {
+                params.set('RCS3_2_3_pY', self.scene.getObjectByName( "RayCastRecieverSection3_2_3").position.y ); 
+                params.set('WRS3_2_3_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2_3").position.y) ); 
+                params.set('s3_2_3_hDS', self.options.s3_2_3_horizDividStatus);
+                params.set('hDS3_2_3', self.scene.getObjectByName( "horizontalDividerSection3_2_3", true ).position.y ); 
+                params.set("s3_SUD2", self.options.section3_currentStateDivider2); 
+                params.set("ovHHP_S3_2_3", parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_2_3', self.options.sectionHeight_3_2_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2_4")) {
+                params.set('RCS3_2_4_pY', self.scene.getObjectByName( "RayCastRecieverSection3_2_4").position.y ); 
+                params.set('WRS3_2_4_pY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2_4").position.y) ); 
+                params.set('s3_2_4_hDS', self.options.s3_2_4_horizDividStatus);
+                params.set('hDS3_2_4', self.scene.getObjectByName( "horizontalDividerSection3_2_4", true ).position.y ); 
+                params.set("s3_SUD2", self.options.section3_currentStateDivider2); 
+                params.set("ovHHP_S3_2_4", parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S3_2_4', self.options.sectionHeight_3_2_4);
+            }              
+            
+            //s4 horizontals
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1")) {
+                params.set('RCS4_1_pY', self.scene.getObjectByName( "RayCastRecieverSection4_1").position.y ); 
+                params.set('WRS4_1_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1").position.y) ); 
+                params.set('H_S4_1', self.options.sectionHeight_4_1); 
+                params.set("ovHHP_S4_1", parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) );
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2")) {
+                params.set('RCS4_2_pY', self.scene.getObjectByName( "RayCastRecieverSection4_2").position.y ); 
+                params.set('WRS4_2_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2").position.y) ); 
+                params.set('s4_hDS', self.options.s4_horizDividStatus);
+                params.set('hDS4_1', self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y ); 
+                params.set("s4_SUD", self.options.section4_currentStateUpDivider); 
+                params.set("ovHHP_S4_2", parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_2', self.options.sectionHeight_4_2); 
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1_2")) {
+                params.set('RCS4_1_2_pY', self.scene.getObjectByName( "RayCastRecieverSection4_1_2").position.y ); 
+                params.set('WRS4_1_2_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1_2").position.y) ); 
+                params.set('s4_1_2_hDS', self.options.s4_1_2_horizDividStatus);
+                params.set('hDS4_1_2', self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ).position.y ); 
+                params.set("s4_SUD", self.options.section4_currentStateUpDivider); 
+                params.set("ovHHP_S4_1_2", parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_1_2', self.options.sectionHeight_3_1_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1_3")) {
+                params.set('RCS4_1_3_pY', self.scene.getObjectByName( "RayCastRecieverSection4_1_3").position.y ); 
+                params.set('WRS4_1_3_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1_3").position.y) ); 
+                params.set('s4_1_3_hDS', self.options.s4_1_3_horizDividStatus);
+                params.set('hDS4_1_3', self.scene.getObjectByName( "horizontalDividerSection4_1_3", true ).position.y ); 
+                params.set("s4_SUD", self.options.section4_currentStateUpDivider); 
+                params.set("ovHHP_S4_1_3", parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_1_3', self.options.sectionHeight_4_1_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1_4")) {
+                params.set('RCS4_1_4_pY', self.scene.getObjectByName( "RayCastRecieverSection4_1_4").position.y ); 
+                params.set('WRS4_1_4_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1_4").position.y) ); 
+                params.set('s4_1_4_hDS', self.options.s4_1_4_horizDividStatus);
+                params.set('hDS4_1_4', self.scene.getObjectByName( "horizontalDividerSection4_1_4", true ).position.y ); 
+                params.set("s4_SUD", self.options.section4_currentStateUpDivider); 
+                params.set("ovHHP_S4_1_4", parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_1_4', self.options.sectionHeight_4_1_4);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2_2")) {
+                params.set('RCS4_2_2_pY', self.scene.getObjectByName( "RayCastRecieverSection4_2_2").position.y ); 
+                params.set('WRS4_2_2_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2_2").position.y) ); 
+                params.set('s4_2_2_hDS', self.options.s4_2_2_horizDividStatus);
+                params.set('hDS4_2_2', self.scene.getObjectByName( "horizontalDividerSection4_2_2", true ).position.y ); 
+                params.set("s4_SUD2", self.options.section4_currentStateDivider2); 
+                params.set("ovHHP_S4_2_2", parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_2_2', self.options.sectionHeight_4_2_2);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2_3")) {
+                params.set('RCS4_2_3_pY', self.scene.getObjectByName( "RayCastRecieverSection4_2_3").position.y ); 
+                params.set('WRS4_2_3_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2_3").position.y) ); 
+                params.set('s4_2_3_hDS', self.options.s4_2_3_horizDividStatus);
+                params.set('hDS4_2_3', self.scene.getObjectByName( "horizontalDividerSection4_2_3", true ).position.y ); 
+                params.set("s4_SUD2", self.options.section4_currentStateDivider2); 
+                params.set("ovHHP_S4_2_3", parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_2_3', self.options.sectionHeight_4_2_3);
+            }
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2_4")) {
+                params.set('RCS4_2_4_pY', self.scene.getObjectByName( "RayCastRecieverSection4_2_4").position.y ); 
+                params.set('WRS4_2_4_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2_4").position.y) ); 
+                params.set('s4_2_4_hDS', self.options.s4_2_4_horizDividStatus);
+                params.set('hDS4_2_4', self.scene.getObjectByName( "horizontalDividerSection4_2_4", true ).position.y ); 
+                params.set("s4_SUD2", self.options.section4_currentStateDivider2); 
+                params.set("ovHHP_S4_2_4", parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                params.set('H_S4_2_4', self.options.sectionHeight_4_2_4);
+            }   
+            
+            
+            //doors
+            params.set("s1_d", self.options.s1_doorStatus);
+            params.set("s1_1_2_d", self.options.s1_1_2_doorStatus);
+            params.set("s1_1_3_d", self.options.s1_1_3_doorStatus);
+            params.set("s1_1_4_d", self.options.s1_1_4_doorStatus);
+            params.set("s1_2_d", self.options.s1_2_doorStatus);
+            params.set("s1_2_2_d", self.options.s1_2_2_doorStatus);
+            params.set("s1_2_3_d", self.options.s1_2_3_doorStatus);
+            params.set("s1_2_4_d", self.options.s1_2_4_doorStatus);
+        
+            params.set("s2_d", self.options.s2_doorStatus);
+            params.set("s2_1_2_d", self.options.s2_1_2_doorStatus);
+            params.set("s2_1_3_d", self.options.s2_1_3_doorStatus);
+            params.set("s2_1_4_d", self.options.s2_1_4_doorStatus);
+            params.set("s2_2_d", self.options.s2_2_doorStatus);
+            params.set("s2_2_2_d", self.options.s2_2_2_doorStatus);
+            params.set("s2_2_3_d", self.options.s2_2_3_doorStatus);
+            params.set("s2_2_4_d", self.options.s2_2_4_doorStatus);
+        
+            params.set("s3_d", self.options.s3_doorStatus);
+            params.set("s3_1_2_d", self.options.s3_1_2_doorStatus);
+            params.set("s3_1_3_d", self.options.s3_1_3_doorStatus);
+            params.set("s3_1_4_d", self.options.s3_1_4_doorStatus);
+            params.set("s3_2_d", self.options.s3_2_doorStatus);
+            params.set("s3_2_2_d", self.options.s3_2_2_doorStatus);
+            params.set("s3_2_3_d", self.options.s3_2_3_doorStatus);
+            params.set("s3_2_4_d", self.options.s3_2_4_doorStatus);
+        
+            params.set("s4_d", self.options.s4_doorStatus);
+            params.set("s4_1_2_d", self.options.s4_1_2_doorStatus);
+            params.set("s4_1_3_d", self.options.s4_1_3_doorStatus);
+            params.set("s4_1_4_d", self.options.s4_1_4_doorStatus);
+            params.set("s4_2_d", self.options.s4_2_doorStatus);
+            params.set("s4_2_2_d", self.options.s4_2_2_doorStatus);
+            params.set("s4_2_3_d", self.options.s4_2_3_doorStatus);
+            params.set("s4_2_4_d", self.options.s4_2_4_doorStatus);            
+
+            //backpalte
+            if (self.scene.getObjectByName('BackPlate') != undefined) {
+                params.set("BP", 1);
+            } else if (self.scene.getObjectByName('BackPlate') == undefined) {
+                params.set("BP", 0);
+            }
+
+            // Update the URL without causing a page refresh
+            window.history.replaceState({}, '', '?' + params.toString());
+        }
+
+        
+        document.getElementById("saveURLButton").addEventListener('click', function() {saveStateToURL()});
+
+        //SAVE & LOAD states
 
         //save state
-
         document.getElementById("Save").addEventListener('click', function() {saveState()});
-        
-        //window.onload(setInterval(saveState(), 10)):
-        
+                
         function saveState() {
     
             window.localStorage.clear();
@@ -28387,13 +30311,28 @@ App.prototype = {
 
 
             //feet
-            
             localStorage.setItem("feet", document.getElementById("typeFeet").value)
 
-            
-            
+                       
             //verticals 
             localStorage.setItem("verticals",  document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value);
+
+            //🍍
+            //catch errors if there is no any pillars after saving 
+            try{   
+                localStorage.setItem("verticals_1_posx", self.scene.getObjectByName( "pillar1", true ).position.x); 
+                localStorage.setItem("section1Length", self.options.section1Length); 
+                localStorage.setItem("section2Length", self.options.section2Length); 
+
+                localStorage.setItem("verticals_2_posx", self.scene.getObjectByName( "pillar2", true ).position.x);
+                localStorage.setItem("section3Length", self.options.section3Length); 
+
+                localStorage.setItem("verticals_3_posx", self.scene.getObjectByName( "pillar3", true ).position.x);
+                localStorage.setItem("section4Length", self.options.section4Length); 
+
+            }catch(e){       
+                console.clear();
+            }; 
 
         
             //colors...saving by themself 
@@ -28404,23 +30343,457 @@ App.prototype = {
 
             //horizontals 
 
-             //🍍
+            //🍍
+            //save position of transparent blocks...
 
-             localStorage.setItem('s1_horizDividStatus', self.options.s1_horizDividStatus);
+            //section 1
+            localStorage.setItem('RayCastRecieverSection1_1_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.y ); 
+                        
+            localStorage.setItem('section1_WireframeMesh1_1_positionY', self.scene.getObjectByName( "section1_WireframeMesh1_1", true ).position.y ); 
+
+            localStorage.setItem("sectionHeight_1_1", self.options.sectionHeight_1_1); 
+
+            localStorage.setItem("options_value_Height_HorizontalPartition_S1_1", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
 
 
-             try{   
- 
-                 localStorage.setItem('horizontalDividerSection1_1', self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y ); 
- 
-                 localStorage.setItem("sectionHeight_1_1", self.options.sectionHeight_1_1); 
- 
-                 localStorage.setItem("sectionHeight_1_2", self.options.sectionHeight_1_2); 
- 
- 
-             }catch(e){       
-                 console.clear();
-             }; 
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2")) {
+                localStorage.setItem('RayCastRecieverSection1_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_2").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_2_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2").position.y) ); 
+
+                localStorage.setItem('s1_horizDividStatus', self.options.s1_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_1', self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateUpDivider", self.options.section1_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_1_2", self.options.sectionHeight_1_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_1_2")) {
+                localStorage.setItem('RayCastRecieverSection1_1_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_1_2").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_1_2_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1_2").position.y) ); 
+
+                localStorage.setItem('s1_1_2_horizDividStatus', self.options.s1_1_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_1_2', self.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateUpDivider", self.options.section1_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_1_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_1_1_2", self.options.sectionHeight_1_1_2); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_1_3")) {
+                localStorage.setItem('RayCastRecieverSection1_1_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_1_3").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_1_3_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1_3").position.y) ); 
+
+                localStorage.setItem('s1_1_3_horizDividStatus', self.options.s1_1_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_1_3', self.scene.getObjectByName( "horizontalDividerSection1_1_3", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateUpDivider", self.options.section1_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_1_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+
+            }
+            localStorage.setItem("sectionHeight_1_1_3", self.options.sectionHeight_1_1_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_1_4")) {
+                localStorage.setItem('RayCastRecieverSection1_1_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_1_4").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_1_4_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_1_4").position.y) ); 
+
+                localStorage.setItem('s1_1_4_horizDividStatus', self.options.s1_1_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_1_4', self.scene.getObjectByName( "horizontalDividerSection1_1_4", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateUpDivider", self.options.section1_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_1_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_1_1_4", self.options.sectionHeight_1_1_4); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2_2")) {
+                localStorage.setItem('RayCastRecieverSection1_2_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_2_2").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_2_2_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2_2").position.y) ); 
+
+                localStorage.setItem('s1_2_2_horizDividStatus', self.options.s1_2_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_2_2', self.scene.getObjectByName( "horizontalDividerSection1_2_2", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateDivider2", self.options.section1_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_2_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_1_2_2", self.options.sectionHeight_1_2_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2_3")) {
+                localStorage.setItem('RayCastRecieverSection1_2_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_2_3").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_2_3_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2_3").position.y) ); 
+
+                localStorage.setItem('s1_2_3_horizDividStatus', self.options.s1_2_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_2_3', self.scene.getObjectByName( "horizontalDividerSection1_2_3", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateDivider2", self.options.section1_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_2_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_1_2_3", self.options.sectionHeight_1_2_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection1_2_4")) {
+                localStorage.setItem('RayCastRecieverSection1_2_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection1_2_4").position.y ); 
+                localStorage.setItem('section1_WireframeMesh1_2_4_positionY', parseInt(self.scene.getObjectByName( "section1_WireframeMesh1_2_4").position.y) ); 
+
+                localStorage.setItem('s1_2_4_horizDividStatus', self.options.s1_2_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection1_2_4', self.scene.getObjectByName( "horizontalDividerSection1_2_4", true ).position.y ); 
+
+                localStorage.setItem("section1_currentStateDivider2", self.options.section1_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S1_2_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_1_2_4", self.options.sectionHeight_1_2_4); 
+
+
+
+            //section 2
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1")) {
+                localStorage.setItem('RayCastRecieverSection2_1_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.y ); 
+                            
+                localStorage.setItem('section2_WireframeMesh2_1_positionY', self.scene.getObjectByName( "section2_WireframeMesh2_1", true ).position.y ); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_1", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+            }
+            localStorage.setItem("sectionHeight_2_1", self.options.sectionHeight_2_1); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2")) {
+                localStorage.setItem('RayCastRecieverSection2_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_2").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_2_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2").position.y) ); 
+
+                localStorage.setItem('s2_horizDividStatus', self.options.s2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_1', self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateUpDivider", self.options.section2_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_2", self.options.sectionHeight_2_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1_2")) {
+                localStorage.setItem('RayCastRecieverSection2_1_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_1_2").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_1_2_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1_2").position.y) ); 
+
+                localStorage.setItem('s2_1_2_horizDividStatus', self.options.s2_1_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_1_2', self.scene.getObjectByName( "horizontalDividerSection2_1_2", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateUpDivider", self.options.section2_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_1_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_1_2", self.options.sectionHeight_2_1_2); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1_3")) {
+                localStorage.setItem('RayCastRecieverSection2_1_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_1_3").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_1_3_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1_3").position.y) ); 
+
+                localStorage.setItem('s2_1_3_horizDividStatus', self.options.s2_1_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_1_3', self.scene.getObjectByName( "horizontalDividerSection2_1_3", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateUpDivider", self.options.section2_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_1_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_1_3", self.options.sectionHeight_2_1_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_1_4")) {
+                localStorage.setItem('RayCastRecieverSection2_1_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_1_4").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_1_4_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_1_4").position.y) ); 
+
+                localStorage.setItem('s2_1_4_horizDividStatus', self.options.s2_1_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_1_4', self.scene.getObjectByName( "horizontalDividerSection2_1_4", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateUpDivider", self.options.section2_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_1_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_1_4", self.options.sectionHeight_2_1_4); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2_2")) {
+                localStorage.setItem('RayCastRecieverSection2_2_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_2_2").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_2_2_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2_2").position.y) ); 
+
+                localStorage.setItem('s2_2_2_horizDividStatus', self.options.s2_2_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_2_2', self.scene.getObjectByName( "horizontalDividerSection2_2_2", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateDivider2", self.options.section2_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_2_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_2_2", self.options.sectionHeight_2_2_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2_3")) {
+                localStorage.setItem('RayCastRecieverSection2_2_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_2_3").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_2_3_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2_3").position.y) ); 
+
+                localStorage.setItem('s2_2_3_horizDividStatus', self.options.s2_2_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_2_3', self.scene.getObjectByName( "horizontalDividerSection2_2_3", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateDivider2", self.options.section2_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_2_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_2_3", self.options.sectionHeight_2_2_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection2_2_4")) {
+                localStorage.setItem('RayCastRecieverSection2_2_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection2_2_4").position.y ); 
+                localStorage.setItem('section2_WireframeMesh2_2_4_positionY', parseInt(self.scene.getObjectByName( "section2_WireframeMesh2_2_4").position.y) ); 
+
+                localStorage.setItem('s2_2_4_horizDividStatus', self.options.s2_2_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection2_2_4', self.scene.getObjectByName( "horizontalDividerSection2_2_4", true ).position.y ); 
+
+                localStorage.setItem("section2_currentStateDivider2", self.options.section2_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S2_2_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_2_2_4", self.options.sectionHeight_2_2_4); 
+
+
+
+            //section 3
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1")) {
+                localStorage.setItem('RayCastRecieverSection3_1_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.y ); 
+                            
+                localStorage.setItem('section3_WireframeMesh3_1_positionY', self.scene.getObjectByName( "section3_WireframeMesh3_1", true ).position.y ); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_1", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_1", self.options.sectionHeight_3_1); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2")) {
+                localStorage.setItem('RayCastRecieverSection3_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_2").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_2_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2").position.y) ); 
+
+                localStorage.setItem('s3_horizDividStatus', self.options.s3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_1', self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateUpDivider", self.options.section3_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_2", self.options.sectionHeight_3_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1_2")) {
+                localStorage.setItem('RayCastRecieverSection3_1_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_1_2").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_1_2_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1_2").position.y) ); 
+
+                localStorage.setItem('s3_1_2_horizDividStatus', self.options.s3_1_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_1_2', self.scene.getObjectByName( "horizontalDividerSection3_1_2", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateUpDivider", self.options.section3_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_1_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_1_2", self.options.sectionHeight_3_1_2); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1_3")) {
+                localStorage.setItem('RayCastRecieverSection3_1_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_1_3").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_1_3_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1_3").position.y) ); 
+
+                localStorage.setItem('s3_1_3_horizDividStatus', self.options.s3_1_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_1_3', self.scene.getObjectByName( "horizontalDividerSection3_1_3", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateUpDivider", self.options.section3_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_1_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_1_3", self.options.sectionHeight_3_1_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_1_4")) {
+                localStorage.setItem('RayCastRecieverSection3_1_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_1_4").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_1_4_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_1_4").position.y) ); 
+
+                localStorage.setItem('s3_1_4_horizDividStatus', self.options.s3_1_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_1_4', self.scene.getObjectByName( "horizontalDividerSection3_1_4", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateUpDivider", self.options.section3_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_1_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_1_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_1_4", self.options.sectionHeight_3_1_4); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2_2")) {
+                localStorage.setItem('RayCastRecieverSection3_2_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_2_2").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_2_2_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2_2").position.y) ); 
+
+                localStorage.setItem('s3_2_2_horizDividStatus', self.options.s3_2_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_2_2', self.scene.getObjectByName( "horizontalDividerSection3_2_2", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateDivider2", self.options.section3_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_2_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_2_2", self.options.sectionHeight_3_2_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2_3")) {
+                localStorage.setItem('RayCastRecieverSection3_2_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_2_3").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_2_3_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2_3").position.y) ); 
+
+                localStorage.setItem('s3_2_3_horizDividStatus', self.options.s3_2_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_2_3', self.scene.getObjectByName( "horizontalDividerSection3_2_3", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateDivider2", self.options.section3_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_2_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_2_3", self.options.sectionHeight_3_2_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection3_2_4")) {
+                localStorage.setItem('RayCastRecieverSection3_2_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection3_2_4").position.y ); 
+                localStorage.setItem('section3_WireframeMesh3_2_4_positionY', parseInt(self.scene.getObjectByName( "section3_WireframeMesh3_2_4").position.y) ); 
+
+                localStorage.setItem('s3_2_4_horizDividStatus', self.options.s3_2_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection3_2_4', self.scene.getObjectByName( "horizontalDividerSection3_2_4", true ).position.y ); 
+
+                localStorage.setItem("section3_currentStateDivider2", self.options.section3_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S3_2_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S3_2_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_3_2_4", self.options.sectionHeight_3_2_4); 
+            
+
+            //section 4
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1")) {
+                localStorage.setItem('RayCastRecieverSection4_1_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.y ); 
+                            
+                localStorage.setItem('section4_WireframeMesh4_1_positionY', self.scene.getObjectByName( "section4_WireframeMesh4_1", true ).position.y ); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_1", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+            }
+
+            localStorage.setItem("sectionHeight_4_1", self.options.sectionHeight_4_1); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2")) {
+                localStorage.setItem('RayCastRecieverSection4_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_2").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_2_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2").position.y) ); 
+
+                localStorage.setItem('s4_horizDividStatus', self.options.s4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_1', self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateUpDivider", self.options.section4_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_2", self.options.sectionHeight_4_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1_2")) {
+                localStorage.setItem('RayCastRecieverSection4_1_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_1_2").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_1_2_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1_2").position.y) ); 
+
+                localStorage.setItem('s4_1_2_horizDividStatus', self.options.s4_1_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_1_2', self.scene.getObjectByName( "horizontalDividerSection4_1_2", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateUpDivider", self.options.section4_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_1_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_1_2", self.options.sectionHeight_4_1_2); 
+
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1_3")) {
+                localStorage.setItem('RayCastRecieverSection4_1_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_1_3").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_1_3_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1_3").position.y) ); 
+
+                localStorage.setItem('s4_1_3_horizDividStatus', self.options.s4_1_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_1_3', self.scene.getObjectByName( "horizontalDividerSection4_1_3", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateUpDivider", self.options.section4_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_1_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_1_3", self.options.sectionHeight_4_1_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_1_4")) {
+                localStorage.setItem('RayCastRecieverSection4_1_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_1_4").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_1_4_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1_4").position.y) ); 
+
+                localStorage.setItem('s4_1_4_horizDividStatus', self.options.s4_1_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_1_4', self.scene.getObjectByName( "horizontalDividerSection4_1_4", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateUpDivider", self.options.section4_currentStateUpDivider); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_1_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_1_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_1_4", self.options.sectionHeight_4_1_4); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2_2")) {
+                localStorage.setItem('RayCastRecieverSection4_2_2_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_2_2").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_2_2_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2_2").position.y) ); 
+
+                localStorage.setItem('s4_2_2_horizDividStatus', self.options.s4_2_2_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_2_2', self.scene.getObjectByName( "horizontalDividerSection4_2_2", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateDivider2", self.options.section4_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_2_2", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_2').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_2_2", self.options.sectionHeight_4_2_2); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2_3")) {
+                localStorage.setItem('RayCastRecieverSection4_2_3_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_2_3").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_2_3_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2_3").position.y) ); 
+
+                localStorage.setItem('s4_2_3_horizDividStatus', self.options.s4_2_3_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_2_3', self.scene.getObjectByName( "horizontalDividerSection4_2_3", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateDivider2", self.options.section4_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_2_3", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_2_3", self.options.sectionHeight_4_2_3); 
+
+            if (self.scene.getObjectByName( "RayCastRecieverSection4_2_4")) {
+                localStorage.setItem('RayCastRecieverSection4_2_4_positionY', self.scene.getObjectByName( "RayCastRecieverSection4_2_4").position.y ); 
+                localStorage.setItem('section4_WireframeMesh4_2_4_positionY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2_4").position.y) ); 
+
+                localStorage.setItem('s4_2_4_horizDividStatus', self.options.s4_2_4_horizDividStatus);
+                localStorage.setItem('horizontalDividerSection4_2_4', self.scene.getObjectByName( "horizontalDividerSection4_2_4", true ).position.y ); 
+
+                localStorage.setItem("section4_currentStateDivider2", self.options.section4_currentStateDivider2); 
+
+                localStorage.setItem("options_value_Height_HorizontalPartition_S4_2_4", Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_2_4').textContent.match(/\d+(\.\d+)?/)[0]) ) +"cm" );
+
+            }
+            localStorage.setItem("sectionHeight_4_2_4", self.options.sectionHeight_4_2_4); 
+
+
         
             localStorage.setItem('s1_horizDividStatus', self.options.s1_horizDividStatus);
             localStorage.setItem('s1_1_2_horizDividStatus', self.options.s1_1_2_horizDividStatus);
@@ -28501,108 +30874,394 @@ App.prototype = {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             //shelving 
 
             //🍍
 
             localStorage.setItem("s1_internlShelvinStatus", self.options.s1_internlShelvinStatus);
-            localStorage.setItem("s1_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect1_1").value, 10));
+            localStorage.setItem("s1_internlShelvinAmount",  document.getElementById("internalShelving_sect1_1").value);
 
+            var heigh1Shelf1_1 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection1_1; i++) {
+
+               // console.log('759test '+self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y);
+               heigh1Shelf1_1[i] = self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y
+
+                try {
+                    //console.log("3422 shelf pos: "+self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y);
+                    localStorage.setItem("heigh1Shelf1_0", self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf1_1", self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y );
+
+                    heigh1Shelf1_1[i] = self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf1_1_String = JSON.stringify(heigh1Shelf1_1);
+            localStorage.setItem('internalShelf_1_1_Arr',  heigh1Shelf1_1_String);
+
+
+        
             localStorage.setItem("s1_2_internlShelvinStatus", self.options.s1_2_internlShelvinStatus);
-            localStorage.setItem("s1_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect1_2").value, 10));
+            localStorage.setItem("s1_2_internlShelvinAmount",  document.getElementById("internalShelving_sect1_2").value);
+    
+            var heigh1Shelf1_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection1_2; i++) {
+
+               heigh1Shelf1_2[i] = self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf1_2_0", self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf1_2_1", self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf1_2[i] = self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf1_2_String = JSON.stringify(heigh1Shelf1_2);
+            localStorage.setItem('internalShelf_1_2_Arr',  heigh1Shelf1_2_String);
+
 
             localStorage.setItem("s1_1_2_internlShelvinStatus", self.options.s1_1_2_internlShelvinStatus);
-            localStorage.setItem("s1_1_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect1_1_2").value, 10));
+            localStorage.setItem("s1_1_2_internlShelvinAmount",  document.getElementById("internalShelving_sect1_1_2").value);
+    
+            var heigh1Shelf1_1_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection1_1_2; i++) {
+
+               heigh1Shelf1_1_2[i] = self.scene.getObjectByName('internalShelf_1_1_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf1_1_2_0", self.scene.getObjectByName('internalShelf_1_1_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf1_1_2_1", self.scene.getObjectByName('internalShelf_1_1_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf1_1_2[i] = self.scene.getObjectByName('internalShelf_1_1_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf1_1_2_String = JSON.stringify(heigh1Shelf1_1_2);
+            localStorage.setItem('internalShelf_1_1_2_Arr',  heigh1Shelf1_1_2_String);
+
 
             localStorage.setItem("s1_2_2_internlShelvinStatus", self.options.s1_2_2_internlShelvinStatus);
-            localStorage.setItem("s1_2_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect1_2_2").value, 10));
+            localStorage.setItem("s1_2_2_internlShelvinAmount",  document.getElementById("internalShelving_sect1_2_2").value);
+    
+            var heigh1Shelf1_2_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection1_2_2; i++) {
 
+               heigh1Shelf1_2_2[i] = self.scene.getObjectByName('internalShelf_1_2_2_'+'shelf'+i).position.y
 
+                try {
+                    localStorage.setItem("heigh1Shelf1_2_2_0", self.scene.getObjectByName('internalShelf_1_2_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf1_2_2_1", self.scene.getObjectByName('internalShelf_1_2_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf1_1_2[i] = self.scene.getObjectByName('internalShelf_1_2_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf1_2_2_String = JSON.stringify(heigh1Shelf1_2_2);
+            localStorage.setItem('internalShelf_1_2_2_Arr',  heigh1Shelf1_2_2_String);
+
+            
+            //section2
             localStorage.setItem("s2_internlShelvinStatus", self.options.s2_internlShelvinStatus);
-            localStorage.setItem("s2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect2_1").value, 10));
+            localStorage.setItem("s2_internlShelvinAmount",  document.getElementById("internalShelving_sect2_1").value);
+
+            var heigh1Shelf2_1 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection2_1; i++) {
+
+               heigh1Shelf2_1[i] = self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf2_0", self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf2_1", self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y );
+
+                    heigh1Shelf2_1[i] = self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf2_1_String = JSON.stringify(heigh1Shelf2_1);
+            localStorage.setItem('internalShelf_2_1_Arr',  heigh1Shelf2_1_String);
+
 
             localStorage.setItem("s2_2_internlShelvinStatus", self.options.s2_2_internlShelvinStatus);
-            localStorage.setItem("s2_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect2_2").value, 10));
+            localStorage.setItem("s2_2_internlShelvinAmount",  document.getElementById("internalShelving_sect2_2").value);
+    
+            var heigh1Shelf2_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection2_2; i++) {
+
+               heigh1Shelf2_2[i] = self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf2_2_0", self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf2_2_1", self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf2_2[i] = self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf2_2_String = JSON.stringify(heigh1Shelf2_2);
+            localStorage.setItem('internalShelf_2_2_Arr',  heigh1Shelf2_2_String);
+
 
             localStorage.setItem("s2_1_2_internlShelvinStatus", self.options.s2_1_2_internlShelvinStatus);
-            localStorage.setItem("s2_1_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect2_1_2").value, 10));
+            localStorage.setItem("s2_1_2_internlShelvinAmount",  document.getElementById("internalShelving_sect2_1_2").value);
+    
+            var heigh1Shelf2_1_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection2_1_2; i++) {
+
+               heigh1Shelf2_1_2[i] = self.scene.getObjectByName('internalShelf_2_1_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf2_1_2_0", self.scene.getObjectByName('internalShelf_2_1_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf2_1_2_1", self.scene.getObjectByName('internalShelf_2_1_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf2_1_2[i] = self.scene.getObjectByName('internalShelf_2_1_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf2_1_2_String = JSON.stringify(heigh1Shelf2_1_2);
+            localStorage.setItem('internalShelf_2_1_2_Arr',  heigh1Shelf2_1_2_String);
+
 
             localStorage.setItem("s2_2_2_internlShelvinStatus", self.options.s2_2_2_internlShelvinStatus);
-            localStorage.setItem("s2_2_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect2_2_2").value, 10));
+            localStorage.setItem("s2_2_2_internlShelvinAmount",  document.getElementById("internalShelving_sect2_2_2").value);
+    
+            var heigh1Shelf2_2_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection2_2_2; i++) {
+
+               heigh1Shelf2_2_2[i] = self.scene.getObjectByName('internalShelf_2_2_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf2_2_2_0", self.scene.getObjectByName('internalShelf_2_2_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf2_2_2_1", self.scene.getObjectByName('internalShelf_2_2_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf2_2_2[i] = self.scene.getObjectByName('internalShelf_2_2_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf2_2_2_String = JSON.stringify(heigh1Shelf2_2_2);
+            localStorage.setItem('internalShelf_2_2_2_Arr',  heigh1Shelf2_2_2_String);
 
 
 
+
+            //section3
             localStorage.setItem("s3_internlShelvinStatus", self.options.s3_internlShelvinStatus);
-            localStorage.setItem("s3_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect3_1").value, 10));
+            localStorage.setItem("s3_internlShelvinAmount",  document.getElementById("internalShelving_sect3_1").value);
+
+            var heigh1Shelf3_1 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection3_1; i++) {
+
+               heigh1Shelf3_1[i] = self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf3_0", self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf3_1", self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y );
+
+                    heigh1Shelf3_1[i] = self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf3_1_String = JSON.stringify(heigh1Shelf3_1);
+            localStorage.setItem('internalShelf_3_1_Arr',  heigh1Shelf3_1_String);
+
 
             localStorage.setItem("s3_2_internlShelvinStatus", self.options.s3_2_internlShelvinStatus);
-            localStorage.setItem("s3_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect3_2").value, 10));
+            localStorage.setItem("s3_2_internlShelvinAmount",  document.getElementById("internalShelving_sect3_2").value);
+    
+            var heigh1Shelf3_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection3_2; i++) {
+
+               heigh1Shelf3_2[i] = self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf3_2_0", self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf3_2_1", self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf3_2[i] = self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf3_2_String = JSON.stringify(heigh1Shelf3_2);
+            localStorage.setItem('internalShelf_3_2_Arr',  heigh1Shelf3_2_String);
+
 
             localStorage.setItem("s3_1_2_internlShelvinStatus", self.options.s3_1_2_internlShelvinStatus);
-            localStorage.setItem("s3_1_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect3_1_2").value, 10));
+            localStorage.setItem("s3_1_2_internlShelvinAmount",  document.getElementById("internalShelving_sect3_1_2").value);
+    
+            var heigh1Shelf3_1_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection3_1_2; i++) {
+
+               heigh1Shelf3_1_2[i] = self.scene.getObjectByName('internalShelf_3_1_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf3_1_2_0", self.scene.getObjectByName('internalShelf_3_1_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf3_1_2_1", self.scene.getObjectByName('internalShelf_3_1_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf3_1_2[i] = self.scene.getObjectByName('internalShelf_3_1_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf3_1_2_String = JSON.stringify(heigh1Shelf3_1_2);
+            localStorage.setItem('internalShelf_3_1_2_Arr',  heigh1Shelf3_1_2_String);
+
 
             localStorage.setItem("s3_2_2_internlShelvinStatus", self.options.s3_2_2_internlShelvinStatus);
-            localStorage.setItem("s3_2_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect3_2_2").value, 10));
+            localStorage.setItem("s3_2_2_internlShelvinAmount",  document.getElementById("internalShelving_sect3_2_2").value);
+    
+            var heigh1Shelf3_2_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection3_2_2; i++) {
+
+               heigh1Shelf3_2_2[i] = self.scene.getObjectByName('internalShelf_3_2_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf3_2_2_0", self.scene.getObjectByName('internalShelf_3_2_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf3_2_2_1", self.scene.getObjectByName('internalShelf_3_2_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf3_2_2[i] = self.scene.getObjectByName('internalShelf_3_2_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf3_2_2_String = JSON.stringify(heigh1Shelf3_2_2);
+            localStorage.setItem('internalShelf_3_2_2_Arr',  heigh1Shelf3_2_2_String);
 
 
 
 
+            //section4
             localStorage.setItem("s4_internlShelvinStatus", self.options.s4_internlShelvinStatus);
-            localStorage.setItem("s4_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect4_1").value, 10));
+            localStorage.setItem("s4_internlShelvinAmount",  document.getElementById("internalShelving_sect4_1").value);
+
+            var heigh1Shelf4_1 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection4_1; i++) {
+
+               heigh1Shelf4_1[i] = self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf4_0", self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf4_1", self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y );
+
+                    heigh1Shelf4_1[i] = self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf4_1_String = JSON.stringify(heigh1Shelf4_1);
+            localStorage.setItem('internalShelf_4_1_Arr',  heigh1Shelf4_1_String);
+
 
             localStorage.setItem("s4_2_internlShelvinStatus", self.options.s4_2_internlShelvinStatus);
-            localStorage.setItem("s4_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect4_2").value, 10));
+            localStorage.setItem("s4_2_internlShelvinAmount",  document.getElementById("internalShelving_sect4_2").value);
+    
+            var heigh1Shelf4_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection4_2; i++) {
+
+               heigh1Shelf4_2[i] = self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf4_2_0", self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf4_2_1", self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf4_2[i] = self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf4_2_String = JSON.stringify(heigh1Shelf4_2);
+            localStorage.setItem('internalShelf_4_2_Arr',  heigh1Shelf4_2_String);
+
 
             localStorage.setItem("s4_1_2_internlShelvinStatus", self.options.s4_1_2_internlShelvinStatus);
-            localStorage.setItem("s4_1_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect4_1_2").value, 10));
+            localStorage.setItem("s4_1_2_internlShelvinAmount",  document.getElementById("internalShelving_sect4_1_2").value);
+    
+            var heigh1Shelf4_1_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection4_1_2; i++) {
+
+               heigh1Shelf4_1_2[i] = self.scene.getObjectByName('internalShelf_4_1_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf4_1_2_0", self.scene.getObjectByName('internalShelf_4_1_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf4_1_2_1", self.scene.getObjectByName('internalShelf_4_1_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf4_1_2[i] = self.scene.getObjectByName('internalShelf_4_1_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf4_1_2_String = JSON.stringify(heigh1Shelf4_1_2);
+            localStorage.setItem('internalShelf_4_1_2_Arr',  heigh1Shelf4_1_2_String);
+
 
             localStorage.setItem("s4_2_2_internlShelvinStatus", self.options.s4_2_2_internlShelvinStatus);
-            localStorage.setItem("s4_2_2_internlShelvinAmount",  parseInt(document.getElementById("internalShelving_sect4_2_2").value, 10));
+            localStorage.setItem("s4_2_2_internlShelvinAmount",  document.getElementById("internalShelving_sect4_2_2").value);
+    
+            var heigh1Shelf4_2_2 = [];
+            for (let i = 1; i <= self.options.shelvesCounterSection4_2_2; i++) {
+
+               heigh1Shelf4_2_2[i] = self.scene.getObjectByName('internalShelf_4_2_2_'+'shelf'+i).position.y
+
+                try {
+                    localStorage.setItem("heigh1Shelf4_2_2_0", self.scene.getObjectByName('internalShelf_4_2_2_'+'shelf'+0).position.y );
+
+                    localStorage.setItem("heigh1Shelf4_2_2_1", self.scene.getObjectByName('internalShelf_4_2_2_'+'shelf'+1).position.y );
+
+                    heigh1Shelf4_2_2[i] = self.scene.getObjectByName('internalShelf_4_2_2_'+'shelf'+i).position.y
+
+                } catch(e){}
+                
+            }
+            var heigh1Shelf4_2_2_String = JSON.stringify(heigh1Shelf4_2_2);
+            localStorage.setItem('internalShelf_4_2_2_Arr',  heigh1Shelf4_2_2_String);
+
 
 
 
             //backpalte
-
-            console.log(self.scene.getObjectByName('BackPlate'));
-
-            console.log('current configuration was saved to the localstorage');
-
-
             if (self.scene.getObjectByName('BackPlate') != undefined) {
-                console.log('its here');
                 localStorage.setItem("statusHideBackPlate", 1);
             } else if (self.scene.getObjectByName('BackPlate') == undefined) {
-                console.log('no backplate');
                 localStorage.setItem("statusHideBackPlate", 0);
             }
 
-
+            console.log(localStorage.getItem("options_value_Height_HorizontalPartition_S1_1"));
+            console.log('current configuration was saved to the localstorage');
             document.getElementById("HintPanel").innerHTML = "Saved 💾";
 
-};
+        };
 
    
         //load state
         window.onload = function(){
-        
 
-            /* function foo() {
-                saveState();
-            }
-            setInterval(foo, 100000); */
-
+            setTimeout(function() {
+                loadStateFromURL()
+            }, 1000);
 
             if (localStorage.getItem('wasItUsedOrNo')) {
 
@@ -28611,8 +31270,6 @@ App.prototype = {
                     console.debug('user saved preset used');
 
                     //restore w/h/d
-
-
                     document.getElementById("subdomainWidthCabinet_Dimensions").value = localStorage.getItem("options_shelf_length");
                     changeWidth();
 
@@ -28623,16 +31280,12 @@ App.prototype = {
                     changeDepth();
 
                     //restore legs
-
                     document.getElementById("typeFeet").value = localStorage.getItem('feet')
-
                     changeLegs();
 
                     
                     //restore colors
-
                     setUpStartColors(); 
-
 
 
                     //restore verticals
@@ -28641,265 +31294,543 @@ App.prototype = {
                     self.startVerticals();
 
 
-
-
-
-
                     //horizontals                  
                     //s1
                     //#region
-                    //🍍
                     if (localStorage.getItem("s1_horizDividStatus") == 1) {
 
                         document.getElementById("HorizontalPartition_S1_1").checked = true;
-                        
-                
-
-                       self.options.sectionHeight_1_1 = localStorage.getItem("sectionHeight_1_1");
-                       self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2");
-
-                       createHorizontalPartition_S1_1()
+                         
+                        self.options.section1_currentStateUpDivider = localStorage.getItem("section1_currentStateUpDivider"); 
+                        self.options.section1_currentStateDivider2 = localStorage.getItem("section1_currentStateDivider2"); 
 
                         
-                        try{   
-                            self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y = localStorage.getItem("horizontalDividerSection1_1")
+                        switch(localStorage.getItem("section1_currentStateUpDivider")){
+                            case '1':    
+                                if ( localStorage.getItem("s1_horizDividStatus") == 1 ) {
+        
+                                    self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2")
+                                    self.options.sectionHeight_1_1 = localStorage.getItem("sectionHeight_1_1")
+
+                                    createHorizontalPartition_S1_1('savedCorrection')
+        
+                                } else {};
+                            break;
+                            case '2':
+                                if ( localStorage.getItem("s1_1_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S1_1_2").checked = true;
+
+                                    self.options.sectionHeight_1_1 = localStorage.getItem("sectionHeight_1_1")
+                                    self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2")
+                                    self.options.sectionHeight_1_1_2 = localStorage.getItem("sectionHeight_1_1_2")
+
+                                    createHorizontalPartition_S1_1('savedCorrection')
+                                    createHorizontalPartition_S1_1_2('savedCorrection')
+
             
-                        }catch(e){       
-                            console.clear();
-                        }; 
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s1_1_3_horizDividStatus") == 1 ) {
 
-     
+                                    document.getElementById("HorizontalPartition_S1_1_3").checked = true;
+            
+                                    self.options.sectionHeight_1_1 = localStorage.getItem("sectionHeight_1_1")
+                                    self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2")
+                                    self.options.sectionHeight_1_1_2 = localStorage.getItem("sectionHeight_1_1_2")
+                                    self.options.sectionHeight_1_1_3 = localStorage.getItem("sectionHeight_1_1_3")
 
-                        //self.createWireframeBack_section1_1();
-                        //self.createRayCastRecieverSection1_1();
+                                    createHorizontalPartition_S1_1('savedCorrection')
+                                    createHorizontalPartition_S1_1_2('savedCorrection')
+                                    createHorizontalPartition_S1_1_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s1_1_4_horizDividStatus") == 1 ) {
 
-                        //self.createWireframeBack_section1_2();
-                        //self.createRayCastRecieverSection1_2(); 
+                                    document.getElementById("HorizontalPartition_S1_1_4").checked = true;
 
+                                    self.options.sectionHeight_1_1_2 = localStorage.getItem("sectionHeight_1_1_2")
+                                    self.options.sectionHeight_1_1_4 = localStorage.getItem("sectionHeight_1_1_4")
 
-                        
-                        /* 
-                        self.createWireframeBack_section1_1();
-                        self.createRayCastRecieverSection1_1(); */
+                                    createHorizontalPartition_S1_1('savedCorrection')
+                                    createHorizontalPartition_S1_1_2('savedCorrection')
+                                    createHorizontalPartition_S1_1_4('savedCorrection')
 
-                       // self.createWireframeBack_section1_1_2();
-                       // self.createRayCastRecieverSection1_1_2();
+                                    if ( localStorage.getItem("s1_1_3_horizDividStatus") == 1 ) {
 
-                        
-                    } else {}
+                                        document.getElementById("HorizontalPartition_S1_1_3").checked = true;
+                
+                                        self.options.sectionHeight_1_1_3 = localStorage.getItem("sectionHeight_1_1_3")
 
+                                        createHorizontalPartition_S1_1_3('savedCorrection')
+                
+                                    } else {};
 
-                    //... 
+            
+                                } else {};
+                            break;
+                        }
 
+                        switch(localStorage.getItem("section1_currentStateDivider2")){
+                            case '2':
+                                if ( localStorage.getItem("s1_2_2_horizDividStatus") == 1 ) {
 
-                    if (localStorage.getItem("s1_1_2_horizDividStatus") == 1) {
+                                    document.getElementById("HorizontalPartition_S1_2_2").checked = true;
 
-                        document.getElementById("HorizontalPartition_S1_1_2").checked = true;
-                        createHorizontalPartition_S1_1_2();
-                        
-                    } else {}
+                                    self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2")
+                                    self.options.sectionHeight_1_2_2 = localStorage.getItem("sectionHeight_1_2_2")
 
-                    if (localStorage.getItem("s1_1_3_horizDividStatus") == 1) {
+                                    createHorizontalPartition_S1_2_2('savedCorrection')
 
-                        document.getElementById("HorizontalPartition_S1_1_3").checked = true;
-                        createHorizontalPartition_S1_1_3();
-                        
-                    } else {}
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s1_2_3_horizDividStatus") == 1 ) {
 
-                    if (localStorage.getItem("s1_1_4_horizDividStatus") == 1) {
+                                    document.getElementById("HorizontalPartition_S1_2_3").checked = true;
+            
+                                    self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2")
+                                    self.options.sectionHeight_1_2_2 = localStorage.getItem("sectionHeight_1_2_2")
+                                    self.options.sectionHeight_1_2_3 = localStorage.getItem("sectionHeight_1_2_3")
 
-                        document.getElementById("HorizontalPartition_S1_1_4").checked = true;
-                        createHorizontalPartition_S1_1_4();
-                        
-                    } else {}
+                                    createHorizontalPartition_S1_2_2('savedCorrection')
+                                    createHorizontalPartition_S1_2_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s1_2_4_horizDividStatus") == 1 ) {
+            
+                                    document.getElementById("HorizontalPartition_S1_2_4").checked = true;
 
+                                    self.options.sectionHeight_1_2 = localStorage.getItem("sectionHeight_1_2")
+                                    self.options.sectionHeight_1_2_2 = localStorage.getItem("sectionHeight_1_2_2")
+                                    self.options.sectionHeight_1_2_4 = localStorage.getItem("sectionHeight_1_2_4")
 
-                    if (localStorage.getItem("s1_2_2_horizDividStatus") == 1) {
+                                    createHorizontalPartition_S1_2_2('savedCorrection')
+                                    createHorizontalPartition_S1_2_4('savedCorrection')
 
-                        document.getElementById("HorizontalPartition_S1_2_2").checked = true;
-                        createHorizontalPartition_S1_2_2();
-                        
-                    } else {}
+                                    if ( localStorage.getItem("s1_2_3_horizDividStatus") == 1 ) {
 
-                    if (localStorage.getItem("s1_2_3_horizDividStatus") == 1) {
+                                        document.getElementById("HorizontalPartition_S1_2_3").checked = true;
+                
+                                        self.options.sectionHeight_1_2_3 = localStorage.getItem("sectionHeight_1_2_3")
 
-                        document.getElementById("HorizontalPartition_S1_2_3").checked = true;
-                        createHorizontalPartition_S1_2_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s1_2_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S1_2_4").checked = true;
-                        createHorizontalPartition_S1_2_4();
-                        
-                    } else {}
-
+                                        createHorizontalPartition_S1_2_3('savedCorrection')
+                
+                                    } else {};
+            
+                                } else {};
+                            break;
+                        }
+                           
+                    } else {} 
+                    
 
                     //s2
                     if (localStorage.getItem("s2_horizDividStatus") == 1) {
 
                         document.getElementById("HorizontalPartition_S2_1").checked = true;
-                        createHorizontalPartition_S2_1();
-                        
+                         
+                        self.options.section2_currentStateUpDivider = localStorage.getItem("section2_currentStateUpDivider"); 
+
+                        switch(localStorage.getItem("section2_currentStateUpDivider")){
+                            case '1':    
+                                if ( localStorage.getItem("s2_horizDividStatus") == 1 ) {
+        
+                                    self.options.sectionHeight_2_2 = localStorage.getItem("sectionHeight_2_2")
+                                    self.options.sectionHeight_2_1 = localStorage.getItem("sectionHeight_2_1")
+
+                                    createHorizontalPartition_S2_1('savedCorrection')
+        
+                                } else {};
+                            break;
+                            case '2':
+                                if ( localStorage.getItem("s2_1_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S2_1_2").checked = true;
+
+                                    self.options.sectionHeight_2_1 = localStorage.getItem("sectionHeight_2_1")
+                                    self.options.sectionHeight_2_2 = localStorage.getItem("sectionHeight_2_2")
+                                    self.options.sectionHeight_2_1_2 = localStorage.getItem("sectionHeight_2_1_2")
+
+                                    createHorizontalPartition_S2_1('savedCorrection')
+                                    createHorizontalPartition_S2_1_2('savedCorrection')
+
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s2_1_3_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S2_1_3").checked = true;
+            
+                                    self.options.sectionHeight_2_1 = localStorage.getItem("sectionHeight_2_1")
+                                    self.options.sectionHeight_2_2 = localStorage.getItem("sectionHeight_2_2")
+                                    self.options.sectionHeight_2_1_2 = localStorage.getItem("sectionHeight_2_1_2")
+                                    self.options.sectionHeight_2_1_3 = localStorage.getItem("sectionHeight_2_1_3")
+
+                                    createHorizontalPartition_S2_1('savedCorrection')
+                                    createHorizontalPartition_S2_1_2('savedCorrection')
+                                    createHorizontalPartition_S2_1_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s2_1_4_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S2_1_4").checked = true;
+
+                                    self.options.sectionHeight_2_1_2 = localStorage.getItem("sectionHeight_2_1_2")
+                                    self.options.sectionHeight_2_1_4 = localStorage.getItem("sectionHeight_2_1_4")
+
+                                    createHorizontalPartition_S2_1('savedCorrection')
+                                    createHorizontalPartition_S2_1_2('savedCorrection')
+                                    createHorizontalPartition_S2_1_4('savedCorrection')
+
+                                    if ( localStorage.getItem("s2_1_3_horizDividStatus") == 1 ) {
+
+                                        document.getElementById("HorizontalPartition_S2_1_3").checked = true;
+                
+                                        self.options.sectionHeight_2_1_3 = localStorage.getItem("sectionHeight_2_1_3")
+
+                                        createHorizontalPartition_S2_1_3('savedCorrection')
+                
+                                    } else {};
+
+            
+                                } else {};
+                            break;
+                        }
+
+                        switch(localStorage.getItem("section2_currentStateDivider2")){
+                            case '2':
+                                if ( localStorage.getItem("s2_2_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S2_2_2").checked = true;
+
+                                    self.options.sectionHeight_2_2 = localStorage.getItem("sectionHeight_2_2")
+                                    self.options.sectionHeight_2_2_2 = localStorage.getItem("sectionHeight_2_2_2")
+
+                                    createHorizontalPartition_S2_2_2('savedCorrection')
+
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s2_2_3_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S2_2_3").checked = true;
+            
+                                    self.options.sectionHeight_2_2 = localStorage.getItem("sectionHeight_2_2")
+                                    self.options.sectionHeight_2_2_2 = localStorage.getItem("sectionHeight_2_2_2")
+                                    self.options.sectionHeight_2_2_3 = localStorage.getItem("sectionHeight_2_2_3")
+
+                                    createHorizontalPartition_S2_2_2('savedCorrection')
+                                    createHorizontalPartition_S2_2_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s2_2_4_horizDividStatus") == 1 ) {
+            
+                                    document.getElementById("HorizontalPartition_S2_2_4").checked = true;
+
+                                    self.options.sectionHeight_2_2 = localStorage.getItem("sectionHeight_2_2")
+                                    self.options.sectionHeight_2_2_2 = localStorage.getItem("sectionHeight_2_2_2")
+                                    self.options.sectionHeight_2_2_4 = localStorage.getItem("sectionHeight_2_2_4")
+
+                                    createHorizontalPartition_S2_2_2('savedCorrection')
+                                    createHorizontalPartition_S2_2_4('savedCorrection')
+
+                                    if ( localStorage.getItem("s2_2_3_horizDividStatus") == 1 ) {
+
+                                        document.getElementById("HorizontalPartition_S2_2_3").checked = true;
+                
+                                        self.options.sectionHeight_2_2_3 = localStorage.getItem("sectionHeight_2_2_3")
+
+                                        createHorizontalPartition_S2_2_3('savedCorrection')
+                
+                                    } else {};
+            
+                                } else {};
+                            break;
+                        }
+                           
                     } else {}
-
-                    if (localStorage.getItem("s2_1_2_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S2_1_2").checked = true;
-                        createHorizontalPartition_S2_1_2();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s2_1_3_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S2_1_3").checked = true;
-                        createHorizontalPartition_S2_1_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s2_1_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S2_1_4").checked = true;
-                        createHorizontalPartition_S2_1_4();
-                        
-                    } else {}
-
-
-                    if (localStorage.getItem("s2_2_2_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S2_2_2").checked = true;
-                        createHorizontalPartition_S2_2_2();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s2_2_3_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S2_2_3").checked = true;
-                        createHorizontalPartition_S2_2_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s2_2_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S2_2_4").checked = true;
-                        createHorizontalPartition_S2_2_4();
-                        
-                    } else {}
-
-
 
 
                     //s3
                     if (localStorage.getItem("s3_horizDividStatus") == 1) {
 
                         document.getElementById("HorizontalPartition_S3_1").checked = true;
-                        createHorizontalPartition_S3_1();
-                        
+                         
+                        self.options.section3_currentStateUpDivider = localStorage.getItem("section3_currentStateUpDivider"); 
+
+                        switch(localStorage.getItem("section3_currentStateUpDivider")){
+                            case '1':    
+                                if ( localStorage.getItem("s3_horizDividStatus") == 1 ) {
+        
+                                    self.options.sectionHeight_3_2 = localStorage.getItem("sectionHeight_3_2")
+                                    self.options.sectionHeight_3_1 = localStorage.getItem("sectionHeight_3_1")
+
+                                    createHorizontalPartition_S3_1('savedCorrection')
+        
+                                } else {};
+                            break;
+                            case '2':
+                                if ( localStorage.getItem("s3_1_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S3_1_2").checked = true;
+
+                                    self.options.sectionHeight_3_1 = localStorage.getItem("sectionHeight_3_1")
+                                    self.options.sectionHeight_3_2 = localStorage.getItem("sectionHeight_3_2")
+                                    self.options.sectionHeight_3_1_2 = localStorage.getItem("sectionHeight_3_1_2")
+
+                                    createHorizontalPartition_S3_1('savedCorrection')
+                                    createHorizontalPartition_S3_1_2('savedCorrection')
+
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s3_1_3_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S3_1_3").checked = true;
+            
+                                    self.options.sectionHeight_3_1 = localStorage.getItem("sectionHeight_3_1")
+                                    self.options.sectionHeight_3_2 = localStorage.getItem("sectionHeight_3_2")
+                                    self.options.sectionHeight_3_1_2 = localStorage.getItem("sectionHeight_3_1_2")
+                                    self.options.sectionHeight_3_1_3 = localStorage.getItem("sectionHeight_3_1_3")
+
+                                    createHorizontalPartition_S3_1('savedCorrection')
+                                    createHorizontalPartition_S3_1_2('savedCorrection')
+                                    createHorizontalPartition_S3_1_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s3_1_4_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S3_1_4").checked = true;
+
+                                    self.options.sectionHeight_3_1_2 = localStorage.getItem("sectionHeight_3_1_2")
+                                    self.options.sectionHeight_3_1_4 = localStorage.getItem("sectionHeight_3_1_4")
+
+                                    createHorizontalPartition_S3_1('savedCorrection')
+                                    createHorizontalPartition_S3_1_2('savedCorrection')
+                                    createHorizontalPartition_S3_1_4('savedCorrection')
+
+                                    if ( localStorage.getItem("s3_1_3_horizDividStatus") == 1 ) {
+
+                                        document.getElementById("HorizontalPartition_S3_1_3").checked = true;
+                
+                                        self.options.sectionHeight_3_1_3 = localStorage.getItem("sectionHeight_3_1_3")
+
+                                        createHorizontalPartition_S3_1_3('savedCorrection')
+                
+                                    } else {};
+
+            
+                                } else {};
+                            break;
+                        }
+
+                        switch(localStorage.getItem("section3_currentStateDivider2")){
+                            case '2':
+                                if ( localStorage.getItem("s3_2_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S3_2_2").checked = true;
+
+                                    self.options.sectionHeight_3_2 = localStorage.getItem("sectionHeight_3_2")
+                                    self.options.sectionHeight_3_2_2 = localStorage.getItem("sectionHeight_3_2_2")
+
+                                    createHorizontalPartition_S3_2_2('savedCorrection')
+
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s3_2_3_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S3_2_3").checked = true;
+            
+                                    self.options.sectionHeight_3_2 = localStorage.getItem("sectionHeight_3_2")
+                                    self.options.sectionHeight_3_2_2 = localStorage.getItem("sectionHeight_3_2_2")
+                                    self.options.sectionHeight_3_2_3 = localStorage.getItem("sectionHeight_3_2_3")
+
+                                    createHorizontalPartition_S3_2_2('savedCorrection')
+                                    createHorizontalPartition_S3_2_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s2_2_4_horizDividStatus") == 1 ) {
+            
+                                    document.getElementById("HorizontalPartition_S2_2_4").checked = true;
+
+                                    self.options.sectionHeight_3_2 = localStorage.getItem("sectionHeight_3_2")
+                                    self.options.sectionHeight_3_2_2 = localStorage.getItem("sectionHeight_3_2_2")
+                                    self.options.sectionHeight_3_2_4 = localStorage.getItem("sectionHeight_3_2_4")
+
+                                    createHorizontalPartition_S3_2_2('savedCorrection')
+                                    createHorizontalPartition_S3_2_4('savedCorrection')
+
+                                    if ( localStorage.getItem("s3_2_3_horizDividStatus") == 1 ) {
+
+                                        document.getElementById("HorizontalPartition_S3_2_3").checked = true;
+                
+                                        self.options.sectionHeight_3_2_3 = localStorage.getItem("sectionHeight_3_2_3")
+
+                                        createHorizontalPartition_S3_2_3('savedCorrection')
+                
+                                    } else {};
+            
+                                } else {};
+                            break;
+                        }
+                           
                     } else {}
-
-                    if (localStorage.getItem("s3_1_2_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S3_1_2").checked = true;
-                        createHorizontalPartition_S3_1_2();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s3_1_3_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S3_1_3").checked = true;
-                        createHorizontalPartition_S3_1_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s3_1_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S3_1_4").checked = true;
-                        createHorizontalPartition_S3_1_4();
-                        
-                    } else {}
-
-
-                    if (localStorage.getItem("s3_2_2_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S3_2_2").checked = true;
-                        createHorizontalPartition_S3_2_2();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s3_2_3_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S3_2_3").checked = true;
-                        createHorizontalPartition_S3_2_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s3_2_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S3_2_4").checked = true;
-                        createHorizontalPartition_S3_2_4();
-                        
-                    } else {}
-
 
 
                     //s4
                     if (localStorage.getItem("s4_horizDividStatus") == 1) {
 
                         document.getElementById("HorizontalPartition_S4_1").checked = true;
-                        createHorizontalPartition_S4_1();
-                        
+                         
+                        self.options.section4_currentStateUpDivider = localStorage.getItem("section4_currentStateUpDivider"); 
+ 
+                        switch(localStorage.getItem("section4_currentStateUpDivider")){
+                            case '1':    
+                                if ( localStorage.getItem("s4_horizDividStatus") == 1 ) {
+        
+                                    self.options.sectionHeight_4_2 = localStorage.getItem("sectionHeight_4_2")
+                                    self.options.sectionHeight_4_1 = localStorage.getItem("sectionHeight_4_1")
+
+                                    createHorizontalPartition_S4_1('savedCorrection')
+        
+                                } else {};
+                            break;
+                            case '2':
+                                if ( localStorage.getItem("s4_1_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S4_1_2").checked = true;
+
+                                    self.options.sectionHeight_4_1 = localStorage.getItem("sectionHeight_4_1")
+                                    self.options.sectionHeight_4_2 = localStorage.getItem("sectionHeight_4_2")
+                                    self.options.sectionHeight_4_1_2 = localStorage.getItem("sectionHeight_4_1_2")
+
+                                    createHorizontalPartition_S4_1('savedCorrection')
+                                    createHorizontalPartition_S4_1_2('savedCorrection')
+
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s4_1_3_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S4_1_3").checked = true;
+            
+                                    self.options.sectionHeight_4_1 = localStorage.getItem("sectionHeight_4_1")
+                                    self.options.sectionHeight_4_2 = localStorage.getItem("sectionHeight_4_2")
+                                    self.options.sectionHeight_4_1_2 = localStorage.getItem("sectionHeight_4_1_2")
+                                    self.options.sectionHeight_4_1_3 = localStorage.getItem("sectionHeight_4_1_3")
+
+                                    createHorizontalPartition_S4_1('savedCorrection')
+                                    createHorizontalPartition_S4_1_2('savedCorrection')
+                                    createHorizontalPartition_S4_1_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s4_1_4_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S4_1_4").checked = true;
+
+                                    self.options.sectionHeight_4_1_2 = localStorage.getItem("sectionHeight_4_1_2")
+                                    self.options.sectionHeight_4_1_4 = localStorage.getItem("sectionHeight_4_1_4")
+
+                                    createHorizontalPartition_S4_1('savedCorrection')
+                                    createHorizontalPartition_S4_1_2('savedCorrection')
+                                    createHorizontalPartition_S4_1_4('savedCorrection')
+
+                                    if ( localStorage.getItem("s4_1_3_horizDividStatus") == 1 ) {
+
+                                        document.getElementById("HorizontalPartition_S4_1_3").checked = true;
+                
+                                        self.options.sectionHeight_4_1_3 = localStorage.getItem("sectionHeight_4_1_3")
+
+                                        createHorizontalPartition_S4_1_3('savedCorrection')
+                
+                                    } else {};
+
+            
+                                } else {};
+                            break;
+                        }
+
+                        switch(localStorage.getItem("section4_currentStateDivider2")){
+                            case '2':
+                                if ( localStorage.getItem("s4_2_2_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S4_2_2").checked = true;
+
+                                    self.options.sectionHeight_4_2 = localStorage.getItem("sectionHeight_4_2")
+                                    self.options.sectionHeight_4_2_2 = localStorage.getItem("sectionHeight_4_2_2")
+
+                                    createHorizontalPartition_S4_2_2('savedCorrection')
+
+            
+                                } else {};
+                            break;
+                            case '3':                    
+                                if ( localStorage.getItem("s4_2_3_horizDividStatus") == 1 ) {
+
+                                    document.getElementById("HorizontalPartition_S4_2_3").checked = true;
+            
+                                    self.options.sectionHeight_4_2 = localStorage.getItem("sectionHeight_4_2")
+                                    self.options.sectionHeight_4_2_2 = localStorage.getItem("sectionHeight_4_2_2")
+                                    self.options.sectionHeight_4_2_3 = localStorage.getItem("sectionHeight_4_2_3")
+
+                                    createHorizontalPartition_S4_2_2('savedCorrection')
+                                    createHorizontalPartition_S4_2_3('savedCorrection')
+            
+                                } else {};
+                            break;
+                            case '4':            
+                                if ( localStorage.getItem("s2_2_4_horizDividStatus") == 1 ) {
+            
+                                    document.getElementById("HorizontalPartition_S2_2_4").checked = true;
+
+                                    self.options.sectionHeight_4_2 = localStorage.getItem("sectionHeight_4_2")
+                                    self.options.sectionHeight_4_2_2 = localStorage.getItem("sectionHeight_4_2_2")
+                                    self.options.sectionHeight_4_2_4 = localStorage.getItem("sectionHeight_4_2_4")
+
+                                    createHorizontalPartition_S4_2_2('savedCorrection')
+                                    createHorizontalPartition_S4_2_4('savedCorrection')
+
+                                    if ( localStorage.getItem("s4_2_3_horizDividStatus") == 1 ) {
+
+                                        document.getElementById("HorizontalPartition_S4_2_3").checked = true;
+                
+                                        self.options.sectionHeight_4_2_3 = localStorage.getItem("sectionHeight_4_2_3")
+
+                                        createHorizontalPartition_S4_2_3('savedCorrection')
+                
+                                    } else {};
+            
+                                } else {};
+                            break;
+                        }
+                           
                     } else {}
-
-                    if (localStorage.getItem("s4_1_2_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S4_1_2").checked = true;
-                        createHorizontalPartition_S4_1_2();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s4_1_3_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S4_1_3").checked = true;
-                        createHorizontalPartition_S4_1_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s4_1_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S4_1_4").checked = true;
-                        createHorizontalPartition_S4_1_4();
-                        
-                    } else {}
-
-
-                    if (localStorage.getItem("s4_2_2_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S4_2_2").checked = true;
-                        createHorizontalPartition_S4_2_2();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s4_2_3_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S4_2_3").checked = true;
-                        createHorizontalPartition_S4_2_3();
-                        
-                    } else {}
-
-                    if (localStorage.getItem("s4_2_4_horizDividStatus") == 1) {
-
-                        document.getElementById("HorizontalPartition_S4_2_4").checked = true;
-                        createHorizontalPartition_S4_2_4();
-                        
-                    } else {}
-
-
-
                     //#endregion
 
                     
-
                     //restore doors, drawwers          
                     self.options.s1_doorStatus = localStorage.getItem("s1_doorStatus");
                     switch (self.options.s1_doorStatus) {
@@ -29658,40 +32589,79 @@ App.prototype = {
 
                     //internal shelving
                     //s1
-                    //#region
+                    //#region🍍
                     if (localStorage.getItem("s1_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S1").checked = true;
-
                         document.getElementById("internalShelving_sect1_1").value = localStorage.getItem("s1_internlShelvinAmount");
+
+                        var retrievedHeightArrString = localStorage.getItem('internalShelf_1_1_Arr');
+                        var retrievedHeightArr = JSON.parse(retrievedHeightArrString);
+                        
+                        self.options.heigh1Shelf1_1 = localStorage.getItem("heigh1Shelf1_1");
+
                         createInternalShelving_sect1_1();
+
+                        for (let i = 1; i <= retrievedHeightArr.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y = retrievedHeightArr[i]
+                        }
 
                     } else {}
 
                     if (localStorage.getItem("s1_1_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S1_1_2").checked = true;
-
                         document.getElementById("internalShelving_sect1_1_2").value = localStorage.getItem("s1_1_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString1_1_2 = localStorage.getItem('internalShelf_1_1_2_Arr');
+                        var retrievedHeightArr1_1_2 = JSON.parse(retrievedHeightArrString1_1_2);
+                        
+                        self.options.heigh1Shelf1_1_2 = localStorage.getItem("heigh1Shelf1_1_2");
+
                         createInternalShelving_sect1_1_2();
 
+                        for (let i = 1; i <= retrievedHeightArr1_1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_1_2_'+'shelf'+i).position.y = retrievedHeightArr1_1_2[i]
+                        }
+
                     } else {}
+
 
                     if (localStorage.getItem("s1_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S1_2").checked = true;
-
                         document.getElementById("internalShelving_sect1_2").value = localStorage.getItem("s1_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString1_2 = localStorage.getItem('internalShelf_1_2_Arr');
+                        var retrievedHeightArr1_2 = JSON.parse(retrievedHeightArrString1_2);
+                        
+                        self.options.heigh1Shelf1_2 = localStorage.getItem("heigh1Shelf1_2");
+
                         createInternalShelving_sect1_2();
 
+                        for (let i = 1; i <= retrievedHeightArr1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y = retrievedHeightArr1_2[i]
+                        }
+
                     } else {}
+
 
                     if (localStorage.getItem("s1_2_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S1_2_2").checked = true;
 
                         document.getElementById("internalShelving_sect1_2_2").value = localStorage.getItem("s1_2_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString1_2_2 = localStorage.getItem('internalShelf_1_2_2_Arr');
+                        var retrievedHeightArr1_2_2 = JSON.parse(retrievedHeightArrString1_2_2);
+                        
+                        self.options.heigh1Shelf1_2_2 = localStorage.getItem("heigh1Shelf1_2_2");
+
                         createInternalShelving_sect1_2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr1_2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_2_2_'+'shelf'+i).position.y = retrievedHeightArr1_2_2[i]
+                        }
 
                     } else {}
 
@@ -29701,39 +32671,75 @@ App.prototype = {
                     if (localStorage.getItem("s2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S2_1").checked = true;
-                        createInternalShelving_S2_1();
-
                         document.getElementById("internalShelving_sect2_1").value = localStorage.getItem("s2_internlShelvinAmount");
+
+                        var retrievedHeightArrString2_1 = localStorage.getItem('internalShelf_2_1_Arr');
+                        var retrievedHeightArr2_1 = JSON.parse(retrievedHeightArrString2_1);
+                        
+                        self.options.heigh1Shelf2_1 = localStorage.getItem("heigh1Shelf2_1");
+
                         createInternalShelving_sect2_1();
 
+                        for (let i = 1; i <= retrievedHeightArr2_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y = retrievedHeightArr2_1[i]
+                        }
+
                     } else {}
+
 
                     if (localStorage.getItem("s2_1_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S2_1_2").checked = true;
-                        createInternalShelving_S2_1_2();
-
                         document.getElementById("internalShelving_sect2_1_2").value = localStorage.getItem("s2_1_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString2_1_2 = localStorage.getItem('internalShelf_2_1_2_Arr');
+                        var retrievedHeightArr2_1_2 = JSON.parse(retrievedHeightArrString2_1_2);
+                        
+                        self.options.heigh1Shelf2_1_2 = localStorage.getItem("heigh1Shelf2_1_2");
+
                         createInternalShelving_sect2_1_2();
+
+                        for (let i = 1; i <= retrievedHeightArr2_1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_1_2_'+'shelf'+i).position.y = retrievedHeightArr2_1_2[i]
+                        }
 
                     } else {}
 
                     if (localStorage.getItem("s2_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S2_2").checked = true;
-                        createInternalShelving_S2_2();
-
                         document.getElementById("internalShelving_sect2_2").value = localStorage.getItem("s2_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString2_2 = localStorage.getItem('internalShelf_2_2_Arr');
+                        var retrievedHeightArr2_2 = JSON.parse(retrievedHeightArrString2_2);
+                        
+                        self.options.heigh1Shelf2_2 = localStorage.getItem("heigh1Shelf2_2");
+
                         createInternalShelving_sect2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y = retrievedHeightArr2_2[i]
+                        }
+
 
                     } else {}
 
                     if (localStorage.getItem("s2_2_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S2_2_2").checked = true;
-                        createInternalShelving_S2_2_2();
-
                         document.getElementById("internalShelving_sect2_2_2").value = localStorage.getItem("s2_2_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString2_2_2 = localStorage.getItem('internalShelf_2_2_2_Arr');
+                        var retrievedHeightArr2_2_2 = JSON.parse(retrievedHeightArrString2_2_2);
+                        
+                        self.options.heigh1Shelf2_2_2 = localStorage.getItem("heigh1Shelf2_2_2");
+
+                        createInternalShelving_sect2_2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr2_2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_2_2_'+'shelf'+i).position.y = retrievedHeightArr2_2_2[i]
+                        }
+
                         createInternalShelving_sect2_2_2();
                         
                     } else {}
@@ -29744,9 +32750,19 @@ App.prototype = {
                     if (localStorage.getItem("s3_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S3_1").checked = true;
-                        createInternalShelving_S3_1();
-
                         document.getElementById("internalShelving_sect3_1").value = localStorage.getItem("s3_internlShelvinAmount");
+
+                        var retrievedHeightArrString3_1 = localStorage.getItem('internalShelf_3_1_Arr');
+                        var retrievedHeightArr3_1 = JSON.parse(retrievedHeightArrString3_1);
+                        
+                        self.options.heigh1Shelf3_1 = localStorage.getItem("heigh1Shelf3_1");
+
+                        createInternalShelving_sect3_1();
+
+                        for (let i = 1; i <= retrievedHeightArr3_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y = retrievedHeightArr3_1[i]
+                        }
+
                         createInternalShelving_sect3_1();
 
                     } else {}
@@ -29754,30 +32770,54 @@ App.prototype = {
                     if (localStorage.getItem("s3_1_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S3_1_2").checked = true;
-                        createInternalShelving_S3_1_2();
-
                         document.getElementById("internalShelving_sect3_1_2").value = localStorage.getItem("s3_1_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString3_1_2 = localStorage.getItem('internalShelf_3_1_2_Arr');
+                        var retrievedHeightArr3_1_2 = JSON.parse(retrievedHeightArrString3_1_2);
+                        
+                        self.options.heigh1Shelf3_1_2 = localStorage.getItem("heigh1Shelf3_1_2");
+
                         createInternalShelving_sect3_1_2();
+
+                        for (let i = 1; i <= retrievedHeightArr3_1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_1_2_'+'shelf'+i).position.y = retrievedHeightArr3_1_2[i]
+                        }
 
                     } else {}
 
                     if (localStorage.getItem("s3_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S3_2").checked = true;
-                        createInternalShelving_S3_2();
-
                         document.getElementById("internalShelving_sect3_2").value = localStorage.getItem("s3_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString3_2 = localStorage.getItem('internalShelf_3_2_Arr');
+                        var retrievedHeightArr2_2 = JSON.parse(retrievedHeightArrString3_2);
+                        
+                        self.options.heigh1Shelf3_2 = localStorage.getItem("heigh1Shelf3_2");
+
                         createInternalShelving_sect3_2();
+
+                        for (let i = 1; i <= retrievedHeightArr3_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y = retrievedHeightArr3_2[i]
+                        }
 
                     } else {}
 
                     if (localStorage.getItem("s3_2_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S3_2_2").checked = true;
-                        createInternalShelving_S3_2_2();
-
                         document.getElementById("internalShelving_sect3_2_2").value = localStorage.getItem("s3_2_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString3_2_2 = localStorage.getItem('internalShelf_3_2_2_Arr');
+                        var retrievedHeightArr2_2 = JSON.parse(retrievedHeightArrString3_2_2);
+                        
+                        self.options.heigh1Shelf3_2_2 = localStorage.getItem("heigh1Shelf3_2_2");
+
                         createInternalShelving_sect3_2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr3_2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_2_2_'+'shelf'+i).position.y = retrievedHeightArr3_2_2[i]
+                        }
                         
                     } else {}
 
@@ -29788,9 +32828,19 @@ App.prototype = {
                     if (localStorage.getItem("s4_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S4_1").checked = true;
-                        createInternalShelving_S4_1();
-
                         document.getElementById("internalShelving_sect4_1").value = localStorage.getItem("s4_internlShelvinAmount");
+
+                        var retrievedHeightArrString4_1 = localStorage.getItem('internalShelf_4_1_Arr');
+                        var retrievedHeightArr4_1 = JSON.parse(retrievedHeightArrString4_1);
+                        
+                        self.options.heigh1Shelf4_1 = localStorage.getItem("heigh1Shelf4_1");
+
+                        createInternalShelving_sect4_1();
+
+                        for (let i = 1; i <= retrievedHeightArr4_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y = retrievedHeightArr4_1[i]
+                        }
+
                         createInternalShelving_sect4_1();
 
                     } else {}
@@ -29798,10 +32848,18 @@ App.prototype = {
                     if (localStorage.getItem("s4_1_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S4_1_2").checked = true;
-                        createInternalShelving_S4_1_2();
-
                         document.getElementById("internalShelving_sect4_1_2").value = localStorage.getItem("s4_1_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString4_1_2 = localStorage.getItem('internalShelf_4_1_2_Arr');
+                        var retrievedHeightArr4_1_2 = JSON.parse(retrievedHeightArrString4_1_2);
+                        
+                        self.options.heigh1Shelf4_1_2 = localStorage.getItem("heigh1Shelf4_1_2");
+
                         createInternalShelving_sect4_1_2();
+
+                        for (let i = 1; i <= retrievedHeightArr4_1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_1_2_'+'shelf'+i).position.y = retrievedHeightArr4_1_2[i]
+                        }
 
                     } else {}
 
@@ -29809,8 +32867,19 @@ App.prototype = {
 
                         document.getElementById("InternalShelving_S4_2").checked = true;
                         createInternalShelving_S4_2();
-
                         document.getElementById("internalShelving_sect4_2").value = localStorage.getItem("s4_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString4_2 = localStorage.getItem('internalShelf_4_2_Arr');
+                        var retrievedHeightArr4_2 = JSON.parse(retrievedHeightArrString4_2);
+                        
+                        self.options.heigh1Shelf4_2 = localStorage.getItem("heigh1Shelf4_2");
+
+                        createInternalShelving_sect4_2();
+
+                        for (let i = 1; i <= retrievedHeightArr4_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y = retrievedHeightArr4_2[i]
+                        }
+
                         createInternalShelving_sect4_2();
 
                     } else {}
@@ -29818,10 +32887,18 @@ App.prototype = {
                     if (localStorage.getItem("s4_2_2_internlShelvinStatus") == 1) {
 
                         document.getElementById("InternalShelving_S4_2_2").checked = true;
-                        createInternalShelving_S4_2_2();
-
                         document.getElementById("internalShelving_sect4_2_2").value = localStorage.getItem("s4_2_2_internlShelvinAmount");
+
+                        var retrievedHeightArrString4_2_2 = localStorage.getItem('internalShelf_4_2_2_Arr');
+                        var retrievedHeightArr4_2_2 = JSON.parse(retrievedHeightArrString4_2_2);
+                        
+                        self.options.heigh1Shelf4_2_2 = localStorage.getItem("heigh1Shelf4_2_2");
+
                         createInternalShelving_sect4_2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr4_2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_2_2_'+'shelf'+i).position.y = retrievedHeightArr4_2_2[i]
+                        }
                         
                     } else {}
 
@@ -29831,34 +32908,21 @@ App.prototype = {
 
 
                     //backplate
-                    //console.log(localStorage.getItem("statusHideBackPlate"));
-
-                 
-
-                  // self.options.statusHideBackPlate = localStorage.getItem("statusHideBackPlate");
-
-                    //console.log( self.options.statusHideBackPlate );
-
-                    if (localStorage.getItem("statusHideBackPlate")) {
-                       //console.log(self.scene.getObjectByName('BackPlate'));
+                    if (localStorage.getItem("statusHideBackPlate") == 0) {
                         self.scene.remove(self.scene.getObjectByName('BackPlate'));
-                        //self.calculateOutput();
                     };
                     
-
                     if (localStorage.getItem("statusHideBackPlate") == 1) {                    
                       self.createBackPlate();
                     } 
 
-
-                   // switch (self.options.statusHideBackPlat
-
                     
                     document.getElementById("HintPanel").innerHTML = Math.floor("Previous session was restored");
 
-                }, 500)
+                    self.defaultLeftMenu();
+                    localStorage.setItem('wasItUsedOrNo', false);
 
-                self.defaultLeftMenu();
+                }, 500)
 
                 
 
@@ -29901,14 +32965,12 @@ App.prototype = {
 
          //self.options.savedColorsOption 
 
-        function setUpStartColors() {
+        /* function setUpStartColors() {
 
             //self.options.pillar.texture = 4;
             //self.options.shelf.texture = 4;
 
-            self.changeShelfTexture();
-
-            
+            self.changeShelfTexture();            
             self.changePillarTexture();
             //colorize internal shelving too
 
@@ -29923,7 +32985,7 @@ App.prototype = {
             );
 
 
-        }
+        } */
 
         function appendUnit(input) {
     		var num = input.value.replace(/[^\d.-]/g, ''); // Remove non-numeric characters
@@ -29959,16 +33021,16 @@ App.prototype = {
 
                  
         function setUpStartColors() {
-            self.options.pillar.texture = localStorage.getItem('self_shelving_textures') ;
+            self.options.pillar.texture = localStorage.getItem('self_pillar_textures') ;
             //
             self.options.shelf.texture = localStorage.getItem('self_shelving_textures');
 
-            self.changeShelfTexture();
-            self.changePillarTexture();
-            //colorize internal shelving too
-
-
-
+            //top
+            self.scene.traverse(function(child) {
+                if (child.name.includes('topPlane')) {
+                    child.material.map = self.textures[localStorage.getItem('self_shelving_textures')].map;
+                }
+            });
 
 
             //+doors
@@ -30016,6 +33078,9 @@ App.prototype = {
             
             });
 
+            self.changeShelfTexture();
+            self.changePillarTexture();
+            //colorize internal shelving too
 
         };
 
@@ -30050,7 +33115,6 @@ App.prototype = {
             if (self.options.amountOfSections === 1 ) {
                 createDoor('doorSection1_1Group', 
                 self.doorSection1_1Group, 
-                //🟦
                 self.options.sectionHeight_1_1, 
                 self.options.section1Length, 
                 'doorType1Section1_1', 
@@ -37372,7 +40436,7 @@ App.prototype = {
                 );
                 self.options.statusHideDoor = 1;
                 document.getElementById("hideDoorsIcon").src = "icons/doorsOff.png"
-                document.getElementsByClassName('c-button-round')[60].style.backgroundColor = "#fff"
+                document.getElementsByClassName('c-button-round')[3].style.backgroundColor = "#fff"
             } else {
                 self.scene.traverse(function(child) {
                     if (child instanceof THREE.Mesh) {
@@ -37383,7 +40447,7 @@ App.prototype = {
                 });
                 self.options.statusHideDoor = 0;
                 document.getElementById("hideDoorsIcon").src = "icons/doorsOn.png"
-                document.getElementsByClassName('c-button-round')[60].style.backgroundColor = "#356b4d"
+                document.getElementsByClassName('c-button-round')[3].style.backgroundColor = "#356b4d"
             }
 
         });
@@ -37400,7 +40464,7 @@ App.prototype = {
                 self.human.visible = false
                 self.options.statusHideRoom = 1;
                 document.getElementById("hideRoomIcon").src = "icons/roomOff.png"
-                document.getElementsByClassName('c-button-round')[61].style.backgroundColor = "#fff"
+                document.getElementsByClassName('c-button-round')[4].style.backgroundColor = "#fff"
             } else {
                 self.wall.visible = true
                 self.wall2.visible = true
@@ -37409,7 +40473,7 @@ App.prototype = {
                 self.floor.visible = true
                 self.options.statusHideRoom = 0;
                 document.getElementById("hideRoomIcon").src = "icons/roomon.png"
-                document.getElementsByClassName('c-button-round')[61].style.backgroundColor = "#356b4d"
+                document.getElementsByClassName('c-button-round')[4].style.backgroundColor = "#356b4d"
             }
     
         });
@@ -37421,12 +40485,26 @@ App.prototype = {
                 HintPanel.style.display = "none";
                 self.options.statusHideHint = 0;
                 document.getElementById("hintIcon").src = "icons/hintOff.png"
-                document.getElementsByClassName('c-button-round')[62].style.backgroundColor = "#fff"
+                document.getElementsByClassName('c-button-round')[5].style.backgroundColor = "#fff"
             } else {
                 HintPanel.style.display = "block";
                 self.options.statusHideHint = 1;
                 document.getElementById("hintIcon").src = "icons/hintOn.png"
-                document.getElementsByClassName('c-button-round')[62].style.backgroundColor = "#356b4d"
+                document.getElementsByClassName('c-button-round')[5].style.backgroundColor = "#356b4d"
+            }
+    
+        });
+
+        document.getElementById("OpenaButtonsPanel").addEventListener('click', function() {
+        
+            if (self.options.statusOpenaButtonsPanel === 1) {
+                additionalButtonsPanel.style.display = "none";
+                self.options.statusOpenaButtonsPanel = 0;
+                document.getElementById("OpenaButtonsPanelIcon").src = "icons/right.png"
+            } else {
+                additionalButtonsPanel.style.display = "flex";
+                self.options.statusOpenaButtonsPanel = 1;
+                document.getElementById("OpenaButtonsPanelIcon").src = "icons/left.png"
             }
     
         });
@@ -37441,12 +40519,12 @@ App.prototype = {
                 self.createDimensions();
                 self.options.statusShowDimensions = 1;
                 document.getElementById("dimensionsIcon").src = "icons/rulerOn.png"
-                document.getElementsByClassName('c-button-round')[59].style.backgroundColor = "#356b4d"
+                document.getElementsByClassName('c-button-round')[2].style.backgroundColor = "#356b4d"
             } else {
                 self.scene.remove(self.scene.getObjectByName('dimensionsFontGroup'));
                 self.options.statusShowDimensions = 0;
                 document.getElementById("dimensionsIcon").src = "icons/rulerOff.png"
-                document.getElementsByClassName('c-button-round')[59].style.backgroundColor = "#fff"
+                document.getElementsByClassName('c-button-round')[2].style.backgroundColor = "#fff"
             } 
 
         });
@@ -38012,9 +41090,16 @@ App.prototype = {
                     }
                 }
             );
-
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[0].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_shelving_textures', 0);
-
+            localStorage.setItem('self_pillar_textures', 0); 
         });
 
         document.getElementById("Cashmere").addEventListener('click', function() {
@@ -38038,7 +41123,16 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[1].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_shelving_textures', 1)
+            localStorage.setItem('self_pillar_textures', 1); 
         });
 
         document.getElementById("ChalkWhite").addEventListener('click', function() {
@@ -38063,9 +41157,16 @@ App.prototype = {
                     }
                 }
             );
-
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[2].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_shelving_textures', 2);
-
+            localStorage.setItem('self_pillar_textures', 2); 
         });
 
         document.getElementById("CubaLibre").addEventListener('click', function() {
@@ -38089,7 +41190,16 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[3].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_shelving_textures', 3);
+            localStorage.setItem('self_pillar_textures', 3); 
         });
 
         document.getElementById("FirenzeOvatta").addEventListener('click', function() {
@@ -38109,6 +41219,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[4].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[5].map;
                         }
                     }
                 }
@@ -38139,7 +41257,14 @@ App.prototype = {
                     }
                 }
             );
-
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[7].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_shelving_textures', 7); 
             localStorage.setItem('self_pillar_textures', 7); 
 
@@ -38168,7 +41293,14 @@ App.prototype = {
                     }
                 }
             );
-
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[16].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 16); 
             localStorage.setItem('self_shelving_textures', 16); 
         });
@@ -38190,6 +41322,19 @@ App.prototype = {
             self.scene.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
+                            child.material.map = self.textures[15].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child.name.includes('topPlane')) {
+                    child.material.map = self.textures[localStorage.getItem('self_shelving_textures')].map;
+                }
+            });
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
                             child.material.map = self.textures[15].map;
                         }
                     }
@@ -38221,6 +41366,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[14].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 14); 
             localStorage.setItem('self_shelving_textures', 14); 
         });
@@ -38242,6 +41395,14 @@ App.prototype = {
             self.scene.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
+                            child.material.map = self.textures[13].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
                             child.material.map = self.textures[13].map;
                         }
                     }
@@ -38273,6 +41434,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[12].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 12); 
             localStorage.setItem('self_shelving_textures', 12);        
         });
@@ -38294,6 +41463,14 @@ App.prototype = {
             self.scene.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
+                            child.material.map = self.textures[11].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
                             child.material.map = self.textures[11].map;
                         }
                     }
@@ -38325,6 +41502,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[10].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 10); 
             localStorage.setItem('self_shelving_textures', 10); 
         });
@@ -38346,6 +41531,14 @@ App.prototype = {
             self.scene.traverse(function(child) {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
+                            child.material.map = self.textures[8].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
                             child.material.map = self.textures[8].map;
                         }
                     }
@@ -38378,7 +41571,14 @@ App.prototype = {
                     }
                 }
             );
-
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[9].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 9); 
             localStorage.setItem('self_shelving_textures', 9); 
         });
@@ -38401,6 +41601,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[17].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[18].map;
                         }
                     }
                 }
@@ -38431,6 +41639,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[20].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 19); 
             localStorage.setItem('self_shelving_textures', 20); 
         });
@@ -38457,6 +41673,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[22].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 21); 
             localStorage.setItem('self_shelving_textures', 22);         });
                    
@@ -38478,6 +41702,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[23].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[24].map;
                         }
                     }
                 }
@@ -38508,6 +41740,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[26].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 25); 
             localStorage.setItem('self_shelving_textures', 26); 
         });
@@ -38530,6 +41770,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[27].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[28].map;
                         }
                     }
                 }
@@ -38559,6 +41807,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[30].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 29); 
             localStorage.setItem('self_shelving_textures', 30); 
         });
@@ -38581,6 +41837,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[31].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[32].map;
                         }
                     }
                 }
@@ -38638,6 +41902,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[36].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 35); 
             localStorage.setItem('self_shelving_textures', 36); 
         });
@@ -38660,6 +41932,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[37].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[38].map;
                         }
                     }
                 }
@@ -38690,6 +41970,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[40].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 39); 
             localStorage.setItem('self_shelving_textures', 40); 
         });
@@ -38716,6 +42004,14 @@ App.prototype = {
                     }
                 }
             );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[42].map;
+                        }
+                    }
+                }
+            );
             localStorage.setItem('self_pillar_textures', 41); 
             localStorage.setItem('self_shelving_textures', 42); 
         });
@@ -38738,6 +42034,14 @@ App.prototype = {
                 if (child instanceof THREE.Mesh) {
                         if (child.name.includes('plinthLeg')) {
                             child.material.map = self.textures[43].map;
+                        }
+                    }
+                }
+            );
+            self.scene.traverse(function(child) {
+                if (child instanceof THREE.Mesh) {
+                        if (child.name.includes('topPlane')) {
+                            child.material.map = self.textures[44].map;
                         }
                     }
                 }
@@ -41376,7 +44680,7 @@ App.prototype = {
 
 
 
-        //🍏backplate price
+        //backplate price
         let materialBackPlatePerM2 = 0
         let priceBackPlate = 0
         if (this.options.statusLegs === 1) {
@@ -41430,7 +44734,7 @@ App.prototype = {
             self.spotLightHelper2.update();
             self.spotLightHelper3.update();  */
 
-            //🍍 turned off clearDepth() 
+            // turned off clearDepth() 
             //self.engine.clearDepth();
             
             //hidden for postprocessing
@@ -41631,13 +44935,6 @@ App.prototype = {
 
         var self = this
 
-        /* if (localStorage.getItem('wasItUsedOrNo') == true) {
-            document.getElementById("typeFeet").value = localStorage.getItem("feet");
-        } else if (localStorage.getItem('wasItUsedOrNo') == false){ 
-            document.getElementById("typeFeet").value = 'Slider'
-            localStorage.setItem("feet", 'Slider');
-        } */
-
         
         if (localStorage.getItem("feet") === "Slider") {
             self.placeSliders();
@@ -41746,7 +45043,6 @@ App.prototype = {
             if (self.options.statusShowDimensions == 1) {
                 self.createDimensions();
             }
-            //self.scene.remove(self.models['metalleg'], self.models['metalleg2'], self.models['metalleg3'], self.models['metalleg4']);
 
         }
         else if (localStorage.getItem("feet") == "MetalLegs")  {
@@ -41978,19 +45274,11 @@ App.prototype = {
 
 
 
-
+    //🍍
     startVerticals: function() {
 
         switch (document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value) {
         
-            case '10':
-                document.getElementById("HintPanel").style.opacity = 0;
-                setTimeout(function(){
-                    document.getElementById("HintPanel").style.opacity = 1;
-                },200);
-                document.getElementById("HintPanel").innerHTML = "Please select at least 1 section";
-            break;
-
 
             case '0':
 
@@ -42113,7 +45401,8 @@ App.prototype = {
                 if ( parseInt(document.getElementById("subdomainWidthCabinet_Dimensions").value, 10) >= 60 ) {
 
                     //restore position of pillar and section length 🍍
-                    if (localStorage.getItem('wasItUsedOrNo')) {
+                    if (localStorage.getItem('wasItUsedOrNo') == true) {
+                        
                         this.options.pillar1Position = localStorage.getItem("verticals_1_posx"); 
                         this.options.section1Length = localStorage.getItem("section1Length"); 
                         this.options.section2Length = localStorage.getItem("section2Length"); 
@@ -42123,19 +45412,15 @@ App.prototype = {
                         this.options.pillar1ChangedOrNot = false
                         this.options.section1Length = this.options.shelf.length / 2
                         this.options.section2Length = this.options.shelf.length / 2 
+
+                        this.options.sectionHeight_2_1 = this.options.sectionHeight_1_1;
                     }
 
                     this.options.amountOfSections = 2;
                     this.options.wasChangedSectionsLengthOrNot = 1;
 
-                    this.options.section1Length = this.options.shelf.length / 2
-                    this.options.section2Length = this.options.shelf.length / 2 
-
-                   // this.options.sectionHeight_1_1 = this.options.sectionHeight_1_1
-                    this.options.sectionHeight_2_1 = this.options.sectionHeight_1_1;
 
                     //update ui html dimensions 
-
                     document.getElementById("pillar1PositionField_S1_1").innerHTML = Math.floor( this.options.section1Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
                     document.getElementById("pillar1PositionField_S1_1_2").innerHTML = Math.floor( this.options.section1Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
                     document.getElementById("pillar1PositionField_S1_1_3").innerHTML = Math.floor( this.options.section1Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
@@ -42269,15 +45554,29 @@ App.prototype = {
                     document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = this.options.amountOfSections-1;
                 } else { 
 
+                    //restore position of pillar and section length 🍍
+                    if (localStorage.getItem('wasItUsedOrNo') == true) {
+                        this.options.pillar1Position = localStorage.getItem("verticals_1_posx"); 
+                        this.options.pillar2Position = localStorage.getItem("verticals_2_posx"); 
+                        this.options.section1Length = localStorage.getItem("section1Length"); 
+                        this.options.section2Length = localStorage.getItem("section2Length"); 
+                        this.options.section3Length = localStorage.getItem("section3Length"); 
+                        this.options.pillar1ChangedOrNot = true;
+                        this.options.pillar2ChangedOrNot = true;
+                    } else {
+                        this.options.pillar1Position = 0;
+                        this.options.pillar1ChangedOrNot = false
+                        this.options.section1Length = this.options.shelf.length / 3
+                        this.options.section2Length = this.options.shelf.length / 3 
+                        this.options.section3Length = this.options.shelf.length / 3
+
+                        this.options.sectionHeight_2_1 = this.options.sectionHeight_1_1;
+                    }
+
+
                     this.options.amountOfSections = 3;
                     this.options.wasChangedSectionsLengthOrNot = 1;
-
-                    //we need round numbers here
-                    this.options.section1Length = this.options.shelf.length / 3
-                    this.options.section2Length = this.options.shelf.length / 3 
-                    this.options.section3Length = this.options.shelf.length / 3
-
-                    this.options.sectionHeight_2_1 = this.options.sectionHeight_1_1;
+                
 
                     //update ui html dimensions 
 
@@ -42308,19 +45607,12 @@ App.prototype = {
                 
 
                         document.getElementById("pillar3PositionField_S3_1").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_1_2").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_1_3").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_1_4").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_2").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_2_2").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_2_3").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-
                         document.getElementById("pillar3PositionField_S3_2_4").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
 
 
@@ -42431,17 +45723,35 @@ App.prototype = {
                     document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = this.options.amountOfSections-1;
                 } 
                 else {
+                    //restore position of pillar and section length 🍍
+                    if (localStorage.getItem('wasItUsedOrNo') == true) {
+                        
+                        this.options.pillar1Position = localStorage.getItem("verticals_1_posx"); 
+                        this.options.pillar2Position = localStorage.getItem("verticals_2_posx"); 
+                        this.options.pillar3Position = localStorage.getItem("verticals_3_posx"); 
+                        this.options.section1Length = localStorage.getItem("section1Length"); 
+                        this.options.section2Length = localStorage.getItem("section2Length"); 
+                        this.options.section3Length = localStorage.getItem("section3Length"); 
+                        this.options.section4Length = localStorage.getItem("section4Length"); 
+                        this.options.pillar1ChangedOrNot = true;
+                        this.options.pillar2ChangedOrNot = true;
+                        this.options.pillar3ChangedOrNot = true;
+                    } else {
+                        this.options.pillar1Position = 0;
+                        this.options.pillar1ChangedOrNot = false
+                        this.options.section1Length = this.options.shelf.length / 4
+                        this.options.section2Length = this.options.shelf.length / 4 
+                        this.options.section3Length = this.options.shelf.length / 4
+                        this.options.section4Length = this.options.shelf.length / 4
+
+                        this.options.sectionHeight_3_1 = this.options.sectionHeight_1_1;
+                        this.options.sectionHeight_2_1 = this.options.sectionHeight_1_1;
+                    }
 
                     this.options.amountOfSections = 4;
                     this.options.wasChangedSectionsLengthOrNot = 1;
 
-                    this.options.section1Length = this.options.shelf.length / 4
-                    this.options.section2Length = this.options.shelf.length / 4 
-                    this.options.section3Length = this.options.shelf.length / 4
-                    this.options.section4Length = this.options.shelf.length / 4
 
-                    this.options.sectionHeight_3_1 = this.options.sectionHeight_1_1;
-                    this.options.sectionHeight_2_1 = this.options.sectionHeight_1_1;
 
 
                     //update ui html dimensions 
@@ -42470,8 +45780,7 @@ App.prototype = {
 
                     document.getElementById("pillar2PositionField_S2_2_3").innerHTML = Math.floor( this.options.section2Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
                         
-                    document.getElementById("pillar2PositionField_S2_2_4").innerHTML = Math.floor( this.options.section2Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
-                
+                    document.getElementById("pillar2PositionField_S2_2_4").innerHTML = Math.floor( this.options.section2Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";                
 
                     document.getElementById("pillar3PositionField_S3_1").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
                     document.getElementById("pillar3PositionField_S3_1_2").innerHTML = Math.floor( this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) +"cm";
@@ -42811,7 +46120,7 @@ App.prototype = {
         
         plinthLeg3.position.y = -2
 
-        plinthLeg3.position.z = this.shelving.position.z + self.options.shelf.width / 2 - 3
+        plinthLeg3.position.z = this.shelving.position.z + self.options.shelf.width / 2 - 2
 
         plinthLeg3.material.needsUpdate = true;
         plinthLeg3.material =  this.pillarProto.material;
@@ -42840,7 +46149,6 @@ App.prototype = {
 
         var material = new THREE.MeshStandardMaterial({  color: self.options.shelf.color, shadowSide: THREE.DoubleSide, roughness:1, metallness: 0});
         
-
         var topPlane = new THREE.Mesh(geometry, material);
 
         topPlane.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -43037,10 +46345,11 @@ App.prototype = {
         moveHorizontalPartition1_2_2_UpButton.style.display = "none";
         moveHorizontalPartition1_2_3_DownButton.style.display = "none";
         moveHorizontalPartition1_2_3_UpButton.style.display = "none";
-        moveHorizontalPartition1_2.style.display = "none";
         moveHorizontalPartitionS1_1_2__4_DownButton.style.display = "none";
         moveHorizontalPartitionS1_1_2__4_UpButton.style.display = "none";
         moveHorizontalPartitionS1_2_2__1.style.display = "none";
+        moveHorizontalPartitionS1_1_2__1_DownButton.style.display = "inline-block";
+        moveHorizontalPartitionS1_1_2__1_UpButton.style.display = "flex";
 
         MainHorizontalPartition_S1_1_2.style.display = "none";
         MainHorizontalPartition_S1_1_3.style.display = "none";
@@ -43127,12 +46436,14 @@ App.prototype = {
         self.options.statusHideBackPlate = 0;
         document.getElementById("typeBack").style.pointerEvents = "auto";
         document.getElementById("typeBack").checked = false;
+        document.getElementById("CoverBackPanel_Div").style.display = "none";
         self.createBackPlate(); 
         self.scene.traverse(function(child) {
             if (child.name.includes('door') ) {
                 self.options.statusHideBackPlate = 1;
                 document.getElementById("typeBack").style.pointerEvents = "none";
                 document.getElementById("typeBack").checked = true;
+                document.getElementById("CoverBackPanel_Div").style.display = "block";
                 self.createBackPlate(); 
         } else {} });
 
@@ -43326,7 +46637,8 @@ App.prototype = {
         MainHorizontalPartition_S2_1_3.style.display = "none";
         MainInternalShelving_S2_1.style.display = "flex";
         MainHorizontalPartition_S2_1.style.display = "flex";
-
+        moveHorizontalPartitionS2_1_2__1_DownButton.style.display = "inline-block";
+        moveHorizontalPartitionS2_1_2__1_UpButton.style.display = "inline-block";
 
         document.getElementById("HorizontalPartition_S2_1").checked = false;
         document.getElementById("HorizontalPartition_S2_1_2").checked = false;
@@ -43400,12 +46712,14 @@ App.prototype = {
         self.options.statusHideBackPlate = 0;
         document.getElementById("typeBack").style.pointerEvents = "auto";
         document.getElementById("typeBack").checked = false;
+        document.getElementById("CoverBackPanel_Div").style.display = "none";
         self.createBackPlate(); 
         self.scene.traverse(function(child) {
             if (child.name.includes('door') ) {
                 self.options.statusHideBackPlate = 1;
                 document.getElementById("typeBack").style.pointerEvents = "none";
                 document.getElementById("typeBack").checked = true;
+                document.getElementById("CoverBackPanel_Div").style.display = "block";
                 self.createBackPlate(); 
         } else {} });
 
@@ -43586,7 +46900,7 @@ App.prototype = {
 
         SectionRemoving_S3_1.style.display = "none";
         moveHorizontalPartition_S3_1.style.display = "none";
-        moveHorizontalPartition3_1_DownButton.style.display = "block";
+        moveHorizontalPartition3_1_DownButton.style.display = "inline-block";
         moveHorizontalPartition3_1_UpButton.style.display = "block";
         moveHorizontalPartition3_1_2_UpButton.style.display = "none";
         moveHorizontalPartition3_1_2_DownButton.style.display = "none";
@@ -43595,11 +46909,11 @@ App.prototype = {
 
         moveHorizontalPartition3_2_3_DownButton.style.display = "none";
         moveHorizontalPartition3_2_3_UpButton.style.display = "none";
-        moveHorizontalPartition3_2_2_DownButton.style.display = "block";
+        moveHorizontalPartition3_2_2_DownButton.style.display = "inline-block";
         moveHorizontalPartition3_2_2_UpButton.style.display = "block";
 
 
-        moveHorizontalPartitionS3_1_2__1_DownButton.style.display = "block";
+        moveHorizontalPartitionS3_1_2__1_DownButton.style.display = "inline-block";
         moveHorizontalPartitionS3_1_2__1_UpButton.style.display = "block";
         moveHorizontalPartitionS3_1_2__4_DownButton.style.display = "none";
         moveHorizontalPartitionS3_1_2__4_UpButton.style.display = "none";
@@ -43608,6 +46922,9 @@ App.prototype = {
         MainHorizontalPartition_S3_1_3.style.display = "none";
         MainInternalShelving_S3_1.style.display = "flex";
         MainHorizontalPartition_S3_1.style.display = "flex";
+
+        moveHorizontalPartition3_1_DownButton.style.display = "inline-block";
+        moveHorizontalPartition3_1_UpButton.style.display = "inline-block";
 
 
 
@@ -43686,12 +47003,14 @@ App.prototype = {
         self.options.statusHideBackPlate = 0;
         document.getElementById("typeBack").style.pointerEvents = "auto";
         document.getElementById("typeBack").checked = false;
+        document.getElementById("CoverBackPanel_Div").style.display = "none";
         self.createBackPlate(); 
         self.scene.traverse(function(child) {
             if (child.name.includes('door') ) {
                 self.options.statusHideBackPlate = 1;
                 document.getElementById("typeBack").style.pointerEvents = "none";
                 document.getElementById("typeBack").checked = true;
+                document.getElementById("CoverBackPanel_Div").style.display = "block";
                 self.createBackPlate(); 
         } else {} });
 
@@ -43879,8 +47198,10 @@ App.prototype = {
 
         moveHorizontalPartition4_2_3_DownButton.style.display = "none";
         moveHorizontalPartition4_2_3_UpButton.style.display = "none";
-        moveHorizontalPartition4_2_2_DownButton.style.display = "block";
+        moveHorizontalPartition4_2_2_DownButton.style.display = "inline-block";
         moveHorizontalPartition4_2_2_UpButton.style.display = "block";
+        moveHorizontalPartition4_1_DownButton.style.display = "inline-block";
+        moveHorizontalPartition4_1_UpButton.style.display = "block";
 
 
         document.getElementById("HorizontalPartition_S4_1").checked = false;
@@ -43958,12 +47279,14 @@ App.prototype = {
         self.options.statusHideBackPlate = 0;
         document.getElementById("typeBack").style.pointerEvents = "auto";
         document.getElementById("typeBack").checked = false;
+        document.getElementById("CoverBackPanel_Div").style.display = "none";
         self.createBackPlate(); 
         self.scene.traverse(function(child) {
             if (child.name.includes('door') ) {
                 self.options.statusHideBackPlate = 1;
                 document.getElementById("typeBack").style.pointerEvents = "none";
                 document.getElementById("typeBack").checked = true;
+                document.getElementById("CoverBackPanel_Div").style.display = "block";
                 self.createBackPlate(); 
         } else {} });
 
@@ -44030,6 +47353,7 @@ App.prototype = {
     createHorizontalDividerSection1_1: function(shelfId) {
 
         var self = this 
+
         self.scene.remove(this.horizontalDividerSection1_1);
 
         var currentHeight = self.options.pillar.height
@@ -44043,23 +47367,47 @@ App.prototype = {
         horizontalDividerSection1_1.name = 'horizontalDividerSection1_1'
         horizontalDividerSection1_1.material.needsUpdate = true;
 
-        horizontalDividerSection1_1.position.y = currentHeight / 2
         horizontalDividerSection1_1.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2 +0.1;
 
-
-        self.options.sectionHeight_1_1 = currentHeight / 2 
-        self.options.sectionHeight_1_2 = currentHeight / 2 
+        //🍍
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_1.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_1'));
+            self.options.sectionHeight_1_1 = parseInt(localStorage.getItem("sectionHeight_1_1"));
+            self.options.sectionHeight_1_2 = parseInt(localStorage.getItem("sectionHeight_1_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_1.position.y = parseFloat(self.params.get('hDS1_1'));
+            self.options.sectionHeight_1_1 = self.params.get('H_S1_1');
+            self.options.sectionHeight_1_2 = self.params.get('H_S1_2');
+        } else {
+            horizontalDividerSection1_1.position.y = currentHeight / 2
+            self.options.sectionHeight_1_1 = currentHeight / 2 
+            self.options.sectionHeight_1_2 = currentHeight / 2 
+        }
 
         self.scene.add(horizontalDividerSection1_1);
 
-        self.createRayCastRecieverSection1_1();
-        self.createWireframeBack_section1_1();
-    
-        self.createWireframeBack_section1_2();
-        self.createRayCastRecieverSection1_2(); 
-
+        //🍍
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection1_1('savedCorrection');
+            self.createWireframeBack_section1_1('savedCorrection');
         
+            self.createWireframeBack_section1_2('savedCorrection');
+            self.createRayCastRecieverSection1_2('savedCorrection'); 
+        
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection1_1('savedCorrectionURL');
+            self.createWireframeBack_section1_1('savedCorrectionURL');
+        
+            self.createWireframeBack_section1_2('savedCorrectionURL');
+            self.createRayCastRecieverSection1_2('savedCorrectionURL'); 
+        } else {
+            self.createRayCastRecieverSection1_1();
+            self.createWireframeBack_section1_1();
+        
+            self.createWireframeBack_section1_2();
+            self.createRayCastRecieverSection1_2(); 
+        }
 
     },
     
@@ -44069,7 +47417,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection1_1_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_1_1
 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
@@ -44082,22 +47429,47 @@ App.prototype = {
         horizontalDividerSection1_1_2.name = 'horizontalDividerSection1_1_2'
         horizontalDividerSection1_1_2.material.needsUpdate = true;
 
-        horizontalDividerSection1_1_2.position.y = currentHeight / 2
-
         horizontalDividerSection1_1_2.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_1_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_1_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_1_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_1_2'));
+            self.options.sectionHeight_1_1 = parseInt(localStorage.getItem("sectionHeight_1_1"));
+            self.options.sectionHeight_1_1_2 = parseInt(localStorage.getItem("sectionHeight_1_1_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_1_2.position.y = parseFloat(self.params.get('hDS1_1_2'));
+            self.options.sectionHeight_1_1 = self.params.get('H_S1_1');
+            self.options.sectionHeight_1_1_2 = self.params.get('H_S1_1_2');
+        } else {
+            horizontalDividerSection1_1_2.position.y = currentHeight / 2
+            self.options.sectionHeight_1_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_1_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection1_1_2);
-    
-        self.createRayCastRecieverSection1_1();
-        self.createWireframeBack_section1_1();
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection1_1('savedCorrection');
+            self.createWireframeBack_section1_1('savedCorrection');
+            
+            self.createWireframeBack_section1_1_2('savedCorrection');
+            self.createRayCastRecieverSection1_1_2('savedCorrection'); 
+
+        } else if (shelfId == 'savedURL'){
+
+            self.createRayCastRecieverSection1_1('savedCorrectionURL');
+            self.createWireframeBack_section1_1('savedCorrectionURL');
         
-        self.createWireframeBack_section1_1_2();
-        self.createRayCastRecieverSection1_1_2(); 
+            self.createRayCastRecieverSection1_1_2('savedCorrectionURL');
+            self.createWireframeBack_section1_1_2('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection1_1();
+            self.createWireframeBack_section1_1();
+            
+            self.createWireframeBack_section1_1_2();
+            self.createRayCastRecieverSection1_1_2(); 
+        }
     },
 
 
@@ -44120,21 +47492,47 @@ App.prototype = {
         horizontalDividerSection1_1_3.name = 'horizontalDividerSection1_1_3'
         horizontalDividerSection1_1_3.material.needsUpdate = true;
 
-        horizontalDividerSection1_1_3.position.y = currentHeight / 2
         horizontalDividerSection1_1_3.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_1_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_1_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
-
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_1_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_1_3'));
+            self.options.sectionHeight_1_1 = parseInt(localStorage.getItem("sectionHeight_1_1"));
+            self.options.sectionHeight_1_1_3 = parseInt(localStorage.getItem("sectionHeight_1_1_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_1.position.y = parseFloat(self.params.get('hDS1_1'));
+            self.options.sectionHeight_1_1 = self.params.get('H_S1_1');
+            self.options.sectionHeight_1_1_3 = self.params.get('H_S1_1_3');
+        } else {
+            horizontalDividerSection1_1_3.position.y = currentHeight / 2
+            self.options.sectionHeight_1_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_1_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection1_1_3);
-    
-        self.createRayCastRecieverSection1_1();
-        self.createWireframeBack_section1_1();
+
+        if (shelfId == 'saved') { 
+
+            self.createRayCastRecieverSection1_1('savedCorrection');
+            self.createWireframeBack_section1_1('savedCorrection');
+            
+            self.createWireframeBack_section1_1_3('savedCorrection');
+            self.createRayCastRecieverSection1_1_3('savedCorrection'); 
+
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection1_1('savedCorrectionURL');
+            self.createWireframeBack_section1_1('savedCorrectionURL');
         
-        self.createWireframeBack_section1_1_3();
-        self.createRayCastRecieverSection1_1_3(); 
+            self.createRayCastRecieverSection1_1_3('savedCorrectionURL');
+            self.createWireframeBack_section1_1_3('savedCorrectionURL'); 
+        
+        } else {
+            self.createRayCastRecieverSection1_1();
+            self.createWireframeBack_section1_1();
+            
+            self.createWireframeBack_section1_1_3();
+            self.createRayCastRecieverSection1_1_3(); 
+        }
 
     },
 
@@ -44160,26 +47558,45 @@ App.prototype = {
 
         horizontalDividerSection1_1_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection1_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection1_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection1_1_4.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_1_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_1_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_1_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_1_4'));
+            self.options.sectionHeight_1_1_2 = parseInt(localStorage.getItem("sectionHeight_1_1_2"));
+            self.options.sectionHeight_1_1_4 = parseInt(localStorage.getItem("sectionHeight_1_1_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_1_4.position.y = parseFloat(self.params.get('hDS1_1_4'));
+            self.options.sectionHeight_1_1_2 = self.params.get('H_S1_1_2');
+            self.options.sectionHeight_1_1_4 = self.params.get('H_S1_1_4');
+        } else {
+            horizontalDividerSection1_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection1_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_1_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_1_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+
+        }
 
         self.scene.add(horizontalDividerSection1_1_4);
 
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection1_1_2('savedCorrection');
+            self.createWireframeBack_section1_1_2('savedCorrection'); 
 
+            self.createWireframeBack_section1_1_4('savedCorrection');
+            self.createRayCastRecieverSection1_1_4('savedCorrection');  
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection1_1_2('savedCorrectionURL');
+            self.createWireframeBack_section1_1_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section1_1_4('savedCorrectionURL');
+            self.createRayCastRecieverSection1_1_4('savedCorrectionURL');  
+        } else {
+            self.createRayCastRecieverSection1_1_2();
+            self.createWireframeBack_section1_1_2(); 
 
-        self.createRayCastRecieverSection1_1_2();
-        self.createWireframeBack_section1_1_2(); 
-
-        self.createWireframeBack_section1_1_4();
-        self.createRayCastRecieverSection1_1_4();      
-
+            self.createWireframeBack_section1_1_4();
+            self.createRayCastRecieverSection1_1_4();   
+        }   
         
     },
 
@@ -44190,7 +47607,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection1_2_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_1_2
 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
@@ -44203,21 +47619,47 @@ App.prototype = {
         horizontalDividerSection1_2_2.name = 'horizontalDividerSection1_2_2'
         horizontalDividerSection1_2_2.material.needsUpdate = true;
 
-        horizontalDividerSection1_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection1_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection1_2_2.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_1_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_2_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_2_2'));
+            self.options.sectionHeight_1_2 = parseInt(localStorage.getItem("sectionHeight_1_2"));
+            self.options.sectionHeight_1_2_2 = parseInt(localStorage.getItem("sectionHeight_1_2_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_2_2.position.y = parseFloat(self.params.get('hDS1_2_2'));
+            self.options.sectionHeight_1_2_2 = self.params.get('H_S1_2_2');
+            self.options.sectionHeight_1_2 = self.params.get('H_S1_2');
+        } else {
+            horizontalDividerSection1_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection1_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_1_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection1_2_2);
-    
-        self.createRayCastRecieverSection1_2();
-        self.createWireframeBack_section1_2();
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection1_2('savedCorrection');
+            self.createWireframeBack_section1_2('savedCorrection');
+            
+            self.createWireframeBack_section1_2_2('savedCorrection');
+            self.createRayCastRecieverSection1_2_2('savedCorrection'); 
+                
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection1_2_2('savedCorrectionURL');
+            self.createWireframeBack_section1_2_2('savedCorrectionURL');
         
-        self.createWireframeBack_section1_2_2();
-        self.createRayCastRecieverSection1_2_2(); 
+            self.createWireframeBack_section1_2('savedCorrectionURL');
+            self.createRayCastRecieverSection1_2('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection1_2();
+            self.createWireframeBack_section1_2();
+            
+            self.createWireframeBack_section1_2_2();
+            self.createRayCastRecieverSection1_2_2(); 
+        }
+    
     },
 
 
@@ -44240,22 +47682,44 @@ App.prototype = {
         horizontalDividerSection1_2_3.name = 'horizontalDividerSection1_2_3'
         horizontalDividerSection1_2_3.material.needsUpdate = true;
 
-        horizontalDividerSection1_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection1_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection1_2_3.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_1_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
-
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_2_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_2_3'));
+            self.options.sectionHeight_1_2 = parseInt(localStorage.getItem("sectionHeight_1_2"));
+            self.options.sectionHeight_1_2_3 = parseInt(localStorage.getItem("sectionHeight_1_2_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_2_3.position.y = parseFloat(self.params.get('hDS1_2_3'));
+            self.options.sectionHeight_1_2_3 = self.params.get('H_S1_2_3');
+            self.options.sectionHeight_1_2 = self.params.get('H_S1_2');
+        } else {
+            horizontalDividerSection1_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection1_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_1_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection1_2_3);
-    
-        self.createRayCastRecieverSection1_2();
-        self.createWireframeBack_section1_2();
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection1_2('savedCorrection');
+            self.createWireframeBack_section1_2('savedCorrection');
+            
+            self.createWireframeBack_section1_2_3('savedCorrection');
+            self.createRayCastRecieverSection1_2_3('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createWireframeBack_section1_2_3('savedCorrectionURL');
+            self.createRayCastRecieverSection1_2_3('savedCorrectionURL');
         
-        self.createWireframeBack_section1_2_3();
-        self.createRayCastRecieverSection1_2_3(); 
+            self.createWireframeBack_section1_2('savedCorrectionURL');
+            self.createRayCastRecieverSection1_2('savedCorrectionURL'); 
+        } else {
+            self.createRayCastRecieverSection1_2();
+            self.createWireframeBack_section1_2();
+            
+            self.createWireframeBack_section1_2_3();
+            self.createRayCastRecieverSection1_2_3(); 
+        }
 
     },
 
@@ -44280,25 +47744,47 @@ App.prototype = {
         horizontalDividerSection1_2_4.name = 'horizontalDividerSection1_2_4'
         horizontalDividerSection1_2_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection1_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection1_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
-
         horizontalDividerSection1_2_4.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
         horizontalDividerSection1_2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_1_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_1_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+
+        if (shelfId == 'saved') { 
+            horizontalDividerSection1_2_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection1_2_4'));
+            self.options.sectionHeight_1_2_2 = parseInt(localStorage.getItem("sectionHeight_1_2_2"));
+            self.options.sectionHeight_1_2_4 = parseInt(localStorage.getItem("sectionHeight_1_2_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection1_2_4.position.y = parseFloat(self.params.get('hDS1_2_4'));
+            self.options.sectionHeight_1_2_2 = self.params.get('H_S1_2_2');
+            self.options.sectionHeight_1_2_4 = self.params.get('H_S1_2_4');
+        } else {
+            horizontalDividerSection1_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection1_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2;
+            self.options.sectionHeight_1_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_1_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection1_2_4);
     
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection1_2_2('savedCorrection');
+            self.createWireframeBack_section1_2_2('savedCorrection'); 
 
+            self.createWireframeBack_section1_2_4('savedCorrection');
+            self.createRayCastRecieverSection1_2_4('savedCorrection');     
+        
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection1_2_2('savedCorrectionURL');
+            self.createWireframeBack_section1_2_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section1_2_4('savedCorrectionURL');
+            self.createRayCastRecieverSection1_2_4('savedCorrectionURL'); 
 
-        self.createRayCastRecieverSection1_2_2();
-        self.createWireframeBack_section1_2_2(); 
+        } else {
+            self.createRayCastRecieverSection1_2_2();
+            self.createWireframeBack_section1_2_2(); 
 
-        self.createWireframeBack_section1_2_4();
-        self.createRayCastRecieverSection1_2_4();      
+            self.createWireframeBack_section1_2_4();
+            self.createRayCastRecieverSection1_2_4();      
+        }
         
     },
 
@@ -44328,16 +47814,43 @@ App.prototype = {
         horizontalDividerSection2_1.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2 +0.1;
 
-        self.options.sectionHeight_2_1 = currentHeight / 2 
-        self.options.sectionHeight_2_2 = currentHeight / 2 
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_1.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_1'));
+            self.options.sectionHeight_2_1 = parseInt(localStorage.getItem("sectionHeight_2_1"));
+            self.options.sectionHeight_2_2 = parseInt(localStorage.getItem("sectionHeight_2_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_1.position.y = parseFloat(self.params.get('hDS2_1'));
+            self.options.sectionHeight_2_1 = self.params.get('H_S2_1');
+            self.options.sectionHeight_2_2 = self.params.get('H_S2_2');
+        } else {
+            horizontalDividerSection2_1.position.y = currentHeight / 2
+            self.options.sectionHeight_2_1 = currentHeight / 2 
+            self.options.sectionHeight_2_2 = currentHeight / 2 
+        }
 
         self.scene.add(horizontalDividerSection2_1);
 
-        self.createRayCastRecieverSection2_1();
-        self.createWireframeBack_section2_1();
-    
-        self.createWireframeBack_section2_2();
-        self.createRayCastRecieverSection2_2(); 
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_1('savedCorrection');
+            self.createWireframeBack_section2_1('savedCorrection');
+        
+            self.createWireframeBack_section2_2('savedCorrection');
+            self.createRayCastRecieverSection2_2('savedCorrection'); 
+
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection2_1('savedCorrectionURL');
+            self.createWireframeBack_section2_1('savedCorrectionURL');
+        
+            self.createWireframeBack_section2_2('savedCorrectionURL');
+            self.createRayCastRecieverSection2_2('savedCorrectionURL'); 
+        
+        } else {
+            self.createRayCastRecieverSection2_1();
+            self.createWireframeBack_section2_1();
+        
+            self.createWireframeBack_section2_2();
+            self.createRayCastRecieverSection2_2(); 
+        }
 
 
     },
@@ -44348,7 +47861,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection2_1_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_2_1
 
         var geometry = new THREE.BoxGeometry(self.options.section2Length - 1, self.options.shelf.thickness, self.options.shelf.width);
@@ -44361,22 +47873,47 @@ App.prototype = {
         horizontalDividerSection2_1_2.name = 'horizontalDividerSection2_1_2'
         horizontalDividerSection2_1_2.material.needsUpdate = true;
 
-        horizontalDividerSection2_1_2.position.y = currentHeight / 2
-
         horizontalDividerSection2_1_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
-
-        self.options.sectionHeight_2_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_2_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
         
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_1_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_1_2'));
+            self.options.sectionHeight_2_1 = parseInt(localStorage.getItem("sectionHeight_2_1"));
+            self.options.sectionHeight_2_1_2 = parseInt(localStorage.getItem("sectionHeight_2_1_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_1_2.position.y = parseFloat(self.params.get('hDS2_1_2'));
+            self.options.sectionHeight_2_1 = self.params.get('H_S2_1');
+            self.options.sectionHeight_2_1_2 = self.params.get('H_S2_1_2');
+        } else {
+            horizontalDividerSection2_1_2.position.y = currentHeight / 2
+            self.options.sectionHeight_2_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_2_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection2_1_2);
-    
-        self.createRayCastRecieverSection2_1();
-        self.createWireframeBack_section2_1();
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_1('savedCorrection');
+            self.createWireframeBack_section2_1('savedCorrection');
+            
+            self.createWireframeBack_section2_1_2('savedCorrection');
+            self.createRayCastRecieverSection2_1_2('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+
+            self.createRayCastRecieverSection2_1('savedCorrectionURL');
+            self.createWireframeBack_section2_1('savedCorrectionURL');
         
-        self.createWireframeBack_section2_1_2();
-        self.createRayCastRecieverSection2_1_2(); 
+            self.createWireframeBack_section2_1_2('savedCorrectionURL');
+            self.createRayCastRecieverSection2_1_2('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection2_1();
+            self.createWireframeBack_section2_1();
+            
+            self.createWireframeBack_section2_1_2();
+            self.createRayCastRecieverSection2_1_2(); 
+        }
+    
     },
 
 
@@ -44399,21 +47936,46 @@ App.prototype = {
         horizontalDividerSection2_1_3.name = 'horizontalDividerSection2_1_3'
         horizontalDividerSection2_1_3.material.needsUpdate = true;
 
-        horizontalDividerSection2_1_3.position.y = currentHeight / 2
         horizontalDividerSection2_1_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
-
-        self.options.sectionHeight_2_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_2_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
-
+        
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_1_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_1_3'));
+            self.options.sectionHeight_2_1 = parseInt(localStorage.getItem("sectionHeight_2_1"));
+            self.options.sectionHeight_2_1_3 = parseInt(localStorage.getItem("sectionHeight_2_1_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_1_3.position.y = parseFloat(self.params.get('hDS2_1_3'));
+            self.options.sectionHeight_2_1 = self.params.get('H_S2_1');
+            self.options.sectionHeight_2_1_3 = self.params.get('H_S2_1_3');
+        } else {
+            horizontalDividerSection2_1_3.position.y = currentHeight / 2
+            self.options.sectionHeight_2_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_2_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection2_1_3);
     
-        self.createRayCastRecieverSection2_1();
-        self.createWireframeBack_section2_1();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_1('savedCorrection');
+            self.createWireframeBack_section2_1('savedCorrection');
+            
+            self.createWireframeBack_section2_1_3('savedCorrection');
+            self.createRayCastRecieverSection2_1_3('savedCorrection'); 
+
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection2_1('savedCorrectionURL');
+            self.createWireframeBack_section2_1('savedCorrectionURL');
         
-        self.createWireframeBack_section2_1_3();
-        self.createRayCastRecieverSection2_1_3(); 
+            self.createRayCastRecieverSection2_1_3('savedCorrectionURL');
+            self.createWireframeBack_section2_1_3('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection2_1();
+            self.createWireframeBack_section2_1();
+            
+            self.createWireframeBack_section2_1_3();
+            self.createRayCastRecieverSection2_1_3(); 
+        }
 
     },
 
@@ -44428,7 +47990,6 @@ App.prototype = {
         let currentHeight = self.options.sectionHeight_2_1_2
 
         var geometry = new THREE.BoxGeometry(self.options.section2Length - 1, self.options.shelf.thickness, self.options.shelf.width);
-        
         var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
         
         var horizontalDividerSection2_1_4 = new THREE.Mesh(geometry, material);
@@ -44439,26 +48000,44 @@ App.prototype = {
 
         horizontalDividerSection2_1_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection2_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection2_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection2_1_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_2_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_2_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_1_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_1_4'));
+            self.options.sectionHeight_2_1_2 = parseInt(localStorage.getItem("sectionHeight_2_1_2"));
+            self.options.sectionHeight_2_1_4 = parseInt(localStorage.getItem("sectionHeight_2_1_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_1_4.position.y = parseFloat(self.params.get('hDS2_1_4'));
+            self.options.sectionHeight_2_1_2 = self.params.get('H_S2_1_2');
+            self.options.sectionHeight_2_1_4 = self.params.get('H_S2_1_4');
+        } else {
+            horizontalDividerSection2_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection2_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_2_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_2_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection2_1_4);
 
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_1_2('savedCorrection');
+            self.createWireframeBack_section2_1_2('savedCorrection'); 
 
+            self.createWireframeBack_section2_1_4('savedCorrection');
+            self.createRayCastRecieverSection2_1_4('savedCorrection');  
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection2_1_2('savedCorrectionURL');
+            self.createWireframeBack_section2_1_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section2_1_4('savedCorrectionURL');
+            self.createRayCastRecieverSection2_1_4('savedCorrectionURL');    
+        } else {
+            self.createRayCastRecieverSection2_1_2();
+            self.createWireframeBack_section2_1_2(); 
 
-        self.createRayCastRecieverSection2_1_2();
-        self.createWireframeBack_section2_1_2(); 
-
-        self.createWireframeBack_section2_1_4();
-        self.createRayCastRecieverSection2_1_4();      
-
+            self.createWireframeBack_section2_1_4();
+            self.createRayCastRecieverSection2_1_4();    
+        }  
         
     },
 
@@ -44469,7 +48048,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection2_2_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_2_2
 
         var geometry = new THREE.BoxGeometry(self.options.section2Length - 1, self.options.shelf.thickness, self.options.shelf.width);
@@ -44482,21 +48060,45 @@ App.prototype = {
         horizontalDividerSection2_2_2.name = 'horizontalDividerSection2_2_2'
         horizontalDividerSection2_2_2.material.needsUpdate = true;
 
-        horizontalDividerSection2_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection2_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection2_2_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
+ 
 
-        self.options.sectionHeight_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_2_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_2_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_2_2'));
+            self.options.sectionHeight_2_2 = parseInt(localStorage.getItem("sectionHeight_2_2"));
+            self.options.sectionHeight_2_2_2 = parseInt(localStorage.getItem("sectionHeight_2_2_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_2_2.position.y = parseFloat(self.params.get('hDS2_2_2'));
+            self.options.sectionHeight_2_2_2 = self.params.get('H_S2_2_2');
+            self.options.sectionHeight_2_2 = self.params.get('H_S2_2');
+        } else {
+            horizontalDividerSection2_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection2_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_2_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection2_2_2);
-    
-        self.createRayCastRecieverSection2_2();
-        self.createWireframeBack_section2_2();
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_2('savedCorrection');
+            self.createWireframeBack_section2_2('savedCorrection');
+            
+            self.createWireframeBack_section2_2_2('savedCorrection');
+            self.createRayCastRecieverSection2_2_2('savedCorrection');
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection2_2_2('savedCorrectionURL');
+            self.createWireframeBack_section2_2_2('savedCorrectionURL');
         
-        self.createWireframeBack_section2_2_2();
-        self.createRayCastRecieverSection2_2_2(); 
+            self.createWireframeBack_section2_2('savedCorrectionURL');
+            self.createRayCastRecieverSection2_2('savedCorrectionURL'); 
+        } else {
+            self.createRayCastRecieverSection2_2();
+            self.createWireframeBack_section2_2();
+            
+            self.createWireframeBack_section2_2_2();
+            self.createRayCastRecieverSection2_2_2();
+        }
     },
 
 
@@ -44519,22 +48121,44 @@ App.prototype = {
         horizontalDividerSection2_2_3.name = 'horizontalDividerSection2_2_3'
         horizontalDividerSection2_2_3.material.needsUpdate = true;
 
-        horizontalDividerSection2_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection2_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection2_2_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_2_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
-
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_2_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_2_3'));
+            self.options.sectionHeight_2_2 = parseInt(localStorage.getItem("sectionHeight_2_2"));
+            self.options.sectionHeight_2_2_3 = parseInt(localStorage.getItem("sectionHeight_2_2_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_2_3.position.y = parseFloat(self.params.get('hDS2_2_3'));
+            self.options.sectionHeight_2_2_3 = self.params.get('H_S2_2_3');
+            self.options.sectionHeight_2_2 = self.params.get('H_S2_2');
+        } else {
+            horizontalDividerSection2_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection2_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_2_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection2_2_3);
-    
-        self.createRayCastRecieverSection2_2();
-        self.createWireframeBack_section2_2();
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_2('savedCorrection');
+            self.createWireframeBack_section2_2('savedCorrection');
+            
+            self.createWireframeBack_section2_2_3('savedCorrection');
+            self.createRayCastRecieverSection2_2_3('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createWireframeBack_section2_2_3('savedCorrectionURL');
+            self.createRayCastRecieverSection2_2_3('savedCorrectionURL');
         
-        self.createWireframeBack_section2_2_3();
-        self.createRayCastRecieverSection2_2_3(); 
+            self.createWireframeBack_section2_2('savedCorrectionURL');
+            self.createRayCastRecieverSection2_2('savedCorrectionURL'); 
+        } else {
+            self.createRayCastRecieverSection2_2();
+            self.createWireframeBack_section2_2();
+            
+            self.createWireframeBack_section2_2_3();
+            self.createRayCastRecieverSection2_2_3(); 
+        }
 
     },
 
@@ -44559,26 +48183,47 @@ App.prototype = {
         horizontalDividerSection2_2_4.name = 'horizontalDividerSection2_2_4'
         horizontalDividerSection2_2_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection2_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection2_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
-
         horizontalDividerSection2_2_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         horizontalDividerSection2_2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_2_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_2_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection2_2_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection2_2_4'));
+            self.options.sectionHeight_2_2_2 = parseInt(localStorage.getItem("sectionHeight_2_2_2"));
+            self.options.sectionHeight_2_2_4 = parseInt(localStorage.getItem("sectionHeight_2_2_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection2_2_4.position.y = parseFloat(self.params.get('hDS2_2_4'));
+            self.options.sectionHeight_2_2_2 = self.params.get('H_S2_2_2');
+            self.options.sectionHeight_2_2_4 = self.params.get('H_S2_2_4');
+        } else {
+            horizontalDividerSection2_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection2_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
+            self.options.sectionHeight_2_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_2_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection2_2_4);
     
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection2_2_2('savedCorrection');
+            self.createWireframeBack_section2_2_2('savedCorrection'); 
 
-
-        self.createRayCastRecieverSection2_2_2();
-        self.createWireframeBack_section2_2_2(); 
-
-        self.createWireframeBack_section2_2_4();
-        self.createRayCastRecieverSection2_2_4();      
+            self.createWireframeBack_section2_2_4('savedCorrection');
+            self.createRayCastRecieverSection2_2_4('savedCorrection');  
+                    
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection2_2_2('savedCorrectionURL');
+            self.createWireframeBack_section2_2_2('savedCorrectionURL');
         
+            self.createWireframeBack_section2_2_4('savedCorrectionURL');
+            self.createRayCastRecieverSection2_2_4('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection2_2_2();
+            self.createWireframeBack_section2_2_2(); 
+
+            self.createWireframeBack_section2_2_4();
+            self.createRayCastRecieverSection2_2_4();  
+        }
+      
     },
 
 
@@ -44603,21 +48248,44 @@ App.prototype = {
         horizontalDividerSection3_1.name = 'horizontalDividerSection3_1'
         horizontalDividerSection3_1.material.needsUpdate = true;
 
-        horizontalDividerSection3_1.position.y = currentHeight / 2
         horizontalDividerSection3_1.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2 +0.1;
 
-        self.options.sectionHeight_3_1 = currentHeight / 2 
-        self.options.sectionHeight_3_2 = currentHeight / 2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_1.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_1'));
+            self.options.sectionHeight_3_1 = parseInt(localStorage.getItem("sectionHeight_3_1"));
+            self.options.sectionHeight_3_2 = parseInt(localStorage.getItem("sectionHeight_3_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_1.position.y = parseFloat(self.params.get('hDS3_1'));
+            self.options.sectionHeight_3_1 = self.params.get('H_S3_1');
+            self.options.sectionHeight_3_2 = self.params.get('H_S3_2');
+        } else {
+            horizontalDividerSection3_1.position.y = currentHeight / 2
+            self.options.sectionHeight_3_1 = currentHeight / 2 
+            self.options.sectionHeight_3_2 = currentHeight / 2
+        }
 
         self.scene.add(horizontalDividerSection3_1);
 
-        self.createRayCastRecieverSection3_1();
-        self.createWireframeBack_section3_1();
-    
-        self.createWireframeBack_section3_2();
-        self.createRayCastRecieverSection3_2(); 
-
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_1('savedCorrection');
+            self.createWireframeBack_section3_1('savedCorrection');
+        
+            self.createWireframeBack_section3_2('savedCorrection');
+            self.createRayCastRecieverSection3_2('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection3_1('savedCorrectionURL');
+            self.createWireframeBack_section3_1('savedCorrectionURL');
+        
+            self.createWireframeBack_section3_2('savedCorrectionURL');
+            self.createRayCastRecieverSection3_2('savedCorrectionURL'); 
+        } else {
+            self.createRayCastRecieverSection3_1();
+            self.createWireframeBack_section3_1();
+        
+            self.createWireframeBack_section3_2();
+            self.createRayCastRecieverSection3_2(); 
+        }
 
     },
     
@@ -44627,7 +48295,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection3_1_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_3_1
 
         var geometry = new THREE.BoxGeometry(self.options.section3Length - 1, self.options.shelf.thickness, self.options.shelf.width);
@@ -44640,22 +48307,47 @@ App.prototype = {
         horizontalDividerSection3_1_2.name = 'horizontalDividerSection3_1_2'
         horizontalDividerSection3_1_2.material.needsUpdate = true;
 
-        horizontalDividerSection3_1_2.position.y = currentHeight / 2
-
         horizontalDividerSection3_1_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_3_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_3_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_1_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_1_2'));
+            self.options.sectionHeight_3_1 = parseInt(localStorage.getItem("sectionHeight_3_1"));
+            self.options.sectionHeight_3_1_2 = parseInt(localStorage.getItem("sectionHeight_3_1_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_1_2.position.y = parseFloat(self.params.get('hDS3_1_2'));
+            self.options.sectionHeight_3_1 = self.params.get('H_S3_1');
+            self.options.sectionHeight_3_1_2 = self.params.get('H_S3_1_2');
+        } else {
+            horizontalDividerSection3_1_2.position.y = currentHeight / 2
+            self.options.sectionHeight_3_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_3_1_2 = currentHeight / 2 + this.options.shelf.thickness/2 
+        }
 
         self.scene.add(horizontalDividerSection3_1_2);
     
-        self.createRayCastRecieverSection3_1();
-        self.createWireframeBack_section3_1();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_1('savedCorrection');
+            self.createWireframeBack_section3_1('savedCorrection');
+            
+            self.createWireframeBack_section3_1_2('savedCorrection');
+            self.createRayCastRecieverSection3_1_2('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+
+            self.createRayCastRecieverSection3_1('savedCorrectionURL');
+            self.createWireframeBack_section3_1('savedCorrectionURL');
         
-        self.createWireframeBack_section3_1_2();
-        self.createRayCastRecieverSection3_1_2(); 
+            self.createWireframeBack_section3_1_2('savedCorrectionURL');
+            self.createRayCastRecieverSection3_1_2('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection3_1();
+            self.createWireframeBack_section3_1();
+            
+            self.createWireframeBack_section3_1_2();
+            self.createRayCastRecieverSection3_1_2(); 
+        }
+
     },
 
 
@@ -44678,21 +48370,47 @@ App.prototype = {
         horizontalDividerSection3_1_3.name = 'horizontalDividerSection3_1_3'
         horizontalDividerSection3_1_3.material.needsUpdate = true;
 
-        horizontalDividerSection3_1_3.position.y = currentHeight / 2
         horizontalDividerSection3_1_3.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_3_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_3_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
 
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_1_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_1_3'));
+            self.options.sectionHeight_3_1 = parseInt(localStorage.getItem("sectionHeight_3_1"));
+            self.options.sectionHeight_3_1_3 = parseInt(localStorage.getItem("sectionHeight_3_1_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_1_3.position.y = parseFloat(self.params.get('hDS3_1_3'));
+            self.options.sectionHeight_3_1 = self.params.get('H_S3_1');
+            self.options.sectionHeight_3_1_3 = self.params.get('H_S3_1_3');
+        } else {
+            horizontalDividerSection3_1_3.position.y = currentHeight / 2
+            self.options.sectionHeight_3_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_3_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection3_1_3);
     
-        self.createRayCastRecieverSection3_1();
-        self.createWireframeBack_section3_1();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_1('savedCorrection');
+            self.createWireframeBack_section3_1('savedCorrection');
+            
+            self.createWireframeBack_section3_1_3('savedCorrection');
+            self.createRayCastRecieverSection3_1_3('savedCorrection'); 
+
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection3_1('savedCorrectionURL');
+            self.createWireframeBack_section3_1('savedCorrectionURL');
         
-        self.createWireframeBack_section3_1_3();
-        self.createRayCastRecieverSection3_1_3(); 
+            self.createRayCastRecieverSection3_1_3('savedCorrectionURL');
+            self.createWireframeBack_section3_1_3('savedCorrectionURL'); 
+        
+        } else {
+            self.createRayCastRecieverSection3_1();
+            self.createWireframeBack_section3_1();
+            
+            self.createWireframeBack_section3_1_3();
+            self.createRayCastRecieverSection3_1_3(); 
+        }
 
     },
 
@@ -44707,7 +48425,6 @@ App.prototype = {
         let currentHeight = self.options.sectionHeight_3_1_2
 
         var geometry = new THREE.BoxGeometry(self.options.section3Length - 1, self.options.shelf.thickness, self.options.shelf.width);
-        
         var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
         
         var horizontalDividerSection3_1_4 = new THREE.Mesh(geometry, material);
@@ -44718,25 +48435,46 @@ App.prototype = {
 
         horizontalDividerSection3_1_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection3_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection3_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection3_1_4.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_3_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_3_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_1_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_1_4'));
+            self.options.sectionHeight_3_1_2 = parseInt(localStorage.getItem("sectionHeight_3_1_2"));
+            self.options.sectionHeight_3_1_4 = parseInt(localStorage.getItem("sectionHeight_3_1_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_1_4.position.y = parseFloat(self.params.get('hDS3_1_4'));
+            self.options.sectionHeight_3_1_2 = self.params.get('H_S3_1_2');
+            self.options.sectionHeight_3_1_4 = self.params.get('H_S3_1_4');
+        } else {
+            horizontalDividerSection3_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection3_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_3_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_3_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection3_1_4);
 
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_1_2('savedCorrection');
+            self.createWireframeBack_section3_1_2('savedCorrection'); 
+    
+            self.createWireframeBack_section3_1_4('savedCorrection');
+            self.createRayCastRecieverSection3_1_4('savedCorrection');   
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection3_1_2('savedCorrectionURL');
+            self.createWireframeBack_section3_1_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section3_1_4('savedCorrectionURL');
+            self.createRayCastRecieverSection3_1_4('savedCorrectionURL');   
 
-
-        self.createRayCastRecieverSection3_1_2();
-        self.createWireframeBack_section3_1_2(); 
-
-        self.createWireframeBack_section3_1_4();
-        self.createRayCastRecieverSection3_1_4();      
+        } else {
+            self.createRayCastRecieverSection3_1_2();
+            self.createWireframeBack_section3_1_2(); 
+    
+            self.createWireframeBack_section3_1_4();
+            self.createRayCastRecieverSection3_1_4();   
+        }   
 
         
     },
@@ -44748,7 +48486,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection3_2_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_3_2
 
         var geometry = new THREE.BoxGeometry(self.options.section3Length - 1, self.options.shelf.thickness, self.options.shelf.width);
@@ -44761,21 +48498,46 @@ App.prototype = {
         horizontalDividerSection3_2_2.name = 'horizontalDividerSection3_2_2'
         horizontalDividerSection3_2_2.material.needsUpdate = true;
 
-        horizontalDividerSection3_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection3_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection3_2_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_3_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_3_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_2_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_2_2'));
+            self.options.sectionHeight_3_2 = parseInt(localStorage.getItem("sectionHeight_3_2"));
+            self.options.sectionHeight_3_2_2 = parseInt(localStorage.getItem("sectionHeight_3_2_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_2_2.position.y = parseFloat(self.params.get('hDS3_2_2'));
+            self.options.sectionHeight_3_2_2 = self.params.get('H_S3_2_2');
+            self.options.sectionHeight_3_2 = self.params.get('H_S3_2');
+        } else {
+            horizontalDividerSection3_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection3_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_3_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_3_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection3_2_2);
     
-        self.createRayCastRecieverSection3_2();
-        self.createWireframeBack_section3_2();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_2('savedCorrection');
+            self.createWireframeBack_section3_2('savedCorrection');
+            
+            self.createWireframeBack_section3_2_2('savedCorrection');
+            self.createRayCastRecieverSection3_2_2('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createWireframeBack_section3_2_2('savedCorrectionURL');
+            self.createRayCastRecieverSection3_2_2('savedCorrectionURL');
         
-        self.createWireframeBack_section3_2_2();
-        self.createRayCastRecieverSection3_2_2(); 
+            self.createWireframeBack_section3_2('savedCorrectionURL');
+            self.createRayCastRecieverSection3_2('savedCorrectionURL'); 
+         
+        } else {
+            self.createRayCastRecieverSection3_2();
+            self.createWireframeBack_section3_2();
+            
+            self.createWireframeBack_section3_2_2();
+            self.createRayCastRecieverSection3_2_2(); 
+        }
+
     },
 
 
@@ -44798,22 +48560,46 @@ App.prototype = {
         horizontalDividerSection3_2_3.name = 'horizontalDividerSection3_2_3'
         horizontalDividerSection3_2_3.material.needsUpdate = true;
 
-        horizontalDividerSection3_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection3_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection3_2_3.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_3_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_3_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
 
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_2_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_2_3'));
+            self.options.sectionHeight_3_2 = parseInt(localStorage.getItem("sectionHeight_3_2"));
+            self.options.sectionHeight_3_2_3 = parseInt(localStorage.getItem("sectionHeight_3_2_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_2_3.position.y = parseFloat(self.params.get('hDS3_2_3'));
+            self.options.sectionHeight_3_2_3 = self.params.get('H_S3_2_3');
+            self.options.sectionHeight_3_2 = self.params.get('H_S3_2');            
+        } else {
+            horizontalDividerSection3_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection3_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_3_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_3_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection3_2_3);
-    
-        self.createRayCastRecieverSection3_2();
-        self.createWireframeBack_section3_2();
+ 
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_2('savedCorrection');
+            self.createWireframeBack_section3_2('savedCorrection');
+            
+            self.createWireframeBack_section3_2_3('savedCorrection');
+            self.createRayCastRecieverSection3_2_3('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createWireframeBack_section3_2_3('savedCorrectionURL');
+            self.createRayCastRecieverSection3_2_3('savedCorrectionURL');
         
-        self.createWireframeBack_section3_2_3();
-        self.createRayCastRecieverSection3_2_3(); 
+            self.createWireframeBack_section3_2('savedCorrectionURL');
+            self.createRayCastRecieverSection3_2('savedCorrectionURL'); 
+         
+        } else {
+            self.createRayCastRecieverSection3_2();
+            self.createWireframeBack_section3_2();
+            
+            self.createWireframeBack_section3_2_3();
+            self.createRayCastRecieverSection3_2_3();
+        }
 
     },
 
@@ -44828,7 +48614,6 @@ App.prototype = {
         let currentHeight = self.options.sectionHeight_3_2_2
 
         var geometry = new THREE.BoxGeometry(self.options.section3Length - 1, self.options.shelf.thickness, self.options.shelf.width);
-        
         var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
         
         var horizontalDividerSection3_2_4 = new THREE.Mesh(geometry, material);
@@ -44838,25 +48623,46 @@ App.prototype = {
         horizontalDividerSection3_2_4.name = 'horizontalDividerSection3_2_4'
         horizontalDividerSection3_2_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection3_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection3_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
-
         horizontalDividerSection3_2_4.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         horizontalDividerSection3_2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
+        if (shelfId == 'saved') { 
+            horizontalDividerSection3_2_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection3_2_4'));
+            self.options.sectionHeight_3_2_2 = parseInt(localStorage.getItem("sectionHeight_3_2_2"));
+            self.options.sectionHeight_3_2_4 = parseInt(localStorage.getItem("sectionHeight_3_2_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection3_2_4.position.y = parseFloat(self.params.get('hDS3_2_4'));
+            self.options.sectionHeight_3_2_2 = self.params.get('H_S3_2_2');
+            self.options.sectionHeight_3_2_4 = self.params.get('H_S3_2_4');
+        } else {
+            horizontalDividerSection3_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection3_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
+            self.options.sectionHeight_3_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_3_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
         
-        self.options.sectionHeight_3_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_3_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
 
         self.scene.add(horizontalDividerSection3_2_4);
+
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection3_2_2('savedCorrection');
+            self.createWireframeBack_section3_2_2('savedCorrection'); 
     
-
-
-        self.createRayCastRecieverSection3_2_2();
-        self.createWireframeBack_section3_2_2(); 
-
-        self.createWireframeBack_section3_2_4();
-        self.createRayCastRecieverSection3_2_4();      
+            self.createWireframeBack_section3_2_4('savedCorrection');
+            self.createRayCastRecieverSection3_2_4('savedCorrection');  
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection3_2_2('savedCorrectionURL');
+            self.createWireframeBack_section3_2_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section3_2_4('savedCorrectionURL');
+            self.createRayCastRecieverSection3_2_4('savedCorrectionURL');        
+        } else {
+            self.createRayCastRecieverSection3_2_2();
+            self.createWireframeBack_section3_2_2(); 
+    
+            self.createWireframeBack_section3_2_4();
+            self.createRayCastRecieverSection3_2_4();  
+        }
+    
         
     },
 
@@ -44883,20 +48689,46 @@ App.prototype = {
         horizontalDividerSection4_1.name = 'horizontalDividerSection4_1'
         horizontalDividerSection4_1.material.needsUpdate = true;
 
-        horizontalDividerSection4_1.position.y = currentHeight / 2
         horizontalDividerSection4_1.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2 +0.1;
 
-        self.options.sectionHeight_4_1 = currentHeight / 2 
-        self.options.sectionHeight_4_2 = currentHeight / 2 
+
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_1.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_1'));
+            self.options.sectionHeight_4_1 = parseInt(localStorage.getItem("sectionHeight_4_1"));
+            self.options.sectionHeight_4_2 = parseInt(localStorage.getItem("sectionHeight_4_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection4_1.position.y = parseFloat(self.params.get('hDS4_1'));
+            self.options.sectionHeight_4_1 = self.params.get('H_S4_1');
+            self.options.sectionHeight_4_2 = self.params.get('H_S4_2');
+        } else {
+            horizontalDividerSection4_1.position.y = currentHeight / 2
+            self.options.sectionHeight_4_1 = currentHeight / 2 
+            self.options.sectionHeight_4_2 = currentHeight / 2 
+        }
 
         self.scene.add(horizontalDividerSection4_1);
 
-        self.createRayCastRecieverSection4_1();
-        self.createWireframeBack_section4_1();
-    
-        self.createWireframeBack_section4_2();
-        self.createRayCastRecieverSection4_2(); 
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_1('savedCorrection');
+            self.createWireframeBack_section4_1('savedCorrection');
+        
+            self.createWireframeBack_section4_2('savedCorrection');
+            self.createRayCastRecieverSection4_2('savedCorrection');  
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection4_1('savedCorrectionURL');
+            self.createWireframeBack_section4_1('savedCorrectionURL');
+        
+            self.createWireframeBack_section4_2('savedCorrectionURL');
+            self.createRayCastRecieverSection4_2('savedCorrectionURL'); 
+        } else {
+            self.createRayCastRecieverSection4_1();
+            self.createWireframeBack_section4_1();
+        
+            self.createWireframeBack_section4_2();
+            self.createRayCastRecieverSection4_2(); 
+        }
+
 
 
     },
@@ -44907,7 +48739,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection4_1_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_4_1
 
         var geometry = new THREE.BoxGeometry(self.options.section4Length - 1, self.options.shelf.thickness, self.options.shelf.width);
@@ -44920,22 +48751,48 @@ App.prototype = {
         horizontalDividerSection4_1_2.name = 'horizontalDividerSection4_1_2'
         horizontalDividerSection4_1_2.material.needsUpdate = true;
 
-        horizontalDividerSection4_1_2.position.y = currentHeight / 2
-
         horizontalDividerSection4_1_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_4_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_4_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        
+
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_1_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_1_2'));
+            self.options.sectionHeight_4_1 = parseInt(localStorage.getItem("sectionHeight_4_1"));
+            self.options.sectionHeight_1_2 = parseInt(localStorage.getItem("sectionHeight_1_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection4_1_2.position.y = parseFloat(self.params.get('hDS4_1_2'));
+            self.options.sectionHeight_4_1 = self.params.get('H_S4_1');
+            self.options.sectionHeight_4_1_2 = self.params.get('H_S4_1_2');
+        } else {
+            horizontalDividerSection4_1_2.position.y = currentHeight / 2
+            self.options.sectionHeight_4_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_4_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection4_1_2);
     
-        self.createRayCastRecieverSection4_1();
-        self.createWireframeBack_section4_1();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_1('savedCorrection');
+            self.createWireframeBack_section4_1('savedCorrection');
+            
+            self.createWireframeBack_section4_1_2('savedCorrection');
+            self.createRayCastRecieverSection4_1_2('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+
+            self.createRayCastRecieverSection4_1('savedCorrectionURL');
+            self.createWireframeBack_section4_1('savedCorrectionURL');
         
-        self.createWireframeBack_section4_1_2();
-        self.createRayCastRecieverSection4_1_2(); 
+            self.createWireframeBack_section4_1_2('savedCorrectionURL');
+            self.createRayCastRecieverSection4_1_2('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection4_1();
+            self.createWireframeBack_section4_1();
+            
+            self.createWireframeBack_section4_1_2();
+            self.createRayCastRecieverSection4_1_2(); 
+        }
+
     },
 
 
@@ -44958,21 +48815,42 @@ App.prototype = {
         horizontalDividerSection4_1_3.name = 'horizontalDividerSection4_1_3'
         horizontalDividerSection4_1_3.material.needsUpdate = true;
 
-        horizontalDividerSection4_1_3.position.y = currentHeight / 2
         horizontalDividerSection4_1_3.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_4_1 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_4_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
-
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_1_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_1_3'));
+            self.options.sectionHeight_4_1 = parseInt(localStorage.getItem("sectionHeight_4_1"));
+            self.options.sectionHeight_4_1_3 = parseInt(localStorage.getItem("sectionHeight_4_1_3"));
+        } else {
+            horizontalDividerSection4_1_3.position.y = currentHeight / 2
+            self.options.sectionHeight_4_1 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_4_1_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection4_1_3);
     
-        self.createRayCastRecieverSection4_1();
-        self.createWireframeBack_section4_1();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_1('savedCorrection');
+            self.createWireframeBack_section4_1('savedCorrection');
+            
+            self.createWireframeBack_section4_1_3('savedCorrection');
+            self.createRayCastRecieverSection4_1_3('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection4_1('savedCorrectionURL');
+            self.createWireframeBack_section4_1('savedCorrectionURL');
         
-        self.createWireframeBack_section4_1_3();
-        self.createRayCastRecieverSection4_1_3(); 
+            self.createRayCastRecieverSection4_1_3('savedCorrectionURL');
+            self.createWireframeBack_section4_1_3('savedCorrectionURL'); 
+
+        } else {
+            self.createRayCastRecieverSection4_1();
+            self.createWireframeBack_section4_1();
+            
+            self.createWireframeBack_section4_1_3();
+            self.createRayCastRecieverSection4_1_3(); 
+        }
+
 
     },
 
@@ -44987,7 +48865,6 @@ App.prototype = {
         let currentHeight = self.options.sectionHeight_4_1_2
 
         var geometry = new THREE.BoxGeometry(self.options.section4Length - 1, self.options.shelf.thickness, self.options.shelf.width);
-        
         var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
         
         var horizontalDividerSection4_1_4 = new THREE.Mesh(geometry, material);
@@ -44998,26 +48875,44 @@ App.prototype = {
 
         horizontalDividerSection4_1_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection4_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection4_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection4_1_4.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_4_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_4_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_1_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_1_4'));
+            self.options.sectionHeight_4_1_2 = parseInt(localStorage.getItem("sectionHeight_4_1_2"));
+            self.options.sectionHeight_4_1_4 = parseInt(localStorage.getItem("sectionHeight_4_1_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection4_1_4.position.y = parseFloat(self.params.get('hDS4_1_4'));
+            self.options.sectionHeight_4_1_2 = self.params.get('H_S4_1_2');
+            self.options.sectionHeight_4_1_4 = self.params.get('H_S4_1_4');
+        } else {
+            horizontalDividerSection4_1_4.position.y = self.scene.getObjectByName('horizontalDividerSection4_1_2').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_4_1_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_4_1_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection4_1_4);
 
-
-
-        self.createRayCastRecieverSection4_1_2();
-        self.createWireframeBack_section4_1_2(); 
-
-        self.createWireframeBack_section4_1_4();
-        self.createRayCastRecieverSection4_1_4();      
-
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_1_2('savedCorrection');
+            self.createWireframeBack_section4_1_2('savedCorrection'); 
+    
+            self.createWireframeBack_section4_1_4('savedCorrection');
+            self.createRayCastRecieverSection4_1_4('savedCorrection');   
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection4_1_2('savedCorrectionURL');
+            self.createWireframeBack_section4_1_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section4_1_4('savedCorrectionURL');
+            self.createRayCastRecieverSection4_1_4('savedCorrectionURL');          
+        } else {
+            self.createRayCastRecieverSection4_1_2();
+            self.createWireframeBack_section4_1_2(); 
+    
+            self.createWireframeBack_section4_1_4();
+            self.createRayCastRecieverSection4_1_4();   
+        }   
         
     },
 
@@ -45028,7 +48923,6 @@ App.prototype = {
         var self = this 
         self.scene.remove(this.horizontalDividerSection4_2_2);
 
-        //❓
         var currentHeight = self.options.sectionHeight_4_2
 
         var geometry = new THREE.BoxGeometry(self.options.section4Length - 1, self.options.shelf.thickness, self.options.shelf.width);
@@ -45041,21 +48935,46 @@ App.prototype = {
         horizontalDividerSection4_2_2.name = 'horizontalDividerSection4_2_2'
         horizontalDividerSection4_2_2.material.needsUpdate = true;
 
-        horizontalDividerSection4_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection4_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection4_2_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_4_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_4_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_2_2.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_2_2'));
+            self.options.sectionHeight_4_2 = parseInt(localStorage.getItem("sectionHeight_4_2"));
+            self.options.sectionHeight_4_2_2 = parseInt(localStorage.getItem("sectionHeight_4_2_2"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection4_2_2.position.y = parseFloat(self.params.get('hDS4_2_2'));
+            self.options.sectionHeight_4_2_2 = self.params.get('H_S4_2_2');
+            self.options.sectionHeight_4_2 = self.params.get('H_S4_2');
+        } else {
+            horizontalDividerSection4_2_2.position.y = self.scene.getObjectByName('horizontalDividerSection4_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_4_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_4_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection4_2_2);
     
-        self.createRayCastRecieverSection4_2();
-        self.createWireframeBack_section4_2();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_2('savedCorrection');
+            self.createWireframeBack_section4_2('savedCorrection');
+            
+            self.createWireframeBack_section4_2_2('savedCorrection');
+            self.createRayCastRecieverSection4_2_2('savedCorrection');  
+        } else if (shelfId == 'savedURL'){
+            self.createWireframeBack_section4_2_2('savedCorrectionURL');
+            self.createRayCastRecieverSection4_2_2('savedCorrectionURL');
         
-        self.createWireframeBack_section4_2_2();
-        self.createRayCastRecieverSection4_2_2(); 
+            self.createWireframeBack_section4_2('savedCorrectionURL');
+            self.createRayCastRecieverSection4_2('savedCorrectionURL'); 
+                 
+        } else {
+            self.createRayCastRecieverSection4_2();
+            self.createWireframeBack_section4_2();
+            
+            self.createWireframeBack_section4_2_2();
+            self.createRayCastRecieverSection4_2_2(); 
+        }
+    
     },
 
 
@@ -45078,22 +48997,45 @@ App.prototype = {
         horizontalDividerSection4_2_3.name = 'horizontalDividerSection4_2_3'
         horizontalDividerSection4_2_3.material.needsUpdate = true;
 
-        horizontalDividerSection4_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection4_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
-
         horizontalDividerSection4_2_3.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        self.options.sectionHeight_4_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_4_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_2_3.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_2_3'));
+            self.options.sectionHeight_4_2 = parseInt(localStorage.getItem("sectionHeight_4_2"));
+            self.options.sectionHeight_4_2_3 = parseInt(localStorage.getItem("sectionHeight_4_2_3"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection4_2_3.position.y = parseFloat(self.params.get('hDS4_2_3'));
+            self.options.sectionHeight_4_2_3 = self.params.get('H_S4_2_3');
+            self.options.sectionHeight_4_2 = self.params.get('H_S4_2');   
+        } else {
+            horizontalDividerSection4_2_3.position.y = self.scene.getObjectByName('horizontalDividerSection4_1').position.y + currentHeight / 2 - this.options.shelf.thickness/2
+            self.options.sectionHeight_4_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_4_2_3 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
 
         self.scene.add(horizontalDividerSection4_2_3);
     
-        self.createRayCastRecieverSection4_2();
-        self.createWireframeBack_section4_2();
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_2('savedCorrection');
+            self.createWireframeBack_section4_2('savedCorrection');
+            
+            self.createWireframeBack_section4_2_3('savedCorrection');
+            self.createRayCastRecieverSection4_2_3('savedCorrection'); 
+        } else if (shelfId == 'savedURL'){
+            self.createWireframeBack_section4_2_3('savedCorrectionURL');
+            self.createRayCastRecieverSection4_2_3('savedCorrectionURL');
         
-        self.createWireframeBack_section4_2_3();
-        self.createRayCastRecieverSection4_2_3(); 
+            self.createWireframeBack_section4_2('savedCorrectionURL');
+            self.createRayCastRecieverSection4_2('savedCorrectionURL');         
+        } else {
+            self.createRayCastRecieverSection4_2();
+            self.createWireframeBack_section4_2();
+            
+            self.createWireframeBack_section4_2_3();
+            self.createRayCastRecieverSection4_2_3(); 
+        }
 
     },
 
@@ -45107,8 +49049,7 @@ App.prototype = {
 
         let currentHeight = self.options.sectionHeight_4_2_2
 
-        var geometry = new THREE.BoxGeometry(self.options.section4Length - 1, self.options.shelf.thickness, self.options.shelf.width);
-        
+        var geometry = new THREE.BoxGeometry(self.options.section4Length - 1, self.options.shelf.thickness, self.options.shelf.width);    
         var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
         
         var horizontalDividerSection4_2_4 = new THREE.Mesh(geometry, material);
@@ -45118,25 +49059,44 @@ App.prototype = {
         horizontalDividerSection4_2_4.name = 'horizontalDividerSection4_2_4'
         horizontalDividerSection4_2_4.material.needsUpdate = true;
 
-
-        horizontalDividerSection4_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection4_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
-
         horizontalDividerSection4_2_4.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         horizontalDividerSection4_2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
-        
-        self.options.sectionHeight_4_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
-        self.options.sectionHeight_4_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        if (shelfId == 'saved') { 
+            horizontalDividerSection4_2_4.position.y = parseInt(localStorage.getItem('horizontalDividerSection4_2_4'));
+            self.options.sectionHeight_4_2_2 = parseInt(localStorage.getItem("sectionHeight_4_2_2"));
+            self.options.sectionHeight_4_2_4 = parseInt(localStorage.getItem("sectionHeight_4_2_4"));
+        } else if (shelfId == 'savedURL'){
+            horizontalDividerSection4_2_4.position.y = parseFloat(self.params.get('hDS4_2_4'));
+            self.options.sectionHeight_4_2_2 = self.params.get('H_S4_2_2');
+            self.options.sectionHeight_4_2_4 = self.params.get('H_S4_2_4');
+        } else {
+            horizontalDividerSection4_2_4.position.y = self.scene.getObjectByName('horizontalDividerSection4_2_2').position.y + currentHeight / 2  - this.options.shelf.thickness/2
+            self.options.sectionHeight_4_2_2 = currentHeight / 2 + this.options.shelf.thickness/2
+            self.options.sectionHeight_4_2_4 = currentHeight / 2 + this.options.shelf.thickness/2
+        }
 
         self.scene.add(horizontalDividerSection4_2_4);
     
-
-
-        self.createRayCastRecieverSection4_2_2();
-        self.createWireframeBack_section4_2_2(); 
-
-        self.createWireframeBack_section4_2_4();
-        self.createRayCastRecieverSection4_2_4();      
+        if (shelfId == 'saved') { 
+            self.createRayCastRecieverSection4_2_2('savedCorrection');
+            self.createWireframeBack_section4_2_2('savedCorrection'); 
+    
+            self.createWireframeBack_section4_2_4('savedCorrection');
+            self.createRayCastRecieverSection4_2_4('savedCorrection');     
+        } else if (shelfId == 'savedURL'){
+            self.createRayCastRecieverSection4_2_2('savedCorrectionURL');
+            self.createWireframeBack_section4_2_2('savedCorrectionURL');
+        
+            self.createWireframeBack_section4_2_4('savedCorrectionURL');
+            self.createRayCastRecieverSection4_2_4('savedCorrectionURL');     
+        } else {
+            self.createRayCastRecieverSection4_2_2();
+            self.createWireframeBack_section4_2_2(); 
+    
+            self.createWireframeBack_section4_2_4();
+            self.createRayCastRecieverSection4_2_4();      
+        } 
         
     },
 
@@ -45253,7 +49213,7 @@ App.prototype = {
         material.map.repeat.x = sectionLength / (self.boardTextureStep * self.boardTextureRepeatXPerStep /1) ;
         material.map.repeat.y =  sectionHeight / (self.boardTextureStep * self.boardTextureRepeatYPerStep /1);
 
-        var textureRotation = sectionLength > sectionHeight ? THREE.MathUtils.degToRad(90) : 0;
+        var textureRotation = sectionLength > (sectionHeight - this.options.shelf.thickness * 2) ? THREE.MathUtils.degToRad(90) : 0;
         material.map.rotation = textureRotation;
         material.needsUpdate = true;
     
@@ -45312,23 +49272,29 @@ App.prototype = {
 
     //🧊Raycast transparent red objects pointer 'click/hover' recievers
     // 1_1
-    createRayCastRecieverSection1_1: function() {
+    createRayCastRecieverSection1_1: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_1);
 
-        //🟦 remove *2 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, self.options.sectionHeight_1_1 - self.options.shelf.thickness, self.options.shelf.width-1);
-
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
         var RayCastRecieverSection1_1 = new THREE.Mesh(geometry, material);
 
-        RayCastRecieverSection1_1.geometry.translate( self.options.section1Length / 2, 0, 0 );
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_1.geometry.translate( this.options.section1Length / 2, 0, 0 );
+            RayCastRecieverSection1_1.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_1.geometry.translate( this.options.section1Length / 2, 0, 0 );
+            RayCastRecieverSection1_1.position.y = parseFloat(self.params.get('RCS1_1_pY'));
+        }   else {
+            RayCastRecieverSection1_1.geometry.translate( this.options.section1Length / 2, 0, 0 );
+            RayCastRecieverSection1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2   - this.options.shelf.thickness /2
+        }      
         
         RayCastRecieverSection1_1.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x +0.5;
-
-        RayCastRecieverSection1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2   - this.options.shelf.thickness /2
 
         RayCastRecieverSection1_1.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
 
@@ -45348,24 +49314,28 @@ App.prototype = {
 
         this.scene.add(RayCastRecieverSection1_1);
 
-        self.options.sectionHeight_1_positionY = this.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.y
-
     },
 
-    createWireframeBack_section1_1: function() {
+    createWireframeBack_section1_1: function(savedCorrection) {
+
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_1);
-        //🟦 remove *2 
+
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1 - this.options.shelf.thickness);
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
         var section1_WireframeMesh1_1 = new THREE.Mesh(geometry, material);
 
         section1_WireframeMesh1_1.geometry.translate( self.options.section1Length / 2 +0.5, 0, 0 );
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_1.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            section1_WireframeMesh1_1.position.y = parseFloat(self.params.get('WRS1_1_pY'));
+        }  else {
+            section1_WireframeMesh1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2   - this.options.shelf.thickness /2      
+        }  
 
         section1_WireframeMesh1_1.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
-        
-        section1_WireframeMesh1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2   - this.options.shelf.thickness /2
-
         section1_WireframeMesh1_1.position.z = -999
 
         section1_WireframeMesh1_1.name = "section1_WireframeMesh1_1"
@@ -45378,18 +49348,25 @@ App.prototype = {
     },
 
     //1_1_2 cuts 1_1
-    createWireframeBack_section1_1_2: function() {
+    createWireframeBack_section1_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_1_2);
 
-        //🟦 remove *2 
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1_2 - this.options.shelf.thickness);
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
+        
 
         var section1_WireframeMesh1_1_2 = new THREE.Mesh(geometry, material);
         
         section1_WireframeMesh1_1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y + this.options.sectionHeight_1_1_2 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_1_2.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_1_2.position.y = parseFloat(self.params.get('WRS1_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section1_WireframeMesh1_1_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
         section1_WireframeMesh1_1_2.position.z = -999
@@ -45401,18 +49378,25 @@ App.prototype = {
         this.scene.add(section1_WireframeMesh1_1_2);
     },
 
-    createRayCastRecieverSection1_1_2: function() {
+    createRayCastRecieverSection1_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_1_2);
-        //🟦 remove *2 
+
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1_2 - this.options.shelf.thickness, self.options.shelf.width-1);
-
+        
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
-
         var RayCastRecieverSection1_1_2 = new THREE.Mesh(geometry, material);
 
-        RayCastRecieverSection1_1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y + this.options.sectionHeight_1_1_2 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_1_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_1_2_positionY")) + this.options.shelf.thickness/2;
+            RayCastRecieverSection1_1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y + this.options.sectionHeight_1_1_2 / 2 - this.options.shelf.thickness, 0 )
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y + this.options.sectionHeight_1_1_2 / 2 - this.options.shelf.thickness, 0 )
+            RayCastRecieverSection1_1_2.position.y = parseFloat(self.params.get('RCS1_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+            RayCastRecieverSection1_1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_2", true ).position.y + this.options.sectionHeight_1_1_2 / 2 - this.options.shelf.thickness/2, 0 )
+        }
 
         RayCastRecieverSection1_1_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
         RayCastRecieverSection1_1_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2; 
@@ -45438,19 +49422,26 @@ App.prototype = {
 
     //1_1_3 cuts 1_1 after 1_1_2
 
-    createWireframeBack_section1_1_3: function() {
+    createWireframeBack_section1_1_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_1_3);
 
-         //🟦 remove *2 
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1_3 - this.options.shelf.thickness );
+
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
 
         var section1_WireframeMesh1_1_3 = new THREE.Mesh(geometry, material);
 
         section1_WireframeMesh1_1_3.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_3", true ).position.y + this.options.sectionHeight_1_1_3 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_1_3.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_1_3.position.y = parseFloat(self.params.get('WRS1_1_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }         
 
         section1_WireframeMesh1_1_3.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45465,11 +49456,10 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection1_1_3: function() {
+    createRayCastRecieverSection1_1_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_1_3);
 
-         //🟦 remove *2 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1_3 - this.options.shelf.thickness , self.options.shelf.width-1);
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
@@ -45477,6 +49467,15 @@ App.prototype = {
         var RayCastRecieverSection1_1_3 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection1_1_3.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_3", true ).position.y + this.options.sectionHeight_1_1_3 / 2 - this.options.shelf.thickness/2, 0 )
+
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_1_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_1_3.position.y = parseFloat(self.params.get('RCS1_1_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+
+        }
         
         RayCastRecieverSection1_1_3.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45501,18 +49500,23 @@ App.prototype = {
 
     //1_1_4 cuts 1_1_2
 
-    createWireframeBack_section1_1_4: function() {
+    createWireframeBack_section1_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_1_4);
 
-         //🟦 remove *2 
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1_4 - this.options.shelf.thickness, self.options.shelf.width-1);
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
 
         var section1_WireframeMesh1_1_4 = new THREE.Mesh(geometry, material);
 
         section1_WireframeMesh1_1_4.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_4", true ).position.y + this.options.sectionHeight_1_1_4 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_1_4.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_1_4.position.y = parseFloat(self.params.get('WRS1_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         section1_WireframeMesh1_1_4.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45527,11 +49531,10 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection1_1_4: function() {
+    createRayCastRecieverSection1_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_1_4);
 
-         //🟦 remove *2 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1_4 - this.options.shelf.thickness , self.options.shelf.width-1);
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
@@ -45539,6 +49542,14 @@ App.prototype = {
         var RayCastRecieverSection1_1_4 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection1_1_4.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1_4", true ).position.y + this.options.sectionHeight_1_1_4 / 2 - this.options.shelf.thickness/2, 0 )
+
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_1_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_1_4.position.y = parseFloat(self.params.get('RCS1_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }        
 
         RayCastRecieverSection1_1_4.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45561,18 +49572,26 @@ App.prototype = {
     },
 
     // 1_2
-    createRayCastRecieverSection1_2: function() {
+    createRayCastRecieverSection1_2: function(savedCorrection) {
+
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_2);
 
-        //🟦 remove *2
-        var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2 - this.options.shelf.thickness, self.options.shelf.width-1);
+        //🍍
+        var geometry = new THREE.BoxGeometry(this.options.section1Length + this.options.pillar.thickness/2, this.options.sectionHeight_1_2 - this.options.shelf.thickness, this.options.shelf.width-1);
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
         var RayCastRecieverSection1_2 = new THREE.Mesh(geometry, material);
 
-        RayCastRecieverSection1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + this.options.sectionHeight_1_2 / 2 - this.options.shelf.thickness/2, 0 )
-        
+        RayCastRecieverSection1_2.geometry.translate( this.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + this.options.sectionHeight_1_2 / 2 - this.options.shelf.thickness/2, 0 )
+
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_2.position.y = parseFloat(self.params.get('RCS1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
         
         RayCastRecieverSection1_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45597,17 +49616,26 @@ App.prototype = {
         this.scene.add(RayCastRecieverSection1_2);
     },
 
-    createWireframeBack_section1_2: function() {
+    createWireframeBack_section1_2: function(savedCorrection) {
+
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_2);
-        //🟦 remove *2 
-        var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2 - this.options.shelf.thickness);
+
+        var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2 - this.options.shelf.thickness);       
+        
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
 
         var section1_WireframeMesh1_2 = new THREE.Mesh(geometry, material);
         
         section1_WireframeMesh1_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + this.options.sectionHeight_1_2 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_2.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_2.position.y = parseFloat(self.params.get('WRS1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section1_WireframeMesh1_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45622,10 +49650,9 @@ App.prototype = {
     },
 
     //1_2_2 cuts 1_2
-    createWireframeBack_section1_2_2: function() {
+    createWireframeBack_section1_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_2_2);
-        //🟦 remove *2 
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2_2 - this.options.shelf.thickness);
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
 
@@ -45633,6 +49660,13 @@ App.prototype = {
 
         section1_WireframeMesh1_2_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_2_2", true ).position.y + this.options.sectionHeight_1_2_2 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_2_2.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_2_2.position.y = parseFloat(self.params.get('WRS1_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }  
 
         section1_WireframeMesh1_2_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
         section1_WireframeMesh1_2_2.position.z = -999
@@ -45644,17 +49678,25 @@ App.prototype = {
         this.scene.add(section1_WireframeMesh1_2_2);
     },
 
-    createRayCastRecieverSection1_2_2: function() {
+    createRayCastRecieverSection1_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_2_2);
-        //🟦 remove *2 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2_2 - this.options.shelf.thickness, self.options.shelf.width-1);
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
 
         var RayCastRecieverSection1_2_2 = new THREE.Mesh(geometry, material);
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_2_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_2_2.position.y = parseFloat(self.params.get('RCS1_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }  
+
         RayCastRecieverSection1_2_2.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_2_2", true ).position.y + this.options.sectionHeight_1_2_2 / 2 - this.options.shelf.thickness/2, 0 )
+
 
         RayCastRecieverSection1_2_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45680,11 +49722,10 @@ App.prototype = {
 
 
     //1_2_3 cuts 1_2 after 1_2_2
-    createWireframeBack_section1_2_3: function() {
+    createWireframeBack_section1_2_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_2_3);
-        //🟦 remove *2 
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2_3 - this.options.shelf.thickness);
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
 
@@ -45692,6 +49733,13 @@ App.prototype = {
 
         section1_WireframeMesh1_2_3.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_2_3", true ).position.y + this.options.sectionHeight_1_2_3 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_2_3.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_2_3.position.y = parseFloat(self.params.get('WRS1_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }          
 
         section1_WireframeMesh1_2_3.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45706,10 +49754,9 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection1_2_3: function() {
+    createRayCastRecieverSection1_2_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_2_3);
-        //🟦 remove *2 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2_3 - this.options.shelf.thickness, self.options.shelf.width-1);
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
@@ -45717,7 +49764,13 @@ App.prototype = {
         var RayCastRecieverSection1_2_3 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection1_2_3.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_2_3", true ).position.y + this.options.sectionHeight_1_2_3 / 2 - this.options.shelf.thickness/2, 0 )
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_2_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_2_3.position.y = parseFloat(self.params.get('RCS1_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
         RayCastRecieverSection1_2_3.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
         RayCastRecieverSection1_2_3.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -45740,10 +49793,9 @@ App.prototype = {
 
 
     //1_2_4 cuts 1_2_2
-    createWireframeBack_section1_2_4: function() {
+    createWireframeBack_section1_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section1_WireframeMesh1_2_4);
-        //🟦 remove *2 
         var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2_4 - this.options.shelf.thickness);
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
 
@@ -45751,6 +49803,13 @@ App.prototype = {
 
         section1_WireframeMesh1_2_4.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_2_4", true ).position.y + this.options.sectionHeight_1_2_4 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section1_WireframeMesh1_2_4.position.y = parseInt(localStorage.getItem("section1_WireframeMesh1_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section1_WireframeMesh1_2_4.position.y = parseFloat(self.params.get('WRS1_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section1_WireframeMesh1_2_4.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45765,10 +49824,9 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection1_2_4: function() {
+    createRayCastRecieverSection1_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection1_2_4);
-        //🟦 remove *2 
         var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_2_4 - this.options.shelf.thickness, self.options.shelf.width-1);
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
@@ -45777,6 +49835,13 @@ App.prototype = {
 
         RayCastRecieverSection1_2_4.geometry.translate( self.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_2_4", true ).position.y + this.options.sectionHeight_1_2_4 / 2 - this.options.shelf.thickness/2, 0 )
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection1_2_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection1_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection1_2_4.position.y = parseFloat(self.params.get('RCS1_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         RayCastRecieverSection1_2_4.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
 
@@ -45802,7 +49867,8 @@ App.prototype = {
 
 
     // 2_1
-    createRayCastRecieverSection2_1: function() {
+    createRayCastRecieverSection2_1: function(savedCorrection) {
+        
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_1);
 
@@ -45819,11 +49885,18 @@ App.prototype = {
             RayCastRecieverSection2_1.geometry.translate( self.options.section2Length / 2 +0.5, 0, 0 );
         } else{
             RayCastRecieverSection2_1.geometry.translate( self.options.section2Length / 2, 0, 0 );
-        } 
-        
-        RayCastRecieverSection2_1.position.x = this.scene.getObjectByName( "pillar1", true ).position.x ;
+        }
 
-        RayCastRecieverSection2_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_2_1 / 2   - this.options.shelf.thickness /2
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_1.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_1.position.y = parseFloat(self.params.get('RCS2_1_pY'));
+        } else {
+            RayCastRecieverSection2_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_2_1 / 2   - this.options.shelf.thickness /2
+        } 
+
+        RayCastRecieverSection2_1.position.x = this.scene.getObjectByName( "pillar1", true ).position.x ;
 
         RayCastRecieverSection2_1.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2; 
 
@@ -45845,7 +49918,7 @@ App.prototype = {
 
     },
 
-    createWireframeBack_section2_1: function() {
+    createWireframeBack_section2_1: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_1);
 
@@ -45853,22 +49926,28 @@ App.prototype = {
             var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness/2, this.options.sectionHeight_2_1 - this.options.shelf.thickness);
         } else{
             var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness, this.options.sectionHeight_2_1 - this.options.shelf.thickness);
-
         } 
 
         var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
         var section2_WireframeMesh2_1 = new THREE.Mesh(geometry, material);
-
+                
         if (this.options.amountOfSections === 2 ) {
             section2_WireframeMesh2_1.geometry.translate( self.options.section2Length / 2 +0.5, 0, 0 );
         } else{
             section2_WireframeMesh2_1.geometry.translate( self.options.section2Length / 2, 0, 0 );
         } 
 
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_1.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            section2_WireframeMesh2_1.position.y = parseFloat(self.params.get('WRS2_1_pY'));
+        } else {
+            section2_WireframeMesh2_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_2_1 / 2   - this.options.shelf.thickness /2
+        } 
+
         section2_WireframeMesh2_1.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
         
-        section2_WireframeMesh2_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_2_1 / 2   - this.options.shelf.thickness /2
-
         section2_WireframeMesh2_1.position.z = -999
         section2_WireframeMesh2_1.name = "section2_WireframeMesh2_1"
         
@@ -45879,7 +49958,7 @@ App.prototype = {
     },
 
     //2_1_2 cuts 2_1
-    createWireframeBack_section2_1_2: function() {
+    createWireframeBack_section2_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_1_2);
 
@@ -45898,7 +49977,13 @@ App.prototype = {
         } else{
             section2_WireframeMesh2_1_2.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1_2", true ).position.y + this.options.sectionHeight_2_1_2 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_1_2.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_1_2.position.y = parseFloat(self.params.get('WRS2_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
         section2_WireframeMesh2_1_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
         section2_WireframeMesh2_1_2.position.z = -999
         section2_WireframeMesh2_1_2.name = "section2_WireframeMesh2_1_2"
@@ -45909,7 +49994,7 @@ App.prototype = {
         this.scene.add(section2_WireframeMesh2_1_2);
     },
 
-    createRayCastRecieverSection2_1_2: function() {
+    createRayCastRecieverSection2_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_1_2);
 
@@ -45917,7 +50002,6 @@ App.prototype = {
             var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness/2, this.options.sectionHeight_2_1_2 - this.options.shelf.thickness, self.options.shelf.width-1);
         } else{
             var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness, this.options.sectionHeight_2_1_2 - this.options.shelf.thickness, self.options.shelf.width-1);
-
         } 
 
         var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
@@ -45928,6 +50012,14 @@ App.prototype = {
             RayCastRecieverSection2_1_2.geometry.translate( self.options.section2Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection2_1_2", true ).position.y + this.options.sectionHeight_2_1_2 / 2 - this.options.shelf.thickness/2, 0 )
         } else{
             RayCastRecieverSection2_1_2.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1_2", true ).position.y + this.options.sectionHeight_2_1_2 / 2 - this.options.shelf.thickness/2, 0 )
+        } 
+
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_1_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            RayCastRecieverSection2_1_2.position.y = parseFloat(self.params.get('RCS2_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
         } 
 
         RayCastRecieverSection2_1_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
@@ -45953,7 +50045,7 @@ App.prototype = {
 
     //2_1_3 cuts 2_1 after 2_1_2
 
-    createWireframeBack_section2_1_3: function() {
+    createWireframeBack_section2_1_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_1_3);
@@ -45975,6 +50067,14 @@ App.prototype = {
             section2_WireframeMesh2_1_3.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1_3", true ).position.y + this.options.sectionHeight_2_1_3 / 2 - this.options.shelf.thickness/2, 0 )
         } 
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_1_3.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_1_3.position.y = parseFloat(self.params.get('WRS2_1_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
+
         section2_WireframeMesh2_1_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
         section2_WireframeMesh2_1_3.position.z = -999
@@ -45988,7 +50088,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection2_1_3: function() {
+    createRayCastRecieverSection2_1_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_1_3);
 
@@ -46008,7 +50108,13 @@ App.prototype = {
         } else{
             RayCastRecieverSection2_1_3.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1_3", true ).position.y + this.options.sectionHeight_2_1_3 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_1_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_1_3.position.y = parseFloat(self.params.get('RCS2_1_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
         
         RayCastRecieverSection2_1_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
@@ -46032,7 +50138,7 @@ App.prototype = {
 
     //2_1_4 cuts 2_1_2
 
-    createWireframeBack_section2_1_4: function() {
+    createWireframeBack_section2_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_1_4);
 
@@ -46051,7 +50157,13 @@ App.prototype = {
         } else{
             section2_WireframeMesh2_1_4.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1_4", true ).position.y + this.options.sectionHeight_2_1_4 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_1_4.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_1_4.position.y = parseFloat(self.params.get('WRS2_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
         section2_WireframeMesh2_1_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
         section2_WireframeMesh2_1_4.position.z = -999
@@ -46065,7 +50177,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection2_1_4: function() {
+    createRayCastRecieverSection2_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_1_4);
 
@@ -46084,7 +50196,13 @@ App.prototype = {
         } else{
             RayCastRecieverSection2_1_4.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1_4", true ).position.y + this.options.sectionHeight_2_1_4 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_1_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_1_4.position.y = parseFloat(self.params.get('RCS2_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         RayCastRecieverSection2_1_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
@@ -46106,7 +50224,7 @@ App.prototype = {
     },
 
     // 2_2
-    createRayCastRecieverSection2_2: function() {
+    createRayCastRecieverSection2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_2);
 
@@ -46124,7 +50242,15 @@ App.prototype = {
         } else{
             RayCastRecieverSection2_2.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + this.options.sectionHeight_2_2 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-        
+
+        //🍍
+         if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_2.position.y = parseFloat(self.params.get('RCS2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
+
         RayCastRecieverSection2_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
         RayCastRecieverSection2_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -46148,7 +50274,7 @@ App.prototype = {
         this.scene.add(RayCastRecieverSection2_2);
     },
 
-    createWireframeBack_section2_2: function() {
+    createWireframeBack_section2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_2);
 
@@ -46167,7 +50293,13 @@ App.prototype = {
         } else{
             section2_WireframeMesh2_2.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + this.options.sectionHeight_2_2 / 2 - this.options.shelf.thickness/2, 0 )
         }
-
+         //🍍
+         if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_2.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_2.position.y = parseFloat(self.params.get('WRS2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section2_WireframeMesh2_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
@@ -46182,7 +50314,7 @@ App.prototype = {
     },
 
     //2_2_2 cuts 2_2
-    createWireframeBack_section2_2_2: function() {
+    createWireframeBack_section2_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_2_2);
 
@@ -46201,6 +50333,13 @@ App.prototype = {
         } else{
             section2_WireframeMesh2_2_2.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_2_2", true ).position.y + this.options.sectionHeight_2_2_2 / 2 - this.options.shelf.thickness/2, 0 )
         }
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_2_2.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_2_2.position.y = parseFloat(self.params.get('WRS2_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section2_WireframeMesh2_2_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
         section2_WireframeMesh2_2_2.position.z = -999
@@ -46212,7 +50351,7 @@ App.prototype = {
         this.scene.add(section2_WireframeMesh2_2_2);
     },
 
-    createRayCastRecieverSection2_2_2: function() {
+    createRayCastRecieverSection2_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_2_2);
 
@@ -46231,7 +50370,13 @@ App.prototype = {
         } else{
             RayCastRecieverSection2_2_2.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_2_2", true ).position.y + this.options.sectionHeight_2_2_2 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_2_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_2_2.position.y = parseFloat(self.params.get('RCS2_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         RayCastRecieverSection2_2_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
         RayCastRecieverSection2_2_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -46255,7 +50400,7 @@ App.prototype = {
 
 
     //2_2_3 cuts 2_2 after 2_2_2
-    createWireframeBack_section2_2_3: function() {
+    createWireframeBack_section2_2_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_2_3);
@@ -46276,7 +50421,13 @@ App.prototype = {
         } else{
             section2_WireframeMesh2_2_3.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_2_3", true ).position.y + this.options.sectionHeight_2_2_3 / 2 - this.options.shelf.thickness/2, 0 )
         }
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_2_3.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_2_3.position.y = parseFloat(self.params.get('WRS2_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section2_WireframeMesh2_2_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
@@ -46291,7 +50442,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection2_2_3: function() {
+    createRayCastRecieverSection2_2_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_2_3);
 
@@ -46309,7 +50460,14 @@ App.prototype = {
         } else{
             RayCastRecieverSection2_2_3.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_2_3", true ).position.y + this.options.sectionHeight_2_2_3 / 2 - this.options.shelf.thickness/2, 0 )
         } 
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_2_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_2_3.position.y = parseFloat(self.params.get('RCS2_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
+
         RayCastRecieverSection2_2_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
         RayCastRecieverSection2_2_3.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -46331,7 +50489,7 @@ App.prototype = {
 
 
     //2_2_4 cuts 2_2_2
-    createWireframeBack_section2_2_4: function() {
+    createWireframeBack_section2_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section2_WireframeMesh2_2_4);
 
@@ -46350,7 +50508,13 @@ App.prototype = {
         } else{
             section2_WireframeMesh2_2_4.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_2_4", true ).position.y + this.options.sectionHeight_2_2_4 / 2 - this.options.shelf.thickness/2, 0 )
         }
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section2_WireframeMesh2_2_4.position.y = parseInt(localStorage.getItem("section2_WireframeMesh2_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section2_WireframeMesh2_2_4.position.y = parseFloat(self.params.get('WRS2_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section2_WireframeMesh2_2_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
@@ -46365,7 +50529,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection2_2_4: function() {
+    createRayCastRecieverSection2_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection2_2_4);
 
@@ -46385,6 +50549,13 @@ App.prototype = {
             RayCastRecieverSection2_2_4.geometry.translate( self.options.section2Length / 2, this.scene.getObjectByName( "horizontalDividerSection2_2_4", true ).position.y + this.options.sectionHeight_2_2_4 / 2 - this.options.shelf.thickness/2, 0 )
         } 
 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection2_2_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection2_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection2_2_4.position.y = parseFloat(self.params.get('RCS2_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         RayCastRecieverSection2_2_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
 
@@ -46414,7 +50585,7 @@ App.prototype = {
 
 
 
-    createRayCastRecieverSection3_1: function() {
+    createRayCastRecieverSection3_1: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_1);
 
@@ -46433,8 +50604,16 @@ App.prototype = {
             RayCastRecieverSection3_1.geometry.translate( self.options.section3Length / 2 , 0, 0 );
         } 
 
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_1.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_1.position.y = parseFloat(self.params.get('RCS3_1_pY'));
+        } else {
+            RayCastRecieverSection3_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_3_1 / 2   - this.options.shelf.thickness /2
+        }  
+
         RayCastRecieverSection3_1.position.x = this.scene.getObjectByName( "pillar2", true ).position.x + 0.5;
-        RayCastRecieverSection3_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_3_1 / 2   - this.options.shelf.thickness /2
         RayCastRecieverSection3_1.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
         RayCastRecieverSection3_1.name = "RayCastRecieverSection3_1"
         RayCastRecieverSection3_1.renderOrder = 999
@@ -46453,7 +50632,7 @@ App.prototype = {
         this.scene.add(RayCastRecieverSection3_1);
     },
 
-    createWireframeBack_section3_1: function() {
+    createWireframeBack_section3_1: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_1);
 
@@ -46471,9 +50650,16 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_1.geometry.translate( self.options.section3Length / 2 , 0, 0 );
         } 
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            section3_WireframeMesh3_1.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            section3_WireframeMesh3_1.position.y = parseFloat(self.params.get('WRS3_1_pY'));
+        } else {
+            section3_WireframeMesh3_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_3_1 / 2   - this.options.shelf.thickness /2
+        }          
 
         section3_WireframeMesh3_1.position.x = this.scene.getObjectByName( "pillar2", true ).position.x + 0.5;
-        section3_WireframeMesh3_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_3_1 / 2   - this.options.shelf.thickness /2
         section3_WireframeMesh3_1.position.z = -999 
 
         section3_WireframeMesh3_1.visible = true;
@@ -46486,7 +50672,7 @@ App.prototype = {
 
 
     //3_1_2 cuts 3_1
-    createWireframeBack_section3_1_2: function() {
+    createWireframeBack_section3_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_1_2);
 
@@ -46505,7 +50691,13 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_1_2.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_1_2", true ).position.y + this.options.sectionHeight_3_1_2 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+       //🍍
+       if (savedCorrection == 'savedCorrection') {
+        section3_WireframeMesh3_1_2.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_1_2.position.y = parseFloat(self.params.get('WRS3_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section3_WireframeMesh3_1_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
         section3_WireframeMesh3_1_2.position.z = -999
@@ -46517,7 +50709,7 @@ App.prototype = {
         this.scene.add(section3_WireframeMesh3_1_2);
     },
 
-    createRayCastRecieverSection3_1_2: function() {
+    createRayCastRecieverSection3_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_1_2);
 
@@ -46537,7 +50729,13 @@ App.prototype = {
         } else{
             RayCastRecieverSection3_1_2.geometry.translate( self.options.section3Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection3_1_2", true ).position.y + this.options.sectionHeight_3_1_2 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+       //🍍
+       if (savedCorrection == 'savedCorrection') {
+        RayCastRecieverSection3_1_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            RayCastRecieverSection3_1_2.position.y = parseFloat(self.params.get('RCS3_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         RayCastRecieverSection3_1_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x ;
         RayCastRecieverSection3_1_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2 ; 
@@ -46562,7 +50760,7 @@ App.prototype = {
 
     //3_1_3 cuts 3_1 after 3_1_2
 
-    createWireframeBack_section3_1_3: function() {
+    createWireframeBack_section3_1_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_1_3);
@@ -46582,6 +50780,13 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_1_3.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_1_3", true ).position.y + this.options.sectionHeight_3_1_3 / 2 - this.options.shelf.thickness/2, 0 );
         } 
+       //🍍
+       if (savedCorrection == 'savedCorrection') {
+        section3_WireframeMesh3_1_3.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_1_3.position.y = parseFloat(self.params.get('WRS3_1_3_pY')) + this.options.shelf.thickness/2;        
+        } else {
+        } 
 
         section3_WireframeMesh3_1_3.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
@@ -46596,7 +50801,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection3_1_3: function() {
+    createRayCastRecieverSection3_1_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_1_3);
 
@@ -46615,7 +50820,14 @@ App.prototype = {
         } else{
             RayCastRecieverSection3_1_3.geometry.translate( self.options.section3Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection3_1_3", true ).position.y + this.options.sectionHeight_3_1_3 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_1_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_1_3.position.y = parseFloat(self.params.get('RCS3_1_3_pY')) + this.options.shelf.thickness/2;  
+        } else {
+        }        
+
         RayCastRecieverSection3_1_3.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
         RayCastRecieverSection3_1_3.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -46638,7 +50850,7 @@ App.prototype = {
 
     //3_1_4 cuts 3_1_2
 
-    createWireframeBack_section3_1_4: function() {
+    createWireframeBack_section3_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_1_4);
 
@@ -46657,7 +50869,14 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_1_4.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_1_4", true ).position.y + this.options.sectionHeight_3_1_4 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section3_WireframeMesh3_1_4.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_1_4.position.y = parseFloat(self.params.get('WRS3_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
+
         section3_WireframeMesh3_1_4.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
         section3_WireframeMesh3_1_4.position.z = -999
@@ -46671,7 +50890,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection3_1_4: function() {
+    createRayCastRecieverSection3_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_1_4);
 
@@ -46689,6 +50908,13 @@ App.prototype = {
             RayCastRecieverSection3_1_4.geometry.translate( self.options.section3Length / 2, this.scene.getObjectByName( "horizontalDividerSection3_1_4", true ).position.y + this.options.sectionHeight_3_1_4 / 2 - this.options.shelf.thickness/2, 0 );
         } else{
             RayCastRecieverSection3_1_4.geometry.translate( self.options.section3Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection3_1_4", true ).position.y + this.options.sectionHeight_3_1_4 / 2 - this.options.shelf.thickness/2, 0 );
+        } 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_1_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_1_4.position.y = parseFloat(self.params.get('RCS3_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
         } 
 
         RayCastRecieverSection3_1_4.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
@@ -46711,7 +50937,7 @@ App.prototype = {
     },
 
     // 3_2
-    createRayCastRecieverSection3_2: function() {
+    createRayCastRecieverSection3_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_2);
 
@@ -46729,7 +50955,13 @@ App.prototype = {
         } else{
             RayCastRecieverSection3_2.geometry.translate( self.options.section3Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + this.options.sectionHeight_3_2 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_2.position.y = parseFloat(self.params.get('RCS3_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }         
         
         RayCastRecieverSection3_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x ;
 
@@ -46754,7 +50986,7 @@ App.prototype = {
         this.scene.add(RayCastRecieverSection3_2);
     },
 
-    createWireframeBack_section3_2: function() {
+    createWireframeBack_section3_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_2);
 
@@ -46773,7 +51005,13 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_2.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + this.options.sectionHeight_3_2 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section3_WireframeMesh3_2.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_2.position.y = parseFloat(self.params.get('WRS3_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section3_WireframeMesh3_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
@@ -46788,7 +51026,7 @@ App.prototype = {
     },
 
     //3_2_2 cuts 3_2
-    createWireframeBack_section3_2_2: function() {
+    createWireframeBack_section3_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_2_2);
 
@@ -46807,7 +51045,13 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_2_2.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_2_2", true ).position.y + this.options.sectionHeight_3_2_2 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section3_WireframeMesh3_2_2.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_2_2.position.y = parseFloat(self.params.get('WRS3_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section3_WireframeMesh3_2_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
         section3_WireframeMesh3_2_2.position.z = -999; 
@@ -46819,7 +51063,7 @@ App.prototype = {
         this.scene.add(section3_WireframeMesh3_2_2);
     },
 
-    createRayCastRecieverSection3_2_2: function() {
+    createRayCastRecieverSection3_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_2_2);
 
@@ -46839,7 +51083,13 @@ App.prototype = {
         } else{
             RayCastRecieverSection3_2_2.geometry.translate( self.options.section3Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection3_2_2", true ).position.y + this.options.sectionHeight_3_2_2 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_2_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_2_2.position.y = parseFloat(self.params.get('RCS3_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         RayCastRecieverSection3_2_2.position.x = this.scene.getObjectByName( "pillar2", true ).position.x ;
         RayCastRecieverSection3_2_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -46863,7 +51113,7 @@ App.prototype = {
 
 
     //3_2_3 cuts 3_2 after 3_2_2
-    createWireframeBack_section3_2_3: function() {
+    createWireframeBack_section3_2_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_2_3);
@@ -46883,7 +51133,13 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_2_3.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_2_3", true ).position.y + this.options.sectionHeight_3_2_3 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section3_WireframeMesh3_2_3.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_2_3.position.y = parseFloat(self.params.get('WRS3_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section3_WireframeMesh3_2_3.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
@@ -46898,7 +51154,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection3_2_3: function() {
+    createRayCastRecieverSection3_2_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_2_3);
 
@@ -46917,7 +51173,14 @@ App.prototype = {
         } else{
             RayCastRecieverSection3_2_3.geometry.translate( self.options.section3Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection3_2_3", true ).position.y + this.options.sectionHeight_3_2_3 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_2_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_2_3.position.y = parseFloat(self.params.get('RCS3_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
+
         RayCastRecieverSection3_2_3.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
         RayCastRecieverSection3_2_3.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -46939,7 +51202,7 @@ App.prototype = {
 
 
     //3_2_4 cuts 3_2_2
-    createWireframeBack_section3_2_4: function() {
+    createWireframeBack_section3_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section3_WireframeMesh3_2_4);
 
@@ -46958,7 +51221,13 @@ App.prototype = {
         } else{
             section3_WireframeMesh3_2_4.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_2_4", true ).position.y + this.options.sectionHeight_3_2_4 / 2 - this.options.shelf.thickness/2, 0 );
         } 
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section3_WireframeMesh3_2_4.position.y = parseInt(localStorage.getItem("section3_WireframeMesh3_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section3_WireframeMesh3_2_4.position.y = parseFloat(self.params.get('WRS3_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        } 
 
         section3_WireframeMesh3_2_4.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
 
@@ -46973,7 +51242,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection3_2_4: function() {
+    createRayCastRecieverSection3_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection3_2_4);
 
@@ -46991,6 +51260,13 @@ App.prototype = {
             RayCastRecieverSection3_2_4.geometry.translate( self.options.section3Length / 2, this.scene.getObjectByName( "horizontalDividerSection3_2_4", true ).position.y + this.options.sectionHeight_3_2_4 / 2 - this.options.shelf.thickness/2, 0 );
         } else{
             RayCastRecieverSection3_2_4.geometry.translate( self.options.section3Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection3_2_4", true ).position.y + this.options.sectionHeight_3_2_4 / 2 - this.options.shelf.thickness/2, 0 );
+        } 
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection3_2_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection3_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection3_2_4.position.y = parseFloat(self.params.get('RCS3_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
         } 
 
         RayCastRecieverSection3_2_4.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
@@ -47017,7 +51293,7 @@ App.prototype = {
 
 
 
-    createRayCastRecieverSection4_1: function() {
+    createRayCastRecieverSection4_1: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_1);
 
@@ -47026,9 +51302,16 @@ App.prototype = {
         var RayCastRecieverSection4_1 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_1.geometry.translate( self.options.section4Length / 2, 0, 0 );
+        ///🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_1.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_1_positionY"));
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_1.position.y = parseFloat(self.params.get('RCS4_1_pY'));
+        } else {
+            RayCastRecieverSection4_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_4_1 / 2   - this.options.shelf.thickness /2
+        } 
 
         RayCastRecieverSection4_1.position.x = this.scene.getObjectByName( "pillar3", true ).position.x + 0.5;
-        RayCastRecieverSection4_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_4_1 / 2   - this.options.shelf.thickness /2
         RayCastRecieverSection4_1.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
         RayCastRecieverSection4_1.name = "RayCastRecieverSection4_1"
         RayCastRecieverSection4_1.renderOrder = 999
@@ -47047,7 +51330,7 @@ App.prototype = {
         this.scene.add(RayCastRecieverSection4_1);
     },
 
-    createWireframeBack_section4_1: function() {
+    createWireframeBack_section4_1: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_1);
 
@@ -47056,9 +51339,16 @@ App.prototype = {
         var section4_WireframeMesh4_1 = new THREE.Mesh(geometry, material);
 
         section4_WireframeMesh4_1.geometry.translate(self.options.section4Length / 2, 0, 0 );
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_1.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_1_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            section4_WireframeMesh4_1.position.y = parseFloat(self.params.get('WRS4_1_pY'));
+        } else {
+            section4_WireframeMesh4_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_4_1 / 2   - this.options.shelf.thickness /2
+        }        
 
         section4_WireframeMesh4_1.position.x = this.scene.getObjectByName( "pillar3", true ).position.x + 0.5;
-        section4_WireframeMesh4_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_4_1 / 2   - this.options.shelf.thickness /2
         section4_WireframeMesh4_1.position.z = -999 
 
         section4_WireframeMesh4_1.visible = true;
@@ -47071,7 +51361,7 @@ App.prototype = {
 
 
     //4_1_2 cuts 4_1
-    createWireframeBack_section4_1_2: function() {
+    createWireframeBack_section4_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_1_2);
 
@@ -47081,7 +51371,13 @@ App.prototype = {
         var section4_WireframeMesh4_1_2 = new THREE.Mesh(geometry, material);
         
         section4_WireframeMesh4_1_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1_2", true ).position.y + this.options.sectionHeight_4_1_2 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_1_2.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_1_2.position.y = parseFloat(self.params.get('WRS4_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         section4_WireframeMesh4_1_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
         section4_WireframeMesh4_1_2.position.z = -999
@@ -47093,7 +51389,7 @@ App.prototype = {
         this.scene.add(section4_WireframeMesh4_1_2);
     },
 
-    createRayCastRecieverSection4_1_2: function() {
+    createRayCastRecieverSection4_1_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_1_2);
 
@@ -47104,7 +51400,13 @@ App.prototype = {
         var RayCastRecieverSection4_1_2 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_1_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1_2", true ).position.y + this.options.sectionHeight_4_1_2 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_1_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_1_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL') {
+            RayCastRecieverSection4_1_2.position.y = parseFloat(self.params.get('RCS4_1_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         RayCastRecieverSection4_1_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
         RayCastRecieverSection4_1_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2; 
@@ -47129,7 +51431,7 @@ App.prototype = {
 
     //4_1_3 cuts 4_1 after 4_1_2
 
-    createWireframeBack_section4_1_3: function() {
+    createWireframeBack_section4_1_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_1_3);
@@ -47140,7 +51442,13 @@ App.prototype = {
         var section4_WireframeMesh4_1_3 = new THREE.Mesh(geometry, material);
 
         section4_WireframeMesh4_1_3.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1_3", true ).position.y + this.options.sectionHeight_4_1_3 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_1_3.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_1_3.position.y = parseFloat(self.params.get('WRS4_1_3_pY')) + this.options.shelf.thickness/2;    
+        } else {
+        }
 
         section4_WireframeMesh4_1_3.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47155,7 +51463,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection4_1_3: function() {
+    createRayCastRecieverSection4_1_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_1_3);
 
@@ -47166,7 +51474,14 @@ App.prototype = {
         var RayCastRecieverSection4_1_3 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_1_3.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1_3", true ).position.y + this.options.sectionHeight_4_1_3 / 2 - this.options.shelf.thickness/2, 0 )
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_1_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_1_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_1_3.position.y = parseFloat(self.params.get('RCS4_1_3_pY')) + this.options.shelf.thickness/2; 
+        } else {
+        }
+
         RayCastRecieverSection4_1_3.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
         RayCastRecieverSection4_1_3.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -47189,7 +51504,7 @@ App.prototype = {
 
     //4_1_4 cuts 4_1_2
 
-    createWireframeBack_section4_1_4: function() {
+    createWireframeBack_section4_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_1_4);
 
@@ -47199,7 +51514,13 @@ App.prototype = {
         var section4_WireframeMesh4_1_4 = new THREE.Mesh(geometry, material);
 
         section4_WireframeMesh4_1_4.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1_4", true ).position.y + this.options.sectionHeight_4_1_4 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_1_4.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_1_4.position.y = parseFloat(self.params.get('WRS4_1_4_pY')) + this.options.shelf.thickness/2;            
+        } else {
+        }
 
         section4_WireframeMesh4_1_4.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47214,7 +51535,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection4_1_4: function() {
+    createRayCastRecieverSection4_1_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_1_4);
 
@@ -47225,9 +51546,13 @@ App.prototype = {
         var RayCastRecieverSection4_1_4 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_1_4.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1_4", true ).position.y + this.options.sectionHeight_4_1_4 / 2 - this.options.shelf.thickness/2, 0 )
-
-
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_1_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_1_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_1_4.position.y = parseFloat(self.params.get('RCS4_1_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         RayCastRecieverSection4_1_4.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47249,7 +51574,7 @@ App.prototype = {
     },
 
     // 4_2
-    createRayCastRecieverSection4_2: function() {
+    createRayCastRecieverSection4_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_2);
 
@@ -47259,7 +51584,13 @@ App.prototype = {
         var RayCastRecieverSection4_2 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + this.options.sectionHeight_4_2 / 2 - this.options.shelf.thickness/2, 0 )
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_2.position.y = parseFloat(self.params.get('RCS4_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }        
         
         RayCastRecieverSection4_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47284,7 +51615,7 @@ App.prototype = {
         this.scene.add(RayCastRecieverSection4_2);
     },
 
-    createWireframeBack_section4_2: function() {
+    createWireframeBack_section4_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_2);
 
@@ -47294,7 +51625,13 @@ App.prototype = {
         var section4_WireframeMesh4_2 = new THREE.Mesh(geometry, material);
         
         section4_WireframeMesh4_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + this.options.sectionHeight_4_2 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_2.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_2.position.y = parseFloat(self.params.get('WRS4_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         section4_WireframeMesh4_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47309,7 +51646,7 @@ App.prototype = {
     },
 
     //4_2_2 cuts 4_2
-    createWireframeBack_section4_2_2: function() {
+    createWireframeBack_section4_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_2_2);
 
@@ -47319,7 +51656,13 @@ App.prototype = {
         var section4_WireframeMesh4_2_2 = new THREE.Mesh(geometry, material);
 
         section4_WireframeMesh4_2_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_2_2", true ).position.y + this.options.sectionHeight_4_2_2 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_2_2.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_2_2.position.y = parseFloat(self.params.get('WRS4_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         section4_WireframeMesh4_2_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
         section4_WireframeMesh4_2_2.position.z = -999
@@ -47331,7 +51674,7 @@ App.prototype = {
         this.scene.add(section4_WireframeMesh4_2_2);
     },
 
-    createRayCastRecieverSection4_2_2: function() {
+    createRayCastRecieverSection4_2_2: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_2_2);
 
@@ -47342,7 +51685,13 @@ App.prototype = {
         var RayCastRecieverSection4_2_2 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_2_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_2_2", true ).position.y + this.options.sectionHeight_4_2_2 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_2_2.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_2_2_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_2_2.position.y = parseFloat(self.params.get('RCS4_2_2_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         RayCastRecieverSection4_2_2.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
         RayCastRecieverSection4_2_2.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -47366,7 +51715,7 @@ App.prototype = {
 
 
     //4_2_3 cuts 4_2 after 4_2_2
-    createWireframeBack_section4_2_3: function() {
+    createWireframeBack_section4_2_3: function(savedCorrection) {
 
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_2_3);
@@ -47377,7 +51726,13 @@ App.prototype = {
         var section4_WireframeMesh4_2_3 = new THREE.Mesh(geometry, material);
 
         section4_WireframeMesh4_2_3.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_2_3", true ).position.y + this.options.sectionHeight_4_2_3 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_2_3.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_2_3.position.y = parseFloat(self.params.get('WRS4_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         section4_WireframeMesh4_2_3.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47392,7 +51747,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection4_2_3: function() {
+    createRayCastRecieverSection4_2_3: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_2_3);
 
@@ -47403,7 +51758,14 @@ App.prototype = {
         var RayCastRecieverSection4_2_3 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_2_3.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_2_3", true ).position.y + this.options.sectionHeight_4_2_3 / 2 - this.options.shelf.thickness/2, 0 )
-        
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_2_3.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_2_3_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_2_3.position.y = parseFloat(self.params.get('RCS4_2_3_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
+
         RayCastRecieverSection4_2_3.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
         RayCastRecieverSection4_2_3.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
@@ -47425,7 +51787,7 @@ App.prototype = {
 
 
     //4_2_4 cuts 4_2_2
-    createWireframeBack_section4_2_4: function() {
+    createWireframeBack_section4_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.section4_WireframeMesh4_2_4);
 
@@ -47435,7 +51797,13 @@ App.prototype = {
         var section4_WireframeMesh4_2_4 = new THREE.Mesh(geometry, material);
 
         section4_WireframeMesh4_2_4.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_2_4", true ).position.y + this.options.sectionHeight_4_2_4 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            section4_WireframeMesh4_2_4.position.y = parseInt(localStorage.getItem("section4_WireframeMesh4_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            section4_WireframeMesh4_2_4.position.y = parseFloat(self.params.get('WRS4_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         section4_WireframeMesh4_2_4.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47450,7 +51818,7 @@ App.prototype = {
 
     },
 
-    createRayCastRecieverSection4_2_4: function() {
+    createRayCastRecieverSection4_2_4: function(savedCorrection) {
         var self = this;
         this.scene.remove(this.RayCastRecieverSection4_2_4);
 
@@ -47461,7 +51829,13 @@ App.prototype = {
         var RayCastRecieverSection4_2_4 = new THREE.Mesh(geometry, material);
 
         RayCastRecieverSection4_2_4.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_2_4", true ).position.y + this.options.sectionHeight_4_2_4 / 2 - this.options.shelf.thickness/2, 0 )
-
+        //🍍
+        if (savedCorrection == 'savedCorrection') {
+            RayCastRecieverSection4_2_4.position.y = parseInt(localStorage.getItem("RayCastRecieverSection4_2_4_positionY")) + this.options.shelf.thickness/2;
+        } else if (savedCorrection == 'savedCorrectionURL'){
+            RayCastRecieverSection4_2_4.position.y = parseFloat(self.params.get('RCS4_2_4_pY')) + this.options.shelf.thickness/2;
+        } else {
+        }
 
         RayCastRecieverSection4_2_4.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
 
@@ -47524,9 +51898,9 @@ App.prototype = {
 
 
        
-    createBackPlate: function() {
+    createBackPlate: function() {        
 
-    if (this.options.statusHideBackPlate === 1) {
+     if (this.options.statusHideBackPlate === 1) {
 
         var self = this;
 
@@ -47557,18 +51931,6 @@ App.prototype = {
         BackPlate.name = "BackPlate";
 
         this.scene.add(BackPlate);
-
-        //this.scene.add( new THREE.AxesHelper() );
-
-        /* if ( self.options.statusHideBackPlate === 1) {
-            this.BackPlate.material.opacity = 1
-            this.BackPlate.material.map = this.textures[this.options.shelf.texture].map;
-            this.BackPlate.material.needsUpdate = true;
-        } else {
-            this.BackPlate.material.opacity = 0
-        }  */
-
-       // this.shelving.getObjectByName( "shelf_0_0", true ).geometry.translate( -this.shelving.position.x, 0, 0 );
 
         this.calculateOutput();
 
@@ -48687,7 +53049,7 @@ App.prototype = {
                
 
                 //height
-                var hsec4_1 = new THREE.TextGeometry( ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                var hsec4_1 = new THREE.TextGeometry( ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) ) +" ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 if ( self.scene.getObjectByName( "horizontalDividerSection4_1", true ) != undefined) {
                     var hsec4_2 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }

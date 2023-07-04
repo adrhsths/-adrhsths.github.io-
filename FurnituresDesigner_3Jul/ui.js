@@ -416,10 +416,6 @@ function openInternalShelving_S1() {
 
 
 
-
-
-
-
 const leftArrow = document.querySelector('.arrow-btn.left');
 const rightArrow = document.querySelector('.arrow-btn.right');
 const dimensionMenu = document.querySelector('.dimensionMenu');
@@ -446,7 +442,7 @@ dimensionNames.forEach(function(name) {
     });
 });
 
-
+// main menu mobile version 
 const menuMap = {
     "buttonWidth": "menuWidth",
     "buttonDepth": "menuDepth",
@@ -458,8 +454,9 @@ const menuMap = {
     "buttonBackPanels": "menuBackPanels"
 };
 
-// Get all the buttons
-var buttons = document.querySelectorAll('.dimensionName ');
+var buttons = document.querySelectorAll('.dimensionName');
+var submenus = Object.values(menuMap).map(id => document.getElementById(id));
+
 
 // Attach click event listener to each button
 buttons.forEach(function(button) {
@@ -467,19 +464,23 @@ buttons.forEach(function(button) {
         // Get the id of the button
         var buttonId = this.id;
 
+        // Reset color and background-color of all buttons
+        buttons.forEach(function(btn) {
+            btn.style.backgroundColor = "#e9e9ed";
+            btn.style.color = "black";
+        });
+
+        // Change color and background-color of the clicked button
+        this.style.backgroundColor = "#356b4d";
+        this.style.color = "white";
+
         // Get the id of the corresponding submenu from the map
         var submenuId = menuMap[buttonId];
 
         // Get the submenu element
         var submenu = document.getElementById(submenuId);
+        submenus.forEach(sm => sm.style.display = "none");
+        submenu.style.display = "flex";
 
-        // Check if the submenu is currently open
-        if (submenu.style.display === "block") {
-            // If it is, close it
-            submenu.style.display = "none";
-        } else {
-            // If it's not, open it
-            submenu.style.display = "block";
-        }
     });
 });
