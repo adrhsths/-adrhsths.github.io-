@@ -916,10 +916,12 @@ App.prototype = {
 
         if (isMobile) {
             // If on mobile, set canvas to 100% width and 70% height of the viewport
-            this.engine.setSize(window.innerWidth, window.innerHeight * 0.7, true);
+            this.engine.setSize(window.innerWidth, window.innerHeight * 1, true);
+            this.fov = 18
         } else {
             // If on desktop, use the current behavior
             this.engine.setSize(window.innerWidth, window.innerHeight * 1, true);
+            this.fov = 14
         }
         //this.scene.background = new THREE.Color('#fff');
         this.engine.setClearColor (0x000000, 0);
