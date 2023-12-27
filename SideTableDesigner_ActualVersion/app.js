@@ -19835,6 +19835,7 @@
                     document.getElementById("sliderHeight").value = parseFloat(+params.get('h'));
                     changeHeight();
                     console.log('height first');
+                    console.log(document.getElementById("typeFeet").value);
                     console.log(self.options.pillar.height);
                     
                 }
@@ -19848,6 +19849,7 @@
                     document.getElementById("typeFeet").value = value;
                     changeLegs();                    
                     console.log('then legs');
+                    console.log(document.getElementById("typeFeet").value);
                     console.log(self.options.pillar.height);
 
                 }
@@ -21329,7 +21331,6 @@
                 }  
 
                 self.defaultLeftMenu(); 
-                console.log(self.options.pillar.height);
 
 
             }
