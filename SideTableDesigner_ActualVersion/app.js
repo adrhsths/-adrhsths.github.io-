@@ -22263,7 +22263,9 @@
             window.onload = function () {
                 const loader = document.getElementById('loader');
                 loader.style.display = 'block';
-            
+
+                document.getElementById("typeFeet").value = 'Slider';
+
                 setTimeout(loadState, 1000);
             };
     
