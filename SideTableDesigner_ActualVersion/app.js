@@ -19835,6 +19835,8 @@
                     document.getElementById("sliderHeight").value = parseFloat(+params.get('h'));
                     changeHeight();
                     console.log('height first');
+                    console.log(self.options.pillar.height);
+                    
                 }
                 if (params.has('d')) {
                     document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value = parseFloat(+params.get('d'));
@@ -19846,6 +19848,7 @@
                     document.getElementById("typeFeet").value = value;
                     changeLegs();                    
                     console.log('then legs');
+                    console.log(self.options.pillar.height);
 
                 }
 
@@ -21326,6 +21329,7 @@
                 }  
 
                 self.defaultLeftMenu(); 
+                console.log(self.options.pillar.height);
 
 
             }
