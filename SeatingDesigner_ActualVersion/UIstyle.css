@@ -2126,7 +2126,7 @@
             position: relative;
             display: flex;
             flex-direction: row;
-            width: 8em;
+            width: 158px;
             color: grey;
             justify-content: center;
             align-items: center;
@@ -3003,7 +3003,7 @@
         
         .button {
             position: relative;
-            width: 10em;
+            width: 158px;
             height: 2.3em;
             overflow: hidden;
             background-color: #e9e9ed;

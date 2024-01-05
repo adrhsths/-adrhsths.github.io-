@@ -223,6 +223,11 @@ buttons.forEach(function(button) {
             document.getElementById("ShowMoreCarcassColor").innerHTML = "+20";
             document.getElementById("ShowMoreCarcassColor").setAttribute("title", "Show More");
 
+            document.getElementById("CushionColorSection").style.display = "none";
+            document.getElementById("buttonFrontCushionColourPlus").style.display = "none";
+            document.getElementById("ShowMoreCushionColor").innerHTML = "+3";
+            document.getElementById("ShowMoreCushionColor").setAttribute("title", "Show More");
+            
             document.getElementById("FacadesColorSection").style.display = "none";
             document.getElementById("buttonFrontFacadesColourPlus").style.display = "none";
             document.getElementById("ShowMoreFacadesColor").innerHTML = "+20";
