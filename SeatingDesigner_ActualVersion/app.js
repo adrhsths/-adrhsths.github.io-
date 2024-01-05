@@ -924,6 +924,7 @@
 
                 document.getElementById("buttonCarcassColour").innerHTML = "Carcass Colour";
                 document.getElementById("buttonFrontFacadesColour").innerHTML = "Fronts Colour";
+                document.getElementById("buttonFrontCushionColour").innerHTML = "Cushion Colour";
 
 
             } else {
@@ -933,6 +934,7 @@
                 this.camera.lookAt(new THREE.Vector3(20, 0, -100));
                 document.getElementById("buttonCarcassColour").innerHTML = "Carcass Colour :";
                 document.getElementById("buttonFrontFacadesColour").innerHTML = "Fronts Colour :";
+                document.getElementById("buttonFrontCushionColour").innerHTML = "Cushion Colour :";
 
             }
 
@@ -7242,7 +7244,7 @@
 
 
     
-                    document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
     
                     self.options.s1_internlShelvinStatus = 1
                     
@@ -7347,7 +7349,7 @@
 
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
     
                             self.options.s1_internlShelvinStatus = 1
     
@@ -9075,7 +9077,7 @@
                     document.getElementById("InternalShelving4_S2_1").style.display = "none";
 
     
-                    document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
     
                     self.options.s2_internlShelvinStatus = 1
                     
@@ -9181,7 +9183,7 @@
 
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
     
                             self.options.s2_internlShelvinStatus = 1
     
@@ -10884,7 +10886,7 @@
                     document.getElementById("InternalShelving4_S3_1").style.display = "none";
 
 
-                    document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
 
                     self.options.s3_internlShelvinStatus = 1
                     
@@ -23534,7 +23536,7 @@
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.y, 
                         'handle_doordoorDrawer_section3_1', 
                         self.options.sectionHeight_3_1 / 2 - 8, 
-                        self.options.section3Length / 2 - 1.5
+                        self.options.section3Length / 2 - 0.8
                     )
                 } else{
                     createDoor(
@@ -23547,7 +23549,7 @@
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.y, 
                         'handle_doordoorDrawer_section3_1', 
                         self.options.sectionHeight_3_1 / 2 - 8, 
-                        self.options.section3Length / 2 - 1.5
+                        self.options.section3Length / 2 - 0.8
                     )
                 } 
     
@@ -23808,7 +23810,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.options.sectionHeight_3_2 / 2 - 1, 
                         'handle_doordoorDrawer_section3_2', 
                         self.options.sectionHeight_3_2 / 2 - 8, 
-                        self.options.section3Length / 2 - 1.5
+                        self.options.section3Length / 2 - 0.8
                     )
                 } else{
                     createDoor(
@@ -23821,7 +23823,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.options.sectionHeight_3_2 / 2 - 1, 
                         'handle_doordoorDrawer_section3_2', 
                         self.options.sectionHeight_3_2 / 2 - 8, 
-                        self.options.section3Length / 2 - 1.5
+                        self.options.section3Length / 2 - 0.8
                     )
                 }
     
@@ -24879,7 +24881,7 @@
                 self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.y, 
                 'handle_doordoorDrawer_section4_1', 
                 self.options.sectionHeight_4_1 / 2 - 8, 
-                self.options.section4Length / 2 - 1.5
+                self.options.section4Length / 2 - 1
                 )
     
                 document.getElementById("MainInternalShelving_S4_1").style.display = "none";
@@ -25077,7 +25079,7 @@
                 self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.options.sectionHeight_4_2 / 2 - 1, 
                 'handle_doordoorDrawer_section4_2', 
                 self.options.sectionHeight_4_2 / 2 - 8, 
-                self.options.section4Length / 2 - 1.5
+                self.options.section4Length / 2 - 1
                 )
     
                 document.getElementById("MainInternalShelving_S4_2").style.display = "none";
