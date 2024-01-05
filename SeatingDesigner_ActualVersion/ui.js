@@ -191,6 +191,7 @@ const menuMap = {
     "buttonVerticalPart": "menuVerticalPart",
     "buttonCarcassColour": "menuCarcassColour",
     "buttonFrontFacadesColour": "menuFrontFacadesColour",
+    "buttonFrontCushionColour": "menuFrontCushionColour",
     "buttonBackPanels": "menuBackPanels",
     "buttonHandles": "menuHandles"
 };
