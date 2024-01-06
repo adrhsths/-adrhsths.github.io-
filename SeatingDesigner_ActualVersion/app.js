@@ -34898,7 +34898,6 @@
 
             var createDimensionsWithFont = function (font) {
        
-    
                 //depth
                 var dsec1_1 = new THREE.TextGeometry(self.options.shelf.width
                 +" ", {
@@ -35080,14 +35079,14 @@
                     var hsec1_1_shelf1Mesh = new THREE.Mesh(hsec1_1_shelf1, self.fontColor);
                     hsec1_1_shelf1Mesh.position.set(
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
-                    self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y + ( (self.options.sectionHeight_1_1 - self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y) / 2),
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y + ( (self.options.sectionHeight_1_1 - self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y) / 2) - 3,
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
                     )
     
                     var hsec1_1_shelf0Mesh = new THREE.Mesh(hsec1_1_shelf0, self.fontColor);
                     hsec1_1_shelf0Mesh.position.set(
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
-                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y / 2),
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y / 2) ,
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
                     )
     
@@ -35099,7 +35098,7 @@
                     var hsec1_1_shelf1Mesh = new THREE.Mesh(hsec1_1_shelf1, self.fontColor);
                     hsec1_1_shelf1Mesh.position.set(
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
-                    self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y + ( (self.options.sectionHeight_1_1 - self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y) / 2) -1,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y + ( (self.options.sectionHeight_1_1 - self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y) / 2) -2,
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
                     )
     
@@ -35113,7 +35112,7 @@
                     var hsec1_1_shelf2Mesh = new THREE.Mesh(hsec1_1_shelf2, self.fontColor);
                     hsec1_1_shelf2Mesh.position.set(
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
-                    self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y) / 2) - 1,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y) / 2) - 0.5,
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
                     )
     
@@ -35206,14 +35205,14 @@
                         var hsec1_2_shelf1Mesh = new THREE.Mesh(hsec1_2_shelf1, self.fontColor);
                         hsec1_2_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
-                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y + ( (self.options.sectionHeight_1_2 - self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y) / 2) - 1,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y + ( (self.options.sectionHeight_1_2 - self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y) / 2) - 3,
                         self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
                         )
     
                         var hsec1_2_shelf0Mesh = new THREE.Mesh(hsec1_2_shelf0, self.fontColor);
                         hsec1_2_shelf0Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
-                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y / 2),
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y / 2) -1,
                         self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
                         )
     
@@ -35487,7 +35486,7 @@
                         var hsec2_1_shelf1Mesh = new THREE.Mesh(hsec2_1_shelf1, self.fontColor);
                         hsec2_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y + ( (self.options.sectionHeight_2_1 - self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y) / 2),
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y + ( (self.options.sectionHeight_2_1 - self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y) / 2) - 3,
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -35506,7 +35505,7 @@
                         var hsec2_1_shelf1Mesh = new THREE.Mesh(hsec2_1_shelf1, self.fontColor);
                         hsec2_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y + ( (self.options.sectionHeight_2_1 - self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y + ( (self.options.sectionHeight_2_1 - self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y) / 2) -2,
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -35520,7 +35519,7 @@
                         var hsec2_1_shelf2Mesh = new THREE.Mesh(hsec2_1_shelf2, self.fontColor);
                         hsec2_1_shelf2Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y ) / 2) -1,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y ) / 2) -0.5,
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -35613,14 +35612,14 @@
                             var hsec2_2_shelf1Mesh = new THREE.Mesh(hsec2_2_shelf1, self.fontColor);
                             hsec2_2_shelf1Mesh.position.set(
                             self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
-                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y + ( (self.options.sectionHeight_2_2 - self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y) / 2) - 1,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y + ( (self.options.sectionHeight_2_2 - self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y) / 2) - 3,
                             self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
                             )
         
                             var hsec2_2_shelf0Mesh = new THREE.Mesh(hsec2_2_shelf0, self.fontColor);
                             hsec2_2_shelf0Mesh.position.set(
                             self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
-                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y / 2) -1,
                             self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
                             )
         
@@ -35891,7 +35890,7 @@
                         var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
                         hsec3_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + ( (self.options.sectionHeight_3_1 - self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y) / 2),
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + ( (self.options.sectionHeight_3_1 - self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y) / 2) - 3,
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -35910,7 +35909,7 @@
                         var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
                         hsec3_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + ( (self.options.sectionHeight_3_1 - self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + ( (self.options.sectionHeight_3_1 - self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y) / 2) - 2,
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -35924,7 +35923,7 @@
                         var hsec3_1_shelf2Mesh = new THREE.Mesh(hsec3_1_shelf2, self.fontColor);
                         hsec3_1_shelf2Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y) / 2) -0.5,
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -36017,14 +36016,14 @@
                             var hsec3_2_shelf1Mesh = new THREE.Mesh(hsec3_2_shelf1, self.fontColor);
                             hsec3_2_shelf1Mesh.position.set(
                             self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
-                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y + ( (self.options.sectionHeight_3_2 - self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y) / 2) - 1,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y + ( (self.options.sectionHeight_3_2 - self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y) / 2) - 3,
                             self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
                             )
         
                             var hsec3_2_shelf0Mesh = new THREE.Mesh(hsec3_2_shelf0, self.fontColor);
                             hsec3_2_shelf0Mesh.position.set(
                             self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
-                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y / 2) -1,
                             self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
                             )
         
@@ -36297,7 +36296,7 @@
                         var hsec4_1_shelf1Mesh = new THREE.Mesh(hsec4_1_shelf1, self.fontColor);
                         hsec4_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + ( (self.options.sectionHeight_4_1 - self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y) / 2),
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + ( (self.options.sectionHeight_4_1 - self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y) / 2) - 3,
                         self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -36316,7 +36315,7 @@
                         var hsec4_1_shelf1Mesh = new THREE.Mesh(hsec4_1_shelf1, self.fontColor);
                         hsec4_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + ( (self.options.sectionHeight_4_1 - self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + ( (self.options.sectionHeight_4_1 - self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y) / 2) - 2,
                         self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -36330,7 +36329,7 @@
                         var hsec4_1_shelf2Mesh = new THREE.Mesh(hsec4_1_shelf2, self.fontColor);
                         hsec4_1_shelf2Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
-                        self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y) / 2) -0.5,
                         self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
                         )
         
@@ -36423,14 +36422,14 @@
                             var hsec4_2_shelf1Mesh = new THREE.Mesh(hsec4_2_shelf1, self.fontColor);
                             hsec4_2_shelf1Mesh.position.set(
                             self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
-                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y + ( (self.options.sectionHeight_4_2 - self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y) / 2) - 1,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y + ( (self.options.sectionHeight_4_2 - self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y) / 2) - 3,
                             self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
                             )
         
                             var hsec4_2_shelf0Mesh = new THREE.Mesh(hsec4_2_shelf0, self.fontColor);
                             hsec4_2_shelf0Mesh.position.set(
                             self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
-                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + (self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y / 2) -1,
                             self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
                             )
         
