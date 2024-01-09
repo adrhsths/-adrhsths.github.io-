@@ -20765,6 +20765,11 @@
             
             // Attach the confirmation message to the beforeunload event
             window.addEventListener('beforeunload', confirmLeave);
+            window.addEventListener('resize', function() {
+                self.engine.setSize(window.innerWidth, window.innerHeight, true);
+                self.camera.aspect = window.innerWidth / window.innerHeight;
+                self.camera.updateProjectionMatrix();
+            });
 
             function hideLoader() {
                 const loader = document.getElementById('loader');
@@ -20959,7 +20964,7 @@
                     'doorSection1_1Group', 
                     self.doorSection1_1Group, 
                     self.options.sectionHeight_1_1, 
-                    self.options.section1Length + self.options.pillar.thickness/2, 
+                    self.options.section1Length, 
                     'doorType1Section1_1', 
                     self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5, 
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.y, 
@@ -20972,7 +20977,7 @@
                         'doorSection1_1Group', 
                         self.doorSection1_1Group, 
                         self.options.sectionHeight_1_1, 
-                        self.options.section1Length, 
+                        self.options.section1Length - 0.5, 
                         'doorType1Section1_1', 
                         self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5, 
                         self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.y, 
@@ -21014,27 +21019,27 @@
                     'drawerSection1_1Group', 
                     self.drawerSection1_1Group, 
                     self.options.sectionHeight_1_1 , 
-                    self.options.section1Length +0.5, 
+                    self.options.section1Length, 
                     'doorSection1_1', 
                     self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5, 
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.y, 
                     'handle_doordoorDrawer_section1_1', 
                     self.options.sectionHeight_1_1 / 2 - 8, 
-                    self.options.section1Length / 2 - 0.5
+                    self.options.section1Length /2
                     )
                 }else {
                     createDoor(
                         'drawerSection1_1Group', 
                         self.drawerSection1_1Group, 
                         self.options.sectionHeight_1_1, 
-                        self.options.section1Length, 
+                        self.options.section1Length - 0.5, 
                         'doorSection1_1', 
                         self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5, 
                         self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.y, 
                         'handle_doordoorDrawer_section1_1', 
                         self.options.sectionHeight_1_1 / 2 - 8, 
-                        self.options.section1Length / 2 - 0.5
-                        )
+                        self.options.section1Length / 2
+                    )
                 }
     
                 document.getElementById("MainInternalShelving_S1_1").style.display = "none";
@@ -21278,7 +21283,7 @@
                 self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.options.sectionHeight_1_2 / 2 - 1, 
                 'handle_doordoorDrawer_section1_2', 
                 self.options.sectionHeight_1_2 / 2 - 8, 
-                self.options.section1Length / 2 - 0.5
+                self.options.section1Length / 2 
                 )
     
                 self.calculateOutput();
@@ -21500,7 +21505,7 @@
                 self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.options.sectionHeight_1_3 / 2 - 1, 
                 'handle_doordoorDrawer_section1_3', 
                 self.options.sectionHeight_1_3 / 2 - 8, 
-                self.options.section1Length / 2 - 0.5
+                self.options.section1Length / 2 
                 )
     
 
@@ -21714,7 +21719,7 @@
                 self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + self.options.sectionHeight_1_4 / 2 - 1, 
                 'handle_doordoorDrawer_section1_4', 
                 self.options.sectionHeight_1_4 / 2 - 8, 
-                self.options.section1Length / 2 - 0.5
+                self.options.section1Length / 2 
                 )
 
                 self.calculateOutput();
@@ -21928,7 +21933,7 @@
                 self.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + self.options.sectionHeight_1_5 / 2 - 1, 
                 'handle_doordoorDrawer_section1_5', 
                 self.options.sectionHeight_1_5 / 2 - 8, 
-                self.options.section1Length / 2 - 0.5
+                self.options.section1Length / 2 
                 )
 
                 self.calculateOutput();
@@ -22175,7 +22180,7 @@
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.y, 
                         'handle_doordoorDrawer_section2_1', 
                         self.options.sectionHeight_2_1 / 2 - 8, 
-                        self.options.section2Length / 2- 1.5
+                        self.options.section2Length / 2 - 0.8 
                     )
                 } else{
                     createDoor(
@@ -22188,7 +22193,7 @@
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.y, 
                         'handle_doordoorDrawer_section2_1', 
                         self.options.sectionHeight_2_1 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     )
                 } 
     
@@ -22445,7 +22450,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.options.sectionHeight_2_2 / 2 - 1, 
                         'handle_doordoorDrawer_section2_2', 
                         self.options.sectionHeight_2_2 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     )
                 } else{
                     createDoor(
@@ -22458,7 +22463,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.options.sectionHeight_2_2 / 2 - 1, 
                         'handle_doordoorDrawer_section2_2', 
                         self.options.sectionHeight_2_2 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     ) 
                 } 
     
@@ -22720,7 +22725,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.options.sectionHeight_2_3 / 2 - 1, 
                         'handle_doordoorDrawer_section2_3', 
                         self.options.sectionHeight_2_3 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     )
                 } else{
                     createDoor(
@@ -22733,7 +22738,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.options.sectionHeight_2_3 / 2 - 1, 
                         'handle_doordoorDrawer_section2_3', 
                         self.options.sectionHeight_2_3 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     )
                 } 
     
@@ -22991,7 +22996,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.options.sectionHeight_2_4 / 2 - 1, 
                         'handle_doordoorDrawer_section2_4', 
                         self.options.sectionHeight_2_4 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     )
                 } else{
                     createDoor(
@@ -23004,7 +23009,7 @@
                         self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.options.sectionHeight_2_4 / 2 - 1, 
                         'handle_doordoorDrawer_section2_4', 
                         self.options.sectionHeight_2_4 / 2 - 8, 
-                        self.options.section2Length / 2 - 1.5
+                        self.options.section2Length / 2 - 0.8
                     )   
                 } 
     
@@ -30293,6 +30298,9 @@
                     materialCushionPerM2 += (child.geometry.parameters.width / 100) * (child.geometry.parameters.depth / 100);
                     priceCushion = materialTopPerM2 * 320;
                 }
+                if (priceCushion < 75) {
+                    priceCushion =75;
+                }
             });
             
     
@@ -33082,6 +33090,8 @@
             material.map.repeat.y =  sectionHeight / (self.boardTextureStep * self.boardTextureRepeatYPerStep /1);
     
             var textureRotation = sectionLength > (sectionHeight - this.options.shelf.thickness * 2) ? THREE.MathUtils.degToRad(90) : 0;
+            console.log(sectionLength);
+            console.log(sectionHeight - this.options.shelf.thickness * 2);
             material.map.rotation = textureRotation;
             material.needsUpdate = true;
         
@@ -34985,7 +34995,7 @@
                 var wsec1_1Mesh = new THREE.Mesh(wsec1_1, self.fontColor);
                 wsec1_1Mesh.position.set(
                     
-                self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + self.options.section1Length / 2 -1.8,
+                self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + self.options.section1Length / 2 -1.6,
                 self.options.pillar.height - 6,
                 self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 
                 )
@@ -35392,7 +35402,7 @@
                     var wsec2_1Mesh = new THREE.Mesh(wsec2_1, self.fontColor);
                     wsec2_1Mesh.position.set(
                         
-                    self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + self.options.section2Length / 2 -1.8,
+                    self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + self.options.section2Length / 2 -1.6,
                     self.options.pillar.height - 6,
                     self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 
                     )
@@ -35796,7 +35806,7 @@
                     var wsec3_1Mesh = new THREE.Mesh(wsec3_1, self.fontColor);
                     wsec3_1Mesh.position.set(
                         
-                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + self.options.section3Length / 2 -1.8,
+                    self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + self.options.section3Length / 2 - 1.6,
                     self.options.pillar.height - 6,
                     self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 
                     )
@@ -36202,7 +36212,7 @@
                     var wsec4_1Mesh = new THREE.Mesh(wsec4_1, self.fontColor);
                     wsec4_1Mesh.position.set(
                         
-                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + self.options.section4Length / 2 -1.8,
+                    self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + self.options.section4Length / 2 - 1.6,
                     self.options.pillar.height - 6,
                     self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 
                     )
