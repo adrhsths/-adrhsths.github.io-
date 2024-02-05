@@ -7716,6 +7716,8 @@
     
                             self.removeHorizontalDividers();
                             self.removeHorizontalDividersS2();
+                            self.removeHorizontalDividersS3();
+                            self.removeHorizontalDividersS4();
                             self.closeLeftMenu();
     
                             self.options.pillar1Position = 0;
@@ -7777,6 +7779,71 @@
     
                             self.removeHorizontalDividers();
                             self.removeHorizontalDividersS2();
+                            self.removeHorizontalDividersS3();
+                            self.removeHorizontalDividersS4();
+                            self.closeLeftMenu();
+    
+                            self.options.pillar1Position = 0;
+                            self.scene.remove(self.pillar1);
+                            self.options.pillar1ChangedOrNot = false
+                            self.createPillar1();
+
+                            self.createWireframeBack_section1_1();
+                            self.createWireframeBack_section2_1();
+    
+                            self.createRayCastRecieverSection1_1();
+                            self.createRayCastRecieverSection2_1();
+    
+                        break;
+
+                        case 4:
+                            self.options.section1Length = self.options.shelf.length / 2;
+                            self.options.section2Length = self.options.shelf.length / 2;
+
+    
+                            document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = 1;
+                            self.options.amountOfSections = 2;
+                            
+                            var setDisplay = (section, display) => {
+                                for (let i = 1; i <= 7; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay(1, 'flex');
+                            setDisplay(2, 'flex');
+                            setDisplay(3, 'none');
+                            var setDisplay4 = (section, display) => {
+                                for (let i = 1; i <= 5; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay4(4, 'none');
+                            
+    
+    
+                            var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar1PositionField_S1_${i}`).innerHTML = pillarPositionS1;
+                            }
+
+                            var pillarPositionS2 = Math.floor(self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar2PositionField_S2_${i}`).innerHTML = pillarPositionS2;
+                            }
+        
+    
+                            self.options.pillar2Position = 0;
+                            self.scene.remove(self.pillar2);
+                            self.options.pillar3Position = 0;
+                            self.scene.remove(self.pillar3);
+    
+                            self.scene.remove( self.section3_WireframeMesh3_1, self.section4_WireframeMesh4_1);
+                            self.scene.remove( self.RayCastRecieverSection3_1, self.RayCastRecieverSection4_1 );
+    
+                            self.removeHorizontalDividers();
+                            self.removeHorizontalDividersS2();
+                            self.removeHorizontalDividersS3();
+                            self.removeHorizontalDividersS4();
                             self.closeLeftMenu();
     
                             self.options.pillar1Position = 0;
@@ -7921,81 +7988,154 @@
     
                         break;
     
-                        
                         case 3:
     
-                        self.options.section1Length = self.options.shelf.length / 3;
-                        self.options.section2Length = self.options.shelf.length / 3;
-                        self.options.section3Length = self.options.shelf.length / 3;
-    
-                        
-                        //update ui html dimensions too...
-                        document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = 2;
-    
-                        var setDisplay = (section, display) => {
+                            self.options.section1Length = self.options.shelf.length / 3;
+                            self.options.section2Length = self.options.shelf.length / 3;
+                            self.options.section3Length = self.options.shelf.length / 3;
+        
+                            
+                            //update ui html dimensions too...
+                            document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = 2;
+        
+                            var setDisplay = (section, display) => {
+                                for (let i = 1; i <= 7; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay(1, 'flex');
+                            setDisplay(2, 'flex');
+                            setDisplay(3, 'flex');
+                            var setDisplay4 = (section, display) => {
+                                for (let i = 1; i <= 5; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay4(4, 'none');
+        
+        
+                            var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
                             for (let i = 1; i <= 7; i++) {
-                                document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                document.getElementById(`pillar1PositionField_S1_${i}`).innerHTML = pillarPositionS1;
                             }
-                        };
-                        setDisplay(1, 'flex');
-                        setDisplay(2, 'flex');
-                        setDisplay(3, 'flex');
-                        var setDisplay4 = (section, display) => {
-                            for (let i = 1; i <= 5; i++) {
-                                document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+
+                            var pillarPositionS2 = Math.floor(self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar2PositionField_S2_${i}`).innerHTML = pillarPositionS2;
                             }
-                        };
-                        setDisplay4(4, 'none');
-    
-    
-                        var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                        for (let i = 1; i <= 7; i++) {
-                            document.getElementById(`pillar1PositionField_S1_${i}`).innerHTML = pillarPositionS1;
-                        }
 
-                        var pillarPositionS2 = Math.floor(self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                        for (let i = 1; i <= 7; i++) {
-                            document.getElementById(`pillar2PositionField_S2_${i}`).innerHTML = pillarPositionS2;
-                        }
+                            var pillarPositionS3 = Math.floor(self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar3PositionField_S3_${i}`).innerHTML = pillarPositionS3;
+                            }
+                        
 
-                        var pillarPositionS3 = Math.floor(self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                        for (let i = 1; i <= 7; i++) {
-                            document.getElementById(`pillar3PositionField_S3_${i}`).innerHTML = pillarPositionS3;
-                        }
-                    
-
-    
-                        self.options.pillar3Position = 0;
-                        self.options.pillar3ChangedOrNot = false
-                        self.scene.remove(self.pillar3);
-    
-                        self.scene.remove(self.section4_WireframeMesh4_1);
-                        self.scene.remove(self.RayCastRecieverSection4_1);
-    
-                        self.removeHorizontalDividers();
-                        self.removeHorizontalDividersS2();
-                        self.removeHorizontalDividersS3();
-                        self.removeHorizontalDividersS4();
-                        self.closeLeftMenu();
-    
-                        self.options.pillar1Position = 0;
-                        self.options.pillar1ChangedOrNot = false
-                        self.createPillar1();
-                        self.options.pillar2Position = 0;
-                        self.options.pillar2ChangedOrNot = false
-                        self.createPillar2();
-    
-                        self.createWireframeBack_section1_1();
-                        self.createWireframeBack_section2_1();
-                        self.createWireframeBack_section3_1();
-    
-                        self.createRayCastRecieverSection1_1();
-                        self.createRayCastRecieverSection2_1();
-                        self.createRayCastRecieverSection3_1();
-    
-    
+        
+                            self.options.pillar3Position = 0;
+                            self.options.pillar3ChangedOrNot = false
+                            self.scene.remove(self.pillar3);
+        
+                            self.scene.remove(self.section4_WireframeMesh4_1);
+                            self.scene.remove(self.RayCastRecieverSection4_1);
+        
+                            self.removeHorizontalDividers();
+                            self.removeHorizontalDividersS2();
+                            self.removeHorizontalDividersS3();
+                            self.removeHorizontalDividersS4();
+                            self.closeLeftMenu();
+        
+                            self.options.pillar1Position = 0;
+                            self.options.pillar1ChangedOrNot = false
+                            self.createPillar1();
+                            self.options.pillar2Position = 0;
+                            self.options.pillar2ChangedOrNot = false
+                            self.createPillar2();
+        
+                            self.createWireframeBack_section1_1();
+                            self.createWireframeBack_section2_1();
+                            self.createWireframeBack_section3_1();
+        
+                            self.createRayCastRecieverSection1_1();
+                            self.createRayCastRecieverSection2_1();
+                            self.createRayCastRecieverSection3_1();
+        
+        
                         break;
     
+                        case 4:
+    
+                            self.options.section1Length = self.options.shelf.length / 3;
+                            self.options.section2Length = self.options.shelf.length / 3;
+                            self.options.section3Length = self.options.shelf.length / 3;
+        
+                            
+                            //update ui html dimensions too...
+                            document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = 2;
+                            self.options.amountOfSections = 3
+        
+                            var setDisplay = (section, display) => {
+                                for (let i = 1; i <= 7; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay(1, 'flex');
+                            setDisplay(2, 'flex');
+                            setDisplay(3, 'flex');
+                            var setDisplay4 = (section, display) => {
+                                for (let i = 1; i <= 5; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay4(4, 'none');
+        
+        
+                            var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar1PositionField_S1_${i}`).innerHTML = pillarPositionS1;
+                            }
+
+                            var pillarPositionS2 = Math.floor(self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar2PositionField_S2_${i}`).innerHTML = pillarPositionS2;
+                            }
+
+                            var pillarPositionS3 = Math.floor(self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar3PositionField_S3_${i}`).innerHTML = pillarPositionS3;
+                            }
+                        
+
+        
+                            self.options.pillar3Position = 0;
+                            self.options.pillar3ChangedOrNot = false
+                            self.scene.remove(self.pillar3);
+        
+                            self.scene.remove(self.section4_WireframeMesh4_1);
+                            self.scene.remove(self.RayCastRecieverSection4_1);
+        
+                            self.removeHorizontalDividers();
+                            self.removeHorizontalDividersS2();
+                            self.removeHorizontalDividersS3();
+                            self.removeHorizontalDividersS4();
+                            self.closeLeftMenu();
+        
+                            self.options.pillar1Position = 0;
+                            self.options.pillar1ChangedOrNot = false
+                            self.createPillar1();
+                            self.options.pillar2Position = 0;
+                            self.options.pillar2ChangedOrNot = false
+                            self.createPillar2();
+        
+                            self.createWireframeBack_section1_1();
+                            self.createWireframeBack_section2_1();
+                            self.createWireframeBack_section3_1();
+        
+                            self.createRayCastRecieverSection1_1();
+                            self.createRayCastRecieverSection2_1();
+                            self.createRayCastRecieverSection3_1();
+        
+        
+                        break;
     
                     }
                 }
@@ -8020,6 +8160,7 @@
                             self.options.section2Length = self.options.shelf.length / 2;
     
                             document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = 1;
+                            self.options.amountOfSections = 2
                             
                             var setDisplay = (section, display) => {
                                 for (let i = 1; i <= 7; i++) {
@@ -8295,6 +8436,65 @@
                     self.calculateOutput();
                     
                     switch (self.options.amountOfSections) {
+
+                        case 1:
+                            self.options.section1Length = self.options.shelf.length / 2;
+                            self.options.section2Length = self.options.shelf.length / 2;
+    
+                            document.getElementById('subdomainNumberElementCorpus_Cabinet_Dimensionsz').value = 1;
+                            self.options.amountOfSections = 2;
+                            
+                            var setDisplay = (section, display) => {
+                                for (let i = 1; i <= 7; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay(1, 'flex');
+                            setDisplay(2, 'flex');
+                            setDisplay(3, 'none');
+                            var setDisplay4 = (section, display) => {
+                                for (let i = 1; i <= 5; i++) {
+                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
+                                }
+                            };
+                            setDisplay4(4, 'none');
+    
+    
+                            var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar1PositionField_S1_${i}`).innerHTML = pillarPositionS1;
+                            }
+
+                            var pillarPositionS2 = Math.floor(self.options.section2Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
+                            for (let i = 1; i <= 7; i++) {
+                                document.getElementById(`pillar2PositionField_S2_${i}`).innerHTML = pillarPositionS2;
+                            }
+                    
+        
+    
+                            self.options.pillar2Position = 0;
+                            self.scene.remove(self.pillar2);
+                            self.options.pillar3Position = 0;
+                            self.scene.remove(self.pillar3);
+    
+                            self.scene.remove( self.section3_WireframeMesh3_1, self.section4_WireframeMesh4_1);
+                            self.scene.remove( self.RayCastRecieverSection3_1, self.RayCastRecieverSection4_1 );
+    
+                            self.removeHorizontalDividers();
+                            self.removeHorizontalDividersS2();
+                            self.closeLeftMenu();
+    
+                            self.options.pillar1Position = 0;
+                            self.options.pillar1ChangedOrNot = false
+                            self.createPillar1();
+    
+                            self.createWireframeBack_section1_1();
+                            self.createWireframeBack_section2_1();
+    
+                            self.createRayCastRecieverSection1_1();
+                            self.createRayCastRecieverSection2_1();
+    
+                        break;
                         
                         case 2:
                             self.options.section1Length = self.options.shelf.length / 2;
@@ -9550,18 +9750,6 @@
                 moveHorizontalPartition1_1_UpButton.style.display = "block";
                 moveHorizontalPartition1_1_DownButton.style.display = "inline-block";
 
-                var checkBox_InternalShelving_S1_1 = document.getElementById("InternalShelving_S1");
-                if (checkBox_InternalShelving_S1_1.checked == true) {
-                    self.options.shelvesCounterSection1_1 = 0
-                    self.scene.remove(self.shelvingGroup_section1_1);
-    
-                    document.getElementById("InternalShelving1_S1").style.display = "none";
-                    document.getElementById("InternalShelving2_S1").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect1_1").value = '0'
-                    document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                    document.getElementById("InternalShelving_S1").checked = false;
-                }else {}
 
 
                 if (savedCorrection === 'savedCorrectionURL'){
@@ -9595,19 +9783,6 @@
                 self.scene.getObjectByName('horizontalDividerSection1_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.s1_AmountOfHorDividers = 2;
 
-
-                var checkBox_InternalShelving_S1_2 = document.getElementById("InternalShelving_S1_2");
-                if (checkBox_InternalShelving_S1_2.checked == true) {
-                    self.options.shelvesCounterSection1_2 = 0
-                    self.scene.remove(self.shelvingGroup_section1_2);
-    
-                    document.getElementById("InternalShelving1_S1_2").style.display = "none";
-                    document.getElementById("InternalShelving2_S1_2").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect1_2").value = '0';
-                    document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                    document.getElementById("InternalShelving_S1_2").checked = false;
-                }else {}
 
                 if (savedCorrection === 'savedCorrectionURL'){
                     document.getElementById('Height_HorizontalPartition_S1_2').innerHTML = 
@@ -10258,19 +10433,6 @@
                 moveHorizontalPartition2_1_UpButton.style.display = "block";
                 moveHorizontalPartition2_1_DownButton.style.display = "inline-block";
 
-                var checkBox_InternalShelving_S2_1 = document.getElementById("InternalShelving_S2_1");
-                if (checkBox_InternalShelving_S2_1.checked == true) {
-                    self.options.shelvesCounterSection2_1 = 0
-                    self.scene.remove(self.shelvingGroup_section2_1);
-    
-                    document.getElementById("InternalShelving1_S2_1").style.display = "none";
-                    document.getElementById("InternalShelving2_S2_1").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect2_1").value = '0'
-                    document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                    document.getElementById("InternalShelving_S2_1").checked = false;
-                }else {}
-
 
                 if (savedCorrection === 'savedCorrectionURL'){
                     document.getElementById('Height_HorizontalPartition_S2_1').innerHTML = 
@@ -10302,20 +10464,6 @@
 
                 self.scene.getObjectByName('horizontalDividerSection2_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.s2_AmountOfHorDividers = 2;
-
-
-                var checkBox_InternalShelving_S2_2 = document.getElementById("InternalShelving_S2_2");
-                if (checkBox_InternalShelving_S2_2.checked == true) {
-                    self.options.shelvesCounterSection2_2 = 0
-                    self.scene.remove(self.shelvingGroup_section2_2);
-    
-                    document.getElementById("InternalShelving1_S2_2").style.display = "none";
-                    document.getElementById("InternalShelving2_S2_2").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect2_2").value = '0';
-                    document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                    document.getElementById("InternalShelving_S2_2").checked = false;
-                }else {}
 
                 if (savedCorrection === 'savedCorrectionURL'){
                     document.getElementById('Height_HorizontalPartition_S2_2').innerHTML = 
@@ -10773,8 +10921,8 @@
                             self.scene.remove(self.RayCastRecieverSection3_9);
                         }
                     }
-                    break;
-                    case 5:
+                  break;
+                  case 5:
                     if ( self.options.pillar.height - 4.2 - 40 - 1.8*4 >= 22 && self.options.s3_AmountOfHorDividers === 4) {
                         self.removeHorizontalDividersS3();
                         document.getElementById("HorizontalPartition_S3_1").checked = true;
@@ -10820,8 +10968,8 @@
                             self.scene.remove(self.RayCastRecieverSection3_9);
                         }
                     }
-                    break;
-                    case 6:
+                  break;
+                  case 6:
                     if ( self.options.pillar.height - 4.2 - 50 - 1.8*5 >= 22 && self.options.s3_AmountOfHorDividers === 5) {
                         self.removeHorizontalDividersS3();
                         document.getElementById("HorizontalPartition_S3_1").checked = true;
@@ -10863,8 +11011,8 @@
                             self.scene.remove(self.RayCastRecieverSection3_9);
                         }
                     }
-                    break;
-                    case 7:
+                  break;
+                  case 7:
                     if ( self.options.pillar.height - 4.2 - 60 - 1.8*6 >= 22 && self.options.s3_AmountOfHorDividers === 6) {
                         self.removeHorizontalDividersS3();
                         document.getElementById("HorizontalPartition_S3_1").checked = true;
@@ -10901,8 +11049,8 @@
                             self.scene.remove(self.RayCastRecieverSection3_9);
                         }
                     }
-                    break;
-                    case 8:
+                  break;
+                  case 8:
                     if ( self.options.pillar.height - 4.2 - 70 - 1.8*7 >= 22 && self.options.s3_AmountOfHorDividers === 7) {
                         self.removeHorizontalDividersS3();
                         document.getElementById("HorizontalPartition_S3_1").checked = true;
@@ -10929,7 +11077,7 @@
                             document.getElementById(`amount_HorPartition3_${i}`).value = 8;
                         }
                     }
-                    break;
+                  break;
                 }
 
                 if (self.options.statusShowDimensions == 1) {
@@ -11014,20 +11162,6 @@
                 moveHorizontalPartition3_1_UpButton.style.display = "block";
                 moveHorizontalPartition3_1_DownButton.style.display = "inline-block";
 
-                var checkBox_InternalShelving_S3_1 = document.getElementById("InternalShelving_S3_1");
-                if (checkBox_InternalShelving_S3_1.checked == true) {
-                    self.options.shelvesCounterSection3_1 = 0
-                    self.scene.remove(self.shelvingGroup_section3_1);
-    
-                    document.getElementById("InternalShelving1_S3_1").style.display = "none";
-                    document.getElementById("InternalShelving2_S3_1").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect3_1").value = '0'
-                    document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                    document.getElementById("InternalShelving_S3_1").checked = false;
-                }else {}
-
-
                 if (savedCorrection === 'savedCorrectionURL'){
                     document.getElementById('Height_HorizontalPartition_S3_1').innerHTML = 
                     Math.floor(self.params.get('ovHHP_S3_1')) +"cm";                    
@@ -11059,19 +11193,6 @@
                 self.scene.getObjectByName('horizontalDividerSection3_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.s3_AmountOfHorDividers = 2;
 
-
-                var checkBox_InternalShelving_S3_2 = document.getElementById("InternalShelving_S3_2");
-                if (checkBox_InternalShelving_S3_2.checked == true) {
-                    self.options.shelvesCounterSection3_2 = 0
-                    self.scene.remove(self.shelvingGroup_section3_2);
-    
-                    document.getElementById("InternalShelving1_S3_2").style.display = "none";
-                    document.getElementById("InternalShelving2_S3_2").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect3_2").value = '0';
-                    document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                    document.getElementById("InternalShelving_S3_2").checked = false;
-                }else {}
 
                 if (savedCorrection === 'savedCorrectionURL'){
                     document.getElementById('Height_HorizontalPartition_S3_2').innerHTML = 
@@ -11212,90 +11333,10 @@
     
             }; 
             
-            // section 3_7                   
-            function createHorizontalPartition_S3_7(savedCorrection) {
-
-                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection3_7", true ));
-                if(savedCorrection === 'savedCorrectionURL'){
-                    self.createhorizontalDividerSection3_7('savedURL');
-                } else {
-                    self.createhorizontalDividerSection3_7();
-                }
-
-                self.scene.getObjectByName('horizontalDividerSection3_7').material.map = self.textures[self.options.shelf.texture].map;  
-                self.options.s3_AmountOfHorDividers = 7;
-
-
-                if (savedCorrection === 'savedCorrectionURL'){
-                    document.getElementById('Height_HorizontalPartition_S3_7').innerHTML = 
-                    Math.floor(self.params.get('ovHHP_S3_7')) +"cm";                    
-                    document.getElementById('Height_HorizontalPartition_S3_7').innerHTML = Math.floor(self.params.get('ovHHP_S3_7')) +"cm";
-                } else {
-                    document.getElementById("Height_HorizontalPartition_S3_7").innerHTML =  10 +"cm";
-                    document.getElementById("Height_HorizontalPartition_S3_8").innerHTML =  Math.floor(self.options.pillar.height - parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) - 4.2 - (1.8 * self.options.s3_AmountOfHorDividers ) ) +"cm";
-                }
-
-                self.updateDoorButtons();
-                self.calculateOutput();
-
-
-                self.options.s3_7_horizDividStatus = 1;
-    
-            }; 
-
-            // section 3_8                   
-            function createHorizontalPartition_S3_8(savedCorrection) {
-
-                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection3_8", true ));
-                if(savedCorrection === 'savedCorrectionURL'){
-                    self.createhorizontalDividerSection3_8('savedURL');
-                } else {
-                    self.createhorizontalDividerSection3_8();
-                }
-
-                self.scene.getObjectByName('horizontalDividerSection3_8').material.map = self.textures[self.options.shelf.texture].map;  
-                self.options.s3_AmountOfHorDividers = 8;
-
-
-                if (savedCorrection === 'savedCorrectionURL'){
-                    document.getElementById('Height_HorizontalPartition_S3_8').innerHTML = 
-                    Math.floor(self.params.get('ovHHP_S3_8')) +"cm";                    
-                    document.getElementById('Height_HorizontalPartition_S3_8').innerHTML = Math.floor(self.params.get('ovHHP_S3_8')) +"cm";
-                } else {
-                    document.getElementById("Height_HorizontalPartition_S3_8").innerHTML =  10 +"cm";
-                    document.getElementById("Height_HorizontalPartition_S3_9").innerHTML =  Math.floor(self.options.pillar.height - parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0])  - parseFloat(document.getElementById('Height_HorizontalPartition_S3_8').textContent.match(/\d+(\.\d+)?/)[0]) - 4.2 - (1.8 * self.options.s3_AmountOfHorDividers ) ) +"cm";
-                }
-
-                self.updateDoorButtons();
-                self.calculateOutput();
-
-
-                self.options.s3_8_horizDividStatus = 1;
-    
-            }; 
-     
     
     
     
-            ////4_1 section
             ////4 section    
-            document.getElementById("subButtonMinus_HorPartition4_5").addEventListener('click', function() {
-                VerticalSection4_5.style.transform = "translateX(-150%)";
-                VerticalSection4_5.style.animation = 'animHideFromLeft 0.4s';
-            });
-            document.getElementById("subButtonMinus_HorPartition4_4").addEventListener('click', function() {
-                VerticalSection4_4.style.transform = "translateX(-150%)";
-                VerticalSection4_4.style.animation = 'animHideFromLeft 0.4s';
-            });
-            document.getElementById("subButtonMinus_HorPartition4_3").addEventListener('click', function() {
-                VerticalSection4_3.style.transform = "translateX(-150%)";
-                VerticalSection4_3.style.animation = 'animHideFromLeft 0.4s';
-            });
-            document.getElementById("subButtonMinus_HorPartition4_2").addEventListener('click', function() {
-                VerticalSection4_2.style.transform = "translateX(-150%)";
-                VerticalSection4_2.style.animation = 'animHideFromLeft 0.4s';
-            });
-
             const inputsS4 = document.querySelectorAll('input[id^="amount_HorPartition4_"]');
             const buttonsS4 = document.querySelectorAll('[id^="subButtonMinus_HorPartition4_"], [id^="subButtonPlus_HorPartition4_"]');
             
@@ -11341,6 +11382,8 @@
                   break;
                   case 1:
                     self.removeHorizontalDividersS4();
+                    document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                     createHorizontalPartition_S4_1();
 
                     if (self.scene.getObjectByName( "horizontalDividerSection4_2", true ) != undefined) {
@@ -11365,6 +11408,8 @@
                   case 2:
                     if (self.options.pillar.height - 4.2 - 10 - 1.8 >= 22 && self.options.s4_AmountOfHorDividers == 1) {
                         self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                         createHorizontalPartition_S4_1();
                         createHorizontalPartition_S4_2();
 
@@ -11377,6 +11422,8 @@
                         document.getElementById('amount_HorPartition4_5').value = 1;
                     } else {
                         self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                         createHorizontalPartition_S4_1();
                         createHorizontalPartition_S4_2();
 
@@ -11397,6 +11444,8 @@
                   case 3:
                     if (self.options.pillar.height - 4.2 - 20 - 1.8*2  >= 22 && self.options.s4_AmountOfHorDividers == 2) {
                         self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                         createHorizontalPartition_S4_1();
                         createHorizontalPartition_S4_2();
                         createHorizontalPartition_S4_3();
@@ -11410,6 +11459,8 @@
 
                     }else {
                         self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                         createHorizontalPartition_S4_1();
                         createHorizontalPartition_S4_2();
                         createHorizontalPartition_S4_3();
@@ -11424,24 +11475,144 @@
                   case 4:
                     if ( self.options.pillar.height - 4.2 - 30 - 1.8*3 >= 22 && self.options.s4_AmountOfHorDividers === 3) {
                         self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                         createHorizontalPartition_S4_1();
                         createHorizontalPartition_S4_2();
                         createHorizontalPartition_S4_3();
                         createHorizontalPartition_S4_4();
-                    } else if ( self.options.pillar.height - 4.2 - 30 - 1.8*3 < 22 && self.options.s4_AmountOfHorDividers === 4) {
+                    }else if ( self.options.pillar.height - 4.2 - 30 - 1.8*3 < 22 && self.options.s4_AmountOfHorDividers === 4 ) {
                         showHintPanel("The maximum number of partitions within this height has been reached.");
-                        document.getElementById('amount_HorPartition4_1').value = 4;
-                        document.getElementById('amount_HorPartition4_2').value = 4;
-                        document.getElementById('amount_HorPartition4_3').value = 4;
-                        document.getElementById('amount_HorPartition4_4').value = 4;
-                        document.getElementById('amount_HorPartition4_5').value = 4;
+                        for (let i = 1; i <= 7; i++) {
+                            document.getElementById(`amount_HorPartition4_${i}`).value = 3;
+                        }
                     }else {
+                        self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+
+                        if (self.scene.getObjectByName( "horizontalDividerSection4_5", true ) != undefined ) {
+                            self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_5", true ));
+                            self.scene.remove(self.section2_WireframeMesh4_6);
+                            self.scene.remove(self.RayCastRecieverSection4_6);
+                        }
+
+                        if (self.scene.getObjectByName( "horizontalDividerSection4_6", true ) != undefined ) {
+                            self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_6", true ));
+                            self.scene.remove(self.section2_WireframeMesh4_7);
+                            self.scene.remove(self.RayCastRecieverSection4_7);
+                        }
+
+                    }
+                  break;
+                  case 5:
+                    if ( self.options.pillar.height - 4.2 - 40 - 1.8*4 >= 22 && self.options.s4_AmountOfHorDividers === 4) {
+                        self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+                        createHorizontalPartition_S4_5();
+
+                    } else if ( self.options.pillar.height - 4.2 - 40 - 1.8*4 < 22 && self.options.s4_AmountOfHorDividers === 4) {
                         showHintPanel("The maximum number of partitions within this height has been reached.");
-                        document.getElementById('amount_HorPartition4_1').value = 3;
-                        document.getElementById('amount_HorPartition4_2').value = 3;
-                        document.getElementById('amount_HorPartition4_3').value = 3;
-                        document.getElementById('amount_HorPartition4_4').value = 3;
-                        document.getElementById('amount_HorPartition4_5').value = 3;
+                        for (let i = 1; i <= 7; i++) {
+                            document.getElementById(`amount_HorPartition4_${i}`).value = 4;
+                        }
+                    }
+                    else {
+                        
+                        self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+                        createHorizontalPartition_S4_5();
+
+                        if (self.scene.getObjectByName( "horizontalDividerSection4_6", true ) != undefined ) {
+                            self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_6", true ));
+                            self.scene.remove(self.section2_WireframeMesh4_7);
+                            self.scene.remove(self.RayCastRecieverSection4_7);
+                        }
+
+                    }
+                  break;
+                  case 6:
+                    if ( self.options.pillar.height - 4.2 - 50 - 1.8*5 >= 22 && self.options.s4_AmountOfHorDividers === 5) {
+                        self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+                        createHorizontalPartition_S4_5();
+                        createHorizontalPartition_S4_6();
+
+                    } else if ( self.options.pillar.height - 4.2 - 50 - 1.8*5 < 22 && self.options.s4_AmountOfHorDividers === 5) {
+                        showHintPanel("The maximum number of partitions within this height has been reached.");
+                        for (let i = 1; i <= 7; i++) {
+                            document.getElementById(`amount_HorPartition4_${i}`).value = 5;
+                        }
+                    }
+                    else {
+
+                        self.removeHorizontalDividersS4();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+                        createHorizontalPartition_S4_5();
+                        createHorizontalPartition_S4_6();
+
+                    }
+                  break;
+                  case 7:
+                    if ( self.options.pillar.height - 4.2 - 60 - 1.8*6 >= 22 && self.options.s4_AmountOfHorDividers === 6) {
+                        self.removeHorizontalDividersS3();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+                        createHorizontalPartition_S4_5();
+                        createHorizontalPartition_S4_6();
+                        createHorizontalPartition_S4_7();
+
+                    } else if ( self.options.pillar.height - 4.2 - 60 - 1.8*6 < 22 && self.options.s4_AmountOfHorDividers === 6) {
+                        showHintPanel("The maximum number of partitions within this height has been reached.");
+                        for (let i = 1; i <= 7; i++) {
+                            document.getElementById(`amount_HorPartition4_${i}`).value = 6;
+                        }
+                    }
+                    else {
+                        self.removeHorizontalDividersS3();
+                        document.getElementById("HorizontalPartition_S4_1").checked = true;
+
+                        createHorizontalPartition_S4_1();
+                        createHorizontalPartition_S4_2();
+                        createHorizontalPartition_S4_3();
+                        createHorizontalPartition_S4_4();
+                        createHorizontalPartition_S4_5();
+                        createHorizontalPartition_S4_6();
+                        createHorizontalPartition_S4_7();
+
+                        if (self.scene.getObjectByName( "horizontalDividerSection4_8", true ) != undefined ) {
+                            self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_8", true ));
+                            self.scene.remove(self.section4_WireframeMesh4_9);
+                            self.scene.remove(self.RayCastRecieverSection4_9);
+                        }
                     }
                   break;
                 }
@@ -11457,6 +11628,8 @@
             document.getElementById("HorizontalPartition_S4_1").addEventListener('click', function() { 
                 if (document.getElementById("HorizontalPartition_S4_1").checked == true) {
                     self.removeHorizontalDividersS4();
+                    document.getElementById("HorizontalPartition_S4_1").checked = true;
+
                     createHorizontalPartition_S4_1(); 
                     document.getElementById('amount_HorPartition4_1').value = 1;
                     document.getElementById('amount_HorPartition4_2').value = 1;
@@ -11475,74 +11648,37 @@
     
             });
 
-            document.getElementById("RemoveHorizontalPartition_S4_2").addEventListener('click', function() { 
-                if (document.getElementById("RemoveHorizontalPartition_S4_2").checked == true) {
-                } 
-                else {
+            function handleRemoveHorizontalPartitionS4(partitionId) {
+                const checkbox = document.getElementById(`RemoveHorizontalPartition_S4_${partitionId}`);
+                if (!checkbox) {
+                    return;
+                }
+            
+                checkbox.addEventListener('click', function() {
+                    if (checkbox.checked) {
+                        return;
+                    }
+            
                     self.removeHorizontalDividersS4();
                     self.createWireframeBack_section4_1();
-                    self.createRayCastRecieverSection4_1();  
-
-                    VerticalSection4_2.style.transform = "translateX(-150%)";
-                    VerticalSection4_2.style.animation = 'animHideFromLeft 0.4s';
-                }
-                    
-                if (self.options.statusShowDimensions == 1) {
-                    self.createDimensions();
-                }
-                self.updateDoorButtons();
-            });
-            document.getElementById("RemoveHorizontalPartition_S4_3").addEventListener('click', function() { 
-                if (document.getElementById("RemoveHorizontalPartition_S4_3").checked == true) {
-                } 
-                else {
-                    self.removeHorizontalDividersS4();
-                    self.createWireframeBack_section4_1();
-                    self.createRayCastRecieverSection4_1();  
-
-                    VerticalSection4_3.style.transform = "translateX(-150%)";
-                    VerticalSection4_3.style.animation = 'animHideFromLeft 0.4s';
-                }
-                    
-                if (self.options.statusShowDimensions == 1) {
-                    self.createDimensions();
-                }
-                self.updateDoorButtons();
-            });
-            document.getElementById("RemoveHorizontalPartition_S4_4").addEventListener('click', function() { 
-                if (document.getElementById("RemoveHorizontalPartition_S4_4").checked == true) {
-                } 
-                else {
-                    self.removeHorizontalDividersS4();
-                    self.createWireframeBack_section4_1();
-                    self.createRayCastRecieverSection4_1();  
-
-                    VerticalSection4_4.style.transform = "translateX(-150%)";
-                    VerticalSection4_4.style.animation = 'animHideFromLeft 0.4s';
-                }
-                    
-                if (self.options.statusShowDimensions == 1) {
-                    self.createDimensions();
-                }
-                self.updateDoorButtons();
-            });
-            document.getElementById("RemoveHorizontalPartition_S4_5").addEventListener('click', function() { 
-                if (document.getElementById("RemoveHorizontalPartition_S4_5").checked == true) {
-                } 
-                else {
-                    self.removeHorizontalDividersS4();
-                    self.createWireframeBack_section4_1();
-                    self.createRayCastRecieverSection4_1();  
-
-                    VerticalSection4_5.style.transform = "translateX(-150%)";
-                    VerticalSection4_5.style.animation = 'animHideFromLeft 0.4s';
-                }
-                    
-                if (self.options.statusShowDimensions == 1) {
-                    self.createDimensions();
-                }
-                self.updateDoorButtons();
-            });
+                    self.createRayCastRecieverSection4_1();
+            
+                    const verticalSection = document.getElementById(`VerticalSection4_${partitionId}`);
+                    if (verticalSection) {
+                        verticalSection.style.transform = "translateX(-150%)";
+                        verticalSection.style.animation = 'animHideFromLeft 0.4s';
+                    }
+            
+                    if (self.options.statusShowDimensions === 1) {
+                        self.createDimensions();
+                    }
+                    self.updateDoorButtons();
+                });
+            }
+            
+            for (let i = 2; i <= 7; i++) {
+                handleRemoveHorizontalPartitionS4(i);
+            }
             
             function createHorizontalPartition_S4_1(savedCorrection) {            
         
@@ -11562,19 +11698,6 @@
                 amountHorizontalPartition_S4_1.style.display = "flex";
                 moveHorizontalPartition4_1_UpButton.style.display = "block";
                 moveHorizontalPartition4_1_DownButton.style.display = "inline-block";
-
-                var checkBox_InternalShelving_S4_1 = document.getElementById("InternalShelving_S4_1");
-                if (checkBox_InternalShelving_S4_1.checked == true) {
-                    self.options.shelvesCounterSection4_1 = 0
-                    self.scene.remove(self.shelvingGroup_section4_1);
-    
-                    document.getElementById("InternalShelving1_S4_1").style.display = "none";
-                    document.getElementById("InternalShelving2_S4_1").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect4_1").value = '0'
-                    document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                    document.getElementById("InternalShelving_S4_1").checked = false;
-                }else {}
 
 
                 if (savedCorrection === 'savedCorrectionURL'){
@@ -11607,20 +11730,6 @@
 
                 self.scene.getObjectByName('horizontalDividerSection4_2').material.map = self.textures[self.options.shelf.texture].map;
                 self.options.s4_AmountOfHorDividers = 2;
-
-
-                var checkBox_InternalShelving_S4_2 = document.getElementById("InternalShelving_S4_2");
-                if (checkBox_InternalShelving_S4_2.checked == true) {
-                    self.options.shelvesCounterSection4_2 = 0
-                    self.scene.remove(self.shelvingGroup_section4_2);
-    
-                    document.getElementById("InternalShelving1_S4_2").style.display = "none";
-                    document.getElementById("InternalShelving2_S4_2").style.display = "none";
-    
-                    document.getElementById("internalShelving_sect4_2").value = '0';
-                    document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                    document.getElementById("InternalShelving_S4_2").checked = false;
-                }else {}
 
                 if (savedCorrection === 'savedCorrectionURL'){
                     document.getElementById('Height_HorizontalPartition_S4_2').innerHTML = 
@@ -11701,6 +11810,67 @@
     
             };   
     
+            // section 4_5                   
+            function createHorizontalPartition_S4_5(savedCorrection) {
+
+                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_5", true ));
+                if(savedCorrection === 'savedCorrectionURL'){
+                    self.createhorizontalDividerSection4_5('savedURL');
+                } else {
+                    self.createhorizontalDividerSection4_5();
+                }
+
+                self.scene.getObjectByName('horizontalDividerSection4_5').material.map = self.textures[self.options.shelf.texture].map;  
+                self.options.s4_AmountOfHorDividers = 5;
+
+
+                if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S4_5').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S4_5')) +"cm";                    
+                    document.getElementById('Height_HorizontalPartition_S4_5').innerHTML = Math.floor(self.params.get('ovHHP_S4_5')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_5").innerHTML =  10 +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_6").innerHTML =  Math.floor(self.options.pillar.height - parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) - 4.2 - (1.8 * self.options.s4_AmountOfHorDividers ) ) +"cm";
+                }
+
+                self.updateDoorButtons();
+                self.calculateOutput();
+
+
+                self.options.s4_5_horizDividStatus = 1;
+    
+            };   
+
+            // section 4_6                   
+            function createHorizontalPartition_S4_6(savedCorrection) {
+
+                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_6", true ));
+                if(savedCorrection === 'savedCorrectionURL'){
+                    self.createhorizontalDividerSection4_6('savedURL');
+                } else {
+                    self.createhorizontalDividerSection4_6();
+                }
+
+                self.scene.getObjectByName('horizontalDividerSection4_6').material.map = self.textures[self.options.shelf.texture].map;  
+                self.options.s4_AmountOfHorDividers = 6;
+
+
+                if (savedCorrection === 'savedCorrectionURL'){
+                    document.getElementById('Height_HorizontalPartition_S4_6').innerHTML = 
+                    Math.floor(self.params.get('ovHHP_S4_6')) +"cm";                    
+                    document.getElementById('Height_HorizontalPartition_S4_6').innerHTML = Math.floor(self.params.get('ovHHP_S4_6')) +"cm";
+                } else {
+                    document.getElementById("Height_HorizontalPartition_S4_6").innerHTML =  10 +"cm";
+                    document.getElementById("Height_HorizontalPartition_S4_7").innerHTML =  Math.floor(self.options.pillar.height - parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) - parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) - 4.2 - (1.8 * self.options.s4_AmountOfHorDividers ) ) +"cm";
+                }
+
+                self.updateDoorButtons();
+                self.calculateOutput();
+
+
+                self.options.s4_6_horizDividStatus = 1;
+    
+            }; 
     
     
     
@@ -11819,7 +11989,7 @@
                 }
     
                 self.options.heigh1Shelf1_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_1 = 13
+                self.options.heigh0Shelf1_1 = 10
     
             }
             document.getElementById("subButtonMinus_Shelves1_1").addEventListener('click', requestChangeShelving1_1); 
@@ -11907,7 +12077,7 @@
                     case 2:
     
                         self.options.shelvesCounterSection1_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section1_1);
                             self.shelvingGroup_section1_1 = new THREE.Group();
                             self.options.posShelf2_sect1_1 =  12
@@ -11939,7 +12109,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection1_1 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section1_1);                        
 
                             self.shelvingGroup_section1_1 = new THREE.Group();
@@ -12025,7 +12195,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection1_1 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section1_1);                        
 
@@ -12185,7 +12355,7 @@
                         self.scene.remove(self.shelvingGroup_section1_1);
                         
                         self.shelvingGroup_section1_1 = new THREE.Group();
-                        self.options.posShelf1_sect1_1 = 16.5;
+                        self.options.posShelf1_sect1_1 = 14;
 
                         self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
                         self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
@@ -12216,7 +12386,9 @@
                         self.shelvingGroup_section1_1.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        //self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
+
         
                         self.shelvingGroup_section1_1.name = 'shelvingGroup_section1_1';
         
@@ -12271,7 +12443,7 @@
                 }
     
                 self.options.heigh1Shelf1_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_1 = 13
+                self.options.heigh0Shelf1_1 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_1").addEventListener('click', requestChangeShoeShelving1_1); 
@@ -12331,7 +12503,7 @@
                             self.scene.remove(self.shelvingGroup_section1_1);
                             
                             self.shelvingGroup_section1_1 = new THREE.Group();
-                            self.options.posShelf1_sect1_1 = 16.5;
+                            self.options.posShelf1_sect1_1 = 14;
 
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
@@ -12342,7 +12514,7 @@
                             }
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 15 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
 
 
 
@@ -12364,7 +12536,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section1_1);
                             self.shelvingGroup_section1_1 = new THREE.Group();
-                            self.options.posShelf2_sect1_1 =  16.5;
+                            self.options.posShelf2_sect1_1 =  14;
                             self.options.posShelf1_sect1_1 = self.options.posShelf2_sect1_1 + 27.5;
     
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length));
@@ -12377,7 +12549,7 @@
                             }
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 42 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
                             document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = 25 +"cm";
     
@@ -12396,7 +12568,7 @@
                             self.scene.remove(self.shelvingGroup_section1_1);                        
 
                             self.shelvingGroup_section1_1 = new THREE.Group();
-                            self.options.posShelf3_sect1_1 = 16.5
+                            self.options.posShelf3_sect1_1 = 14
                             self.options.posShelf2_sect1_1 = self.options.posShelf3_sect1_1 + 27.5
                             self.options.posShelf1_sect1_1 = self.options.posShelf2_sect1_1 + 27.5
 
@@ -12411,7 +12583,7 @@
                             }        
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 69 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
 
                             document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = 25 +"cm";
 
@@ -12430,7 +12602,7 @@
                   
                 }
 
-                self.options.heigh0Shelf1_1 = 13
+                self.options.heigh0Shelf1_1 = 5
 
         
                 if (self.options.shelvesCounterSection1_1 != 0) {
@@ -12439,7 +12611,7 @@
     
                     self.shelvingGroup_section1_1.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
     
-                    self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
                     self.shelvingGroup_section1_1.name = 'shelvingGroup_section1_1';
     
@@ -12479,7 +12651,7 @@
                 
                 if (self.options.sectionHeight_1_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 6 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12529,7 +12701,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 13 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12580,7 +12752,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12630,7 +12802,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 13 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12678,7 +12850,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12707,7 +12879,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh4Shelf1_1 > 13 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh4Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12727,7 +12899,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 13 && self.options.s1_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_1_1_'+'shelf'+3).position.y -= 1.05
@@ -13150,7 +13322,7 @@
                         self.options.shelvesCounterSection1_2 = 2;
 
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
     
                             self.scene.remove(self.shelvingGroup_section1_2);
     
@@ -13186,7 +13358,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection1_2 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section1_2);                        
 
                             self.shelvingGroup_section1_2 = new THREE.Group();
@@ -13271,7 +13443,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection1_2 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section1_2);                        
 
@@ -13381,7 +13553,7 @@
                         self.scene.remove(self.shelvingGroup_section1_2);
                         
                         self.shelvingGroup_section1_2 = new THREE.Group();
-                        self.options.posShelf1_sect1_2 = 16.5;
+                        self.options.posShelf1_sect1_2 = 14;
 
                         self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
                         self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
@@ -13412,8 +13584,9 @@
                         self.shelvingGroup_section1_2.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        self.shelvingGroup_section1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2 ;
         
+
                         self.shelvingGroup_section1_2.name = 'shelvingGroup_section1_2';
         
                         self.scene.add(self.shelvingGroup_section1_2);
@@ -13467,7 +13640,7 @@
                 }
     
                 self.options.heigh1Shelf1_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_2 = 13
+                self.options.heigh0Shelf1_2 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_2").addEventListener('click', requestChangeShoeShelving1_2); 
@@ -13528,7 +13701,7 @@
                             self.scene.remove(self.shelvingGroup_section1_2);
                             
                             self.shelvingGroup_section1_2 = new THREE.Group();
-                            self.options.posShelf1_sect1_2 = 16.5;
+                            self.options.posShelf1_sect1_2 = 14;
 
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
@@ -13561,7 +13734,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section1_2);
                             self.shelvingGroup_section1_2 = new THREE.Group();
-                            self.options.posShelf2_sect1_2 =  16.5;
+                            self.options.posShelf2_sect1_2 =  14;
                             self.options.posShelf1_sect1_2 = self.options.posShelf2_sect1_2 + 27.5;
     
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_2, 2, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_2, 2, '1_2', self.options.section1Length));
@@ -13593,7 +13766,7 @@
                             self.scene.remove(self.shelvingGroup_section1_2);                        
 
                             self.shelvingGroup_section1_2 = new THREE.Group();
-                            self.options.posShelf3_sect1_2 = 16.5
+                            self.options.posShelf3_sect1_2 = 14
                             self.options.posShelf2_sect1_2 = self.options.posShelf3_sect1_2 + 27.5
                             self.options.posShelf1_sect1_2 = self.options.posShelf2_sect1_2 + 27.5
 
@@ -13627,7 +13800,7 @@
                   
                 }
 
-                self.options.heigh0Shelf1_2 = 13
+                self.options.heigh0Shelf1_2 = 5
 
         
                 if (self.options.shelvesCounterSection1_2 != 0) {
@@ -13636,7 +13809,7 @@
     
                     self.shelvingGroup_section1_2.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
     
-                    self.shelvingGroup_section1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section1_2.name = 'shelvingGroup_section1_2';
     
@@ -14264,7 +14437,7 @@
                     case 2:
                         self.options.shelvesCounterSection1_3 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section1_3);
                             self.shelvingGroup_section1_3 = new THREE.Group();
                             self.options.posShelf2_sect1_3 =  13
@@ -14296,7 +14469,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection1_3 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section1_3);                        
 
                             self.shelvingGroup_section1_3 = new THREE.Group();
@@ -14436,7 +14609,7 @@
                         self.scene.remove(self.shelvingGroup_section1_3);
                         
                         self.shelvingGroup_section1_3 = new THREE.Group();
-                        self.options.posShelf1_sect1_3 = 16.5;
+                        self.options.posShelf1_sect1_3 = 14;
 
                         self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
                         self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
@@ -14467,7 +14640,7 @@
                         self.shelvingGroup_section1_3.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        self.shelvingGroup_section1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section1_3.name = 'shelvingGroup_section1_3';
         
@@ -14522,7 +14695,7 @@
                 }
     
                 self.options.heigh1Shelf1_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_3 = 13
+                self.options.heigh0Shelf1_3 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_3").addEventListener('click', requestChangeShoeShelving1_3); 
@@ -14583,7 +14756,7 @@
                             self.scene.remove(self.shelvingGroup_section1_3);
                             
                             self.shelvingGroup_section1_3 = new THREE.Group();
-                            self.options.posShelf1_sect1_3 = 16.5;
+                            self.options.posShelf1_sect1_3 = 14;
 
                             self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
                             self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
@@ -14616,7 +14789,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section1_3);
                             self.shelvingGroup_section1_3 = new THREE.Group();
-                            self.options.posShelf2_sect1_3 =  16.5;
+                            self.options.posShelf2_sect1_3 =  14;
                             self.options.posShelf1_sect1_3 = self.options.posShelf2_sect1_3 + 27.5;
     
                             self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_3, 2, '1_3', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_3, 2, '1_3', self.options.section1Length));
@@ -14642,7 +14815,7 @@
                     break;
                 }
 
-                self.options.heigh0Shelf1_3 = 13
+                self.options.heigh0Shelf1_3 = 5
 
         
                 if (self.options.shelvesCounterSection1_3 != 0) {
@@ -14651,7 +14824,7 @@
     
                     self.shelvingGroup_section1_3.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
     
-                    self.shelvingGroup_section1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section1_3.name = 'shelvingGroup_section1_3';
     
@@ -15181,7 +15354,7 @@
                     case 2:
                         self.options.shelvesCounterSection1_4 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section1_4);
                             self.shelvingGroup_section1_4 = new THREE.Group();
                             self.options.posShelf2_sect1_4 =  13
@@ -15211,7 +15384,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection1_4 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section1_4);                        
 
                             self.shelvingGroup_section1_4 = new THREE.Group();
@@ -15262,9 +15435,6 @@
 
                     for (var i = 1; i <= self.options.shelvesCounterSection1_4; i++) {
                         self.shelvingGroup_section1_4.getObjectByName('internalShelf_1_4_'+'shelf'+i).material.map = self.textures[self.options.shelf.texture].map;
-                        if (self.options.Glassmat_Shelf1_sect1_4 == true) {
-                            self.shelvingGroup_section1_4.getObjectByName('internalShelf_1_4_shelf1').material.map = self.textures[58].map;
-                        }
                     }
 
                 } else {}
@@ -15308,7 +15478,7 @@
                         self.scene.remove(self.shelvingGroup_section1_4);
                         
                         self.shelvingGroup_section1_4 = new THREE.Group();
-                        self.options.posShelf1_sect1_4 = 16.5;
+                        self.options.posShelf1_sect1_4 = 14;
 
                         self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
                         self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
@@ -15339,7 +15509,7 @@
                         self.shelvingGroup_section1_4.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        self.shelvingGroup_section1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section1_4.name = 'shelvingGroup_section1_4';
         
@@ -15394,7 +15564,7 @@
                 }
     
                 self.options.heigh1Shelf1_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_4 = 13
+                self.options.heigh0Shelf1_4 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_4").addEventListener('click', requestChangeShoeShelving1_4); 
@@ -15454,7 +15624,7 @@
                             self.scene.remove(self.shelvingGroup_section1_4);
                             
                             self.shelvingGroup_section1_4 = new THREE.Group();
-                            self.options.posShelf1_sect1_4 = 16.5;
+                            self.options.posShelf1_sect1_4 = 14;
 
                             self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
                             self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
@@ -15487,7 +15657,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section1_4);
                             self.shelvingGroup_section1_4 = new THREE.Group();
-                            self.options.posShelf2_sect1_4 =  16.5;
+                            self.options.posShelf2_sect1_4 =  14;
                             self.options.posShelf1_sect1_4 = self.options.posShelf2_sect1_4 + 27.5;
     
                             self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_4, 2, '1_4', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_4, 2, '1_4', self.options.section1Length));
@@ -15513,7 +15683,7 @@
                   
                 }
 
-                self.options.heigh0Shelf1_4 = 13
+                self.options.heigh0Shelf1_4 = 5
 
         
                 if (self.options.shelvesCounterSection1_4 != 0) {
@@ -15522,7 +15692,7 @@
     
                     self.shelvingGroup_section1_4.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
     
-                    self.shelvingGroup_section1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section1_4.name = 'shelvingGroup_section1_4';
     
@@ -15958,7 +16128,7 @@
                     case 2:
                         self.options.shelvesCounterSection1_5 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section1_5);
                             self.shelvingGroup_section1_5 = new THREE.Group();
                             self.options.posShelf2_sect1_5 =  13
@@ -16046,7 +16216,7 @@
                         self.scene.remove(self.shelvingGroup_section1_5);
                         
                         self.shelvingGroup_section1_5 = new THREE.Group();
-                        self.options.posShelf1_sect1_5 = 16.5;
+                        self.options.posShelf1_sect1_5 = 14;
 
                         self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
                         self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
@@ -16075,7 +16245,7 @@
                         self.shelvingGroup_section1_5.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        self.shelvingGroup_section1_5.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section1_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section1_5.name = 'shelvingGroup_section1_5';
         
@@ -16128,7 +16298,7 @@
                 }
     
                 self.options.heigh1Shelf1_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_5 = 13
+                self.options.heigh0Shelf1_5 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_5").addEventListener('click', requestChangeShoeShelving1_5); 
@@ -16188,7 +16358,7 @@
                             self.scene.remove(self.shelvingGroup_section1_5);
                             
                             self.shelvingGroup_section1_5 = new THREE.Group();
-                            self.options.posShelf1_sect1_5 = 16.5;
+                            self.options.posShelf1_sect1_5 = 14;
 
                             self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
                             self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
@@ -16216,7 +16386,7 @@
                   
                 }
 
-                self.options.heigh0Shelf1_5 = 13
+                self.options.heigh0Shelf1_5 = 5
 
         
                 if (self.options.shelvesCounterSection1_5 != 0) {
@@ -16225,7 +16395,7 @@
     
                     self.shelvingGroup_section1_5.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
     
-                    self.shelvingGroup_section1_5.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section1_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section1_5.name = 'shelvingGroup_section1_5';
     
@@ -16610,7 +16780,7 @@
                         self.scene.remove(self.shelvingGroup_section1_6);
                         
                         self.shelvingGroup_section1_6 = new THREE.Group();
-                        self.options.posShelf1_sect1_6 = 16.5;
+                        self.options.posShelf1_sect1_6 = 14;
 
                         self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
                         self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
@@ -16638,7 +16808,7 @@
                         self.shelvingGroup_section1_6.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        self.shelvingGroup_section1_6.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section1_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section1_6.name = 'shelvingGroup_section1_6';
         
@@ -16689,7 +16859,7 @@
                 }
     
                 self.options.heigh1Shelf1_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_6 = 13
+                self.options.heigh0Shelf1_6 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_6").addEventListener('click', requestChangeShoeShelving1_6); 
@@ -16747,7 +16917,7 @@
                             self.scene.remove(self.shelvingGroup_section1_6);
                             
                             self.shelvingGroup_section1_6 = new THREE.Group();
-                            self.options.posShelf1_sect1_6 = 16.5;
+                            self.options.posShelf1_sect1_6 = 14;
 
                             self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
                             self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
@@ -16774,7 +16944,7 @@
                   
                 }
 
-                self.options.heigh0Shelf1_6 = 13
+                self.options.heigh0Shelf1_6 = 5
 
         
                 if (self.options.shelvesCounterSection1_6 != 0) {
@@ -16783,7 +16953,7 @@
     
                     self.shelvingGroup_section1_6.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
     
-                    self.shelvingGroup_section1_6.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section1_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section1_6.name = 'shelvingGroup_section1_6';
     
@@ -16979,7 +17149,7 @@
                 }
     
                 self.options.heigh1Shelf2_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_1 = 13
+                self.options.heigh0Shelf2_1 = 10
     
             }
             document.getElementById("subButtonMinus_Shelves2_1").addEventListener('click', requestChangeShelving2_1); 
@@ -17067,7 +17237,7 @@
                     case 2:
     
                         self.options.shelvesCounterSection2_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section2_1);
                             self.shelvingGroup_section2_1 = new THREE.Group();
                             self.options.posShelf2_sect2_1 =  12
@@ -17099,7 +17269,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection2_1 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section2_1);                        
 
                             self.shelvingGroup_section2_1 = new THREE.Group();
@@ -17185,7 +17355,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection2_1 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section2_1);                        
 
@@ -17344,7 +17514,7 @@
                         self.scene.remove(self.shelvingGroup_section2_1);
                         
                         self.shelvingGroup_section2_1 = new THREE.Group();
-                        self.options.posShelf1_sect2_1 = 16.5;
+                        self.options.posShelf1_sect2_1 = 14;
 
                         self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
                         self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
@@ -17375,7 +17545,7 @@
                         self.shelvingGroup_section2_1.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
 
                         //!!
-                        self.shelvingGroup_section2_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section2_1.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section2_1.name = 'shelvingGroup_section2_1';
         
@@ -17430,7 +17600,7 @@
                 }
     
                 self.options.heigh1Shelf2_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_1 = 13
+                self.options.heigh0Shelf2_1 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_1").addEventListener('click', requestChangeShoeShelving2_1); 
@@ -17490,7 +17660,7 @@
                             self.scene.remove(self.shelvingGroup_section2_1);
                             
                             self.shelvingGroup_section2_1 = new THREE.Group();
-                            self.options.posShelf1_sect2_1 = 16.5;
+                            self.options.posShelf1_sect2_1 = 14;
 
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
@@ -17523,7 +17693,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section2_1);
                             self.shelvingGroup_section2_1 = new THREE.Group();
-                            self.options.posShelf2_sect2_1 =  16.5;
+                            self.options.posShelf2_sect2_1 =  14;
                             self.options.posShelf1_sect2_1 = self.options.posShelf2_sect2_1 + 27.5;
     
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_1, 2, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_1, 2, '2_1', self.options.section2Length));
@@ -17555,7 +17725,7 @@
                             self.scene.remove(self.shelvingGroup_section2_1);                        
 
                             self.shelvingGroup_section2_1 = new THREE.Group();
-                            self.options.posShelf3_sect2_1 = 16.5
+                            self.options.posShelf3_sect2_1 = 14
                             self.options.posShelf2_sect2_1 = self.options.posShelf3_sect2_1 + 27.5
                             self.options.posShelf1_sect2_1 = self.options.posShelf2_sect2_1 + 27.5
 
@@ -17589,7 +17759,7 @@
                   
                 }
 
-                self.options.heigh0Shelf2_1 = 13
+                self.options.heigh0Shelf2_1 = 5
 
         
                 if (self.options.shelvesCounterSection2_1 != 0) {
@@ -17598,7 +17768,7 @@
     
                     self.shelvingGroup_section2_1.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
 
-                    self.shelvingGroup_section2_1.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section2_1.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section2_1.name = 'shelvingGroup_section2_1';
     
@@ -17638,7 +17808,7 @@
                 
                 if (self.options.sectionHeight_2_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 6 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17688,7 +17858,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 13 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17739,7 +17909,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17789,7 +17959,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 13 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17837,7 +18007,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17866,7 +18036,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh4Shelf2_1 > 13 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh4Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17886,7 +18056,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 13 && self.options.s2_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_2_1_'+'shelf'+3).position.y -= 1.05
@@ -18309,7 +18479,7 @@
                         self.options.shelvesCounterSection2_2 = 2;
 
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
     
                             self.scene.remove(self.shelvingGroup_section2_2);
     
@@ -18345,7 +18515,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection2_2 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section2_2);                        
 
                             self.shelvingGroup_section2_2 = new THREE.Group();
@@ -18430,7 +18600,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection2_2 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section2_2);                        
 
@@ -18540,7 +18710,7 @@
                         self.scene.remove(self.shelvingGroup_section2_2);
                         
                         self.shelvingGroup_section2_2 = new THREE.Group();
-                        self.options.posShelf1_sect2_2 = 16.5;
+                        self.options.posShelf1_sect2_2 = 14;
 
                         self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
                         self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
@@ -18571,7 +18741,7 @@
                         self.shelvingGroup_section2_2.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section2_2.name = 'shelvingGroup_section2_2';
         
@@ -18626,7 +18796,7 @@
                 }
     
                 self.options.heigh1Shelf2_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_2 = 13
+                self.options.heigh0Shelf2_2 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_2").addEventListener('click', requestChangeShoeShelving2_2); 
@@ -18687,7 +18857,7 @@
                             self.scene.remove(self.shelvingGroup_section2_2);
                             
                             self.shelvingGroup_section2_2 = new THREE.Group();
-                            self.options.posShelf1_sect2_2 = 16.5;
+                            self.options.posShelf1_sect2_2 = 14;
 
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
@@ -18720,7 +18890,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section2_2);
                             self.shelvingGroup_section2_2 = new THREE.Group();
-                            self.options.posShelf2_sect2_2 =  16.5;
+                            self.options.posShelf2_sect2_2 =  14;
                             self.options.posShelf1_sect2_2 = self.options.posShelf2_sect2_2 + 27.5;
     
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_2, 2, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_2, 2, '2_2', self.options.section2Length));
@@ -18752,7 +18922,7 @@
                             self.scene.remove(self.shelvingGroup_section2_2);                        
 
                             self.shelvingGroup_section2_2 = new THREE.Group();
-                            self.options.posShelf3_sect2_2 = 16.5
+                            self.options.posShelf3_sect2_2 = 14
                             self.options.posShelf2_sect2_2 = self.options.posShelf3_sect2_2 + 27.5
                             self.options.posShelf1_sect2_2 = self.options.posShelf2_sect2_2 + 27.5
 
@@ -18786,7 +18956,7 @@
                   
                 }
 
-                self.options.heigh0Shelf2_2 = 13
+                self.options.heigh0Shelf2_2 = 5
 
         
                 if (self.options.shelvesCounterSection2_2 != 0) {
@@ -18795,7 +18965,7 @@
     
                     self.shelvingGroup_section2_2.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
     
-                    self.shelvingGroup_section2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section2_2.name = 'shelvingGroup_section2_2';
     
@@ -19423,7 +19593,7 @@
                     case 2:
                         self.options.shelvesCounterSection2_3 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section2_3);
                             self.shelvingGroup_section2_3 = new THREE.Group();
                             self.options.posShelf2_sect2_3 =  13
@@ -19455,7 +19625,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection2_3 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section2_3);                        
 
                             self.shelvingGroup_section2_3 = new THREE.Group();
@@ -19595,7 +19765,7 @@
                         self.scene.remove(self.shelvingGroup_section2_3);
                         
                         self.shelvingGroup_section2_3 = new THREE.Group();
-                        self.options.posShelf1_sect2_3 = 16.5;
+                        self.options.posShelf1_sect2_3 = 14;
 
                         self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
                         self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
@@ -19626,7 +19796,7 @@
                         self.shelvingGroup_section2_3.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section2_3.name = 'shelvingGroup_section2_3';
         
@@ -19681,7 +19851,7 @@
                 }
     
                 self.options.heigh1Shelf2_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_3 = 13
+                self.options.heigh0Shelf2_3 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_3").addEventListener('click', requestChangeShoeShelving2_3); 
@@ -19742,7 +19912,7 @@
                             self.scene.remove(self.shelvingGroup_section2_3);
                             
                             self.shelvingGroup_section2_3 = new THREE.Group();
-                            self.options.posShelf1_sect2_3 = 16.5;
+                            self.options.posShelf1_sect2_3 = 14;
 
                             self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
                             self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
@@ -19775,7 +19945,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section2_3);
                             self.shelvingGroup_section2_3 = new THREE.Group();
-                            self.options.posShelf2_sect2_3 =  16.5;
+                            self.options.posShelf2_sect2_3 =  14;
                             self.options.posShelf1_sect2_3 = self.options.posShelf2_sect2_3 + 27.5;
     
                             self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_3, 2, '2_3', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_3, 2, '2_3', self.options.section2Length));
@@ -19801,7 +19971,7 @@
                     break;
                 }
 
-                self.options.heigh0Shelf2_3 = 13
+                self.options.heigh0Shelf2_3 = 5
 
         
                 if (self.options.shelvesCounterSection2_3 != 0) {
@@ -19810,7 +19980,7 @@
     
                     self.shelvingGroup_section2_3.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
     
-                    self.shelvingGroup_section2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section2_3.name = 'shelvingGroup_section2_3';
     
@@ -20341,7 +20511,7 @@
                     case 2:
                         self.options.shelvesCounterSection2_4 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section2_4);
                             self.shelvingGroup_section2_4 = new THREE.Group();
                             self.options.posShelf2_sect2_4 =  13
@@ -20371,7 +20541,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection2_4 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section2_4);                        
 
                             self.shelvingGroup_section2_4 = new THREE.Group();
@@ -20422,9 +20592,6 @@
 
                     for (var i = 1; i <= self.options.shelvesCounterSection2_4; i++) {
                         self.shelvingGroup_section2_4.getObjectByName('internalShelf_2_4_'+'shelf'+i).material.map = self.textures[self.options.shelf.texture].map;
-                        if (self.options.Glassmat_Shelf1_sect2_4 == true) {
-                            self.shelvingGroup_section2_4.getObjectByName('internalShelf_2_4_shelf1').material.map = self.textures[58].map;
-                        }
                     }
 
                 } else {}
@@ -20468,7 +20635,7 @@
                         self.scene.remove(self.shelvingGroup_section2_4);
                         
                         self.shelvingGroup_section2_4 = new THREE.Group();
-                        self.options.posShelf1_sect2_4 = 16.5;
+                        self.options.posShelf1_sect2_4 = 14;
 
                         self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
                         self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
@@ -20499,7 +20666,7 @@
                         self.shelvingGroup_section2_4.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section2_4.name = 'shelvingGroup_section2_4';
         
@@ -20554,7 +20721,7 @@
                 }
     
                 self.options.heigh1Shelf2_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_4 = 13
+                self.options.heigh0Shelf2_4 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_4").addEventListener('click', requestChangeShoeShelving2_4); 
@@ -20614,7 +20781,7 @@
                             self.scene.remove(self.shelvingGroup_section2_4);
                             
                             self.shelvingGroup_section2_4 = new THREE.Group();
-                            self.options.posShelf1_sect2_4 = 16.5;
+                            self.options.posShelf1_sect2_4 = 14;
 
                             self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
                             self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
@@ -20647,7 +20814,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section2_4);
                             self.shelvingGroup_section2_4 = new THREE.Group();
-                            self.options.posShelf2_sect2_4 =  16.5;
+                            self.options.posShelf2_sect2_4 =  14;
                             self.options.posShelf1_sect2_4 = self.options.posShelf2_sect2_4 + 27.5;
     
                             self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_4, 2, '2_4', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_4, 2, '2_4', self.options.section2Length));
@@ -20673,7 +20840,7 @@
                   
                 }
 
-                self.options.heigh0Shelf2_4 = 13
+                self.options.heigh0Shelf2_4 = 5
 
         
                 if (self.options.shelvesCounterSection2_4 != 0) {
@@ -20682,7 +20849,7 @@
     
                     self.shelvingGroup_section2_4.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
     
-                    self.shelvingGroup_section2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section2_4.name = 'shelvingGroup_section2_4';
     
@@ -21119,7 +21286,7 @@
                     case 2:
                         self.options.shelvesCounterSection2_5 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section2_5);
                             self.shelvingGroup_section2_5 = new THREE.Group();
                             self.options.posShelf2_sect2_5 =  13
@@ -21207,7 +21374,7 @@
                         self.scene.remove(self.shelvingGroup_section2_5);
                         
                         self.shelvingGroup_section2_5 = new THREE.Group();
-                        self.options.posShelf1_sect2_5 = 16.5;
+                        self.options.posShelf1_sect2_5 = 14;
 
                         self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
                         self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
@@ -21236,7 +21403,7 @@
                         self.shelvingGroup_section2_5.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section2_5.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section2_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section2_5.name = 'shelvingGroup_section2_5';
         
@@ -21289,7 +21456,7 @@
                 }
     
                 self.options.heigh1Shelf2_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_5 = 13
+                self.options.heigh0Shelf2_5 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_5").addEventListener('click', requestChangeShoeShelving2_5); 
@@ -21349,7 +21516,7 @@
                             self.scene.remove(self.shelvingGroup_section2_5);
                             
                             self.shelvingGroup_section2_5 = new THREE.Group();
-                            self.options.posShelf1_sect2_5 = 16.5;
+                            self.options.posShelf1_sect2_5 = 14;
 
                             self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
                             self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
@@ -21377,7 +21544,7 @@
                   
                 }
 
-                self.options.heigh0Shelf2_5 = 13
+                self.options.heigh0Shelf2_5 = 5
 
         
                 if (self.options.shelvesCounterSection2_5 != 0) {
@@ -21386,7 +21553,7 @@
     
                     self.shelvingGroup_section2_5.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
     
-                    self.shelvingGroup_section2_5.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section2_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section2_5.name = 'shelvingGroup_section2_5';
     
@@ -21771,7 +21938,7 @@
                         self.scene.remove(self.shelvingGroup_section2_6);
                         
                         self.shelvingGroup_section2_6 = new THREE.Group();
-                        self.options.posShelf1_sect2_6 = 16.5;
+                        self.options.posShelf1_sect2_6 = 14;
 
                         self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
                         self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
@@ -21799,7 +21966,7 @@
                         self.shelvingGroup_section2_6.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section2_6.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section2_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section2_6.name = 'shelvingGroup_section2_6';
         
@@ -21850,7 +22017,7 @@
                 }
     
                 self.options.heigh1Shelf2_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_6 = 13
+                self.options.heigh0Shelf2_6 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_6").addEventListener('click', requestChangeShoeShelving2_6); 
@@ -21908,7 +22075,7 @@
                             self.scene.remove(self.shelvingGroup_section2_6);
                             
                             self.shelvingGroup_section2_6 = new THREE.Group();
-                            self.options.posShelf1_sect2_6 = 16.5;
+                            self.options.posShelf1_sect2_6 = 14;
 
                             self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
                             self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
@@ -21935,7 +22102,7 @@
                   
                 }
 
-                self.options.heigh0Shelf2_6 = 13
+                self.options.heigh0Shelf2_6 = 5
 
         
                 if (self.options.shelvesCounterSection2_6 != 0) {
@@ -21944,7 +22111,7 @@
     
                     self.shelvingGroup_section2_6.position.x = self.scene.getObjectByName( "pillar1", true ).position.x+0.5;
     
-                    self.shelvingGroup_section2_6.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section2_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section2_6.name = 'shelvingGroup_section2_6';
     
@@ -22143,7 +22310,7 @@
                 }
     
                 self.options.heigh1Shelf3_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_1 = 13
+                self.options.heigh0Shelf3_1 = 10
     
             }
             document.getElementById("subButtonMinus_Shelves3_1").addEventListener('click', requestChangeShelving3_1); 
@@ -22231,7 +22398,7 @@
                     case 2:
     
                         self.options.shelvesCounterSection3_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section3_1);
                             self.shelvingGroup_section3_1 = new THREE.Group();
                             self.options.posShelf2_sect3_1 =  12
@@ -22263,7 +22430,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection3_1 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section3_1);                        
 
                             self.shelvingGroup_section3_1 = new THREE.Group();
@@ -22349,7 +22516,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection3_1 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section3_1);                        
 
@@ -22508,7 +22675,7 @@
                         self.scene.remove(self.shelvingGroup_section3_1);
                         
                         self.shelvingGroup_section3_1 = new THREE.Group();
-                        self.options.posShelf1_sect3_1 = 16.5;
+                        self.options.posShelf1_sect3_1 = 14;
 
                         self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
                         self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
@@ -22539,7 +22706,7 @@
                         self.shelvingGroup_section3_1.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
 
                         //!!
-                        self.shelvingGroup_section3_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section3_1.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section3_1.name = 'shelvingGroup_section3_1';
         
@@ -22594,7 +22761,7 @@
                 }
     
                 self.options.heigh1Shelf3_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_1 = 13
+                self.options.heigh0Shelf3_1 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_1").addEventListener('click', requestChangeShoeShelving3_1); 
@@ -22654,7 +22821,7 @@
                             self.scene.remove(self.shelvingGroup_section3_1);
                             
                             self.shelvingGroup_section3_1 = new THREE.Group();
-                            self.options.posShelf1_sect3_1 = 16.5;
+                            self.options.posShelf1_sect3_1 = 14;
 
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
@@ -22687,7 +22854,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section3_1);
                             self.shelvingGroup_section3_1 = new THREE.Group();
-                            self.options.posShelf2_sect3_1 =  16.5;
+                            self.options.posShelf2_sect3_1 =  14;
                             self.options.posShelf1_sect3_1 = self.options.posShelf2_sect3_1 + 27.5;
     
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_1, 2, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_1, 2, '3_1', self.options.section3Length));
@@ -22719,7 +22886,7 @@
                             self.scene.remove(self.shelvingGroup_section3_1);                        
 
                             self.shelvingGroup_section3_1 = new THREE.Group();
-                            self.options.posShelf3_sect3_1 = 16.5
+                            self.options.posShelf3_sect3_1 = 14
                             self.options.posShelf2_sect3_1 = self.options.posShelf3_sect3_1 + 27.5
                             self.options.posShelf1_sect3_1 = self.options.posShelf2_sect3_1 + 27.5
 
@@ -22753,7 +22920,7 @@
                   
                 }
 
-                self.options.heigh0Shelf3_1 = 13
+                self.options.heigh0Shelf3_1 = 5
 
         
                 if (self.options.shelvesCounterSection3_1 != 0) {
@@ -22762,7 +22929,7 @@
     
                     self.shelvingGroup_section3_1.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
 
-                    self.shelvingGroup_section3_1.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section3_1.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section3_1.name = 'shelvingGroup_section3_1';
     
@@ -22802,7 +22969,7 @@
                 
                 if (self.options.sectionHeight_3_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 6 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -22852,7 +23019,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 13 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -22903,7 +23070,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -22931,7 +23098,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_1 > 25 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2).position.y -= 1.05
@@ -23001,7 +23168,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23030,7 +23197,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf3_1 > 13 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23050,7 +23217,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 13 && self.options.s3_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_3_1_'+'shelf'+3).position.y -= 1.05
@@ -23473,7 +23640,7 @@
                         self.options.shelvesCounterSection3_2 = 2;
 
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
     
                             self.scene.remove(self.shelvingGroup_section3_2);
     
@@ -23509,7 +23676,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection3_2 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section3_2);                        
 
                             self.shelvingGroup_section3_2 = new THREE.Group();
@@ -23594,7 +23761,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection3_2 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section3_2);                        
 
@@ -23704,7 +23871,7 @@
                         self.scene.remove(self.shelvingGroup_section3_2);
                         
                         self.shelvingGroup_section3_2 = new THREE.Group();
-                        self.options.posShelf1_sect3_2 = 16.5;
+                        self.options.posShelf1_sect3_2 = 14;
 
                         self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
                         self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
@@ -23735,7 +23902,7 @@
                         self.shelvingGroup_section3_2.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section3_2.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section3_2.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section3_2.name = 'shelvingGroup_section3_2';
         
@@ -23790,7 +23957,7 @@
                 }
     
                 self.options.heigh1Shelf3_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_2 = 13
+                self.options.heigh0Shelf3_2 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_2").addEventListener('click', requestChangeShoeShelving3_2); 
@@ -23851,7 +24018,7 @@
                             self.scene.remove(self.shelvingGroup_section3_2);
                             
                             self.shelvingGroup_section3_2 = new THREE.Group();
-                            self.options.posShelf1_sect3_2 = 16.5;
+                            self.options.posShelf1_sect3_2 = 14;
 
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
@@ -23884,7 +24051,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section3_2);
                             self.shelvingGroup_section3_2 = new THREE.Group();
-                            self.options.posShelf2_sect3_2 =  16.5;
+                            self.options.posShelf2_sect3_2 =  14;
                             self.options.posShelf1_sect3_2 = self.options.posShelf2_sect3_2 + 27.5;
     
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_2, 2, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_2, 2, '3_2', self.options.section3Length));
@@ -23916,7 +24083,7 @@
                             self.scene.remove(self.shelvingGroup_section3_2);                        
 
                             self.shelvingGroup_section3_2 = new THREE.Group();
-                            self.options.posShelf3_sect3_2 = 16.5
+                            self.options.posShelf3_sect3_2 = 14
                             self.options.posShelf2_sect3_2 = self.options.posShelf3_sect3_2 + 27.5
                             self.options.posShelf1_sect3_2 = self.options.posShelf2_sect3_2 + 27.5
 
@@ -23950,7 +24117,7 @@
                   
                 }
 
-                self.options.heigh0Shelf3_2 = 13
+                self.options.heigh0Shelf3_2 = 5
 
         
                 if (self.options.shelvesCounterSection3_2 != 0) {
@@ -23959,7 +24126,7 @@
     
                     self.shelvingGroup_section3_2.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
     
-                    self.shelvingGroup_section3_2.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section3_2.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section3_2.name = 'shelvingGroup_section3_2';
     
@@ -24587,7 +24754,7 @@
                     case 2:
                         self.options.shelvesCounterSection3_3 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section3_3);
                             self.shelvingGroup_section3_3 = new THREE.Group();
                             self.options.posShelf2_sect3_3 =  13
@@ -24619,7 +24786,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection3_3 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section3_3);                        
 
                             self.shelvingGroup_section3_3 = new THREE.Group();
@@ -24759,7 +24926,7 @@
                         self.scene.remove(self.shelvingGroup_section3_3);
                         
                         self.shelvingGroup_section3_3 = new THREE.Group();
-                        self.options.posShelf1_sect3_3 = 16.5;
+                        self.options.posShelf1_sect3_3 = 14;
 
                         self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
                         self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
@@ -24790,7 +24957,7 @@
                         self.shelvingGroup_section3_3.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section3_3.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section3_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section3_3.name = 'shelvingGroup_section3_3';
         
@@ -24845,7 +25012,7 @@
                 }
     
                 self.options.heigh1Shelf3_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_3 = 13
+                self.options.heigh0Shelf3_3 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_3").addEventListener('click', requestChangeShoeShelving3_3); 
@@ -24906,7 +25073,7 @@
                             self.scene.remove(self.shelvingGroup_section3_3);
                             
                             self.shelvingGroup_section3_3 = new THREE.Group();
-                            self.options.posShelf1_sect3_3 = 16.5;
+                            self.options.posShelf1_sect3_3 = 14;
 
                             self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
                             self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
@@ -24939,7 +25106,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section3_3);
                             self.shelvingGroup_section3_3 = new THREE.Group();
-                            self.options.posShelf2_sect3_3 =  16.5;
+                            self.options.posShelf2_sect3_3 =  14;
                             self.options.posShelf1_sect3_3 = self.options.posShelf2_sect3_3 + 27.5;
     
                             self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_3, 2, '3_3', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_3, 2, '3_3', self.options.section3Length));
@@ -24965,7 +25132,7 @@
                     break;
                 }
 
-                self.options.heigh0Shelf3_3 = 13
+                self.options.heigh0Shelf3_3 = 5
 
         
                 if (self.options.shelvesCounterSection3_3 != 0) {
@@ -24974,7 +25141,7 @@
     
                     self.shelvingGroup_section3_3.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
     
-                    self.shelvingGroup_section3_3.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section3_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section3_3.name = 'shelvingGroup_section3_3';
     
@@ -25505,7 +25672,7 @@
                     case 2:
                         self.options.shelvesCounterSection3_4 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section3_4);
                             self.shelvingGroup_section3_4 = new THREE.Group();
                             self.options.posShelf2_sect3_4 =  13
@@ -25535,7 +25702,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection3_4 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section3_4);                        
 
                             self.shelvingGroup_section3_4 = new THREE.Group();
@@ -25586,9 +25753,6 @@
 
                     for (var i = 1; i <= self.options.shelvesCounterSection3_4; i++) {
                         self.shelvingGroup_section3_4.getObjectByName('internalShelf_3_4_'+'shelf'+i).material.map = self.textures[self.options.shelf.texture].map;
-                        if (self.options.Glassmat_Shelf1_sect3_4 == true) {
-                            self.shelvingGroup_section3_4.getObjectByName('internalShelf_3_4_shelf1').material.map = self.textures[58].map;
-                        }
                     }
 
                 } else {}
@@ -25632,7 +25796,7 @@
                         self.scene.remove(self.shelvingGroup_section3_4);
                         
                         self.shelvingGroup_section3_4 = new THREE.Group();
-                        self.options.posShelf1_sect3_4 = 16.5;
+                        self.options.posShelf1_sect3_4 = 14;
 
                         self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
                         self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
@@ -25663,7 +25827,7 @@
                         self.shelvingGroup_section3_4.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section3_4.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section3_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section3_4.name = 'shelvingGroup_section3_4';
         
@@ -25718,7 +25882,7 @@
                 }
     
                 self.options.heigh1Shelf3_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_4 = 13
+                self.options.heigh0Shelf3_4 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_4").addEventListener('click', requestChangeShoeShelving3_4); 
@@ -25778,7 +25942,7 @@
                             self.scene.remove(self.shelvingGroup_section3_4);
                             
                             self.shelvingGroup_section3_4 = new THREE.Group();
-                            self.options.posShelf1_sect3_4 = 16.5;
+                            self.options.posShelf1_sect3_4 = 14;
 
                             self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
                             self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
@@ -25811,7 +25975,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section3_4);
                             self.shelvingGroup_section3_4 = new THREE.Group();
-                            self.options.posShelf2_sect3_4 =  16.5;
+                            self.options.posShelf2_sect3_4 =  14;
                             self.options.posShelf1_sect3_4 = self.options.posShelf2_sect3_4 + 27.5;
     
                             self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_4, 2, '3_4', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_4, 2, '3_4', self.options.section3Length));
@@ -25837,7 +26001,7 @@
                   
                 }
 
-                self.options.heigh0Shelf3_4 = 13
+                self.options.heigh0Shelf3_4 = 5
 
         
                 if (self.options.shelvesCounterSection3_4 != 0) {
@@ -25846,7 +26010,7 @@
     
                     self.shelvingGroup_section3_4.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
     
-                    self.shelvingGroup_section3_4.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section3_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section3_4.name = 'shelvingGroup_section3_4';
     
@@ -26283,7 +26447,7 @@
                     case 2:
                         self.options.shelvesCounterSection3_5 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section3_5);
                             self.shelvingGroup_section3_5 = new THREE.Group();
                             self.options.posShelf2_sect3_5 =  13
@@ -26371,7 +26535,7 @@
                         self.scene.remove(self.shelvingGroup_section3_5);
                         
                         self.shelvingGroup_section3_5 = new THREE.Group();
-                        self.options.posShelf1_sect3_5 = 16.5;
+                        self.options.posShelf1_sect3_5 = 14;
 
                         self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
                         self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
@@ -26400,7 +26564,7 @@
                         self.shelvingGroup_section3_5.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section3_5.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section3_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section3_5.name = 'shelvingGroup_section3_5';
         
@@ -26453,7 +26617,7 @@
                 }
     
                 self.options.heigh1Shelf3_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_5 = 13
+                self.options.heigh0Shelf3_5 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_5").addEventListener('click', requestChangeShoeShelving3_5); 
@@ -26513,7 +26677,7 @@
                             self.scene.remove(self.shelvingGroup_section3_5);
                             
                             self.shelvingGroup_section3_5 = new THREE.Group();
-                            self.options.posShelf1_sect3_5 = 16.5;
+                            self.options.posShelf1_sect3_5 = 14;
 
                             self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
                             self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
@@ -26541,7 +26705,7 @@
                   
                 }
 
-                self.options.heigh0Shelf3_5 = 13
+                self.options.heigh0Shelf3_5 = 5
 
         
                 if (self.options.shelvesCounterSection3_5 != 0) {
@@ -26550,7 +26714,7 @@
     
                     self.shelvingGroup_section3_5.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
     
-                    self.shelvingGroup_section3_5.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section3_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section3_5.name = 'shelvingGroup_section3_5';
     
@@ -26758,7 +26922,7 @@
 
                         self.shelvingGroup_section3_6.position.y = self.scene.getObjectByName( "horizontalDividerSection3_5", true ).position.y - 1
         
-                        self.shelvingGroup_section3_6.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3;
+                        self.shelvingGroup_section3_6.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
         
         
                         self.shelvingGroup_section3_6.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
@@ -26935,7 +27099,7 @@
                         self.scene.remove(self.shelvingGroup_section3_6);
                         
                         self.shelvingGroup_section3_6 = new THREE.Group();
-                        self.options.posShelf1_sect3_6 = 16.5;
+                        self.options.posShelf1_sect3_6 = 14;
 
                         self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
                         self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
@@ -26963,7 +27127,7 @@
                         self.shelvingGroup_section3_6.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section3_6.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section3_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section3_6.name = 'shelvingGroup_section3_6';
         
@@ -27014,7 +27178,7 @@
                 }
     
                 self.options.heigh1Shelf3_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_6 = 13
+                self.options.heigh0Shelf3_6 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_6").addEventListener('click', requestChangeShoeShelving3_6); 
@@ -27072,7 +27236,7 @@
                             self.scene.remove(self.shelvingGroup_section3_6);
                             
                             self.shelvingGroup_section3_6 = new THREE.Group();
-                            self.options.posShelf1_sect3_6 = 16.5;
+                            self.options.posShelf1_sect3_6 = 14;
 
                             self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
                             self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
@@ -27099,7 +27263,7 @@
                   
                 }
 
-                self.options.heigh0Shelf3_6 = 13
+                self.options.heigh0Shelf3_6 = 5
 
         
                 if (self.options.shelvesCounterSection3_6 != 0) {
@@ -27108,7 +27272,7 @@
     
                     self.shelvingGroup_section3_6.position.x = self.scene.getObjectByName( "pillar2", true ).position.x+0.5;
     
-                    self.shelvingGroup_section3_6.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section3_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section3_6.name = 'shelvingGroup_section3_6';
     
@@ -27307,7 +27471,7 @@
                 }
     
                 self.options.heigh1Shelf4_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_1 = 13
+                self.options.heigh0Shelf4_1 = 10
     
             }
             document.getElementById("subButtonMinus_Shelves4_1").addEventListener('click', requestChangeShelving4_1); 
@@ -27395,7 +27559,7 @@
                     case 2:
     
                         self.options.shelvesCounterSection4_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section4_1);
                             self.shelvingGroup_section4_1 = new THREE.Group();
                             self.options.posShelf2_sect4_1 =  12
@@ -27427,7 +27591,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection4_1 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section4_1);                        
 
                             self.shelvingGroup_section4_1 = new THREE.Group();
@@ -27513,7 +27677,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection4_1 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section4_1);                        
 
@@ -27672,7 +27836,7 @@
                         self.scene.remove(self.shelvingGroup_section4_1);
                         
                         self.shelvingGroup_section4_1 = new THREE.Group();
-                        self.options.posShelf1_sect4_1 = 16.5;
+                        self.options.posShelf1_sect4_1 = 14;
 
                         self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
                         self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
@@ -27703,7 +27867,7 @@
                         self.shelvingGroup_section4_1.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
 
                         //!!
-                        self.shelvingGroup_section4_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section4_1.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section4_1.name = 'shelvingGroup_section4_1';
         
@@ -27758,7 +27922,7 @@
                 }
     
                 self.options.heigh1Shelf4_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_1 = 13
+                self.options.heigh0Shelf4_1 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_1").addEventListener('click', requestChangeShoeShelving4_1); 
@@ -27818,7 +27982,7 @@
                             self.scene.remove(self.shelvingGroup_section4_1);
                             
                             self.shelvingGroup_section4_1 = new THREE.Group();
-                            self.options.posShelf1_sect4_1 = 16.5;
+                            self.options.posShelf1_sect4_1 = 14;
 
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
@@ -27851,7 +28015,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section4_1);
                             self.shelvingGroup_section4_1 = new THREE.Group();
-                            self.options.posShelf2_sect4_1 =  16.5;
+                            self.options.posShelf2_sect4_1 =  14;
                             self.options.posShelf1_sect4_1 = self.options.posShelf2_sect4_1 + 27.5;
     
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_1, 2, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_1, 2, '4_1', self.options.section4Length));
@@ -27883,7 +28047,7 @@
                             self.scene.remove(self.shelvingGroup_section4_1);                        
 
                             self.shelvingGroup_section4_1 = new THREE.Group();
-                            self.options.posShelf3_sect4_1 = 16.5
+                            self.options.posShelf3_sect4_1 = 14
                             self.options.posShelf2_sect4_1 = self.options.posShelf3_sect4_1 + 27.5
                             self.options.posShelf1_sect4_1 = self.options.posShelf2_sect4_1 + 27.5
 
@@ -27917,7 +28081,7 @@
                   
                 }
 
-                self.options.heigh0Shelf4_1 = 13
+                self.options.heigh0Shelf4_1 = 5
 
         
                 if (self.options.shelvesCounterSection4_1 != 0) {
@@ -27926,7 +28090,7 @@
     
                     self.shelvingGroup_section4_1.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
 
-                    self.shelvingGroup_section4_1.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section4_1.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section4_1.name = 'shelvingGroup_section4_1';
     
@@ -27966,7 +28130,7 @@
                 
                 if (self.options.sectionHeight_4_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 6 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28016,7 +28180,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 13 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28067,7 +28231,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28117,7 +28281,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 13 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28165,7 +28329,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28194,7 +28358,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh4Shelf4_1 > 13 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh4Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28637,7 +28801,7 @@
                         self.options.shelvesCounterSection4_2 = 2;
 
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
     
                             self.scene.remove(self.shelvingGroup_section4_2);
     
@@ -28673,7 +28837,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection4_2 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section4_2);                        
 
                             self.shelvingGroup_section4_2 = new THREE.Group();
@@ -28758,7 +28922,7 @@
                     case 5:
 
                         self.options.shelvesCounterSection4_2 = 5;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) > 70) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 69) {
                             
                             self.scene.remove(self.shelvingGroup_section4_2);                        
 
@@ -28868,7 +29032,7 @@
                         self.scene.remove(self.shelvingGroup_section4_2);
                         
                         self.shelvingGroup_section4_2 = new THREE.Group();
-                        self.options.posShelf1_sect4_2 = 16.5;
+                        self.options.posShelf1_sect4_2 = 14;
 
                         self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
                         self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
@@ -28899,7 +29063,7 @@
                         self.shelvingGroup_section4_2.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section4_2.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section4_2.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section4_2.name = 'shelvingGroup_section4_2';
         
@@ -28954,7 +29118,7 @@
                 }
     
                 self.options.heigh1Shelf4_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_2 = 13
+                self.options.heigh0Shelf4_2 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_2").addEventListener('click', requestChangeShoeShelving4_2); 
@@ -29015,7 +29179,7 @@
                             self.scene.remove(self.shelvingGroup_section4_2);
                             
                             self.shelvingGroup_section4_2 = new THREE.Group();
-                            self.options.posShelf1_sect4_2 = 16.5;
+                            self.options.posShelf1_sect4_2 = 14;
 
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
@@ -29048,7 +29212,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section4_2);
                             self.shelvingGroup_section4_2 = new THREE.Group();
-                            self.options.posShelf2_sect4_2 =  16.5;
+                            self.options.posShelf2_sect4_2 =  14;
                             self.options.posShelf1_sect4_2 = self.options.posShelf2_sect4_2 + 27.5;
     
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_2, 2, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_2, 2, '4_2', self.options.section4Length));
@@ -29080,7 +29244,7 @@
                             self.scene.remove(self.shelvingGroup_section4_2);                        
 
                             self.shelvingGroup_section4_2 = new THREE.Group();
-                            self.options.posShelf3_sect4_2 = 16.5
+                            self.options.posShelf3_sect4_2 = 14
                             self.options.posShelf2_sect4_2 = self.options.posShelf3_sect4_2 + 27.5
                             self.options.posShelf1_sect4_2 = self.options.posShelf2_sect4_2 + 27.5
 
@@ -29114,7 +29278,7 @@
                   
                 }
 
-                self.options.heigh0Shelf4_2 = 13
+                self.options.heigh0Shelf4_2 = 5
 
         
                 if (self.options.shelvesCounterSection4_2 != 0) {
@@ -29123,7 +29287,7 @@
     
                     self.shelvingGroup_section4_2.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
     
-                    self.shelvingGroup_section4_2.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section4_2.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
                     self.shelvingGroup_section4_2.name = 'shelvingGroup_section4_2';
     
@@ -29751,7 +29915,7 @@
                     case 2:
                         self.options.shelvesCounterSection4_3 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section4_3);
                             self.shelvingGroup_section4_3 = new THREE.Group();
                             self.options.posShelf2_sect4_3 =  13
@@ -29783,7 +29947,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection4_3 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section4_3);                        
 
                             self.shelvingGroup_section4_3 = new THREE.Group();
@@ -29923,7 +30087,7 @@
                         self.scene.remove(self.shelvingGroup_section4_3);
                         
                         self.shelvingGroup_section4_3 = new THREE.Group();
-                        self.options.posShelf1_sect4_3 = 16.5;
+                        self.options.posShelf1_sect4_3 = 14;
 
                         self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
                         self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
@@ -29954,7 +30118,7 @@
                         self.shelvingGroup_section4_3.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section4_3.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section4_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section4_3.name = 'shelvingGroup_section4_3';
         
@@ -30009,7 +30173,7 @@
                 }
     
                 self.options.heigh1Shelf4_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_3 = 13
+                self.options.heigh0Shelf4_3 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_3").addEventListener('click', requestChangeShoeShelving4_3); 
@@ -30070,7 +30234,7 @@
                             self.scene.remove(self.shelvingGroup_section4_3);
                             
                             self.shelvingGroup_section4_3 = new THREE.Group();
-                            self.options.posShelf1_sect4_3 = 16.5;
+                            self.options.posShelf1_sect4_3 = 14;
 
                             self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
                             self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
@@ -30103,7 +30267,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section4_3);
                             self.shelvingGroup_section4_3 = new THREE.Group();
-                            self.options.posShelf2_sect4_3 =  16.5;
+                            self.options.posShelf2_sect4_3 =  14;
                             self.options.posShelf1_sect4_3 = self.options.posShelf2_sect4_3 + 27.5;
     
                             self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_3, 2, '4_3', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_3, 2, '4_3', self.options.section4Length));
@@ -30129,7 +30293,7 @@
                     break;
                 }
 
-                self.options.heigh0Shelf4_3 = 13
+                self.options.heigh0Shelf4_3 = 5
 
         
                 if (self.options.shelvesCounterSection4_3 != 0) {
@@ -30138,7 +30302,7 @@
     
                     self.shelvingGroup_section4_3.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
     
-                    self.shelvingGroup_section4_3.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section4_3.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section4_3.name = 'shelvingGroup_section4_3';
     
@@ -30668,7 +30832,7 @@
                     case 2:
                         self.options.shelvesCounterSection4_4 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section4_4);
                             self.shelvingGroup_section4_4 = new THREE.Group();
                             self.options.posShelf2_sect4_4 =  13
@@ -30698,7 +30862,7 @@
                     case 3:
 
                         self.options.shelvesCounterSection4_4 = 3;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) > 44.4) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 46) {
                             self.scene.remove(self.shelvingGroup_section4_4);                        
 
                             self.shelvingGroup_section4_4 = new THREE.Group();
@@ -30795,7 +30959,7 @@
                         self.scene.remove(self.shelvingGroup_section4_4);
                         
                         self.shelvingGroup_section4_4 = new THREE.Group();
-                        self.options.posShelf1_sect4_4 = 16.5;
+                        self.options.posShelf1_sect4_4 = 14;
 
                         self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
                         self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
@@ -30826,7 +30990,7 @@
                         self.shelvingGroup_section4_4.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section4_4.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section4_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section4_4.name = 'shelvingGroup_section4_4';
         
@@ -30881,7 +31045,7 @@
                 }
     
                 self.options.heigh1Shelf4_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_4 = 13
+                self.options.heigh0Shelf4_4 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_4").addEventListener('click', requestChangeShoeShelving4_4); 
@@ -30941,7 +31105,7 @@
                             self.scene.remove(self.shelvingGroup_section4_4);
                             
                             self.shelvingGroup_section4_4 = new THREE.Group();
-                            self.options.posShelf1_sect4_4 = 16.5;
+                            self.options.posShelf1_sect4_4 = 14;
 
                             self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
                             self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
@@ -30974,7 +31138,7 @@
                         if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
                             self.scene.remove(self.shelvingGroup_section4_4);
                             self.shelvingGroup_section4_4 = new THREE.Group();
-                            self.options.posShelf2_sect4_4 =  16.5;
+                            self.options.posShelf2_sect4_4 =  14;
                             self.options.posShelf1_sect4_4 = self.options.posShelf2_sect4_4 + 27.5;
     
                             self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_4, 2, '4_4', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_4, 2, '4_4', self.options.section4Length));
@@ -31000,7 +31164,7 @@
                   
                 }
 
-                self.options.heigh0Shelf4_4 = 13
+                self.options.heigh0Shelf4_4 = 5
 
         
                 if (self.options.shelvesCounterSection4_4 != 0) {
@@ -31009,7 +31173,7 @@
     
                     self.shelvingGroup_section4_4.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
     
-                    self.shelvingGroup_section4_4.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section4_4.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section4_4.name = 'shelvingGroup_section4_4';
     
@@ -31446,7 +31610,7 @@
                     case 2:
                         self.options.shelvesCounterSection4_5 = 2;
     
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) > 34) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 34) {
                             self.scene.remove(self.shelvingGroup_section4_5);
                             self.shelvingGroup_section4_5 = new THREE.Group();
                             self.options.posShelf2_sect4_5 =  13
@@ -31534,7 +31698,7 @@
                         self.scene.remove(self.shelvingGroup_section4_5);
                         
                         self.shelvingGroup_section4_5 = new THREE.Group();
-                        self.options.posShelf1_sect4_5 = 16.5;
+                        self.options.posShelf1_sect4_5 = 14;
 
                         self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
                         self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
@@ -31563,7 +31727,7 @@
                         self.shelvingGroup_section4_5.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section4_5.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section4_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2 ;
         
                         self.shelvingGroup_section4_5.name = 'shelvingGroup_section4_5';
         
@@ -31616,7 +31780,7 @@
                 }
     
                 self.options.heigh1Shelf4_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_5 = 13
+                self.options.heigh0Shelf4_5 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_5").addEventListener('click', requestChangeShoeShelving4_5); 
@@ -31676,7 +31840,7 @@
                             self.scene.remove(self.shelvingGroup_section4_5);
                             
                             self.shelvingGroup_section4_5 = new THREE.Group();
-                            self.options.posShelf1_sect4_5 = 16.5;
+                            self.options.posShelf1_sect4_5 = 14;
 
                             self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
                             self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
@@ -31704,7 +31868,7 @@
                   
                 }
 
-                self.options.heigh0Shelf4_5 = 13
+                self.options.heigh0Shelf4_5 = 5
 
         
                 if (self.options.shelvesCounterSection4_5 != 0) {
@@ -31713,7 +31877,7 @@
     
                     self.shelvingGroup_section4_5.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
     
-                    self.shelvingGroup_section4_5.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section4_5.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section4_5.name = 'shelvingGroup_section4_5';
     
@@ -32098,7 +32262,7 @@
                         self.scene.remove(self.shelvingGroup_section4_6);
                         
                         self.shelvingGroup_section4_6 = new THREE.Group();
-                        self.options.posShelf1_sect4_6 = 16.5;
+                        self.options.posShelf1_sect4_6 = 14;
 
                         self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
                         self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
@@ -32126,7 +32290,7 @@
                         self.shelvingGroup_section4_6.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
         
                         //!!
-                        self.shelvingGroup_section4_6.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
+                        self.shelvingGroup_section4_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
         
                         self.shelvingGroup_section4_6.name = 'shelvingGroup_section4_6';
         
@@ -32177,7 +32341,7 @@
                 }
     
                 self.options.heigh1Shelf4_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_6 = 13
+                self.options.heigh0Shelf4_6 = 5
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_6").addEventListener('click', requestChangeShoeShelving4_6); 
@@ -32235,7 +32399,7 @@
                             self.scene.remove(self.shelvingGroup_section4_6);
                             
                             self.shelvingGroup_section4_6 = new THREE.Group();
-                            self.options.posShelf1_sect4_6 = 16.5;
+                            self.options.posShelf1_sect4_6 = 14;
 
                             self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
                             self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
@@ -32262,7 +32426,7 @@
                   
                 }
 
-                self.options.heigh0Shelf4_6 = 13
+                self.options.heigh0Shelf4_6 = 5
 
         
                 if (self.options.shelvesCounterSection4_6 != 0) {
@@ -32271,7 +32435,7 @@
     
                     self.shelvingGroup_section4_6.position.x = self.scene.getObjectByName( "pillar3", true ).position.x+0.5;
     
-                    self.shelvingGroup_section4_6.position.z = -self.options.room.width / 2 + self.options.shelf.width -3;
+                    self.shelvingGroup_section4_6.position.z = -self.options.room.width / 2 + self.options.shelf.width /2;
 
                     self.shelvingGroup_section4_6.name = 'shelvingGroup_section4_6';
     
@@ -32406,37 +32570,40 @@
                         }
     
             
-                        if ( self.options.s1_AmountOfHorDividers === 1 ) {
-                            if ( self.options.shelvesCounterSection1_1 != 0 ) {
-                                
-                                self.options.shelvesCounterSection1_1 = 0
-                                self.scene.remove(self.shelvingGroup_section1_1);
-                                
-                                document.getElementById("InternalShelving1_S1").style.display = "none";
-                                document.getElementById("InternalShelving2_S1").style.display = "none";
-    
-                                document.getElementById("internalShelving_sect1_1").value = '0'
-                                document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                                document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                        if ( self.options.shelvesCounterSection1_1 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_1 = 0
+                            self.scene.remove(self.shelvingGroup_section1_1);
+                            
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S1`).style.display = "none";
+                            }
 
-                                document.getElementById("InternalShelving_S1").checked = false;
-                                
-                            } else {}
+                            document.getElementById("internalShelving_sect1_1").value = '0';
+                            document.getElementById("ShoeShelving_sect1_1").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "none";
+                            document.getElementById("InternalShelving_S1").checked = false;
+                            document.getElementById("ShoeShelving_S1").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection1_2 != 0 ) {
-                            
-                                self.options.shelvesCounterSection1_2 = 0
-                                self.scene.remove(self.shelvingGroup_section1_2);
-    
-                                document.getElementById("InternalShelving1_S1_2").style.display = "none";
-                                document.getElementById("InternalShelving2_S1_2").style.display = "none";
-    
-                                document.getElementById("internalShelving_sect1_2").value = '0'
-    
-                                document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                                document.getElementById("InternalShelving_S1_2").checked = false;
-                            
+                        
+                            self.options.shelvesCounterSection1_2 = 0
+                            self.scene.remove(self.shelvingGroup_section1_2);
+
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_2").value = '0';
+                            document.getElementById("ShoeShelving_sect1_2").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
+                            document.getElementById("InternalShelving_S1_2").checked = false;
+                            document.getElementById("ShoeShelving_S1_2").checked = false;
+
                         } else {}
     
     
@@ -32526,32 +32693,38 @@
                         }
                        
     
-                        if ( self.options.s1_AmountOfHorDividers === 1 ) {
-                            if ( self.options.shelvesCounterSection1_1 != 0 ) {
-    
-                                self.options.shelvesCounterSection1_1 = 0
-                                self.scene.remove(self.shelvingGroup_section1_1);
-    
-                                document.getElementById("InternalShelving1_S1").style.display = "none";
-                                document.getElementById("InternalShelving2_S1").style.display = "none";
-    
-                                document.getElementById("internalShelving_sect1_1").value = '0'
-                                document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                                document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                        if ( self.options.shelvesCounterSection1_1 != 0 ) {
 
-                                document.getElementById("InternalShelving_S1").checked = false;
-                            } else {}
+                            self.options.shelvesCounterSection1_1 = 0
+                            self.scene.remove(self.shelvingGroup_section1_1);
+
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S1`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_1").value = '0';
+                            document.getElementById("ShoeShelving_sect1_1").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "none";
+                            document.getElementById("InternalShelving_S1").checked = false;
+                            document.getElementById("ShoeShelving_S1").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection1_2 != 0 ) {
                             self.options.shelvesCounterSection1_2 = 0
                             self.scene.remove(self.shelvingGroup_section1_2);
                         
-                            document.getElementById("InternalShelving1_S1_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S1_2").style.display = "none";
-                            document.getElementById("internalShelving_sect1_2").value = '0'
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_2").value = '0';
+                            document.getElementById("ShoeShelving_sect1_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
                             document.getElementById("InternalShelving_S1_2").checked = false;
+                            document.getElementById("ShoeShelving_S1_2").checked = false;
                         
                         } else { }
     
@@ -32642,26 +32815,40 @@
                
     
                         if ( self.options.shelvesCounterSection1_3 != 0 ) {
+                            
                             self.options.shelvesCounterSection1_3 = 0
                             self.scene.remove(self.shelvingGroup_section1_3);
-    
-                            document.getElementById("InternalShelving1_S1_3").style.display = "none";
-                            document.getElementById("internalShelving_sect1_3").value = '0'
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_3").value = '0';
+                            document.getElementById("ShoeShelving_sect1_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
                             document.getElementById("InternalShelving_S1_3").checked = false;
+                            document.getElementById("ShoeShelving_S1_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection1_2 != 0 ) {
+                        
                             self.options.shelvesCounterSection1_2 = 0
                             self.scene.remove(self.shelvingGroup_section1_2);
-                            
-                            document.getElementById("InternalShelving1_S1_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S1_2").style.display = "none";
-                            document.getElementById("internalShelving_sect1_2").value = '0'
+
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_2").value = '0';
+                            document.getElementById("ShoeShelving_sect1_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
                             document.getElementById("InternalShelving_S1_2").checked = false;
-                            
-                        } else { }
+                            document.getElementById("ShoeShelving_S1_2").checked = false;
+
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
             
@@ -32743,33 +32930,42 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_2Group'))
                             self.options.s1_2_doorStatus = 1;
                         }
-               
     
                         if ( self.options.shelvesCounterSection1_3 != 0 ) {
                             
                             self.options.shelvesCounterSection1_3 = 0
                             self.scene.remove(self.shelvingGroup_section1_3);
-    
-                            document.getElementById("InternalShelving1_S1_3").style.display = "none";
-                            document.getElementById("internalShelving_sect1_3").value = '0'
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_3").value = '0';
+                            document.getElementById("ShoeShelving_sect1_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
                             document.getElementById("InternalShelving_S1_3").checked = false;
-                    
+                            document.getElementById("ShoeShelving_S1_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection1_2 != 0 ) {
-                            
+                        
                             self.options.shelvesCounterSection1_2 = 0
                             self.scene.remove(self.shelvingGroup_section1_2);
-                        
-    
-                            document.getElementById("InternalShelving1_S1_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S1_2").style.display = "none";
-                            document.getElementById("internalShelving_sect1_2").value = '0'
+
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_2").value = '0';
+                            document.getElementById("ShoeShelving_sect1_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
                             document.getElementById("InternalShelving_S1_2").checked = false;
-                            
-                        } else { }
+                            document.getElementById("ShoeShelving_S1_2").checked = false;
+
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -32850,6 +33046,42 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_4Group'))
                             self.options.s1_4_doorStatus = 1;
                         }
+
+                        if ( self.options.shelvesCounterSection1_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_3 = 0
+                            self.scene.remove(self.shelvingGroup_section1_3);
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_3").value = '0';
+                            document.getElementById("ShoeShelving_sect1_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
+                            document.getElementById("InternalShelving_S1_3").checked = false;
+                            document.getElementById("ShoeShelving_S1_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection1_4 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_4 = 0
+                            self.scene.remove(self.shelvingGroup_section1_4);
+
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_4").value = '0';
+                            document.getElementById("ShoeShelving_sect1_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
+                            document.getElementById("InternalShelving_S1_4").checked = false;
+                            document.getElementById("ShoeShelving_S1_4").checked = false;
+
+                        } else {}
                
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -32933,6 +33165,42 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_4Group'))
                             self.options.s1_4_doorStatus = 1;
                         }
+
+                        if ( self.options.shelvesCounterSection1_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_3 = 0
+                            self.scene.remove(self.shelvingGroup_section1_3);
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_3").value = '0';
+                            document.getElementById("ShoeShelving_sect1_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
+                            document.getElementById("InternalShelving_S1_3").checked = false;
+                            document.getElementById("ShoeShelving_S1_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection1_4 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_4 = 0
+                            self.scene.remove(self.shelvingGroup_section1_4);
+
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_4").value = '0';
+                            document.getElementById("ShoeShelving_sect1_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
+                            document.getElementById("InternalShelving_S1_4").checked = false;
+                            document.getElementById("ShoeShelving_S1_4").checked = false;
+
+                        } else {}
                
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33018,6 +33286,42 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_4Group'))
                             self.options.s1_4_doorStatus = 1;
                         }
+
+                        if ( self.options.shelvesCounterSection1_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_5 = 0
+                            self.scene.remove(self.shelvingGroup_section1_5);
+                            
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_5").value = '0';
+                            document.getElementById("ShoeShelving_sect1_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
+                            document.getElementById("InternalShelving_S1_5").checked = false;
+                            document.getElementById("ShoeShelving_S1_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection1_4 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_4 = 0
+                            self.scene.remove(self.shelvingGroup_section1_4);
+
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_4").value = '0';
+                            document.getElementById("ShoeShelving_sect1_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
+                            document.getElementById("InternalShelving_S1_4").checked = false;
+                            document.getElementById("ShoeShelving_S1_4").checked = false;
+
+                        } else {}
             
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33101,6 +33405,42 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_4Group'))
                             self.options.s1_4_doorStatus = 1;
                         }
+
+                        if ( self.options.shelvesCounterSection1_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_5 = 0
+                            self.scene.remove(self.shelvingGroup_section1_5);
+                            
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_5").value = '0';
+                            document.getElementById("ShoeShelving_sect1_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
+                            document.getElementById("InternalShelving_S1_5").checked = false;
+                            document.getElementById("ShoeShelving_S1_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection1_4 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_4 = 0
+                            self.scene.remove(self.shelvingGroup_section1_4);
+
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_4").value = '0';
+                            document.getElementById("ShoeShelving_sect1_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
+                            document.getElementById("InternalShelving_S1_4").checked = false;
+                            document.getElementById("ShoeShelving_S1_4").checked = false;
+
+                        } else {}
             
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33187,6 +33527,39 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_5Group'))
                             self.options.s1_5_doorStatus = 1;
                         }
+
+                        if ( self.options.shelvesCounterSection1_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_5 = 0
+                            self.scene.remove(self.shelvingGroup_section1_5);
+                            
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_5").value = '0';
+                            document.getElementById("ShoeShelving_sect1_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
+                            document.getElementById("InternalShelving_S1_5").checked = false;
+                            document.getElementById("ShoeShelving_S1_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection1_6 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_6 = 0
+                            self.scene.remove(self.shelvingGroup_section1_6);
+
+                            document.getElementById("InternalShelving1_S1_6").style.display = "none";
+                            document.getElementById("internalShelving_sect1_6").value = '0';
+                            document.getElementById("ShoeShelving_sect1_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
+                            document.getElementById("InternalShelving_S1_6").checked = false;
+                            document.getElementById("ShoeShelving_S1_6").checked = false;
+
+                        } else {}
             
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33270,6 +33643,39 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_5Group'))
                             self.options.s1_5_doorStatus = 1;
                         }
+
+                        if ( self.options.shelvesCounterSection1_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection1_5 = 0
+                            self.scene.remove(self.shelvingGroup_section1_5);
+                            
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect1_5").value = '0';
+                            document.getElementById("ShoeShelving_sect1_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
+                            document.getElementById("InternalShelving_S1_5").checked = false;
+                            document.getElementById("ShoeShelving_S1_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection1_6 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_6 = 0
+                            self.scene.remove(self.shelvingGroup_section1_6);
+
+                            document.getElementById("InternalShelving1_S1_6").style.display = "none";
+                            document.getElementById("internalShelving_sect1_6").value = '0';
+                            document.getElementById("ShoeShelving_sect1_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
+                            document.getElementById("InternalShelving_S1_6").checked = false;
+                            document.getElementById("ShoeShelving_S1_6").checked = false;
+
+                        } else {}
             
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33356,6 +33762,21 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_6Group'))
                             self.options.s1_6_doorStatus = 1;
                         }
+    
+                        if ( self.options.shelvesCounterSection1_6 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_6 = 0
+                            self.scene.remove(self.shelvingGroup_section1_6);
+
+                            document.getElementById("InternalShelving1_S1_6").style.display = "none";
+                            document.getElementById("internalShelving_sect1_6").value = '0';
+                            document.getElementById("ShoeShelving_sect1_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
+                            document.getElementById("InternalShelving_S1_6").checked = false;
+                            document.getElementById("ShoeShelving_S1_6").checked = false;
+
+                        } else {}
             
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33439,6 +33860,22 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection1_6Group'))
                             self.options.s1_6_doorStatus = 1;
                         }
+
+    
+                        if ( self.options.shelvesCounterSection1_6 != 0 ) {
+                        
+                            self.options.shelvesCounterSection1_6 = 0
+                            self.scene.remove(self.shelvingGroup_section1_6);
+
+                            document.getElementById("InternalShelving1_S1_6").style.display = "none";
+                            document.getElementById("internalShelving_sect1_6").value = '0';
+                            document.getElementById("ShoeShelving_sect1_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
+                            document.getElementById("InternalShelving_S1_6").checked = false;
+                            document.getElementById("ShoeShelving_S1_6").checked = false;
+
+                        } else {}
             
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33529,33 +33966,38 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection2_2Group'))
                             self.options.s2_2_doorStatus = 1;
                         }
-                    
-    
+
                         if ( self.options.shelvesCounterSection2_1 != 0 ) {
+                            
                             self.options.shelvesCounterSection2_1 = 0
-                            self.scene.remove(self.shelvingGroup_section2_1);
-    
-                            document.getElementById("InternalShelving1_S2_1").style.display = "none";
-                            document.getElementById("InternalShelving2_S2_1").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect2_1").value = '0'
+                            self.scene.remove(self.shelvingGroup_section2_1);      
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_1`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_1").value = '0';
+                            document.getElementById("ShoeShelving_sect2_1").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                            document.getElementById("InternalShelving_S2_1").checked = false;                   
+                            document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "none";
+                            document.getElementById("InternalShelving_S2_1").checked = false;
+                            document.getElementById("ShoeShelving_S2_1").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection2_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection2_2 = 0
-                            self.scene.remove(self.shelvingGroup_section2_2);
-    
-                            document.getElementById("InternalShelving1_S2_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S2_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect2_2").value = '0'
-    
+                            self.scene.remove(self.shelvingGroup_section2_2); 
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_2").value = '0';
+                            document.getElementById("ShoeShelving_sect2_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
                             document.getElementById("InternalShelving_S2_2").checked = false;
+                            document.getElementById("ShoeShelving_S2_2").checked = false;
+                            
                         } else {}
-
     
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33642,29 +34084,41 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection2_2Group'))
                             self.options.s2_2_doorStatus = 1;
                         }
-                    
     
-                        if ( self.options.shelvesCounterSection2_1 != 0 ) { 
+                        if ( self.options.shelvesCounterSection2_1 != 0 ) {
+                            
                             self.options.shelvesCounterSection2_1 = 0
                             self.scene.remove(self.shelvingGroup_section2_1);
-    
-                            document.getElementById("InternalShelving1_S2_1").style.display = "none";
-                            document.getElementById("InternalShelving2_S2_1").style.display = "none";
-                            document.getElementById("internalShelving_sect2_1").value = '0'
+                            
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_1`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_1").value = '0';
+                            document.getElementById("ShoeShelving_sect2_1").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "none";
                             document.getElementById("InternalShelving_S2_1").checked = false;
+                            document.getElementById("ShoeShelving_S2_1").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection2_2 != 0 ) {
-                                self.options.shelvesCounterSection2_2 = 0
-                                self.scene.remove(self.shelvingGroup_section2_2);
-    
-                                document.getElementById("InternalShelving1_S2_2").style.display = "none";
-                                document.getElementById("InternalShelving2_S2_2").style.display = "none";
-                                document.getElementById("internalShelving_sect2_2").value = '0'
-                                document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                                document.getElementById("InternalShelving_S2_2").checked = false;
-    
+                            
+                            self.options.shelvesCounterSection2_2 = 0
+                            self.scene.remove(self.shelvingGroup_section2_2);
+                            
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_2").value = '0';
+                            document.getElementById("ShoeShelving_sect2_2").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
+                            document.getElementById("InternalShelving_S2_2").checked = false;
+                            document.getElementById("ShoeShelving_S2_2").checked = false;
+                            
                         } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -33749,31 +34203,37 @@
                             self.options.s2_2_doorStatus = 1;
                         }
     
-                
                         if ( self.options.shelvesCounterSection2_3 != 0 ) {
-                        
+                            
                             self.options.shelvesCounterSection2_3 = 0
-                            self.scene.remove(self.shelvingGroup_section2_3);
-    
-                            document.getElementById("InternalShelving1_S2_3").style.display = "none";
-                            document.getElementById("internalShelving_sect2_3").value = '0'
+                            self.scene.remove(self.shelvingGroup_section2_3);      
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_3").value = '0';
+                            document.getElementById("ShoeShelving_sect2_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
-                            document.getElementById("InternalShelving_S2_3").checked = false;                   
+                            document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
+                            document.getElementById("InternalShelving_S2_3").checked = false;
+                            document.getElementById("ShoeShelving_S2_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection2_2 != 0 ) {
                             
                             self.options.shelvesCounterSection2_2 = 0
-                            self.scene.remove(self.shelvingGroup_section2_2);
-    
-                            document.getElementById("InternalShelving1_S2_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S2_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect2_2").value = '0'
-    
+                            self.scene.remove(self.shelvingGroup_section2_2);        
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_2").value = '0';
+                            document.getElementById("ShoeShelving_sect2_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                            document.getElementById("InternalShelving_S2_2").checked = false;                    
-                        } else { }
+                            document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
+                            document.getElementById("InternalShelving_S2_2").checked = false;
+                            document.getElementById("ShoeShelving_S2_2").checked = false;
+                            
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
             
@@ -33858,29 +34318,41 @@
                             self.options.s2_2_doorStatus = 1;
                         }
                
-    
-                        if ( self.options.shelvesCounterSection2_3 != 0 ) {            
+                        if ( self.options.shelvesCounterSection2_3 != 0 ) {
+                            
                             self.options.shelvesCounterSection2_3 = 0
                             self.scene.remove(self.shelvingGroup_section2_3);
-    
-                            document.getElementById("InternalShelving1_S2_3").style.display = "none";
-                            document.getElementById("internalShelving_sect2_3").value = '0'
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_3").value = '0';
+                            document.getElementById("ShoeShelving_sect2_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
                             document.getElementById("InternalShelving_S2_3").checked = false;
+                            document.getElementById("ShoeShelving_S2_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection2_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection2_2 = 0
                             self.scene.remove(self.shelvingGroup_section2_2);
-    
-                            document.getElementById("InternalShelving1_S2_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S2_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect2_2").value = '0'
-    
+                            
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_2").value = '0';
+                            document.getElementById("ShoeShelving_sect2_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
                             document.getElementById("InternalShelving_S2_2").checked = false;
-                        } else { }
+                            document.getElementById("ShoeShelving_S2_2").checked = false;
+                            
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
                                 
@@ -33961,6 +34433,37 @@
                             self.options.s2_4_doorStatus = 1;
                         }
     
+                        if ( self.options.shelvesCounterSection2_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_3 = 0
+                            self.scene.remove(self.shelvingGroup_section2_3);
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_3").value = '0';
+                            document.getElementById("ShoeShelving_sect2_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
+                            document.getElementById("InternalShelving_S2_3").checked = false;
+                            document.getElementById("ShoeShelving_S2_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection2_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_4 = 0
+                            self.scene.remove(self.shelvingGroup_section2_4);          
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_4").value = '0';
+                            document.getElementById("ShoeShelving_sect2_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
+                            document.getElementById("InternalShelving_S2_4").checked = false;
+                            document.getElementById("ShoeShelving_S2_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -34042,6 +34545,41 @@
                             self.options.s2_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection2_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_3 = 0
+                            self.scene.remove(self.shelvingGroup_section2_3);
+                            
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_3").value = '0';
+                            document.getElementById("ShoeShelving_sect2_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
+                            document.getElementById("InternalShelving_S2_3").checked = false;
+                            document.getElementById("ShoeShelving_S2_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection2_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_4 = 0
+                            self.scene.remove(self.shelvingGroup_section2_4);
+                            
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_4`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_4").value = '0';
+                            document.getElementById("ShoeShelving_sect2_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
+                            document.getElementById("InternalShelving_S2_4").checked = false;
+                            document.getElementById("ShoeShelving_S2_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -34126,6 +34664,37 @@
                             self.options.s2_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection2_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_5 = 0
+                            self.scene.remove(self.shelvingGroup_section2_5);
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_5").value = '0';
+                            document.getElementById("ShoeShelving_sect2_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
+                            document.getElementById("InternalShelving_S2_5").checked = false;
+                            document.getElementById("ShoeShelving_S2_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection2_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_4 = 0
+                            self.scene.remove(self.shelvingGroup_section2_4);              
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_4").value = '0';
+                            document.getElementById("ShoeShelving_sect2_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
+                            document.getElementById("InternalShelving_S2_4").checked = false;
+                            document.getElementById("ShoeShelving_S2_4").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -34209,6 +34778,41 @@
                             self.options.s2_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection2_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_5 = 0
+                            self.scene.remove(self.shelvingGroup_section2_5);
+                            
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_5").value = '0';
+                            document.getElementById("ShoeShelving_sect2_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
+                            document.getElementById("InternalShelving_S2_5").checked = false;
+                            document.getElementById("ShoeShelving_S2_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection2_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_4 = 0
+                            self.scene.remove(self.shelvingGroup_section2_4);
+                            
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_4`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_4").value = '0';
+                            document.getElementById("ShoeShelving_sect2_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
+                            document.getElementById("InternalShelving_S2_4").checked = false;
+                            document.getElementById("ShoeShelving_S2_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -34294,6 +34898,35 @@
                             self.options.s2_5_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection2_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_5 = 0
+                            self.scene.remove(self.shelvingGroup_section2_5);  
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect2_5").value = '0';
+                            document.getElementById("ShoeShelving_sect2_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
+                            document.getElementById("InternalShelving_S2_5").checked = false;
+                            document.getElementById("ShoeShelving_S2_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection2_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_6 = 0
+                            self.scene.remove(self.shelvingGroup_section2_6);
+                            document.getElementById("InternalShelving1_S2_6").style.display = "none";
+                            document.getElementById("internalShelving_sect2_6").value = '0';
+                            document.getElementById("ShoeShelving_sect2_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
+                            document.getElementById("InternalShelving_S2_6").checked = false;
+                            document.getElementById("ShoeShelving_S2_6").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -34377,6 +35010,39 @@
                             self.options.s2_5_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection2_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_5 = 0
+                            self.scene.remove(self.shelvingGroup_section2_5);
+                            
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S2_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect2_5").value = '0';
+                            document.getElementById("ShoeShelving_sect2_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
+                            document.getElementById("InternalShelving_S2_5").checked = false;
+                            document.getElementById("ShoeShelving_S2_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection2_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_6 = 0
+                            self.scene.remove(self.shelvingGroup_section2_6);
+                            
+                            document.getElementById("InternalShelving1_S2_6").style.display = "none";
+
+                            document.getElementById("internalShelving_sect2_4").value = '0';
+                            document.getElementById("ShoeShelving_sect2_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
+                            document.getElementById("InternalShelving_S2_4").checked = false;
+                            document.getElementById("ShoeShelving_S2_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -34461,7 +35127,22 @@
                             self.scene.remove(self.scene.getObjectByName('drawerSection2_6Group'))
                             self.options.s2_6_doorStatus = 1;
                         }
-            
+    
+                        if ( self.options.shelvesCounterSection2_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_6 = 0
+                            self.scene.remove(self.shelvingGroup_section2_6);
+                            
+                            document.getElementById("InternalShelving1_S2_6").style.display = "none";
+
+                            document.getElementById("internalShelving_sect2_6").value = '0';
+                            document.getElementById("ShoeShelving_sect2_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
+                            document.getElementById("InternalShelving_S2_6").checked = false;
+                            document.getElementById("ShoeShelving_S2_6").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -34545,6 +35226,22 @@
                             self.options.s2_6_doorStatus = 1;
                         }
             
+    
+                        if ( self.options.shelvesCounterSection2_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection2_6 = 0
+                            self.scene.remove(self.shelvingGroup_section2_6);
+                            
+                            document.getElementById("InternalShelving1_S2_6").style.display = "none";
+
+                            document.getElementById("internalShelving_sect2_6").value = '0';
+                            document.getElementById("ShoeShelving_sect2_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
+                            document.getElementById("InternalShelving_S2_6").checked = false;
+                            document.getElementById("ShoeShelving_S2_6").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -34634,35 +35331,40 @@
                             self.options.s3_2_doorStatus = 1;
                         }
 
-
                         if ( self.options.shelvesCounterSection3_1 != 0 ) {
-                        
+                            
                             self.options.shelvesCounterSection3_1 = 0
                             self.scene.remove(self.shelvingGroup_section3_1);
-    
-                            document.getElementById("InternalShelving1_S3_1").style.display = "none";
-                            document.getElementById("InternalShelving2_S3_1").style.display = "none";
-                            document.getElementById("InternalShelving3_S3_1").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect3_1").value = '0'
+                            
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_1`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect3_1").value = '0';
+                            document.getElementById("ShoeShelving_sect3_1").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "none";
                             document.getElementById("InternalShelving_S3_1").checked = false;
-                        
+                            document.getElementById("ShoeShelving_S3_1").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection3_2 != 0 ) {
                             
                             self.options.shelvesCounterSection3_2 = 0
                             self.scene.remove(self.shelvingGroup_section3_2);
-    
-                            document.getElementById("InternalShelving1_S3_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S3_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect3_2").value = '0'
-    
+                            
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect3_2").value = '0';
+                            document.getElementById("ShoeShelving_sect3_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
                             document.getElementById("InternalShelving_S3_2").checked = false;
-    
+                            document.getElementById("ShoeShelving_S3_2").checked = false;
+                            
                         } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -34751,31 +35453,36 @@
                             self.options.s3_2_doorStatus = 1;
                         }
     
-
-                        if ( self.options.shelvesCounterSection3_1 != 0 ) {        
+                        if ( self.options.shelvesCounterSection3_1 != 0 ) {
+                            
                             self.options.shelvesCounterSection3_1 = 0
                             self.scene.remove(self.shelvingGroup_section3_1);
-    
-                            document.getElementById("InternalShelving1_S3_1").style.display = "none";
-                            document.getElementById("InternalShelving2_S3_1").style.display = "none";
-                            document.getElementById("InternalShelving3_S3_1").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect3_1").value = '0'
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_1`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_1").value = '0';
+                            document.getElementById("ShoeShelving_sect3_1").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "none";
                             document.getElementById("InternalShelving_S3_1").checked = false;
+                            document.getElementById("ShoeShelving_S3_1").checked = false;
+                            
                         } else {}
     
-                        if ( self.options.shelvesCounterSection3_2 != 0 ) {               
+                        if ( self.options.shelvesCounterSection3_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection3_2 = 0
                             self.scene.remove(self.shelvingGroup_section3_2);
-    
-                            document.getElementById("InternalShelving1_S3_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S3_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect3_2").value = '0'
-    
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_2").value = '0';
+                            document.getElementById("ShoeShelving_sect3_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                            document.getElementById("InternalShelving_S3_2").checked = false;           
+                            document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
+                            document.getElementById("InternalShelving_S3_2").checked = false;
+                            document.getElementById("ShoeShelving_S3_2").checked = false;
+                            
                         } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -34863,31 +35570,37 @@
                             self.options.s3_2_doorStatus = 1;
                         }
     
-                
                         if ( self.options.shelvesCounterSection3_3 != 0 ) {
-                        
+                            
                             self.options.shelvesCounterSection3_3 = 0
-                            self.scene.remove(self.shelvingGroup_section3_3);
-    
-                            document.getElementById("InternalShelving1_S3_3").style.display = "none";
-                            document.getElementById("internalShelving_sect3_3").value = '0'
+                            self.scene.remove(self.shelvingGroup_section3_3);      
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_3").value = '0';
+                            document.getElementById("ShoeShelving_sect3_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
-                            document.getElementById("InternalShelving_S3_3").checked = false;                   
+                            document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
+                            document.getElementById("InternalShelving_S3_3").checked = false;
+                            document.getElementById("ShoeShelving_S3_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection3_2 != 0 ) {
                             
                             self.options.shelvesCounterSection3_2 = 0
-                            self.scene.remove(self.shelvingGroup_section3_2);
-    
-                            document.getElementById("InternalShelving1_S3_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S3_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect3_2").value = '0'
-    
+                            self.scene.remove(self.shelvingGroup_section3_2);        
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_2").value = '0';
+                            document.getElementById("ShoeShelving_sect3_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                            document.getElementById("InternalShelving_S3_2").checked = false;                    
-                        } else { }
+                            document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
+                            document.getElementById("InternalShelving_S3_2").checked = false;
+                            document.getElementById("ShoeShelving_S3_2").checked = false;
+                            
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
             
@@ -34971,29 +35684,37 @@
                             self.options.s3_2_doorStatus = 1;
                         }
                
-    
-                        if ( self.options.shelvesCounterSection3_3 != 0 ) {            
+                        if ( self.options.shelvesCounterSection3_3 != 0 ) {
+                            
                             self.options.shelvesCounterSection3_3 = 0
-                            self.scene.remove(self.shelvingGroup_section3_3);
-    
-                            document.getElementById("InternalShelving1_S3_3").style.display = "none";
-                            document.getElementById("internalShelving_sect3_3").value = '0'
+                            self.scene.remove(self.shelvingGroup_section3_3);      
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_3").value = '0';
+                            document.getElementById("ShoeShelving_sect3_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
                             document.getElementById("InternalShelving_S3_3").checked = false;
+                            document.getElementById("ShoeShelving_S3_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection3_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection3_2 = 0
-                            self.scene.remove(self.shelvingGroup_section3_2);
-    
-                            document.getElementById("InternalShelving1_S3_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S3_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect3_2").value = '0'
-    
+                            self.scene.remove(self.shelvingGroup_section3_2);        
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_2").value = '0';
+                            document.getElementById("ShoeShelving_sect3_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
                             document.getElementById("InternalShelving_S3_2").checked = false;
-                        } else { }
+                            document.getElementById("ShoeShelving_S3_2").checked = false;
+                            
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
                                 
@@ -35074,6 +35795,37 @@
                             self.options.s3_4_doorStatus = 1;
                         }
     
+                        if ( self.options.shelvesCounterSection3_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_3 = 0
+                            self.scene.remove(self.shelvingGroup_section3_3);
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_3").value = '0';
+                            document.getElementById("ShoeShelving_sect3_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
+                            document.getElementById("InternalShelving_S3_3").checked = false;
+                            document.getElementById("ShoeShelving_S3_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection3_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_4 = 0
+                            self.scene.remove(self.shelvingGroup_section3_4);          
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_4").value = '0';
+                            document.getElementById("ShoeShelving_sect3_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
+                            document.getElementById("InternalShelving_S3_4").checked = false;
+                            document.getElementById("ShoeShelving_S3_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -35155,6 +35907,37 @@
                             self.options.s3_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_3 = 0
+                            self.scene.remove(self.shelvingGroup_section3_3);
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_3").value = '0';
+                            document.getElementById("ShoeShelving_sect3_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
+                            document.getElementById("InternalShelving_S3_3").checked = false;
+                            document.getElementById("ShoeShelving_S3_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection3_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_4 = 0
+                            self.scene.remove(self.shelvingGroup_section3_4);          
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_4").value = '0';
+                            document.getElementById("ShoeShelving_sect3_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
+                            document.getElementById("InternalShelving_S3_4").checked = false;
+                            document.getElementById("ShoeShelving_S3_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -35239,6 +36022,37 @@
                             self.options.s3_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_5 = 0
+                            self.scene.remove(self.shelvingGroup_section3_5);
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_5").value = '0';
+                            document.getElementById("ShoeShelving_sect3_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
+                            document.getElementById("InternalShelving_S3_5").checked = false;
+                            document.getElementById("ShoeShelving_S3_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection3_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_4 = 0
+                            self.scene.remove(self.shelvingGroup_section3_4);              
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_4").value = '0';
+                            document.getElementById("ShoeShelving_sect3_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
+                            document.getElementById("InternalShelving_S3_4").checked = false;
+                            document.getElementById("ShoeShelving_S3_4").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -35322,6 +36136,37 @@
                             self.options.s3_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_5 = 0
+                            self.scene.remove(self.shelvingGroup_section3_5);
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_5").value = '0';
+                            document.getElementById("ShoeShelving_sect3_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
+                            document.getElementById("InternalShelving_S3_5").checked = false;
+                            document.getElementById("ShoeShelving_S3_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection3_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_4 = 0
+                            self.scene.remove(self.shelvingGroup_section3_4);              
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_4").value = '0';
+                            document.getElementById("ShoeShelving_sect3_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
+                            document.getElementById("InternalShelving_S3_4").checked = false;
+                            document.getElementById("ShoeShelving_S3_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -35407,6 +36252,35 @@
                             self.options.s3_5_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_5 = 0
+                            self.scene.remove(self.shelvingGroup_section3_5);  
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_5").value = '0';
+                            document.getElementById("ShoeShelving_sect3_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
+                            document.getElementById("InternalShelving_S3_5").checked = false;
+                            document.getElementById("ShoeShelving_S3_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection3_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_6 = 0
+                            self.scene.remove(self.shelvingGroup_section3_6);
+                            document.getElementById("InternalShelving1_S3_6").style.display = "none";
+                            document.getElementById("internalShelving_sect3_6").value = '0';
+                            document.getElementById("ShoeShelving_sect3_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
+                            document.getElementById("InternalShelving_S3_6").checked = false;
+                            document.getElementById("ShoeShelving_S3_6").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -35490,6 +36364,35 @@
                             self.options.s3_5_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_5 = 0
+                            self.scene.remove(self.shelvingGroup_section3_5);  
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S3_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect3_5").value = '0';
+                            document.getElementById("ShoeShelving_sect3_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
+                            document.getElementById("InternalShelving_S3_5").checked = false;
+                            document.getElementById("ShoeShelving_S3_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection3_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_6 = 0
+                            self.scene.remove(self.shelvingGroup_section3_6);
+                            document.getElementById("InternalShelving1_S3_6").style.display = "none";
+                            document.getElementById("internalShelving_sect3_6").value = '0';
+                            document.getElementById("ShoeShelving_sect3_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
+                            document.getElementById("InternalShelving_S3_6").checked = false;
+                            document.getElementById("ShoeShelving_S3_6").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -35575,6 +36478,19 @@
                             self.options.s3_6_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_6 = 0
+                            self.scene.remove(self.shelvingGroup_section3_6);
+                            document.getElementById("InternalShelving1_S3_6").style.display = "none";
+                            document.getElementById("internalShelving_sect3_6").value = '0';
+                            document.getElementById("ShoeShelving_sect3_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
+                            document.getElementById("InternalShelving_S3_6").checked = false;
+                            document.getElementById("ShoeShelving_S3_6").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -35658,6 +36574,19 @@
                             self.options.s3_6_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection3_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection3_6 = 0
+                            self.scene.remove(self.shelvingGroup_section3_6);
+                            document.getElementById("InternalShelving1_S3_6").style.display = "none";
+                            document.getElementById("internalShelving_sect3_6").value = '0';
+                            document.getElementById("ShoeShelving_sect3_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
+                            document.getElementById("InternalShelving_S3_6").checked = false;
+                            document.getElementById("ShoeShelving_S3_6").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -35747,28 +36676,36 @@
                             self.options.s4_2_doorStatus = 1;
                         }
                
-    
                         if ( self.options.shelvesCounterSection4_1 != 0 ) {
+                            
                             self.options.shelvesCounterSection4_1 = 0
-                            self.scene.remove(self.shelvingGroup_section4_1);
-    
-                            document.getElementById("InternalShelving1_S4_1").style.display = "none";
-                            document.getElementById("InternalShelving2_S4_1").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect4_1").value = '0'
+                            self.scene.remove(self.shelvingGroup_section4_1);      
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_1`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_1").value = '0';
+                            document.getElementById("ShoeShelving_sect4_1").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "none";
                             document.getElementById("InternalShelving_S4_1").checked = false;
+                            document.getElementById("ShoeShelving_S4_1").checked = false;
+                            
                         } else {}
     
-                        if ( self.options.shelvesCounterSection4_2 != 0 ) {           
+                        if ( self.options.shelvesCounterSection4_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection4_2 = 0
-                            self.scene.remove(self.shelvingGroup_section4_2);
-    
-                            document.getElementById("InternalShelving1_S4_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S4_2").style.display = "none";
-                            document.getElementById("internalShelving_sect4_2").value = '0'
+                            self.scene.remove(self.shelvingGroup_section4_2); 
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_2").value = '0';
+                            document.getElementById("ShoeShelving_sect4_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
                             document.getElementById("InternalShelving_S4_2").checked = false;
+                            document.getElementById("ShoeShelving_S4_2").checked = false;
+                            
                         } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -35857,28 +36794,36 @@
                             self.options.s4_2_doorStatus = 1;
                         }
                
-    
                         if ( self.options.shelvesCounterSection4_1 != 0 ) {
+                            
                             self.options.shelvesCounterSection4_1 = 0
-                            self.scene.remove(self.shelvingGroup_section4_1);
-    
-                            document.getElementById("InternalShelving1_S4_1").style.display = "none";
-                            document.getElementById("InternalShelving2_S4_1").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect4_1").value = '0'
+                            self.scene.remove(self.shelvingGroup_section4_1);      
+                            for (var i = 1; i <= 6; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_1`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_1").value = '0';
+                            document.getElementById("ShoeShelving_sect4_1").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "none";
                             document.getElementById("InternalShelving_S4_1").checked = false;
+                            document.getElementById("ShoeShelving_S4_1").checked = false;
+                            
                         } else {}
     
-                        if ( self.options.shelvesCounterSection4_2 != 0 ) {           
+                        if ( self.options.shelvesCounterSection4_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection4_2 = 0
-                            self.scene.remove(self.shelvingGroup_section4_2);
-    
-                            document.getElementById("InternalShelving1_S4_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S4_2").style.display = "none";
-                            document.getElementById("internalShelving_sect4_2").value = '0'
+                            self.scene.remove(self.shelvingGroup_section4_2); 
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_2").value = '0';
+                            document.getElementById("ShoeShelving_sect4_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
                             document.getElementById("InternalShelving_S4_2").checked = false;
+                            document.getElementById("ShoeShelving_S4_2").checked = false;
+                            
                         } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
@@ -35965,31 +36910,37 @@
                             self.options.s4_2_doorStatus = 1;
                         }
     
-                
                         if ( self.options.shelvesCounterSection4_3 != 0 ) {
-                        
+                            
                             self.options.shelvesCounterSection4_3 = 0
-                            self.scene.remove(self.shelvingGroup_section4_3);
-    
-                            document.getElementById("InternalShelving1_S4_3").style.display = "none";
-                            document.getElementById("internalShelving_sect4_3").value = '0'
+                            self.scene.remove(self.shelvingGroup_section4_3);      
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_3").value = '0';
+                            document.getElementById("ShoeShelving_sect4_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
-                            document.getElementById("InternalShelving_S4_3").checked = false;                   
+                            document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
+                            document.getElementById("InternalShelving_S4_3").checked = false;
+                            document.getElementById("ShoeShelving_S4_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection4_2 != 0 ) {
                             
                             self.options.shelvesCounterSection4_2 = 0
-                            self.scene.remove(self.shelvingGroup_section4_2);
-    
-                            document.getElementById("InternalShelving1_S4_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S4_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect4_2").value = '0'
-    
+                            self.scene.remove(self.shelvingGroup_section4_2);        
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_2").value = '0';
+                            document.getElementById("ShoeShelving_sect4_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                            document.getElementById("InternalShelving_S4_2").checked = false;                    
-                        } else { }
+                            document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
+                            document.getElementById("InternalShelving_S4_2").checked = false;
+                            document.getElementById("ShoeShelving_S4_2").checked = false;
+                            
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
             
@@ -36073,29 +37024,37 @@
                             self.options.s4_2_doorStatus = 1;
                         }
                
-    
-                        if ( self.options.shelvesCounterSection4_3 != 0 ) {            
+                        if ( self.options.shelvesCounterSection4_3 != 0 ) {
+                            
                             self.options.shelvesCounterSection4_3 = 0
-                            self.scene.remove(self.shelvingGroup_section4_3);
-    
-                            document.getElementById("InternalShelving1_S4_3").style.display = "none";
-                            document.getElementById("internalShelving_sect4_3").value = '0'
+                            self.scene.remove(self.shelvingGroup_section4_3);      
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_3").value = '0';
+                            document.getElementById("ShoeShelving_sect4_3").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
                             document.getElementById("InternalShelving_S4_3").checked = false;
+                            document.getElementById("ShoeShelving_S4_3").checked = false;
+                            
                         } else {}
     
                         if ( self.options.shelvesCounterSection4_2 != 0 ) {
+                            
                             self.options.shelvesCounterSection4_2 = 0
-                            self.scene.remove(self.shelvingGroup_section4_2);
-    
-                            document.getElementById("InternalShelving1_S4_2").style.display = "none";
-                            document.getElementById("InternalShelving2_S4_2").style.display = "none";
-    
-                            document.getElementById("internalShelving_sect4_2").value = '0'
-    
+                            self.scene.remove(self.shelvingGroup_section4_2);        
+                            for (var i = 1; i <= 5; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_2").value = '0';
+                            document.getElementById("ShoeShelving_sect4_2").value = '0';
                             document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
                             document.getElementById("InternalShelving_S4_2").checked = false;
-                        } else { }
+                            document.getElementById("ShoeShelving_S4_2").checked = false;
+                            
+                        } else {}
     
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
                                 
@@ -36176,6 +37135,37 @@
                             self.options.s4_4_doorStatus = 1;
                         }
     
+                        if ( self.options.shelvesCounterSection4_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_3 = 0
+                            self.scene.remove(self.shelvingGroup_section4_3);
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_3").value = '0';
+                            document.getElementById("ShoeShelving_sect4_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
+                            document.getElementById("InternalShelving_S4_3").checked = false;
+                            document.getElementById("ShoeShelving_S4_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection4_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_4 = 0
+                            self.scene.remove(self.shelvingGroup_section4_4);          
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_4").value = '0';
+                            document.getElementById("ShoeShelving_sect4_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
+                            document.getElementById("InternalShelving_S4_4").checked = false;
+                            document.getElementById("ShoeShelving_S4_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -36257,6 +37247,37 @@
                             self.options.s4_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection4_3 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_3 = 0
+                            self.scene.remove(self.shelvingGroup_section4_3);
+                            for (var i = 1; i <= 4; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_3").value = '0';
+                            document.getElementById("ShoeShelving_sect4_3").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
+                            document.getElementById("InternalShelving_S4_3").checked = false;
+                            document.getElementById("ShoeShelving_S4_3").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection4_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_4 = 0
+                            self.scene.remove(self.shelvingGroup_section4_4);          
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_4").value = '0';
+                            document.getElementById("ShoeShelving_sect4_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
+                            document.getElementById("InternalShelving_S4_4").checked = false;
+                            document.getElementById("ShoeShelving_S4_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
     
@@ -36341,6 +37362,37 @@
                             self.options.s4_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection4_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_5 = 0
+                            self.scene.remove(self.shelvingGroup_section4_5);
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_5").value = '0';
+                            document.getElementById("ShoeShelving_sect4_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
+                            document.getElementById("InternalShelving_S4_5").checked = false;
+                            document.getElementById("ShoeShelving_S4_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection4_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_4 = 0
+                            self.scene.remove(self.shelvingGroup_section4_4);              
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_4").value = '0';
+                            document.getElementById("ShoeShelving_sect4_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
+                            document.getElementById("InternalShelving_S4_4").checked = false;
+                            document.getElementById("ShoeShelving_S4_4").checked = false;
+                            
+                        } else {}
 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -36424,6 +37476,37 @@
                             self.options.s4_4_doorStatus = 1;
                         }
             
+                        if ( self.options.shelvesCounterSection4_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_5 = 0
+                            self.scene.remove(self.shelvingGroup_section4_5);
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_5").value = '0';
+                            document.getElementById("ShoeShelving_sect4_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
+                            document.getElementById("InternalShelving_S4_5").checked = false;
+                            document.getElementById("ShoeShelving_S4_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection4_4 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_4 = 0
+                            self.scene.remove(self.shelvingGroup_section4_4);              
+                            for (var i = 1; i <= 3; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_4").value = '0';
+                            document.getElementById("ShoeShelving_sect4_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
+                            document.getElementById("InternalShelving_S4_4").checked = false;
+                            document.getElementById("ShoeShelving_S4_4").checked = false;
+                            
+                        } else {}
                 
                         if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
 
@@ -36486,6 +37569,435 @@
             document.getElementById("moveHorizontalPartitionS4_4_DownButton").addEventListener('click', moveDownhorizontalDividerSection4_4); 
             document.getElementById("moveHorizontalPartitionS4_4__2_DownButton").addEventListener('click', moveDownhorizontalDividerSection4_4);    
          
+
+            //4_5 MOVE UP
+            function moveUphorizontalDividerSection4_5() {
+                if ( self.options.shelvesCounterSection4_5 != 0 || self.scene.getObjectByName( "doorSection4_5Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_5Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined ) {
+                    if (confirm('Are you sure you want to change dimensions of this section? Such change might impact progress within the compartments and some of the product elements might be lost')) {
+
+                        if (self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+                
+                        if (self.scene.getObjectByName( "doorSection4_5Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_5Group'))
+                            self.options.s4_5_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_5Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_5Group'))
+                            self.options.s4_5_doorStatus = 1;
+                        }
+            
+                        if ( self.options.shelvesCounterSection4_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_5 = 0
+                            self.scene.remove(self.shelvingGroup_section4_5);  
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_5`).style.display = "none";
+                            }
+                            document.getElementById("internalShelving_sect4_5").value = '0';
+                            document.getElementById("ShoeShelving_sect4_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
+                            document.getElementById("InternalShelving_S4_5").checked = false;
+                            document.getElementById("ShoeShelving_S4_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection4_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_6 = 0
+                            self.scene.remove(self.shelvingGroup_section4_6);
+                            document.getElementById("InternalShelving1_S4_6").style.display = "none";
+                            document.getElementById("internalShelving_sect4_6").value = '0';
+                            document.getElementById("ShoeShelving_sect4_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
+                            document.getElementById("InternalShelving_S4_6").checked = false;
+                            document.getElementById("ShoeShelving_S4_6").checked = false;
+                            
+                        } else {}
+
+                        if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                            self.options.sectionHeight_4_6 -= 1.05;
+                            self.options.sectionHeight_4_5 += 1.05;
+
+
+                            self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y += 1.05
+                            
+                            self.createWireframeBack_section4_5();
+                            self.createRayCastRecieverSection4_5();
+
+                            self.createWireframeBack_section4_6();
+                            self.createRayCastRecieverSection4_6(); 
+
+                            document.getElementById("Height_HorizontalPartition_S4_5").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+
+                            document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+                            
+
+                        } else {showHintPanel("A compartment’s minimum height has been reached.");};
+
+
+                    }else {
+                        
+                        return;
+                    }
+                } else{
+                    if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                        self.options.sectionHeight_4_6 -= 1.05;
+                        self.options.sectionHeight_4_5 += 1.05;
+
+
+                        self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y += 1.05
+                        
+                        self.createWireframeBack_section4_5();
+                        self.createRayCastRecieverSection4_5();
+
+                        self.createWireframeBack_section4_6();
+                        self.createRayCastRecieverSection4_6(); 
+
+                        document.getElementById("Height_HorizontalPartition_S4_5").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+
+                        document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+                        
+
+                    } else {showHintPanel("A compartment’s minimum height has been reached.");};
+                }
+
+                self.updateDoorButtons();
+                self.calculateOutput();
+                if (self.options.statusShowDimensions == 1) {
+                    self.createDimensions();
+                }
+
+            };
+            document.getElementById("moveHorizontalPartitionS4_5_UpButton").addEventListener('click', moveUphorizontalDividerSection4_5); 
+            document.getElementById("moveHorizontalPartitionS4_5__2_UpButton").addEventListener('click', moveUphorizontalDividerSection4_5); 
+
+            //4_5 MOVE DOWN
+            function moveDownhorizontalDividerSection4_5() {
+                if ( self.options.shelvesCounterSection4_5 != 0 || self.scene.getObjectByName( "doorSection4_5Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_5Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined ) {
+                    if (confirm('Are you sure you want to change dimensions of this section? Such change might impact progress within the compartments and some of the product elements might be lost')) {
+
+                        if (self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+                
+                        if (self.scene.getObjectByName( "doorSection4_5Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_5Group'))
+                            self.options.s4_5_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_5Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_5Group'))
+                            self.options.s4_5_doorStatus = 1;
+                        }
+            
+                        if ( self.options.shelvesCounterSection4_5 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_5 = 0
+                            self.scene.remove(self.shelvingGroup_section4_5);
+                            
+                            for (var i = 1; i <= 2; i++) {
+                                document.getElementById(`InternalShelving${i}_S4_5`).style.display = "none";
+                            }
+
+                            document.getElementById("internalShelving_sect4_5").value = '0';
+                            document.getElementById("ShoeShelving_sect4_5").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
+                            document.getElementById("InternalShelving_S4_5").checked = false;
+                            document.getElementById("ShoeShelving_S4_5").checked = false;
+                            
+                        } else {}
+    
+                        if ( self.options.shelvesCounterSection4_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_6 = 0
+                            self.scene.remove(self.shelvingGroup_section4_6);
+                            
+                            document.getElementById("InternalShelving1_S4_6").style.display = "none";
+
+                            document.getElementById("internalShelving_sect4_4").value = '0';
+                            document.getElementById("ShoeShelving_sect4_4").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
+                            document.getElementById("InternalShelving_S4_4").checked = false;
+                            document.getElementById("ShoeShelving_S4_4").checked = false;
+                            
+                        } else {}
+                
+                        if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                            self.options.sectionHeight_4_6 += 1.05;
+                            self.options.sectionHeight_4_5 -= 1.05;
+
+                            self.options.sectionHeight_4_6_positionY -= 1.05
+
+                            self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y -= 1.05
+                            
+                            self.createWireframeBack_section4_6();
+                            self.createRayCastRecieverSection4_6();
+
+                            self.createWireframeBack_section4_5();
+                            self.createRayCastRecieverSection4_5(); 
+
+                            document.getElementById("Height_HorizontalPartition_S4_5").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+
+                            document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+                            
+
+                        } else {showHintPanel("A compartment’s minimum height has been reached.");};
+
+
+                    }else {
+                        
+                        return;
+                    }
+                } else{
+                    if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                        self.options.sectionHeight_4_6 += 1.05;
+                        self.options.sectionHeight_4_5 -= 1.05;
+
+                        self.options.sectionHeight_4_6_positionY -= 1.05
+
+                        self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y -= 1.05
+                        
+                        self.createWireframeBack_section4_6();
+                        self.createRayCastRecieverSection4_6();
+
+                        self.createWireframeBack_section4_5();
+                        self.createRayCastRecieverSection4_5();
+                        
+                        document.getElementById("Height_HorizontalPartition_S4_5").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+
+                        document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+                        
+
+                    } else {showHintPanel("A compartment’s minimum height has been reached.");};
+                }
+
+                self.updateDoorButtons();
+                self.calculateOutput();
+                if (self.options.statusShowDimensions == 1) {
+                    self.createDimensions();
+                }
+
+            };
+            document.getElementById("moveHorizontalPartitionS4_5_DownButton").addEventListener('click', moveDownhorizontalDividerSection4_5); 
+            document.getElementById("moveHorizontalPartitionS4_5__2_DownButton").addEventListener('click', moveDownhorizontalDividerSection4_5);
+
+            //4_6 MOVE UP
+            function moveUphorizontalDividerSection4_6() {
+                if ( self.options.shelvesCounterSection4_6 != 0 || self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_7Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_7Group", true ) != undefined ) {
+                    if (confirm('Are you sure you want to change dimensions of this section? Such change might impact progress within the compartments and some of the product elements might be lost')) {
+
+                        if (self.scene.getObjectByName( "doorSection4_7Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_7Group'))
+                            self.options.s4_7_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_7Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_7Group'))
+                            self.options.s4_7_doorStatus = 1;
+                        }
+                
+                        if (self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+    
+                        if ( self.options.shelvesCounterSection4_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_6 = 0
+                            self.scene.remove(self.shelvingGroup_section4_6);
+                            
+                            document.getElementById("InternalShelving1_S4_6").style.display = "none";
+
+                            document.getElementById("internalShelving_sect4_6").value = '0';
+                            document.getElementById("ShoeShelving_sect4_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
+                            document.getElementById("InternalShelving_S4_6").checked = false;
+                            document.getElementById("ShoeShelving_S4_6").checked = false;
+                            
+                        } else {}
+
+                        if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                            self.options.sectionHeight_4_7 -= 1.05;
+                            self.options.sectionHeight_4_6 += 1.05;
+
+
+                            self.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y += 1.05
+                            
+                            self.createWireframeBack_section4_6();
+                            self.createRayCastRecieverSection4_6();
+
+                            self.createWireframeBack_section4_7();
+                            self.createRayCastRecieverSection4_7(); 
+
+                            document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+
+                            document.getElementById("Height_HorizontalPartition_S4_7").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+                            
+
+                        } else {showHintPanel("A compartment’s minimum height has been reached.");};
+
+
+                    }else {
+                        
+                        return;
+                    }
+                } else{
+                    if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                        self.options.sectionHeight_4_7 -= 1.05;
+                        self.options.sectionHeight_4_6 += 1.05;
+
+
+                        self.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y += 1.05
+                        
+                        self.createWireframeBack_section4_6();
+                        self.createRayCastRecieverSection4_6();
+
+                        self.createWireframeBack_section4_7();
+                        self.createRayCastRecieverSection4_7(); 
+
+                        document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+
+                        document.getElementById("Height_HorizontalPartition_S4_7").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+                        
+
+                    } else {showHintPanel("A compartment’s minimum height has been reached.");};
+                }
+
+                self.updateDoorButtons();
+                self.calculateOutput();
+                if (self.options.statusShowDimensions == 1) {
+                    self.createDimensions();
+                }
+
+            };
+            document.getElementById("moveHorizontalPartitionS4_6_UpButton").addEventListener('click', moveUphorizontalDividerSection4_6); 
+            document.getElementById("moveHorizontalPartitionS4_6__2_UpButton").addEventListener('click', moveUphorizontalDividerSection4_6); 
+
+            //4_6 MOVE DOWN
+            function moveDownhorizontalDividerSection4_6() {
+                if ( self.options.shelvesCounterSection4_6 != 0 || self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined || self.scene.getObjectByName( "drawerSection4_7Group", true ) != undefined || self.scene.getObjectByName( "doorSection4_7Group", true ) != undefined ) {
+                    if (confirm('Are you sure you want to change dimensions of this section? Such change might impact progress within the compartments and some of the product elements might be lost')) {
+
+                        if (self.scene.getObjectByName( "doorSection4_7Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_7Group'))
+                            self.options.s4_7_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_7Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_7Group'))
+                            self.options.s4_7_doorStatus = 1;
+                        }
+                
+                        if (self.scene.getObjectByName( "doorSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('doorSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+                        if (self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined) {
+                            self.scene.remove(self.scene.getObjectByName('drawerSection4_6Group'))
+                            self.options.s4_6_doorStatus = 1;
+                        }
+            
+    
+                        if ( self.options.shelvesCounterSection4_6 != 0 ) {
+                            
+                            self.options.shelvesCounterSection4_6 = 0
+                            self.scene.remove(self.shelvingGroup_section4_6);
+                            
+                            document.getElementById("InternalShelving1_S4_6").style.display = "none";
+
+                            document.getElementById("internalShelving_sect4_6").value = '0';
+                            document.getElementById("ShoeShelving_sect4_6").value = '0';
+                            document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
+                            document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
+                            document.getElementById("InternalShelving_S4_6").checked = false;
+                            document.getElementById("ShoeShelving_S4_6").checked = false;
+                            
+                        } else {}
+                
+                        if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                            self.options.sectionHeight_4_7 += 1.05;
+                            self.options.sectionHeight_4_6 -= 1.05;
+
+                            self.options.sectionHeight_4_7_positionY -= 1.05
+
+                            self.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y -= 1.05
+                            
+                            self.createWireframeBack_section4_7();
+                            self.createRayCastRecieverSection4_7();
+
+                            self.createWireframeBack_section4_6();
+                            self.createRayCastRecieverSection4_6(); 
+
+                            document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+
+                            document.getElementById("Height_HorizontalPartition_S4_7").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+                            
+
+                        } else {showHintPanel("A compartment’s minimum height has been reached.");};
+
+
+                    }else {
+                        
+                        return;
+                    }
+                } else{
+                    if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 ) {
+
+                        self.options.sectionHeight_4_7 += 1.05;
+                        self.options.sectionHeight_4_6 -= 1.05;
+
+                        self.options.sectionHeight_4_7_positionY -= 1.05
+
+                        self.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y -= 1.05
+                        
+                        self.createWireframeBack_section4_7();
+                        self.createRayCastRecieverSection4_7();
+
+                        self.createWireframeBack_section4_6();
+                        self.createRayCastRecieverSection4_6();
+                        
+                        document.getElementById("Height_HorizontalPartition_S4_6").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
+
+                        document.getElementById("Height_HorizontalPartition_S4_7").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
+                        
+
+                    } else {showHintPanel("A compartment’s minimum height has been reached.");};
+                }
+
+                self.updateDoorButtons();
+                self.calculateOutput();
+                if (self.options.statusShowDimensions == 1) {
+                    self.createDimensions();
+                }
+
+            };
+            document.getElementById("moveHorizontalPartitionS4_6_DownButton").addEventListener('click', moveDownhorizontalDividerSection4_6); 
+            document.getElementById("moveHorizontalPartitionS4_6__2_DownButton").addEventListener('click', moveDownhorizontalDividerSection4_6);
     
  
 
@@ -37267,9 +38779,29 @@
                     changeDepth();
                 }
                 if (params.has('f')) {
-                    let value = params.get('f');
-                    document.getElementById("typeFeet").value = value;
+                    self.options.statusLegs = parseFloat(+params.get('f'));
+
+                    switch (self.options.statusLegs) {
+    
+                        case 0: 
+                            document.getElementById("typeFeet").value = "Slider";
+                            self.options.statusLegs = 0;
+                        break;
+            
+                        case 1: 
+                            document.getElementById("typeFeet").value = "Plinth";
+                            self.options.statusLegs = 0;
+                        break;
+            
+                        case 2: 
+                            document.getElementById("typeFeet").value = "MetalLegs";
+                            self.options.statusLegs = 0;
+                        break;
+                        
+                    }
+
                     changeLegs();
+                                 
                 }
 
                 //verticals
@@ -38292,6 +39824,1349 @@
                     };
                 }  
     
+                //internal shelving
+                //s1_1
+                if (params.has('s1_iss')) {
+                    if (params.get("s1_iss") == 1 && params.get("s1_ss") == 'Wood' ) {
+
+                        document.getElementById("InternalShelving_S1").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S1_1").style.display = 'flex';
+                        document.getElementById("internalShelving_sect1_1").value = params.get("s1_isa");
+                        self.options.s1_ShelvingStatus = params.get("s1_ss");
+
+                        var retrievedHeightArrString = params.get('is_1_1_A');
+                        var retrievedHeightArr = JSON.parse(retrievedHeightArrString);
+                    
+                        createInternalShelving_sect1_1();
+
+                        for (let i = 1; i <= retrievedHeightArr.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y = retrievedHeightArr[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = params.get("pf_is1_s1_1");
+                        document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = params.get("pf_is2_s1_1");
+                        document.getElementById("PositionField_InternalShelving3_S1_1").innerHTML = params.get("pf_is3_s1_1");
+                        document.getElementById("PositionField_InternalShelving4_S1_1").innerHTML = params.get("pf_is4_s1_1");
+                        document.getElementById("PositionField_InternalShelving5_S1_1").innerHTML = params.get("pf_is5_s1_1");
+                        document.getElementById("PositionField_InternalShelving6_S1_1").innerHTML = params.get("pf_is6_s1_1");
+
+                        self.options.heigh0Shelf1_1 = params.get("h0S1_1");
+                        self.options.heigh1Shelf1_1 = params.get("h1S1_1");
+                        self.options.heigh2Shelf1_1 = params.get("h2S1_1");
+                        self.options.heigh3Shelf1_1 = params.get("h3S1_1");
+                        self.options.heigh4Shelf1_1 = params.get("h4S1_1");
+                        self.options.heigh5Shelf1_1 = params.get("h5S1_1");
+                        self.options.heigh6Shelf1_1 = params.get("h6S1_1");
+
+
+                    } 
+                    else if (params.get("s1_iss") == 1 && params.get("s1_ss") == 'Shoe' ) {
+                        document.getElementById("ShoeShelving_S1").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S1_1").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect1_1").value = params.get("s1_ssa");
+
+                        self.options.s1_ShelvingStatus = params.get("s1_ss");
+
+                        var retrievedHeightArrString = params.get('is_1_1_A');
+                        var retrievedHeightArr = JSON.parse(retrievedHeightArrString);
+                    
+                        createShoeShelving_sect1_1();
+
+                        for (let i = 1; i <= retrievedHeightArr.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y = retrievedHeightArr[i]
+                        }
+                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = params.get("pf_is1_s1_1");
+                        document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = params.get("pf_is2_s1_1");
+                        document.getElementById("PositionField_InternalShelving3_S1_1").innerHTML = params.get("pf_is3_s1_1");
+                        document.getElementById("PositionField_InternalShelving4_S1_1").innerHTML = params.get("pf_is4_s1_1");
+                        document.getElementById("PositionField_InternalShelving5_S1_1").innerHTML = params.get("pf_is5_s1_1");
+                        document.getElementById("PositionField_InternalShelving6_S1_1").innerHTML = params.get("pf_is6_s1_1");
+
+                        self.options.heigh0Shelf1_1 = params.get("h0S1_1");
+                        self.options.heigh1Shelf1_1 = params.get("h1S1_1");
+                        self.options.heigh2Shelf1_1 = params.get("h2S1_1");
+                        self.options.heigh3Shelf1_1 = params.get("h3S1_1");
+                        self.options.heigh4Shelf1_1 = params.get("h4S1_1");
+                        self.options.heigh5Shelf1_1 = params.get("h5S1_1");
+                        self.options.heigh6Shelf1_1 = params.get("h6S1_1");
+
+                    } else {}
+                }
+                if (params.has('s1_2_iss')) {
+                    if (params.get("s1_2_iss") == 1 && params.get("s1_2_ss") == 'Wood' ) {
+    
+                        document.getElementById("InternalShelving_S1_2").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S1_2").style.display = 'flex';
+                        document.getElementById("internalShelving_sect1_2").value = params.get("s1_2_isa");
+                        self.options.s1_2_ShelvingStatus = params.get("s1_2_ss");
+
+                        var retrievedHeightArrString1_2 = params.get('is_1_2_A');
+                        var retrievedHeightArr1_2 = JSON.parse(retrievedHeightArrString1_2);
+                        
+                        createInternalShelving_sect1_2();
+
+                        for (let i = 1; i <= retrievedHeightArr1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y = retrievedHeightArr1_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = params.get("pf_is1_s1_2");
+                        document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML = params.get("pf_is2_s1_2");
+                        document.getElementById("PositionField_InternalShelving3_S1_2").innerHTML = params.get("pf_is3_s1_2");
+                        document.getElementById("PositionField_InternalShelving4_S1_2").innerHTML = params.get("pf_is4_s1_2");
+                        document.getElementById("PositionField_InternalShelving5_S1_2").innerHTML = params.get("pf_is5_s1_2");
+
+
+                        self.options.heigh0Shelf1_2 = params.get("h0S1_2");
+                        self.options.heigh1Shelf1_2 = params.get("h1S1_2");
+                        self.options.heigh2Shelf1_2 = params.get("h2S1_2");
+                        self.options.heigh3Shelf1_2 = params.get("h3S1_2");
+                        self.options.heigh4Shelf1_2 = params.get("h4S1_2");
+                        self.options.heigh5Shelf1_2 = params.get("h5S1_2");
+
+                    } else if (params.get("s1_2_iss") == 1 && params.get("s1_2_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S1_2").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S1_2").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect1_2").value = params.get("s1_2_ssa");
+                        self.options.s1_2_ShelvingStatus = params.get("s1_2_ss");
+
+                        var retrievedHeightArrString1_2 = params.get('is_1_2_A');
+                        var retrievedHeightArr1_2 = JSON.parse(retrievedHeightArrString1_2);
+                        
+                        createShoeShelving_sect1_2();
+
+                        for (let i = 1; i <= retrievedHeightArr1_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y = retrievedHeightArr1_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = params.get("pf_is1_s1_2");
+                        document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML = params.get("pf_is2_s1_2");
+                        document.getElementById("PositionField_InternalShelving3_S1_2").innerHTML = params.get("pf_is3_s1_2");
+                        document.getElementById("PositionField_InternalShelving4_S1_2").innerHTML = params.get("pf_is4_s1_2");
+                        document.getElementById("PositionField_InternalShelving5_S1_2").innerHTML = params.get("pf_is5_s1_2");
+
+
+                        self.options.heigh0Shelf1_2 = params.get("h0S1_2");
+                        self.options.heigh1Shelf1_2 = params.get("h1S1_2");
+                        self.options.heigh2Shelf1_2 = params.get("h2S1_2");
+                        self.options.heigh3Shelf1_2 = params.get("h3S1_2");
+                        self.options.heigh4Shelf1_2 = params.get("h4S1_2");
+                        self.options.heigh5Shelf1_2 = params.get("h5S1_2");
+                    } else {}
+
+                }
+                if (params.has('s1_3_iss')) {
+                    if (params.get("s1_3_iss") == 1 && params.get("s1_3_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S1_3").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S1_3").style.display = 'flex';
+                        document.getElementById("internalShelving_sect1_3").value = params.get("s1_3_isa");
+                        self.options.s1_3_ShelvingStatus = params.get("s1_3_ss");
+
+                        var retrievedHeightArrString1_3 = params.get('is_1_3_A');
+                        var retrievedHeightArr1_3 = JSON.parse(retrievedHeightArrString1_3);
+                        
+                        createInternalShelving_sect1_3();
+
+                        for (let i = 1; i <= retrievedHeightArr1_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+i).position.y = retrievedHeightArr1_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_3").innerHTML = params.get("pf_is1_s1_3");
+                        document.getElementById("PositionField_InternalShelving2_S1_3").innerHTML = params.get("pf_is2_s1_3");
+                        document.getElementById("PositionField_InternalShelving3_S1_3").innerHTML = params.get("pf_is3_s1_3");
+                        document.getElementById("PositionField_InternalShelving4_S1_3").innerHTML = params.get("pf_is4_s1_3");
+
+
+                        self.options.heigh0Shelf1_3 = params.get("h0S1_3");
+                        self.options.heigh1Shelf1_3 = params.get("h1S1_3");
+                        self.options.heigh2Shelf1_3 = params.get("h2S1_3");
+                        self.options.heigh3Shelf1_3 = params.get("h3S1_3");
+                        self.options.heigh4Shelf1_3 = params.get("h4S1_3");
+
+                    } else if (params.get("s1_3_iss") == 1 && params.get("s1_3_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S1_3").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S1_3").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect1_3").value = params.get("s1_3_isa");
+                        self.options.s1_3_ShelvingStatus = params.get("s1_3_ss");
+
+                        var retrievedHeightArrString1_3 = params.get('is_1_3_A');
+                        var retrievedHeightArr1_3 = JSON.parse(retrievedHeightArrString1_3);
+                        
+                        createShoeShelving_sect1_3();
+
+                        for (let i = 1; i <= retrievedHeightArr1_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+i).position.y = retrievedHeightArr1_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_3").innerHTML = params.get("pf_is1_s1_3");
+                        document.getElementById("PositionField_InternalShelving2_S1_3").innerHTML = params.get("pf_is2_s1_3");
+                        document.getElementById("PositionField_InternalShelving3_S1_3").innerHTML = params.get("pf_is3_s1_3");
+                        document.getElementById("PositionField_InternalShelving4_S1_3").innerHTML = params.get("pf_is4_s1_3");
+
+
+                        self.options.heigh0Shelf1_3 = params.get("h0S1_3");
+                        self.options.heigh1Shelf1_3 = params.get("h1S1_3");
+                        self.options.heigh2Shelf1_3 = params.get("h2S1_3");
+                        self.options.heigh3Shelf1_3 = params.get("h3S1_3");
+                        self.options.heigh4Shelf1_3 = params.get("h4S1_3");
+
+                    } else {}
+                } 
+                if (params.has('s1_4_iss')) {
+                    if (params.get("s1_4_iss") == 1 && params.get("s1_4_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S1_4").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S1_4").style.display = 'flex';
+                        document.getElementById("internalShelving_sect1_4").value = params.get("s1_4_isa");
+                        self.options.s1_4_ShelvingStatus = params.get("s1_4_ss");
+
+                        var retrievedHeightArrString1_4 = params.get('is_1_4_A');
+                        var retrievedHeightArr1_4 = JSON.parse(retrievedHeightArrString1_4);
+                        
+                        createInternalShelving_sect1_4();
+
+                        for (let i = 1; i <= retrievedHeightArr1_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+i).position.y = retrievedHeightArr1_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML = params.get("pf_is1_s1_4");
+                        document.getElementById("PositionField_InternalShelving2_S1_4").innerHTML = params.get("pf_is2_s1_4");
+                        document.getElementById("PositionField_InternalShelving3_S1_4").innerHTML = params.get("pf_is3_s1_4");
+
+
+                        self.options.heigh0Shelf1_4 = params.get("h0S1_4");
+                        self.options.heigh1Shelf1_4 = params.get("h1S1_4");
+                        self.options.heigh2Shelf1_4 = params.get("h2S1_4");
+                        self.options.heigh3Shelf1_4 = params.get("h3S1_4");
+
+
+                    } else if (params.get("s1_4_iss") == 1 && params.get("s1_4_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S1_4").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S1_4").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect1_4").value = params.get("s1_4_isa");
+                        self.options.s1_4_ShelvingStatus = params.get("s1_4_ss");
+
+                        var retrievedHeightArrString1_4 = params.get('is_1_4_A');
+                        var retrievedHeightArr1_4 = JSON.parse(retrievedHeightArrString1_4);
+                        
+                        createShoeShelving_sect1_4();
+
+                        for (let i = 1; i <= retrievedHeightArr1_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+i).position.y = retrievedHeightArr1_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML = params.get("pf_is1_s1_4");
+                        document.getElementById("PositionField_InternalShelving2_S1_4").innerHTML = params.get("pf_is2_s1_4");
+                        document.getElementById("PositionField_InternalShelving3_S1_4").innerHTML = params.get("pf_is3_s1_4");
+
+
+                        self.options.heigh0Shelf1_4 = params.get("h0S1_4");
+                        self.options.heigh1Shelf1_4 = params.get("h1S1_4");
+                        self.options.heigh2Shelf1_4 = params.get("h2S1_4");
+                        self.options.heigh3Shelf1_4 = params.get("h3S1_4");
+
+                    } else {}
+
+                } 
+                if (params.has('s1_5_iss')) {
+                    if (params.get("s1_5_iss") == 1 && params.get("s1_5_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S1_5").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S1_5").style.display = 'flex';
+                        document.getElementById("internalShelving_sect1_5").value = params.get("s1_5_isa");
+                        self.options.s1_5_ShelvingStatus = params.get("s1_5_ss");
+
+                        var retrievedHeightArrString1_5 = params.get('is_1_5_A');
+                        var retrievedHeightArr1_5 = JSON.parse(retrievedHeightArrString1_5);
+                        
+                        createInternalShelving_sect1_5();
+
+                        for (let i = 1; i <= retrievedHeightArr1_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+i).position.y = retrievedHeightArr1_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_5").innerHTML = params.get("pf_is1_s1_5");
+                        document.getElementById("PositionField_InternalShelving2_S1_5").innerHTML = params.get("pf_is2_s1_5");
+
+                        self.options.heigh0Shelf1_5 = params.get("h0S1_5");
+                        self.options.heigh1Shelf1_5 = params.get("h1S1_5");
+                        self.options.heigh2Shelf1_5 = params.get("h2S1_5");
+
+                    } else if (params.get("s1_5_iss") == 1 && params.get("s1_5_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S1_5").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S1_5").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect1_5").value = params.get("s1_5_isa");
+                        self.options.s1_5_ShelvingStatus = params.get("s1_5_ss");
+
+                        var retrievedHeightArrString1_5 = params.get('is_1_5_A');
+                        var retrievedHeightArr1_5 = JSON.parse(retrievedHeightArrString1_5);
+                        
+                        createShoeShelving_sect1_5();
+
+                        for (let i = 1; i <= retrievedHeightArr1_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+i).position.y = retrievedHeightArr1_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_5").innerHTML = params.get("pf_is1_s1_5");
+                        document.getElementById("PositionField_InternalShelving2_S1_5").innerHTML = params.get("pf_is2_s1_5");
+
+                        self.options.heigh0Shelf1_5 = params.get("h0S1_5");
+                        self.options.heigh1Shelf1_5 = params.get("h1S1_5");
+                        self.options.heigh2Shelf1_5 = params.get("h2S1_5");
+
+                    } else {}
+
+                } 
+                if (params.has('s1_6_iss')) {
+                    if (params.get("s1_6_iss") == 1 && params.get("s1_6_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S1_6").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S1_6").style.display = 'flex';
+                        document.getElementById("internalShelving_sect1_6").value = params.get("s1_6_isa");
+                        self.options.s1_6_ShelvingStatus = params.get("s1_6_ss");
+
+                        var retrievedHeightArrString1_6 = params.get('is_1_6_A');
+                        var retrievedHeightArr1_6 = JSON.parse(retrievedHeightArrString1_6);
+                        
+                        createInternalShelving_sect1_6();
+
+                        for (let i = 1; i <= retrievedHeightArr1_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_6_'+'shelf'+i).position.y = retrievedHeightArr1_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_6").innerHTML = params.get("pf_is1_s1_6");
+
+                        self.options.heigh0Shelf1_6 = params.get("h0S1_6");
+                        self.options.heigh1Shelf1_6 = params.get("h1S1_6");
+
+                    } else if (params.get("s1_6_iss") == 1 && params.get("s1_6_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S1_6").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S1_6").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect1_6").value = params.get("s1_6_isa");
+                        self.options.s1_6_ShelvingStatus = params.get("s1_6_ss");
+
+                        var retrievedHeightArrString1_6 = params.get('is_1_6_A');
+                        var retrievedHeightArr1_6 = JSON.parse(retrievedHeightArrString1_6);
+                        
+                        createShoeShelving_sect1_6();
+
+                        for (let i = 1; i <= retrievedHeightArr1_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_1_6_'+'shelf'+i).position.y = retrievedHeightArr1_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S1_6").innerHTML = params.get("pf_is1_s1_6");
+
+                        self.options.heigh0Shelf1_6 = params.get("h0S1_6");
+                        self.options.heigh1Shelf1_6 = params.get("h1S1_6");
+
+                    } else {}
+
+                } 
+
+                //s2_1
+                if (params.has('s2_iss')) {
+                    if (params.get("s2_iss") == 1 && params.get("s2_ss") == 'Wood' ) {
+
+                        document.getElementById("InternalShelving_S2_1").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S2_1").style.display = 'flex';
+                        document.getElementById("internalShelving_sect2_1").value = params.get("s2_isa");
+                        self.options.s2_ShelvingStatus = params.get("s2_ss");
+
+                        var retrievedHeightArrString2_1 = params.get('is_2_1_A');
+                        var retrievedHeightArr2_1 = JSON.parse(retrievedHeightArrString2_1);
+                    
+                        createInternalShelving_sect2_1();
+
+                        for (let i = 1; i <= retrievedHeightArr2_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y = retrievedHeightArr2_1[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = params.get("pf_is1_s2_1");
+                        document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML = params.get("pf_is2_s2_1");
+                        document.getElementById("PositionField_InternalShelving3_S2_1").innerHTML = params.get("pf_is3_s2_1");
+                        document.getElementById("PositionField_InternalShelving4_S2_1").innerHTML = params.get("pf_is4_s2_1");
+                        document.getElementById("PositionField_InternalShelving5_S2_1").innerHTML = params.get("pf_is5_s2_1");
+                        document.getElementById("PositionField_InternalShelving6_S2_1").innerHTML = params.get("pf_is6_s2_1");
+
+                        self.options.heigh0Shelf2_1 = params.get("h0S2_1");
+                        self.options.heigh1Shelf2_1 = params.get("h1S2_1");
+                        self.options.heigh2Shelf2_1 = params.get("h2S2_1");
+                        self.options.heigh3Shelf2_1 = params.get("h3S2_1");
+                        self.options.heigh4Shelf2_1 = params.get("h4S2_1");
+                        self.options.heigh5Shelf2_1 = params.get("h5S2_1");
+                        self.options.heigh6Shelf2_1 = params.get("h6S2_1");
+
+                    }else if (params.get("s1_iss") == 1 && params.get("s1_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S2_1").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S2_1").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect2_1").value = params.get("s2_isa");
+                        self.options.s2_ShelvingStatus = params.get("s2_ss");
+
+                        var retrievedHeightArrString2_1 = params.get('is_2_1_A');
+                        var retrievedHeightArr2_1 = JSON.parse(retrievedHeightArrString2_1);
+                    
+                        createShoeShelving_sect2_1();
+
+                        for (let i = 1; i <= retrievedHeightArr2_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y = retrievedHeightArr2_1[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = params.get("pf_is1_s2_1");
+                        document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML = params.get("pf_is2_s2_1");
+                        document.getElementById("PositionField_InternalShelving3_S2_1").innerHTML = params.get("pf_is3_s2_1");
+                        document.getElementById("PositionField_InternalShelving4_S2_1").innerHTML = params.get("pf_is4_s2_1");
+                        document.getElementById("PositionField_InternalShelving5_S2_1").innerHTML = params.get("pf_is5_s2_1");
+                        document.getElementById("PositionField_InternalShelving6_S2_1").innerHTML = params.get("pf_is6_s2_1");
+
+                        self.options.heigh0Shelf2_1 = params.get("h0S2_1");
+                        self.options.heigh1Shelf2_1 = params.get("h1S2_1");
+                        self.options.heigh2Shelf2_1 = params.get("h2S2_1");
+                        self.options.heigh3Shelf2_1 = params.get("h3S2_1");
+                        self.options.heigh4Shelf2_1 = params.get("h4S2_1");
+                        self.options.heigh5Shelf2_1 = params.get("h5S2_1");
+                        self.options.heigh6Shelf2_1 = params.get("h6S2_1");
+
+                    } else {}
+                }
+                if (params.has('s2_2_iss')) {
+                    if (params.get("s2_2_iss") == 1 && params.get("s2_2_ss") == 'Wood' ) {
+    
+                        document.getElementById("InternalShelving_S2_2").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S2_2").style.display = 'flex';
+                        document.getElementById("internalShelving_sect2_2").value = params.get("s2_2_isa");
+                        self.options.s2_2_ShelvingStatus = params.get("s2_2_ss");
+
+                        var retrievedHeightArrString2_2 = params.get('is_2_2_A');
+                        var retrievedHeightArr2_2 = JSON.parse(retrievedHeightArrString2_2);
+                        
+                        createInternalShelving_sect2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y = retrievedHeightArr2_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = params.get("pf_is1_s2_2");
+                        document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML = params.get("pf_is2_s2_2");
+                        document.getElementById("PositionField_InternalShelving3_S2_2").innerHTML = params.get("pf_is3_s2_2");
+                        document.getElementById("PositionField_InternalShelving4_S2_2").innerHTML = params.get("pf_is4_s2_2");
+                        document.getElementById("PositionField_InternalShelving5_S2_2").innerHTML = params.get("pf_is5_s2_2");
+
+                        self.options.heigh0Shelf2_2 = params.get("h0S2_2");
+                        self.options.heigh1Shelf2_2 = params.get("h1S2_2");
+                        self.options.heigh2Shelf2_2 = params.get("h2S2_2");
+                        self.options.heigh3Shelf2_2 = params.get("h3S2_2");
+                        self.options.heigh4Shelf2_2 = params.get("h4S2_2");
+                        self.options.heigh5Shelf2_2 = params.get("h5S2_2");
+
+                    } else if (params.get("s2_2_iss") == 1 && params.get("s2_2_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S2_2").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S2_2").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect2_2").value = params.get("s2_2_isa");
+                        self.options.s2_2_ShelvingStatus = params.get("s2_2_ss");
+
+                        var retrievedHeightArrString2_2 = params.get('is_2_2_A');
+                        var retrievedHeightArr2_2 = JSON.parse(retrievedHeightArrString2_2);
+                        
+                        createShoeShelving_sect2_2();
+
+                        for (let i = 1; i <= retrievedHeightArr2_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y = retrievedHeightArr2_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = params.get("pf_is1_s2_2");
+                        document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML = params.get("pf_is2_s2_2");
+                        document.getElementById("PositionField_InternalShelving3_S2_2").innerHTML = params.get("pf_is3_s2_2");
+                        document.getElementById("PositionField_InternalShelving4_S2_2").innerHTML = params.get("pf_is4_s2_2");
+                        document.getElementById("PositionField_InternalShelving5_S2_2").innerHTML = params.get("pf_is5_s2_2");
+
+                        self.options.heigh0Shelf2_2 = params.get("h0S2_2");
+                        self.options.heigh1Shelf2_2 = params.get("h1S2_2");
+                        self.options.heigh2Shelf2_2 = params.get("h2S2_2");
+                        self.options.heigh3Shelf2_2 = params.get("h3S2_2");
+                        self.options.heigh4Shelf2_2 = params.get("h4S2_2");
+                        self.options.heigh5Shelf2_2 = params.get("h5S2_2");
+
+                    } else {}
+
+                }
+                if (params.has('s2_3_iss')) {
+                    if (params.get("s2_3_iss") == 1 && params.get("s2_3_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S2_3").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S2_3").style.display = 'flex';
+                        document.getElementById("internalShelving_sect2_3").value = params.get("s2_3_isa");
+                        self.options.s2_3_ShelvingStatus = params.get("s2_3_ss");
+
+                        var retrievedHeightArrString2_3 = params.get('is_2_3_A');
+                        var retrievedHeightArr2_3 = JSON.parse(retrievedHeightArrString2_3);
+                        
+                        createInternalShelving_sect2_3();
+
+                        for (let i = 1; i <= retrievedHeightArr2_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+i).position.y = retrievedHeightArr2_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_3").innerHTML = params.get("pf_is1_s2_3");
+                        document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML = params.get("pf_is2_s2_3");
+                        document.getElementById("PositionField_InternalShelving3_S2_3").innerHTML = params.get("pf_is3_s2_3");
+                        document.getElementById("PositionField_InternalShelving4_S2_3").innerHTML = params.get("pf_is4_s2_3");
+
+                        self.options.heigh0Shelf2_3 = params.get("h0S2_3");
+                        self.options.heigh1Shelf2_3 = params.get("h1S2_3");
+                        self.options.heigh2Shelf2_3 = params.get("h2S2_3");
+                        self.options.heigh3Shelf2_3 = params.get("h3S2_3");
+                        self.options.heigh4Shelf2_3 = params.get("h4S2_3");
+
+                    } else if (params.get("s1_3_iss") == 1 && params.get("s1_3_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S2_3").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S2_3").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect2_3").value = params.get("s2_3_isa");
+                        self.options.s2_3_ShelvingStatus = params.get("s2_3_ss");
+
+                        var retrievedHeightArrString2_3 = params.get('is_2_3_A');
+                        var retrievedHeightArr2_3 = JSON.parse(retrievedHeightArrString2_3);
+                        
+                        createShoeShelving_sect2_3();
+
+                        for (let i = 1; i <= retrievedHeightArr2_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+i).position.y = retrievedHeightArr2_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_3").innerHTML = params.get("pf_is1_s2_3");
+                        document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML = params.get("pf_is2_s2_3");
+                        document.getElementById("PositionField_InternalShelving3_S2_3").innerHTML = params.get("pf_is3_s2_3");
+                        document.getElementById("PositionField_InternalShelving4_S2_3").innerHTML = params.get("pf_is4_s2_3");
+
+                        self.options.heigh0Shelf2_3 = params.get("h0S2_3");
+                        self.options.heigh1Shelf2_3 = params.get("h1S2_3");
+                        self.options.heigh2Shelf2_3 = params.get("h2S2_3");
+                        self.options.heigh3Shelf2_3 = params.get("h3S2_3");
+                        self.options.heigh4Shelf2_3 = params.get("h4S2_3");
+
+                    } else {}
+                }
+                if (params.has('s2_4_iss')) {
+                    if (params.get("s2_4_iss") == 1 && params.get("s2_4_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S2_4").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S2_4").style.display = 'flex';
+                        document.getElementById("internalShelving_sect2_4").value = params.get("s2_4_isa");
+                        self.options.s2_4_ShelvingStatus = params.get("s2_4_ss");
+
+                        var retrievedHeightArrString2_4 = params.get('is_2_4_A');
+                        var retrievedHeightArr2_4 = JSON.parse(retrievedHeightArrString2_4);
+                        
+                        createInternalShelving_sect2_4();
+
+                        for (let i = 1; i <= retrievedHeightArr2_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+i).position.y = retrievedHeightArr2_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_4").innerHTML = params.get("pf_is1_s2_4");
+                        document.getElementById("PositionField_InternalShelving2_S2_4").innerHTML = params.get("pf_is2_s2_4");
+                        document.getElementById("PositionField_InternalShelving3_S2_4").innerHTML = params.get("pf_is3_s2_4");
+
+                        self.options.heigh0Shelf2_4 = params.get("h0S2_4");
+                        self.options.heigh1Shelf2_4 = params.get("h1S2_4");
+                        self.options.heigh2Shelf2_4 = params.get("h2S2_4");
+                        self.options.heigh3Shelf2_4 = params.get("h3S2_4");
+
+                    } else if (params.get("s2_4_iss") == 1 && params.get("s2_4_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S2_4").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S2_4").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect2_4").value = params.get("s2_4_isa");
+                        self.options.s2_4_ShelvingStatus = params.get("s2_4_ss");
+
+                        var retrievedHeightArrString2_4 = params.get('is_2_4_A');
+                        var retrievedHeightArr2_4 = JSON.parse(retrievedHeightArrString2_4);
+                        
+                        createShoeShelving_sect2_4();
+
+                        for (let i = 1; i <= retrievedHeightArr2_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+i).position.y = retrievedHeightArr2_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_4").innerHTML = params.get("pf_is1_s2_4");
+                        document.getElementById("PositionField_InternalShelving2_S2_4").innerHTML = params.get("pf_is2_s2_4");
+                        document.getElementById("PositionField_InternalShelving3_S2_4").innerHTML = params.get("pf_is3_s2_4");
+
+                        self.options.heigh0Shelf2_4 = params.get("h0S2_4");
+                        self.options.heigh1Shelf2_4 = params.get("h1S2_4");
+                        self.options.heigh2Shelf2_4 = params.get("h2S2_4");
+                        self.options.heigh3Shelf2_4 = params.get("h3S2_4");
+
+                    } else {}
+                }
+                if (params.has('s2_5_iss')) {
+                    if (params.get("s2_5_iss") == 1 && params.get("s2_5_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S2_5").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S2_5").style.display = 'flex';
+                        document.getElementById("internalShelving_sect2_5").value = params.get("s2_5_isa");
+                        self.options.s2_5_ShelvingStatus = params.get("s2_5_ss");
+
+                        var retrievedHeightArrString2_5 = params.get('is_2_5_A');
+                        var retrievedHeightArr2_5 = JSON.parse(retrievedHeightArrString2_5);
+                        
+                        createInternalShelving_sect2_5();
+
+                        for (let i = 1; i <= retrievedHeightArr2_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+i).position.y = retrievedHeightArr2_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_5").innerHTML = params.get("pf_is1_s2_5");
+                        document.getElementById("PositionField_InternalShelving2_S2_5").innerHTML = params.get("pf_is2_s2_5");
+
+                        self.options.heigh0Shelf2_5 = params.get("h0S2_5");
+                        self.options.heigh1Shelf2_5 = params.get("h1S2_5");
+                        self.options.heigh2Shelf2_5 = params.get("h2S2_5");
+
+                    } else if (params.get("s2_5_iss") == 1 && params.get("s2_5_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S2_5").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S2_5").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect2_5").value = params.get("s2_5_isa");
+                        self.options.s2_5_ShelvingStatus = params.get("s2_5_ss");
+
+                        var retrievedHeightArrString2_5 = params.get('is_2_5_A');
+                        var retrievedHeightArr2_5 = JSON.parse(retrievedHeightArrString2_5);
+                        
+                        createShoeShelving_sect2_5();
+
+                        for (let i = 1; i <= retrievedHeightArr2_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+i).position.y = retrievedHeightArr2_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_5").innerHTML = params.get("pf_is1_s2_5");
+                        document.getElementById("PositionField_InternalShelving2_S2_5").innerHTML = params.get("pf_is2_s2_5");
+
+                        self.options.heigh0Shelf2_5 = params.get("h0S2_5");
+                        self.options.heigh1Shelf2_5 = params.get("h1S2_5");
+                        self.options.heigh2Shelf2_5 = params.get("h2S2_5");
+
+                    } else {}
+                }
+                if (params.has('s2_6_iss')) {
+                    if (params.get("s2_6_iss") == 1 && params.get("s2_6_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S2_6").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S2_6").style.display = 'flex';
+                        document.getElementById("internalShelving_sect2_6").value = params.get("s2_6_isa");
+                        self.options.s2_6_ShelvingStatus = params.get("s2_6_ss");
+
+                        var retrievedHeightArrString2_6 = params.get('is_2_6_A');
+                        var retrievedHeightArr2_6 = JSON.parse(retrievedHeightArrString2_6);
+                        
+                        createInternalShelving_sect2_6();
+
+                        for (let i = 1; i <= retrievedHeightArr2_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_6_'+'shelf'+i).position.y = retrievedHeightArr2_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_6").innerHTML = params.get("pf_is1_s2_6");
+
+                        self.options.heigh0Shelf2_6 = params.get("h0S2_6");
+                        self.options.heigh1Shelf2_6 = params.get("h1S2_6");
+
+                    } else if (params.get("s2_6_iss") == 1 && params.get("s2_6_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S2_6").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S2_6").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect2_6").value = params.get("s2_6_isa");
+                        self.options.s2_6_ShelvingStatus = params.get("s2_6_ss");
+
+                        var retrievedHeightArrString2_6 = params.get('is_2_6_A');
+                        var retrievedHeightArr2_6 = JSON.parse(retrievedHeightArrString2_6);
+                        
+                        createShoeShelving_sect2_6();
+
+                        for (let i = 1; i <= retrievedHeightArr2_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_2_6_'+'shelf'+i).position.y = retrievedHeightArr2_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S2_6").innerHTML = params.get("pf_is1_s2_6");
+
+                        self.options.heigh0Shelf2_6 = params.get("h0S2_6");
+                        self.options.heigh1Shelf2_6 = params.get("h1S2_6");
+
+                    } else {}
+                }
+
+                //s3_1
+                if (params.has('s3_iss')) {
+                    if (params.get("s3_iss") == 1 && params.get("s3_ss") == 'Wood' ) {
+
+                        document.getElementById("InternalShelving_S3_1").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S3_1").style.display = 'flex';
+                        document.getElementById("internalShelving_sect3_1").value = params.get("s3_isa");
+                        self.options.s3_ShelvingStatus = params.get("s3_ss");
+
+                        var retrievedHeightArrString3_1 = params.get('is_3_1_A');
+                        var retrievedHeightArr3_1 = JSON.parse(retrievedHeightArrString3_1);
+                    
+                        createInternalShelving_sect3_1();
+
+                        for (let i = 1; i <= retrievedHeightArr3_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y = retrievedHeightArr3_1[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = params.get("pf_is1_s3_1");
+                        document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML = params.get("pf_is2_s3_1");
+                        document.getElementById("PositionField_InternalShelving3_S3_1").innerHTML = params.get("pf_is3_s3_1");
+                        document.getElementById("PositionField_InternalShelving4_S3_1").innerHTML = params.get("pf_is4_s3_1");
+                        document.getElementById("PositionField_InternalShelving5_S3_1").innerHTML = params.get("pf_is5_s3_1");
+                        document.getElementById("PositionField_InternalShelving6_S3_1").innerHTML = params.get("pf_is6_s3_1");
+
+
+                        self.options.heigh0Shelf3_1 = params.get("h0S3_1");
+                        self.options.heigh1Shelf3_1 = params.get("h1S3_1");
+                        self.options.heigh2Shelf3_1 = params.get("h2S3_1");
+                        self.options.heigh3Shelf3_1 = params.get("h3S3_1");
+                        self.options.heigh4Shelf3_1 = params.get("h4S3_1");        
+                        self.options.heigh5Shelf3_1 = params.get("h5S3_1");        
+                        self.options.heigh6Shelf3_1 = params.get("h6S3_1");
+
+                    }else if (params.get("s3_iss") == 1 && params.get("s3_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S3_1").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S3_1").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect3_1").value = params.get("s3_isa");
+                        self.options.s3_ShelvingStatus = params.get("s3_ss");
+
+                        var retrievedHeightArrString3_1 = params.get('is_3_1_A');
+                        var retrievedHeightArr3_1 = JSON.parse(retrievedHeightArrString3_1);
+                    
+                        createShoeShelving_sect3_1();
+
+                        for (let i = 1; i <= retrievedHeightArr3_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y = retrievedHeightArr3_1[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = params.get("pf_is1_s3_1");
+                        document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML = params.get("pf_is2_s3_1");
+                        document.getElementById("PositionField_InternalShelving3_S3_1").innerHTML = params.get("pf_is3_s3_1");
+                        document.getElementById("PositionField_InternalShelving4_S3_1").innerHTML = params.get("pf_is4_s3_1");
+                        document.getElementById("PositionField_InternalShelving5_S3_1").innerHTML = params.get("pf_is5_s3_1");
+                        document.getElementById("PositionField_InternalShelving6_S3_1").innerHTML = params.get("pf_is6_s3_1");
+
+                        self.options.heigh0Shelf3_1 = params.get("h0S3_1");
+                        self.options.heigh1Shelf3_1 = params.get("h1S3_1");
+                        self.options.heigh2Shelf3_1 = params.get("h2S3_1");
+                        self.options.heigh3Shelf3_1 = params.get("h3S3_1");
+                        self.options.heigh4Shelf3_1 = params.get("h4S3_1");        
+                        self.options.heigh5Shelf3_1 = params.get("h5S3_1");        
+                        self.options.heigh6Shelf3_1 = params.get("h6S3_1");
+
+                    } else {}
+                }
+                if (params.has('s3_2_iss')) {
+                    if (params.get("s3_2_iss") == 1 && params.get("s3_2_ss") == 'Wood' ) {
+    
+                        document.getElementById("InternalShelving_S3_2").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S3_2").style.display = 'flex';
+                        document.getElementById("internalShelving_sect3_2").value = params.get("s3_2_isa");
+                        self.options.s3_2_ShelvingStatus = params.get("s3_2_ss");
+
+                        var retrievedHeightArrString3_2 = params.get('is_3_2_A');
+                        var retrievedHeightArr3_2 = JSON.parse(retrievedHeightArrString3_2);
+                        
+                        createInternalShelving_sect3_2();
+
+                        for (let i = 1; i <= retrievedHeightArr3_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y = retrievedHeightArr3_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = params.get("pf_is1_s3_2");
+                        document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML = params.get("pf_is2_s3_2");
+                        document.getElementById("PositionField_InternalShelving3_S3_2").innerHTML = params.get("pf_is3_s3_2");
+                        document.getElementById("PositionField_InternalShelving4_S3_2").innerHTML = params.get("pf_is4_s3_2");
+                        document.getElementById("PositionField_InternalShelving5_S3_2").innerHTML = params.get("pf_is5_s3_2");
+
+                        self.options.heigh0Shelf3_2 = params.get("h0S3_2");
+                        self.options.heigh1Shelf3_2 = params.get("h1S3_2");
+                        self.options.heigh2Shelf3_2 = params.get("h2S3_2");
+                        self.options.heigh3Shelf3_2 = params.get("h3S3_2");
+                        self.options.heigh4Shelf3_2 = params.get("h4S3_2");
+                        self.options.heigh5Shelf3_2 = params.get("h5S3_2");
+
+                    } else if (params.get("s3_2_iss") == 1 && params.get("s3_2_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S3_2").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S3_2").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect3_2").value = params.get("s3_2_isa");
+                        self.options.s3_2_ShelvingStatus = params.get("s3_2_ss");
+
+                        var retrievedHeightArrString3_2 = params.get('is_3_2_A');
+                        var retrievedHeightArr3_2 = JSON.parse(retrievedHeightArrString3_2);
+                        
+                        createShoeShelving_sect3_2();
+
+                        for (let i = 1; i <= retrievedHeightArr3_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y = retrievedHeightArr3_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = params.get("pf_is1_s3_2");
+                        document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML = params.get("pf_is2_s3_2");
+                        document.getElementById("PositionField_InternalShelving3_S3_2").innerHTML = params.get("pf_is3_s3_2");
+                        document.getElementById("PositionField_InternalShelving4_S3_2").innerHTML = params.get("pf_is4_s3_2");
+                        document.getElementById("PositionField_InternalShelving5_S3_2").innerHTML = params.get("pf_is5_s3_2");
+
+                        self.options.heigh0Shelf3_2 = params.get("h0S3_2");
+                        self.options.heigh1Shelf3_2 = params.get("h1S3_2");
+                        self.options.heigh2Shelf3_2 = params.get("h2S3_2");
+                        self.options.heigh3Shelf3_2 = params.get("h3S3_2");
+                        self.options.heigh4Shelf3_2 = params.get("h4S3_2");
+                        self.options.heigh5Shelf3_2 = params.get("h5S3_2");
+
+                    } else {}
+
+                }
+                if (params.has('s3_3_iss')) {
+                    if (params.get("s3_3_iss") == 1 && params.get("s3_3_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S3_3").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S3_3").style.display = 'flex';
+                        document.getElementById("internalShelving_sect3_3").value = params.get("s3_3_isa");
+                        self.options.s3_3_ShelvingStatus = params.get("s3_3_ss");
+
+                        var retrievedHeightArrString3_3 = params.get('is_3_3_A');
+                        var retrievedHeightArr3_3 = JSON.parse(retrievedHeightArrString3_3);
+                        
+                        createInternalShelving_sect3_3();
+
+                        for (let i = 1; i <= retrievedHeightArr3_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+i).position.y = retrievedHeightArr3_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_3").innerHTML = params.get("pf_is1_s3_3");
+                        document.getElementById("PositionField_InternalShelving2_S3_3").innerHTML = params.get("pf_is2_s3_3");
+                        document.getElementById("PositionField_InternalShelving3_S3_3").innerHTML = params.get("pf_is3_s3_3");
+                        document.getElementById("PositionField_InternalShelving4_S3_3").innerHTML = params.get("pf_is4_s3_3");
+
+                        self.options.heigh0Shelf3_3 = params.get("h0S3_3");
+                        self.options.heigh1Shelf3_3 = params.get("h1S3_3");
+                        self.options.heigh2Shelf3_3 = params.get("h2S3_3");
+                        self.options.heigh3Shelf3_3 = params.get("h3S3_3");
+                        self.options.heigh4Shelf3_3 = params.get("h4S3_3");
+
+                    } else if (params.get("s1_3_iss") == 1 && params.get("s1_3_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S3_3").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S3_3").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect3_3").value = params.get("s3_3_isa");
+                        self.options.s3_3_ShelvingStatus = params.get("s3_3_ss");
+
+                        var retrievedHeightArrString3_3 = params.get('is_3_3_A');
+                        var retrievedHeightArr3_3 = JSON.parse(retrievedHeightArrString3_3);
+                        
+                        createShoeShelving_sect3_3();
+
+                        for (let i = 1; i <= retrievedHeightArr3_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+i).position.y = retrievedHeightArr3_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_3").innerHTML = params.get("pf_is1_s3_3");
+                        document.getElementById("PositionField_InternalShelving2_S3_3").innerHTML = params.get("pf_is2_s3_3");
+                        document.getElementById("PositionField_InternalShelving3_S3_3").innerHTML = params.get("pf_is3_s3_3");
+                        document.getElementById("PositionField_InternalShelving4_S3_3").innerHTML = params.get("pf_is4_s3_3");
+
+                        self.options.heigh0Shelf3_3 = params.get("h0S3_3");
+                        self.options.heigh1Shelf3_3 = params.get("h1S3_3");
+                        self.options.heigh2Shelf3_3 = params.get("h2S3_3");
+                        self.options.heigh3Shelf3_3 = params.get("h3S3_3");
+                        self.options.heigh4Shelf3_3 = params.get("h4S3_3");
+
+                    } else {}
+                }
+                if (params.has('s3_4_iss')) {
+                    if (params.get("s3_4_iss") == 1 && params.get("s3_4_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S3_4").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S3_4").style.display = 'flex';
+                        document.getElementById("internalShelving_sect3_4").value = params.get("s3_4_isa");
+                        self.options.s3_4_ShelvingStatus = params.get("s3_4_ss");
+
+                        var retrievedHeightArrString3_4 = params.get('is_3_4_A');
+                        var retrievedHeightArr3_4 = JSON.parse(retrievedHeightArrString3_4);
+                        
+                        createInternalShelving_sect3_4();
+
+                        for (let i = 1; i <= retrievedHeightArr3_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+i).position.y = retrievedHeightArr3_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_4").innerHTML = params.get("pf_is1_s3_4");
+                        document.getElementById("PositionField_InternalShelving2_S3_4").innerHTML = params.get("pf_is2_s3_4");
+                        document.getElementById("PositionField_InternalShelving3_S3_4").innerHTML = params.get("pf_is3_s3_4");
+
+                        self.options.heigh0Shelf3_4 = params.get("h0S3_4");
+                        self.options.heigh1Shelf3_4 = params.get("h1S3_4");
+                        self.options.heigh2Shelf3_4 = params.get("h2S3_4");
+                        self.options.heigh3Shelf3_4 = params.get("h3S3_4");
+
+                    } else if (params.get("s3_4_iss") == 1 && params.get("s3_4_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S3_4").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S3_4").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect3_4").value = params.get("s3_4_isa");
+                        self.options.s3_4_ShelvingStatus = params.get("s3_4_ss");
+
+                        var retrievedHeightArrString3_4 = params.get('is_3_4_A');
+                        var retrievedHeightArr3_4 = JSON.parse(retrievedHeightArrString3_4);
+                        
+                        createShoeShelving_sect3_4();
+
+                        for (let i = 1; i <= retrievedHeightArr3_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+i).position.y = retrievedHeightArr3_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_4").innerHTML = params.get("pf_is1_s3_4");
+                        document.getElementById("PositionField_InternalShelving2_S3_4").innerHTML = params.get("pf_is2_s3_4");
+                        document.getElementById("PositionField_InternalShelving3_S3_4").innerHTML = params.get("pf_is3_s3_4");
+
+                        self.options.heigh0Shelf3_4 = params.get("h0S3_4");
+                        self.options.heigh1Shelf3_4 = params.get("h1S3_4");
+                        self.options.heigh2Shelf3_4 = params.get("h2S3_4");
+                        self.options.heigh3Shelf3_4 = params.get("h3S3_4");
+
+                    } else {}
+                }
+                if (params.has('s3_5_iss')) {
+                    if (params.get("s3_5_iss") == 1 && params.get("s3_5_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S3_5").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S3_5").style.display = 'flex';
+                        document.getElementById("internalShelving_sect3_5").value = params.get("s3_5_isa");
+                        self.options.s3_5_ShelvingStatus = params.get("s3_5_ss");
+
+                        var retrievedHeightArrString3_5 = params.get('is_3_5_A');
+                        var retrievedHeightArr3_5 = JSON.parse(retrievedHeightArrString3_5);
+                        
+                        createInternalShelving_sect3_5();
+
+                        for (let i = 1; i <= retrievedHeightArr3_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+i).position.y = retrievedHeightArr3_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_5").innerHTML = params.get("pf_is1_s3_5");
+                        document.getElementById("PositionField_InternalShelving2_S3_5").innerHTML = params.get("pf_is2_s3_5");
+
+                        self.options.heigh0Shelf3_5 = params.get("h0S3_5");
+                        self.options.heigh1Shelf3_5 = params.get("h1S3_5");
+                        self.options.heigh2Shelf3_5 = params.get("h2S3_5");
+
+                    } else if (params.get("s3_5_iss") == 1 && params.get("s3_5_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S3_5").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S3_5").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect3_5").value = params.get("s3_5_isa");
+                        self.options.s3_5_ShelvingStatus = params.get("s3_5_ss");
+
+                        var retrievedHeightArrString3_5 = params.get('is_3_5_A');
+                        var retrievedHeightArr3_5 = JSON.parse(retrievedHeightArrString3_5);
+                        
+                        createShoeShelving_sect3_5();
+
+                        for (let i = 1; i <= retrievedHeightArr3_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+i).position.y = retrievedHeightArr3_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_5").innerHTML = params.get("pf_is1_s3_5");
+                        document.getElementById("PositionField_InternalShelving2_S3_5").innerHTML = params.get("pf_is2_s3_5");
+
+                        self.options.heigh0Shelf3_5 = params.get("h0S3_5");
+                        self.options.heigh1Shelf3_5 = params.get("h1S3_5");
+                        self.options.heigh2Shelf3_5 = params.get("h2S3_5");
+
+                    } else {}
+                }
+                if (params.has('s3_6_iss')) {
+                    if (params.get("s3_6_iss") == 1 && params.get("s3_6_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S3_6").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S3_6").style.display = 'flex';
+                        document.getElementById("internalShelving_sect3_6").value = params.get("s3_6_isa");
+                        self.options.s3_6_ShelvingStatus = params.get("s3_6_ss");
+
+                        var retrievedHeightArrString3_6 = params.get('is_3_6_A');
+                        var retrievedHeightArr3_6 = JSON.parse(retrievedHeightArrString3_6);
+                        
+                        createInternalShelving_sect3_6();
+
+                        for (let i = 1; i <= retrievedHeightArr3_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_6_'+'shelf'+i).position.y = retrievedHeightArr3_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_6").innerHTML = params.get("pf_is1_s3_6");
+
+                        self.options.heigh0Shelf3_6 = params.get("h0S3_6");
+                        self.options.heigh1Shelf3_6 = params.get("h1S3_6");
+
+                    } else if (params.get("s3_6_iss") == 1 && params.get("s3_6_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S3_6").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S3_6").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect3_6").value = params.get("s3_6_isa");
+                        self.options.s3_6_ShelvingStatus = params.get("s3_6_ss");
+
+                        var retrievedHeightArrString3_6 = params.get('is_3_6_A');
+                        var retrievedHeightArr3_6 = JSON.parse(retrievedHeightArrString3_6);
+                        
+                        createShoeShelving_sect3_6();
+
+                        for (let i = 1; i <= retrievedHeightArr3_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_3_6_'+'shelf'+i).position.y = retrievedHeightArr3_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S3_6").innerHTML = params.get("pf_is1_s3_6");
+
+                        self.options.heigh0Shelf3_6 = params.get("h0S3_6");
+                        self.options.heigh1Shelf3_6 = params.get("h1S3_6");
+
+                    } else {}
+                }
+
+                //s4_1
+                if (params.has('s4_iss')) {
+                    if (params.get("s4_iss") == 1 && params.get("s4_ss") == 'Wood' ) {
+
+                        document.getElementById("InternalShelving_S4_1").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S4_1").style.display = 'flex';
+                        document.getElementById("internalShelving_sect4_1").value = params.get("s4_isa");
+                        self.options.s4_ShelvingStatus = params.get("s4_ss");
+
+                        var retrievedHeightArrString4_1 = params.get('is_4_1_A');
+                        var retrievedHeightArr4_1 = JSON.parse(retrievedHeightArrString4_1);
+                    
+                        createInternalShelving_sect4_1();
+
+                        for (let i = 1; i <= retrievedHeightArr4_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y = retrievedHeightArr4_1[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = params.get("pf_is1_s4_1");
+                        document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML = params.get("pf_is2_s4_1");
+                        document.getElementById("PositionField_InternalShelving3_S4_1").innerHTML = params.get("pf_is3_s4_1");
+                        document.getElementById("PositionField_InternalShelving4_S4_1").innerHTML = params.get("pf_is4_s4_1");
+                        document.getElementById("PositionField_InternalShelving5_S4_1").innerHTML = params.get("pf_is5_s4_1");
+                        document.getElementById("PositionField_InternalShelving6_S4_1").innerHTML = params.get("pf_is6_s4_1");
+
+                        self.options.heigh0Shelf4_1 = params.get("h0S4_1");
+                        self.options.heigh1Shelf4_1 = params.get("h1S4_1");
+                        self.options.heigh2Shelf4_1 = params.get("h2S4_1");
+                        self.options.heigh3Shelf4_1 = params.get("h3S4_1");
+                        self.options.heigh4Shelf4_1 = params.get("h4S4_1");   
+                        self.options.heigh5Shelf4_1 = params.get("h5S4_1");   
+                        self.options.heigh6Shelf4_1 = params.get("h6S4_1");   
+                     
+                    }else if (params.get("s4_iss") == 1 && params.get("s4_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S4_1").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S4_1").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect4_1").value = params.get("s4_isa");
+                        self.options.s4_ShelvingStatus = params.get("s4_ss");
+
+                        var retrievedHeightArrString4_1 = params.get('is_4_1_A');
+                        var retrievedHeightArr4_1 = JSON.parse(retrievedHeightArrString4_1);
+                    
+                        createShoeShelving_sect4_1();
+
+                        for (let i = 1; i <= retrievedHeightArr4_1.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y = retrievedHeightArr4_1[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = params.get("pf_is1_s4_1");
+                        document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML = params.get("pf_is2_s4_1");
+                        document.getElementById("PositionField_InternalShelving3_S4_1").innerHTML = params.get("pf_is3_s4_1");
+                        document.getElementById("PositionField_InternalShelving4_S4_1").innerHTML = params.get("pf_is4_s4_1");
+                        document.getElementById("PositionField_InternalShelving5_S4_1").innerHTML = params.get("pf_is5_s4_1");
+                        document.getElementById("PositionField_InternalShelving6_S4_1").innerHTML = params.get("pf_is6_s4_1");
+
+                        self.options.heigh0Shelf4_1 = params.get("h0S4_1");
+                        self.options.heigh1Shelf4_1 = params.get("h1S4_1");
+                        self.options.heigh2Shelf4_1 = params.get("h2S4_1");
+                        self.options.heigh3Shelf4_1 = params.get("h3S4_1");
+                        self.options.heigh4Shelf4_1 = params.get("h4S4_1");   
+                        self.options.heigh5Shelf4_1 = params.get("h5S4_1");   
+                        self.options.heigh6Shelf4_1 = params.get("h6S4_1"); 
+
+                    } else {}
+                }
+                if (params.has('s4_2_iss')) {
+                    if (params.get("s4_2_iss") == 1 && params.get("s4_2_ss") == 'Wood' ) {
+    
+                        document.getElementById("InternalShelving_S4_2").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S4_2").style.display = 'flex';
+                        document.getElementById("internalShelving_sect4_2").value = params.get("s4_2_isa");
+                        self.options.s4_2_ShelvingStatus = params.get("s4_2_ss");
+
+                        var retrievedHeightArrString4_2 = params.get('is_4_2_A');
+                        var retrievedHeightArr4_2 = JSON.parse(retrievedHeightArrString4_2);
+                        
+                        createInternalShelving_sect4_2();
+
+                        for (let i = 1; i <= retrievedHeightArr4_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y = retrievedHeightArr4_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = params.get("pf_is1_s4_2");
+                        document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML = params.get("pf_is2_s4_2");
+                        document.getElementById("PositionField_InternalShelving3_S4_2").innerHTML = params.get("pf_is3_s4_2");
+                        document.getElementById("PositionField_InternalShelving4_S4_2").innerHTML = params.get("pf_is4_s4_2");
+                        document.getElementById("PositionField_InternalShelving5_S4_2").innerHTML = params.get("pf_is5_s4_2");
+
+                        self.options.heigh0Shelf4_2 = params.get("h0S4_2");
+                        self.options.heigh1Shelf4_2 = params.get("h1S4_2");
+                        self.options.heigh2Shelf4_2 = params.get("h2S4_2");
+                        self.options.heigh3Shelf4_2 = params.get("h3S4_2");
+                        self.options.heigh4Shelf4_2 = params.get("h4S4_2");
+                        self.options.heigh5Shelf4_2 = params.get("h5S4_2");
+
+                    } else if (params.get("s4_2_iss") == 1 && params.get("s4_2_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S4_2").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S4_2").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect4_2").value = params.get("s4_2_isa");
+                        self.options.s4_2_ShelvingStatus = params.get("s4_2_ss");
+
+                        var retrievedHeightArrString4_2 = params.get('is_4_2_A');
+                        var retrievedHeightArr4_2 = JSON.parse(retrievedHeightArrString4_2);
+                        
+                        createShoeShelving_sect4_2();
+
+                        for (let i = 1; i <= retrievedHeightArr4_2.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y = retrievedHeightArr4_2[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = params.get("pf_is1_s4_2");
+                        document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML = params.get("pf_is2_s4_2");
+                        document.getElementById("PositionField_InternalShelving3_S4_2").innerHTML = params.get("pf_is3_s4_2");
+                        document.getElementById("PositionField_InternalShelving4_S4_2").innerHTML = params.get("pf_is4_s4_2");
+                        document.getElementById("PositionField_InternalShelving5_S4_2").innerHTML = params.get("pf_is5_s4_2");
+
+                        self.options.heigh0Shelf4_2 = params.get("h0S4_2");
+                        self.options.heigh1Shelf4_2 = params.get("h1S4_2");
+                        self.options.heigh2Shelf4_2 = params.get("h2S4_2");
+                        self.options.heigh3Shelf4_2 = params.get("h3S4_2");
+                        self.options.heigh4Shelf4_2 = params.get("h4S4_2");
+                        self.options.heigh5Shelf4_2 = params.get("h5S4_2");
+
+                    } else {}
+
+                }
+                if (params.has('s4_3_iss')) {
+                    if (params.get("s4_3_iss") == 1 && params.get("s4_3_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S4_3").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S4_3").style.display = 'flex';
+                        document.getElementById("internalShelving_sect4_3").value = params.get("s4_3_isa");
+                        self.options.s4_3_ShelvingStatus = params.get("s4_3_ss");
+                        
+                        var retrievedHeightArrString4_3 = params.get('is_4_3_A');
+                        var retrievedHeightArr4_3 = JSON.parse(retrievedHeightArrString4_3);
+                        
+                        createInternalShelving_sect4_3();
+
+                        for (let i = 1; i <= retrievedHeightArr4_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+i).position.y = retrievedHeightArr4_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_3").innerHTML = params.get("pf_is1_s4_3");
+                        document.getElementById("PositionField_InternalShelving2_S4_3").innerHTML = params.get("pf_is2_s4_3");
+                        document.getElementById("PositionField_InternalShelving3_S4_3").innerHTML = params.get("pf_is3_s4_3");
+                        document.getElementById("PositionField_InternalShelving4_S4_3").innerHTML = params.get("pf_is4_s4_3");
+
+                        self.options.heigh0Shelf4_3 = params.get("h0S4_3");
+                        self.options.heigh1Shelf4_3 = params.get("h1S4_3");
+                        self.options.heigh2Shelf4_3 = params.get("h2S4_3");
+                        self.options.heigh3Shelf4_3 = params.get("h3S4_3");
+                        self.options.heigh4Shelf4_3 = params.get("h4S4_3");
+
+                    } else if (params.get("s1_3_iss") == 1 && params.get("s1_3_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S4_3").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S4_3").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect4_3").value = params.get("s4_3_isa");
+                        self.options.s4_3_ShelvingStatus = params.get("s4_3_ss");
+                        
+                        var retrievedHeightArrString4_3 = params.get('is_4_3_A');
+                        var retrievedHeightArr4_3 = JSON.parse(retrievedHeightArrString4_3);
+                        
+                        createShoeShelving_sect4_3();
+
+                        for (let i = 1; i <= retrievedHeightArr4_3.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+i).position.y = retrievedHeightArr4_3[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_3").innerHTML = params.get("pf_is1_s4_3");
+                        document.getElementById("PositionField_InternalShelving2_S4_3").innerHTML = params.get("pf_is2_s4_3");
+                        document.getElementById("PositionField_InternalShelving3_S4_3").innerHTML = params.get("pf_is3_s4_3");
+                        document.getElementById("PositionField_InternalShelving4_S4_3").innerHTML = params.get("pf_is4_s4_3");
+
+                        self.options.heigh0Shelf4_3 = params.get("h0S4_3");
+                        self.options.heigh1Shelf4_3 = params.get("h1S4_3");
+                        self.options.heigh2Shelf4_3 = params.get("h2S4_3");
+                        self.options.heigh3Shelf4_3 = params.get("h3S4_3");
+                        self.options.heigh4Shelf4_3 = params.get("h4S4_3");
+
+                    } else {}
+                }
+                if (params.has('s4_4_iss')) {
+                    if (params.get("s4_4_iss") == 1 && params.get("s4_4_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S4_4").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S4_4").style.display = 'flex';
+                        document.getElementById("internalShelving_sect4_4").value = params.get("s4_4_isa");
+                        self.options.s4_4_ShelvingStatus = params.get("s4_4_ss");
+
+                        var retrievedHeightArrString4_4 = params.get('is_4_4_A');
+                        var retrievedHeightArr4_4 = JSON.parse(retrievedHeightArrString4_4);
+                        
+                        createInternalShelving_sect4_4();
+
+                        for (let i = 1; i <= retrievedHeightArr4_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+i).position.y = retrievedHeightArr4_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_4").innerHTML = params.get("pf_is1_s4_4");
+                        document.getElementById("PositionField_InternalShelving2_S4_4").innerHTML = params.get("pf_is2_s4_4");
+                        document.getElementById("PositionField_InternalShelving3_S4_4").innerHTML = params.get("pf_is3_s4_4");
+
+                        self.options.heigh0Shelf4_4 = params.get("h0S4_4");
+                        self.options.heigh1Shelf4_4 = params.get("h1S4_4");
+                        self.options.heigh2Shelf4_4 = params.get("h2S4_4");
+                        self.options.heigh3Shelf4_4 = params.get("h3S4_4");
+                    
+                    } else if (params.get("s4_4_iss") == 1 && params.get("s4_4_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S4_4").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S4_4").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect4_4").value = params.get("s4_4_isa");
+                        self.options.s4_4_ShelvingStatus = params.get("s4_4_ss");
+
+                        var retrievedHeightArrString4_4 = params.get('is_4_4_A');
+                        var retrievedHeightArr4_4 = JSON.parse(retrievedHeightArrString4_4);
+                        
+                        createShoeShelving_sect4_4();
+
+                        for (let i = 1; i <= retrievedHeightArr4_4.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+i).position.y = retrievedHeightArr4_4[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_4").innerHTML = params.get("pf_is1_s4_4");
+                        document.getElementById("PositionField_InternalShelving2_S4_4").innerHTML = params.get("pf_is2_s4_4");
+                        document.getElementById("PositionField_InternalShelving3_S4_4").innerHTML = params.get("pf_is3_s4_4");
+
+                        self.options.heigh0Shelf4_4 = params.get("h0S4_4");
+                        self.options.heigh1Shelf4_4 = params.get("h1S4_4");
+                        self.options.heigh2Shelf4_4 = params.get("h2S4_4");
+                        self.options.heigh3Shelf4_4 = params.get("h3S4_4");
+
+                    } else {}
+                }  
+                if (params.has('s4_5_iss')) {
+                    if (params.get("s4_5_iss") == 1 && params.get("s4_5_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S4_5").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S4_5").style.display = 'flex';
+                        document.getElementById("internalShelving_sect4_5").value = params.get("s4_5_isa");
+                        self.options.s4_5_ShelvingStatus = params.get("s4_5_ss");
+
+                        var retrievedHeightArrString4_5 = params.get('is_4_5_A');
+                        var retrievedHeightArr4_5 = JSON.parse(retrievedHeightArrString4_5);
+                        
+                        createInternalShelving_sect4_5();
+
+                        for (let i = 1; i <= retrievedHeightArr4_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+i).position.y = retrievedHeightArr4_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_5").innerHTML = params.get("pf_is1_s4_5");
+                        document.getElementById("PositionField_InternalShelving2_S4_5").innerHTML = params.get("pf_is2_s4_5");
+
+                        self.options.heigh0Shelf4_5 = params.get("h0S4_5");
+                        self.options.heigh1Shelf4_5 = params.get("h1S4_5");
+                        self.options.heigh2Shelf4_5 = params.get("h2S4_5");
+                    
+                    } else if (params.get("s4_5_iss") == 1 && params.get("s4_5_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S4_5").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S4_5").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect4_5").value = params.get("s4_5_isa");
+                        self.options.s4_5_ShelvingStatus = params.get("s4_5_ss");
+
+                        var retrievedHeightArrString4_5 = params.get('is_4_5_A');
+                        var retrievedHeightArr4_5 = JSON.parse(retrievedHeightArrString4_5);
+                        
+                        createShoeShelving_sect4_5();
+
+                        for (let i = 1; i <= retrievedHeightArr4_5.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+i).position.y = retrievedHeightArr4_5[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_5").innerHTML = params.get("pf_is1_s4_5");
+                        document.getElementById("PositionField_InternalShelving2_S4_5").innerHTML = params.get("pf_is2_s4_5");
+
+                        self.options.heigh0Shelf4_5 = params.get("h0S4_5");
+                        self.options.heigh1Shelf4_5 = params.get("h1S4_5");
+                        self.options.heigh2Shelf4_5 = params.get("h2S4_5");
+
+                    } else {}
+                }
+                if (params.has('s4_6_iss')) {
+                    if (params.get("s4_6_iss") == 1 && params.get("s4_6_ss") == 'Wood' ) {
+        
+                        document.getElementById("InternalShelving_S4_6").checked = true;
+                        document.getElementById("sectionMoveInternalShelving_S4_6").style.display = 'flex';
+                        document.getElementById("internalShelving_sect4_6").value = params.get("s4_6_isa");
+                        self.options.s4_6_ShelvingStatus = params.get("s4_6_ss");
+
+                        var retrievedHeightArrString4_6 = params.get('is_4_6_A');
+                        var retrievedHeightArr4_6 = JSON.parse(retrievedHeightArrString4_6);
+                        
+                        createInternalShelving_sect4_6();
+
+                        for (let i = 1; i <= retrievedHeightArr4_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_6_'+'shelf'+i).position.y = retrievedHeightArr4_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_6").innerHTML = params.get("pf_is1_s4_6");
+
+                        self.options.heigh0Shelf4_6 = params.get("h0S4_6");
+                        self.options.heigh1Shelf4_6 = params.get("h1S4_6");
+                    
+                    } else if (params.get("s4_6_iss") == 1 && params.get("s4_6_ss") == 'Shoe' ) {
+
+                        document.getElementById("ShoeShelving_S4_6").checked = true;
+                        document.getElementById("sectionAmountShoeShelving_S4_6").style.display = 'flex';
+                        document.getElementById("ShoeShelving_sect4_6").value = params.get("s4_6_isa");
+                        self.options.s4_6_ShelvingStatus = params.get("s4_6_ss");
+
+                        var retrievedHeightArrString4_6 = params.get('is_4_6_A');
+                        var retrievedHeightArr4_6 = JSON.parse(retrievedHeightArrString4_6);
+                        
+                        createShoeShelving_sect4_6();
+
+                        for (let i = 1; i <= retrievedHeightArr4_6.length - 1 ; i++) {
+                            self.scene.getObjectByName('internalShelf_4_6_'+'shelf'+i).position.y = retrievedHeightArr4_6[i]
+                        }
+
+                        document.getElementById("PositionField_InternalShelving1_S4_6").innerHTML = params.get("pf_is1_s4_6");
+
+                        self.options.heigh0Shelf4_6 = params.get("h0S4_6");
+                        self.options.heigh1Shelf4_6 = params.get("h1S4_6");
+
+                    } else {}
+                }
     
     
                //handles
@@ -38319,7 +41194,7 @@
                 params.set('h', parseInt(document.getElementById("subdomainHeightCabinet_Dimensions").value, 10));
                 params.set('d', parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10));
     
-                params.set('f', document.getElementById("typeFeet").value);
+                params.set('f', self.options.statusLegs);
                 
                 //verticals 
                 params.set('v', parseInt(document.getElementById("subdomainNumberElementCorpus_Cabinet_Dimensionsz").value, 10));
@@ -38525,6 +41400,64 @@
                     params.set("ovHHP_S3_7", parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) );
                     params.set('H_S3_7', self.options.sectionHeight_3_7);
                 }   
+
+
+                //s4 horizontals
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_1")) {
+                    params.set('RCS4_1_pY', self.scene.getObjectByName( "RayCastRecieverSection4_1").position.y ); 
+                    params.set('WRS4_1_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_1").position.y) ); 
+                    params.set('H_S4_1', self.options.sectionHeight_4_1); 
+                    params.set("ovHHP_S4_1", parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('s4_AHD', self.options.s4_AmountOfHorDividers);
+                }
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_2") ) {
+                    params.set('RCS4_2_pY', self.scene.getObjectByName( "RayCastRecieverSection4_2").position.y ); 
+                    params.set('WRS4_2_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_2").position.y) ); 
+                    params.set('s4_hDS', self.options.s4_horizDividStatus);
+                    params.set('hDS4_1', self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y ); 
+                    params.set("ovHHP_S4_2", parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('H_S4_2', self.options.sectionHeight_4_2); 
+                } 
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_3")) {
+                    params.set('RCS4_4_pY', self.scene.getObjectByName( "RayCastRecieverSection4_3").position.y ); 
+                    params.set('WRS4_3_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_3").position.y) ); 
+                    params.set('s4_2_hDS', self.options.s4_2_horizDividStatus);
+                    params.set('hDS4_2', self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y ); 
+                    params.set("ovHHP_S4_3", parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('H_S4_3', self.options.sectionHeight_4_3);
+                }
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_4")) {
+                    params.set('RCS4_4_pY', self.scene.getObjectByName( "RayCastRecieverSection4_4").position.y ); 
+                    params.set('WRS4_4_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_4").position.y) ); 
+                    params.set('s4_3_hDS', self.options.s4_3_horizDividStatus);
+                    params.set('hDS4_3', self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y ); 
+                    params.set("ovHHP_S4_4", parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('H_S4_4', self.options.sectionHeight_4_4);
+                }
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_5")) {
+                    params.set('RCS4_5_pY', self.scene.getObjectByName( "RayCastRecieverSection4_5").position.y ); 
+                    params.set('WRS4_5_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_5").position.y) ); 
+                    params.set('s4_4_hDS', self.options.s4_4_horizDividStatus);
+                    params.set('hDS4_4', self.scene.getObjectByName( "horizontalDividerSection4_4", true ).position.y ); 
+                    params.set("ovHHP_S4_5", parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('H_S4_5', self.options.sectionHeight_4_5);
+                } 
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_6")) {
+                    params.set('RCS4_6_pY', self.scene.getObjectByName( "RayCastRecieverSection4_6").position.y ); 
+                    params.set('WRS4_6_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_6").position.y) ); 
+                    params.set('s4_5_hDS', self.options.s4_5_horizDividStatus);
+                    params.set('hDS4_5', self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y ); 
+                    params.set("ovHHP_S4_6", parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('H_S4_6', self.options.sectionHeight_4_6);
+                }   
+                if (self.scene.getObjectByName( "RayCastRecieverSection4_7")) {
+                    params.set('RCS4_7_pY', self.scene.getObjectByName( "RayCastRecieverSection4_7").position.y ); 
+                    params.set('WRS4_7_pY', parseInt(self.scene.getObjectByName( "section4_WireframeMesh4_7").position.y) ); 
+                    params.set('s4_6_hDS', self.options.s4_6_horizDividStatus);
+                    params.set('hDS4_6', self.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y ); 
+                    params.set("ovHHP_S4_7", parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) );
+                    params.set('H_S4_7', self.options.sectionHeight_4_7);
+                }  
                        
                 
                 
@@ -38536,8 +41469,6 @@
                 params.set("s1_5_d", self.options.s1_5_doorStatus);
                 params.set("s1_6_d", self.options.s1_6_doorStatus);
                 params.set("s1_7_d", self.options.s1_7_doorStatus);
-                params.set("s1_8_d", self.options.s1_8_doorStatus);
-                params.set("s1_9_d", self.options.s1_9_doorStatus);
             
                 params.set("s2_d", self.options.s2_doorStatus);
                 params.set("s2_2_d", self.options.s2_2_doorStatus);
@@ -38545,9 +41476,7 @@
                 params.set("s2_4_d", self.options.s2_4_doorStatus);
                 params.set("s2_5_d", self.options.s2_5_doorStatus);
                 params.set("s2_6_d", self.options.s2_6_doorStatus);
-                params.set("s2_7_d", self.options.s2_7_doorStatus);
-                params.set("s2_8_d", self.options.s2_8_doorStatus);
-                params.set("s2_9_d", self.options.s2_9_doorStatus);
+                params.set("s2_7_d", self.options.s2_7_doorStatus);   
 
                 params.set("s3_d", self.options.s3_doorStatus);
                 params.set("s3_2_d", self.options.s3_2_doorStatus);
@@ -38555,9 +41484,722 @@
                 params.set("s3_4_d", self.options.s3_4_doorStatus);
                 params.set("s3_5_d", self.options.s3_5_doorStatus);
                 params.set("s3_6_d", self.options.s3_6_doorStatus);
-                params.set("s3_7_d", self.options.s3_7_doorStatus);
-                params.set("s3_8_d", self.options.s3_8_doorStatus);
-                params.set("s3_9_d", self.options.s3_9_doorStatus);
+                params.set("s3_7_d", self.options.s3_7_doorStatus);     
+
+                params.set("s4_d", self.options.s4_doorStatus);
+                params.set("s4_2_d", self.options.s4_2_doorStatus);
+                params.set("s4_3_d", self.options.s4_3_doorStatus);
+                params.set("s4_4_d", self.options.s4_4_doorStatus);
+                params.set("s4_5_d", self.options.s4_5_doorStatus);
+                params.set("s4_6_d", self.options.s4_6_doorStatus);
+                params.set("s4_7_d", self.options.s4_7_doorStatus);
+                
+
+                //shelving
+                //s1_1
+                if ( self.options.shelvesCounterSection1_1 != 0 ) {
+                    params.set("s1_ss", self.options.s1_ShelvingStatus);
+                    params.set("s1_iss", self.options.s1_internlShelvinStatus);
+                    params.set("s1_isa", document.getElementById("internalShelving_sect1_1").value);
+                    params.set("s1_ssa", document.getElementById("ShoeShelving_sect1_1").value);
+                    params.set("pf_is1_s1_1", document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML);
+                    params.set("pf_is2_s1_1", document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML);
+                    params.set("pf_is3_s1_1", document.getElementById("PositionField_InternalShelving3_S1_1").innerHTML);
+                    params.set("pf_is4_s1_1", document.getElementById("PositionField_InternalShelving4_S1_1").innerHTML);
+                    params.set("pf_is5_s1_1", document.getElementById("PositionField_InternalShelving5_S1_1").innerHTML);
+                    params.set("pf_is5_s1_1", document.getElementById("PositionField_InternalShelving6_S1_1").innerHTML);
+                    var heigh1Shelf1_1 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection1_1; i++) {
+
+                        heigh1Shelf1_1[i] = self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S1_1", self.options.heigh0Shelf1_1 );
+                            params.set("h1S1_1", self.options.heigh1Shelf1_1 );
+                            params.set("h2S1_1", self.options.heigh2Shelf1_1 );
+                            params.set("h3S1_1", self.options.heigh3Shelf1_1 );
+                            params.set("h4S1_1", self.options.heigh4Shelf1_1 );
+                            params.set("h5S1_1", self.options.heigh5Shelf1_1 );
+                            params.set("h6S1_1", self.options.heigh6Shelf1_1 );
+
+                            heigh1Shelf1_1[i] = self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+i).position.y
+
+                        } catch(e){}
+                    }
+                    console.log( JSON.stringify(heigh1Shelf1_1) );
+                    var heigh1Shelf1_1_String = JSON.stringify(heigh1Shelf1_1);
+                    params.set('is_1_1_A',  heigh1Shelf1_1_String);
+
+                } else {}
+
+                //s1_2
+                if ( self.options.shelvesCounterSection1_2 != 0 ) {
+                    params.set("s1_2_ss", self.options.s1_2_ShelvingStatus);
+                    params.set("s1_2_iss", self.options.s1_2_internlShelvinStatus);
+                    params.set("s1_2_isa",  document.getElementById("internalShelving_sect1_2").value);
+                    params.set("s1_2_ssa", document.getElementById("ShoeShelving_sect1_2").value);
+                    params.set("pf_is1_s1_2", document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML);
+                    params.set("pf_is2_s1_2", document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML);
+                    params.set("pf_is3_s1_2", document.getElementById("PositionField_InternalShelving3_S1_2").innerHTML);
+                    params.set("pf_is4_s1_2", document.getElementById("PositionField_InternalShelving4_S1_2").innerHTML);
+                    params.set("pf_is5_s1_2", document.getElementById("PositionField_InternalShelving5_S1_2").innerHTML);
+                    var heigh1Shelf1_2 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection1_2; i++) {
+                
+                        heigh1Shelf1_2[i] = self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S1_2", self.options.heigh0Shelf1_2 );
+                            params.set("h1S1_2", self.options.heigh1Shelf1_2 );
+                            params.set("h2S1_2", self.options.heigh2Shelf1_2 );
+                            params.set("h3S1_2", self.options.heigh3Shelf1_2 );
+                            params.set("h4S1_2", self.options.heigh4Shelf1_2 );
+                            params.set("h5S1_2", self.options.heigh5Shelf1_2 );
+
+                            heigh1Shelf1_2[i] = self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf1_2_String = JSON.stringify(heigh1Shelf1_2);
+                    params.set('is_1_2_A',  heigh1Shelf1_2_String);
+    
+                } else {}
+
+                //s1_3
+                if ( self.options.shelvesCounterSection1_3 != 0 ) {
+                    params.set("s1_3_ss", self.options.s1_3_ShelvingStatus);
+                    params.set("s1_3_iss", self.options.s1_3_internlShelvinStatus);
+                    params.set("s1_3_isa",  document.getElementById("internalShelving_sect1_3").value);
+                    params.set("s1_3_ssa", document.getElementById("ShoeShelving_sect1_3").value);
+                    params.set("pf_is1_s1_3", document.getElementById("PositionField_InternalShelving1_S1_3").innerHTML);
+                    params.set("pf_is2_s1_3", document.getElementById("PositionField_InternalShelving2_S1_3").innerHTML);
+                    params.set("pf_is3_s1_3", document.getElementById("PositionField_InternalShelving3_S1_3").innerHTML);
+                    params.set("pf_is4_s1_3", document.getElementById("PositionField_InternalShelving4_S1_3").innerHTML);
+
+                    var heigh1Shelf1_3 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection1_3; i++) {
+                    heigh1Shelf1_3[i] = self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S1_3", self.options.heigh0Shelf1_3 );
+                            params.set("h1S1_3", self.options.heigh1Shelf1_3 );
+                            params.set("h2S1_3", self.options.heigh2Shelf1_3 );
+                            params.set("h3S1_3", self.options.heigh3Shelf1_3 );
+                            params.set("h4S1_3", self.options.heigh4Shelf1_3 );
+
+                            heigh1Shelf1_3[i] = self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf1_3_String = JSON.stringify(heigh1Shelf1_3);
+                    params.set('is_1_3_A',  heigh1Shelf1_3_String);
+
+                } else {}
+
+
+                //s1_4
+                if ( self.options.shelvesCounterSection1_4 != 0 ) {
+                    params.set("s1_4_ss", self.options.s1_4_ShelvingStatus);
+                    params.set("s1_4_iss", self.options.s1_4_internlShelvinStatus);
+                    params.set("s1_4_isa",  document.getElementById("internalShelving_sect1_4").value);
+                    params.set("s1_4_ssa", document.getElementById("ShoeShelving_sect1_4").value);
+                    params.set("pf_is1_s1_4", document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML);
+                    params.set("pf_is2_s1_4", document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML);
+                    params.set("pf_is3_s1_4", document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML);
+                    
+                    var heigh1Shelf1_4 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection1_4; i++) {
+                    heigh1Shelf1_4[i] = self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S1_4", self.options.heigh0Shelf1_4 );
+                            params.set("h1S1_4", self.options.heigh1Shelf1_4 );
+                            params.set("h2S1_4", self.options.heigh2Shelf1_4 );
+                            params.set("h3S1_4", self.options.heigh3Shelf1_4 );
+
+                            heigh1Shelf1_4[i] = self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf1_4_String = JSON.stringify(heigh1Shelf1_4);
+                    params.set('is_1_4_A',  heigh1Shelf1_4_String);
+
+                } else {}
+
+
+                //s1_5
+                if ( self.options.shelvesCounterSection1_5 != 0 ) {
+                    params.set("s1_5_ss", self.options.s1_5_ShelvingStatus);
+                    params.set("s1_5_iss", self.options.s1_5_internlShelvinStatus);
+                    params.set("s1_5_isa",  document.getElementById("internalShelving_sect1_5").value);
+                    params.set("s1_5_ssa", document.getElementById("ShoeShelving_sect1_5").value);
+                    params.set("pf_is1_s1_5", document.getElementById("PositionField_InternalShelving1_S1_5").innerHTML);
+                    params.set("pf_is2_s1_5", document.getElementById("PositionField_InternalShelving1_S1_5").innerHTML);
+                    
+                    var heigh1Shelf1_5 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection1_5; i++) {
+                    heigh1Shelf1_5[i] = self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S1_5", self.options.heigh0Shelf1_5 );
+                            params.set("h1S1_5", self.options.heigh1Shelf1_5 );
+                            params.set("h2S1_5", self.options.heigh2Shelf1_5 );
+
+                            heigh1Shelf1_5[i] = self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf1_5_String = JSON.stringify(heigh1Shelf1_5);
+                    params.set('is_1_5_A',  heigh1Shelf1_5_String);
+
+                } else {}
+
+                //s1_6
+                if ( self.options.shelvesCounterSection1_6 != 0 ) {
+                    params.set("s1_6_ss", self.options.s1_6_ShelvingStatus);
+                    params.set("s1_6_iss", self.options.s1_6_internlShelvinStatus);
+                    params.set("s1_6_isa",  document.getElementById("internalShelving_sect1_6").value);
+                    params.set("s1_6_ssa", document.getElementById("ShoeShelving_sect1_6").value);
+                    params.set("pf_is1_s1_6", document.getElementById("PositionField_InternalShelving1_S1_6").innerHTML);
+                    params.set("pf_is2_s1_6", document.getElementById("PositionField_InternalShelving1_S1_6").innerHTML);
+                    
+                    var heigh1Shelf1_6 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection1_6; i++) {
+                    heigh1Shelf1_6[i] = self.scene.getObjectByName('internalShelf_1_6_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S1_6", self.options.heigh0Shelf1_6 );
+                            params.set("h1S1_6", self.options.heigh1Shelf1_5 );
+
+                            heigh1Shelf1_6[i] = self.scene.getObjectByName('internalShelf_1_6_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf1_6_String = JSON.stringify(heigh1Shelf1_6);
+                    params.set('is_1_6_A',  heigh1Shelf1_6_String);
+
+                } else {}
+
+
+                //s2_1
+                if ( self.options.shelvesCounterSection2_1 != 0 ) {
+                    params.set("s2_ss", self.options.s2_ShelvingStatus);
+                    params.set("s2_iss", self.options.s2_internlShelvinStatus);
+                    params.set("s2_isa", document.getElementById("internalShelving_sect2_1").value);
+                    params.set("s2_ssa", document.getElementById("ShoeShelving_sect2_1").value);
+                    params.set("pf_is1_s2_1", document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML);
+                    params.set("pf_is2_s2_1", document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML);
+                    params.set("pf_is3_s2_1", document.getElementById("PositionField_InternalShelving3_S2_1").innerHTML);
+                    params.set("pf_is4_s2_1", document.getElementById("PositionField_InternalShelving4_S2_1").innerHTML);
+                    params.set("pf_is5_s2_1", document.getElementById("PositionField_InternalShelving5_S2_1").innerHTML);
+                    params.set("pf_is6_s2_1", document.getElementById("PositionField_InternalShelving6_S2_1").innerHTML);
+
+                    var heigh1Shelf2_1 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection2_1; i++) {
+
+                        heigh1Shelf2_1[i] = self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S2_1", self.options.heigh0Shelf2_1 );
+                            params.set("h1S2_1", self.options.heigh1Shelf2_1 );
+                            params.set("h2S2_1", self.options.heigh2Shelf2_1 );
+                            params.set("h3S2_1", self.options.heigh3Shelf2_1 );
+                            params.set("h4S2_1", self.options.heigh4Shelf2_1 );
+                            params.set("h5S2_1", self.options.heigh5Shelf2_1 );
+                            params.set("h6S2_1", self.options.heigh6Shelf2_1 );
+
+
+                            heigh1Shelf2_1[i] = self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+i).position.y
+
+                        } catch(e){}
+                    }
+                    var heigh1Shelf2_1_String = JSON.stringify(heigh1Shelf2_1);
+                    params.set('is_2_1_A',  heigh1Shelf2_1_String);
+
+                } else {}
+
+
+                //s2_2
+                if ( self.options.shelvesCounterSection2_2 != 0 ) {
+                    params.set("s2_1_ss", self.options.s2_1_ShelvingStatus);
+                    params.set("s2_2_iss", self.options.s2_2_internlShelvinStatus);
+                    params.set("s2_2_isa",  document.getElementById("internalShelving_sect2_2").value);
+                    params.set("s2_2_ssa", document.getElementById("ShoeShelving_sect2_2").value);
+                    params.set("pf_is1_s2_2", document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML);
+                    params.set("pf_is2_s2_2", document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML);
+                    params.set("pf_is3_s2_2", document.getElementById("PositionField_InternalShelving3_S2_2").innerHTML);
+                    params.set("pf_is4_s2_2", document.getElementById("PositionField_InternalShelving4_S2_2").innerHTML);
+                    params.set("pf_is5_s2_2", document.getElementById("PositionField_InternalShelving5_S2_2").innerHTML);
+                    var heigh1Shelf2_2 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection2_2; i++) {
+                
+                        heigh1Shelf2_2[i] = self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S2_2", self.options.heigh0Shelf2_2 );
+                            params.set("h1S2_2", self.options.heigh1Shelf2_2 );
+                            params.set("h2S2_2", self.options.heigh2Shelf2_2 );
+                            params.set("h3S2_2", self.options.heigh3Shelf2_2 );
+                            params.set("h4S2_2", self.options.heigh4Shelf2_2 );
+                            params.set("h5S2_2", self.options.heigh5Shelf2_2 );
+                
+
+                            heigh1Shelf2_2[i] = self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf2_2_String = JSON.stringify(heigh1Shelf2_2);
+                    params.set('is_2_2_A',  heigh1Shelf2_2_String);
+
+                } else {}
+
+                //s2_3
+                if ( self.options.shelvesCounterSection2_3 != 0 ) {
+                    params.set("s2_3_ss", self.options.s2_3_ShelvingStatus);
+                    params.set("s2_3_iss", self.options.s2_3_internlShelvinStatus);
+                    params.set("s2_3_isa",  document.getElementById("internalShelving_sect2_3").value);
+                    params.set("s2_3_ssa", document.getElementById("ShoeShelving_sect2_3").value);
+                    params.set("pf_is1_s2_3", document.getElementById("PositionField_InternalShelving1_S2_3").innerHTML);
+                    params.set("pf_is2_s2_3", document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML);
+                    params.set("pf_is3_s2_3", document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML);
+                    params.set("pf_is4_s2_3", document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML);
+                    var heigh1Shelf2_3 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection2_3; i++) {
+                    heigh1Shelf2_3[i] = self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S2_3", self.options.heigh0Shelf2_3 );
+                            params.set("h1S2_3", self.options.heigh1Shelf2_3 );
+                            params.set("h2S2_3", self.options.heigh2Shelf2_3 );
+                            params.set("h3S2_3", self.options.heigh3Shelf2_3 );
+                            params.set("h4S2_3", self.options.heigh4Shelf2_3 );
+
+
+                            heigh1Shelf2_3[i] = self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf2_3_String = JSON.stringify(heigh1Shelf2_3);
+                    params.set('is_2_3_A',  heigh1Shelf2_3_String);
+
+                } else {}
+
+                //s2_4
+                if ( self.options.shelvesCounterSection2_4 != 0 ) {
+                    params.set("s2_4_ss", self.options.s2_4_ShelvingStatus);
+                    params.set("s2_4_iss", self.options.s2_4_internlShelvinStatus);
+                    params.set("s2_4_isa",  document.getElementById("internalShelving_sect2_4").value);
+                    params.set("s2_4_ssa", document.getElementById("ShoeShelving_sect2_4").value);
+                    params.set("pf_is1_s2_4", document.getElementById("PositionField_InternalShelving1_S2_4").innerHTML);
+                    params.set("pf_is2_s2_4", document.getElementById("PositionField_InternalShelving2_S2_4").innerHTML);
+                    params.set("pf_is3_s2_4", document.getElementById("PositionField_InternalShelving3_S2_4").innerHTML);
+                    var heigh1Shelf2_4 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection2_4; i++) {
+                    heigh1Shelf2_4[i] = self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S2_4", self.options.heigh0Shelf2_4 );
+                            params.set("h1S2_4", self.options.heigh1Shelf2_4 );
+                            params.set("h2S2_4", self.options.heigh2Shelf2_4 );
+                            params.set("h3S2_4", self.options.heigh3Shelf2_4 );
+
+                            heigh1Shelf2_4[i] = self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf2_4_String = JSON.stringify(heigh1Shelf2_4);
+                    params.set('is_2_4_A',  heigh1Shelf2_4_String);
+                } else {}
+
+                //s2_5
+                if ( self.options.shelvesCounterSection2_5 != 0 ) {
+                    params.set("s2_5_ss", self.options.s2_5_ShelvingStatus);
+                    params.set("s2_5_iss", self.options.s2_5_internlShelvinStatus);
+                    params.set("s2_5_isa",  document.getElementById("internalShelving_sect2_5").value);
+                    params.set("s2_5_ssa", document.getElementById("ShoeShelving_sect2_5").value);
+                    params.set("pf_is1_s2_5", document.getElementById("PositionField_InternalShelving1_S2_5").innerHTML);
+                    params.set("pf_is2_s2_5", document.getElementById("PositionField_InternalShelving2_S2_5").innerHTML);
+                    var heigh1Shelf2_5 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection2_5; i++) {
+                    heigh1Shelf2_5[i] = self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S2_5", self.options.heigh0Shelf2_5 );
+                            params.set("h1S2_5", self.options.heigh1Shelf2_5 );
+                            params.set("h2S2_5", self.options.heigh2Shelf2_5 );
+                            params.set("h3S2_5", self.options.heigh3Shelf2_5 );
+
+                            heigh1Shelf2_5[i] = self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf2_5_String = JSON.stringify(heigh1Shelf2_5);
+                    params.set('is_2_5_A',  heigh1Shelf2_5_String);
+                } else {}
+
+                //s2_6
+                if ( self.options.shelvesCounterSection2_6 != 0 ) {
+                    params.set("s2_6_ss", self.options.s2_6_ShelvingStatus);
+                    params.set("s2_6_iss", self.options.s2_6_internlShelvinStatus);
+                    params.set("s2_6_isa",  document.getElementById("internalShelving_sect2_6").value);
+                    params.set("s2_6_ssa", document.getElementById("ShoeShelving_sect2_6").value);
+                    params.set("pf_is1_s2_6", document.getElementById("PositionField_InternalShelving1_S2_6").innerHTML);
+                    var heigh1Shelf2_6 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection2_6; i++) {
+                    heigh1Shelf2_6[i] = self.scene.getObjectByName('internalShelf_2_6_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S2_6", self.options.heigh0Shelf2_6 );
+                            params.set("h1S2_6", self.options.heigh1Shelf2_6 );
+
+                            heigh1Shelf2_6[i] = self.scene.getObjectByName('internalShelf_2_6_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf2_6_String = JSON.stringify(heigh1Shelf2_6);
+                    params.set('is_2_6_A',  heigh1Shelf2_6_String);
+                } else {}
+
+
+                //s3_1
+                if ( self.options.shelvesCounterSection3_1 != 0 ) {
+                    params.set("s3_ss", self.options.s3_ShelvingStatus);
+                    params.set("s3_iss", self.options.s3_internlShelvinStatus);
+                    params.set("s3_isa", document.getElementById("internalShelving_sect3_1").value);
+                    params.set("s3_ssa", document.getElementById("ShoeShelving_sect3_1").value);
+                    params.set("pf_is1_s3_1", document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML);
+                    params.set("pf_is2_s3_1", document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML);
+                    params.set("pf_is3_s3_1", document.getElementById("PositionField_InternalShelving3_S3_1").innerHTML);
+                    params.set("pf_is4_s3_1", document.getElementById("PositionField_InternalShelving4_S3_1").innerHTML);
+                    params.set("pf_is5_s3_1", document.getElementById("PositionField_InternalShelving5_S3_1").innerHTML);
+                    params.set("pf_is6_s3_1", document.getElementById("PositionField_InternalShelving6_S3_1").innerHTML);
+                    var heigh1Shelf3_1 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection3_1; i++) {
+
+                        heigh1Shelf3_1[i] = self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S3_1", self.options.heigh0Shelf3_1 );
+                            params.set("h1S3_1", self.options.heigh1Shelf3_1 );
+                            params.set("h2S3_1", self.options.heigh2Shelf3_1 );
+                            params.set("h3S3_1", self.options.heigh3Shelf3_1 );
+                            params.set("h4S3_1", self.options.heigh4Shelf3_1 );
+                            params.set("h5S3_1", self.options.heigh5Shelf3_1 );
+                            params.set("h6S3_1", self.options.heigh6Shelf3_1 );
+
+
+                            heigh1Shelf3_1[i] = self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+i).position.y
+
+                        } catch(e){}
+                    }
+                    var heigh1Shelf3_1_String = JSON.stringify(heigh1Shelf3_1);
+                    params.set('is_3_1_A',  heigh1Shelf3_1_String);
+                } else {}
+
+                //s3_2
+                if ( self.options.shelvesCounterSection3_2 != 0 ) {
+                    params.set("s3_2_ss", self.options.s3_2_ShelvingStatus);
+                    params.set("s3_2_iss", self.options.s3_2_internlShelvinStatus);
+                    params.set("s3_2_isa",  document.getElementById("internalShelving_sect3_2").value);
+                    params.set("s3_2_ssa", document.getElementById("ShoeShelving_sect3_2").value);
+                    params.set("pf_is1_s3_2", document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML);
+                    params.set("pf_is2_s3_2", document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML);
+                    params.set("pf_is3_s3_2", document.getElementById("PositionField_InternalShelving3_S3_2").innerHTML);
+                    params.set("pf_is4_s3_2", document.getElementById("PositionField_InternalShelving4_S3_2").innerHTML);
+                    params.set("pf_is5_s3_2", document.getElementById("PositionField_InternalShelving5_S3_2").innerHTML);
+                    var heigh1Shelf3_2 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection3_2; i++) {
+                
+                        heigh1Shelf3_2[i] = self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S3_2", self.options.heigh0Shelf3_2 );
+                            params.set("h1S3_2", self.options.heigh1Shelf3_2 );
+                            params.set("h2S3_2", self.options.heigh2Shelf3_2 );
+                            params.set("h3S3_2", self.options.heigh3Shelf3_2 );
+                            params.set("h4S3_2", self.options.heigh4Shelf3_2 );
+                            params.set("h5S3_2", self.options.heigh5Shelf3_2 );
+
+                            heigh1Shelf3_2[i] = self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf3_2_String = JSON.stringify(heigh1Shelf3_2);
+                    params.set('is_3_2_A',  heigh1Shelf3_2_String);
+                } else {}
+
+                //s3_3
+                if ( self.options.shelvesCounterSection3_3 != 0 ) {
+                    params.set("s3_3_ss", self.options.s3_3_ShelvingStatus);
+                    params.set("s3_3_iss", self.options.s3_3_internlShelvinStatus);
+                    params.set("s3_3_isa",  document.getElementById("internalShelving_sect3_3").value);
+                    params.set("s3_3_ssa", document.getElementById("ShoeShelving_sect3_3").value);
+                    params.set("pf_is1_s3_3", document.getElementById("PositionField_InternalShelving1_S3_3").innerHTML);
+                    params.set("pf_is2_s3_3", document.getElementById("PositionField_InternalShelving2_S3_3").innerHTML);
+                    params.set("pf_is3_s3_3", document.getElementById("PositionField_InternalShelving3_S3_3").innerHTML);
+                    params.set("pf_is4_s3_3", document.getElementById("PositionField_InternalShelving4_S3_3").innerHTML);
+                    var heigh1Shelf3_3 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection3_3; i++) {
+                    heigh1Shelf3_3[i] = self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S3_3", self.options.heigh0Shelf3_3 );
+                            params.set("h1S3_3", self.options.heigh1Shelf3_3 );
+                            params.set("h2S3_3", self.options.heigh2Shelf3_3 );
+                            params.set("h3S3_3", self.options.heigh3Shelf3_3 );
+                            params.set("h4S3_3", self.options.heigh4Shelf3_3 );
+                            
+                            heigh1Shelf3_3[i] = self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf3_3_String = JSON.stringify(heigh1Shelf3_3);
+                    params.set('is_3_3_A',  heigh1Shelf3_3_String);
+                } else {}
+
+                //s3_4
+                if ( self.options.shelvesCounterSection3_4 != 0 ) {
+                    params.set("s3_4_ss", self.options.s3_4_ShelvingStatus);
+                    params.set("s3_4_iss", self.options.s3_4_internlShelvinStatus);
+                    params.set("s3_4_isa",  document.getElementById("internalShelving_sect3_4").value);
+                    params.set("s3_4_ssa", document.getElementById("ShoeShelving_sect3_4").value);
+                    params.set("pf_is1_s3_4", document.getElementById("PositionField_InternalShelving1_S3_4").innerHTML);
+                    params.set("pf_is2_s3_4", document.getElementById("PositionField_InternalShelving2_S3_4").innerHTML);
+                    params.set("pf_is3_s3_4", document.getElementById("PositionField_InternalShelving3_S3_4").innerHTML);
+                    var heigh1Shelf3_4 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection3_4; i++) {
+                    heigh1Shelf3_4[i] = self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S3_4", self.options.heigh0Shelf3_4 );
+                            params.set("h1S3_4", self.options.heigh1Shelf3_4 );
+                            params.set("h2S3_4", self.options.heigh2Shelf3_4 );
+                            params.set("h3S3_4", self.options.heigh3Shelf3_4 );
+
+                            heigh1Shelf3_4[i] = self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf3_4_String = JSON.stringify(heigh1Shelf3_4);
+                    params.set('is_3_4_A',  heigh1Shelf3_4_String);
+                } else {}
+
+                //s3_5
+                if ( self.options.shelvesCounterSection3_5 != 0 ) {
+                    params.set("s3_5_ss", self.options.s3_5_ShelvingStatus);
+                    params.set("s3_5_iss", self.options.s3_5_internlShelvinStatus);
+                    params.set("s3_5_isa",  document.getElementById("internalShelving_sect3_5").value);
+                    params.set("s3_5_ssa", document.getElementById("ShoeShelving_sect3_5").value);
+                    params.set("pf_is1_s3_5", document.getElementById("PositionField_InternalShelving1_S3_5").innerHTML);
+                    params.set("pf_is2_s3_5", document.getElementById("PositionField_InternalShelving2_S3_5").innerHTML);
+                    var heigh1Shelf3_5 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection3_5; i++) {
+                    heigh1Shelf3_5[i] = self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S3_5", self.options.heigh0Shelf3_5 );
+                            params.set("h1S3_5", self.options.heigh1Shelf3_5 );
+                            params.set("h2S3_5", self.options.heigh2Shelf3_5 );
+
+                            heigh1Shelf3_5[i] = self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf3_5_String = JSON.stringify(heigh1Shelf3_5);
+                    params.set('is_3_5_A',  heigh1Shelf3_5_String);
+                } else {}
+
+                //s3_6
+                if ( self.options.shelvesCounterSection3_6 != 0 ) {
+                    params.set("s3_6_ss", self.options.s3_6_ShelvingStatus);
+                    params.set("s3_6_iss", self.options.s3_6_internlShelvinStatus);
+                    params.set("s3_6_isa",  document.getElementById("internalShelving_sect3_6").value);
+                    params.set("s3_6_ssa", document.getElementById("ShoeShelving_sect3_6").value);
+                    params.set("pf_is1_s3_6", document.getElementById("PositionField_InternalShelving1_S3_6").innerHTML);
+                    var heigh1Shelf3_6 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection3_6; i++) {
+                    heigh1Shelf3_6[i] = self.scene.getObjectByName('internalShelf_3_6_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S3_6", self.options.heigh0Shelf3_6 );
+                            params.set("h1S3_6", self.options.heigh1Shelf3_6 );
+
+                            heigh1Shelf3_6[i] = self.scene.getObjectByName('internalShelf_3_6_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf3_6_String = JSON.stringify(heigh1Shelf3_6);
+                    params.set('is_3_6_A',  heigh1Shelf3_6_String);
+                } else {}
+
+
+                //s4_1
+                if ( self.options.shelvesCounterSection4_1 != 0 ) {
+                    params.set("s4_ss", self.options.s4_ShelvingStatus);
+                    params.set("s4_iss", self.options.s4_internlShelvinStatus);
+                    params.set("s4_isa", document.getElementById("internalShelving_sect4_1").value);
+                    params.set("s4_ssa", document.getElementById("ShoeShelving_sect4_1").value);
+                    params.set("pf_is1_s4_1", document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML);
+                    params.set("pf_is2_s4_1", document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML);
+                    params.set("pf_is3_s4_1", document.getElementById("PositionField_InternalShelving3_S4_1").innerHTML);
+                    params.set("pf_is4_s4_1", document.getElementById("PositionField_InternalShelving4_S4_1").innerHTML);
+                    params.set("pf_is5_s4_1", document.getElementById("PositionField_InternalShelving5_S4_1").innerHTML);
+                    params.set("pf_is6_s4_1", document.getElementById("PositionField_InternalShelving6_S4_1").innerHTML);
+
+                    var heigh1Shelf4_1 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection4_1; i++) {
+
+                        heigh1Shelf4_1[i] = self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S4_1", self.options.heigh0Shelf4_1 );
+                            params.set("h1S4_1", self.options.heigh1Shelf4_1 );
+                            params.set("h2S4_1", self.options.heigh2Shelf4_1 );
+                            params.set("h3S4_1", self.options.heigh3Shelf4_1 );
+                            params.set("h4S4_1", self.options.heigh4Shelf4_1 );
+                            params.set("h5S4_1", self.options.heigh5Shelf4_1 );
+                            params.set("h6S4_1", self.options.heigh6Shelf4_1 );
+
+                            heigh1Shelf4_1[i] = self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+i).position.y
+
+                        } catch(e){}
+                    }
+                    var heigh1Shelf4_1_String = JSON.stringify(heigh1Shelf4_1);
+                    params.set('is_4_1_A',  heigh1Shelf4_1_String);
+                } else {}
+
+                //s4_2
+                if ( self.options.shelvesCounterSection4_2 != 0 ) {
+                    params.set("s4_2_ss", self.options.s4_2_ShelvingStatus);
+                    params.set("s4_2_iss", self.options.s4_2_internlShelvinStatus);
+                    params.set("s4_2_isa",  document.getElementById("internalShelving_sect4_2").value);
+                    params.set("s4_2_ssa", document.getElementById("ShoeShelving_sect4_2").value);
+                    params.set("pf_is1_s4_2", document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML);
+                    params.set("pf_is2_s4_2", document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML);
+                    params.set("pf_is3_s4_2", document.getElementById("PositionField_InternalShelving3_S4_2").innerHTML);
+                    params.set("pf_is4_s4_2", document.getElementById("PositionField_InternalShelving4_S4_2").innerHTML);
+                    params.set("pf_is5_s4_2", document.getElementById("PositionField_InternalShelving5_S4_2").innerHTML);
+                    var heigh1Shelf4_2 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection4_2; i++) {
+                
+                        heigh1Shelf4_2[i] = self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S4_2", self.options.heigh0Shelf4_2 );
+                            params.set("h1S4_2", self.options.heigh1Shelf4_2 );
+                            params.set("h2S4_2", self.options.heigh2Shelf4_2 );
+                            params.set("h3S4_2", self.options.heigh3Shelf4_2 );
+                            params.set("h4S4_2", self.options.heigh4Shelf4_2 );
+                            params.set("h5S4_2", self.options.heigh5Shelf4_2 );
+
+                            heigh1Shelf4_2[i] = self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf4_2_String = JSON.stringify(heigh1Shelf4_2);
+                    params.set('is_4_2_A',  heigh1Shelf4_2_String);
+                } else {}
+        
+                //s4_3
+                if ( self.options.shelvesCounterSection4_3 != 0 ) {
+                    params.set("s4_3_ss", self.options.s4_3_ShelvingStatus);
+                    params.set("s4_3_iss", self.options.s4_3_internlShelvinStatus);
+                    params.set("s4_3_isa",  document.getElementById("internalShelving_sect4_3").value);
+                    params.set("s4_3_ssa", document.getElementById("ShoeShelving_sect4_3").value);
+                    params.set("pf_is1_s4_3", document.getElementById("PositionField_InternalShelving1_S4_3").innerHTML);
+                    params.set("pf_is2_s4_3", document.getElementById("PositionField_InternalShelving2_S4_3").innerHTML);
+                    params.set("pf_is3_s4_3", document.getElementById("PositionField_InternalShelving3_S4_3").innerHTML);
+                    params.set("pf_is4_s4_3", document.getElementById("PositionField_InternalShelving4_S4_3").innerHTML);
+                    var heigh1Shelf4_3 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection4_3; i++) {
+                    heigh1Shelf4_3[i] = self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S4_3", self.options.heigh0Shelf4_3 );
+                            params.set("h1S4_3", self.options.heigh1Shelf4_3 );
+                            params.set("h2S4_3", self.options.heigh2Shelf4_3 );
+                            params.set("h3S4_3", self.options.heigh3Shelf4_3 );
+                            params.set("h4S4_3", self.options.heigh4Shelf4_3 );
+
+                            heigh1Shelf4_3[i] = self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf4_3_String = JSON.stringify(heigh1Shelf4_3);
+                    params.set('is_4_3_A',  heigh1Shelf4_3_String);
+                } else {}
+
+                //s4_4
+                if ( self.options.shelvesCounterSection4_4 != 0 ) {
+                    params.set("s4_4_ss", self.options.s4_4_ShelvingStatus);
+                    params.set("s4_4_iss", self.options.s4_4_internlShelvinStatus);
+                    params.set("s4_4_isa",  document.getElementById("internalShelving_sect4_4").value);
+                    params.set("s4_4_ssa", document.getElementById("ShoeShelving_sect4_4").value);
+                    params.set("pf_is1_s4_4", document.getElementById("PositionField_InternalShelving1_S4_4").innerHTML);
+                    params.set("pf_is2_s4_4", document.getElementById("PositionField_InternalShelving2_S4_4").innerHTML);
+                    params.set("pf_is3_s4_4", document.getElementById("PositionField_InternalShelving3_S4_4").innerHTML);
+                    var heigh1Shelf4_4 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection4_4; i++) {
+                    heigh1Shelf4_4[i] = self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S4_4", self.options.heigh0Shelf4_4 );
+                            params.set("h1S4_4", self.options.heigh1Shelf4_4 );
+                            params.set("h2S4_4", self.options.heigh2Shelf4_4 );
+                            params.set("h3S4_4", self.options.heigh3Shelf4_4 );
+
+                            heigh1Shelf4_4[i] = self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf4_4_String = JSON.stringify(heigh1Shelf4_4);
+                    params.set('is_4_4_A',  heigh1Shelf4_4_String);
+                } else {}
+
+                //s4_5
+                if ( self.options.shelvesCounterSection4_5 != 0 ) {
+                    params.set("s4_5_ss", self.options.s4_5_ShelvingStatus);
+                    params.set("s4_5_iss", self.options.s4_5_internlShelvinStatus);
+                    params.set("s4_5_isa",  document.getElementById("internalShelving_sect4_5").value);
+                    params.set("s4_5_ssa", document.getElementById("ShoeShelving_sect4_5").value);
+                    params.set("pf_is1_s4_5", document.getElementById("PositionField_InternalShelving1_S4_5").innerHTML);
+                    params.set("pf_is2_s4_5", document.getElementById("PositionField_InternalShelving2_S4_5").innerHTML);
+                    var heigh1Shelf4_5 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection4_5; i++) {
+                    heigh1Shelf4_5[i] = self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S4_5", self.options.heigh0Shelf4_5 );
+                            params.set("h1S4_5", self.options.heigh1Shelf4_5 );
+                            params.set("h2S4_5", self.options.heigh2Shelf4_5 );
+
+                            heigh1Shelf4_5[i] = self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf4_5_String = JSON.stringify(heigh1Shelf4_5);
+                    params.set('is_4_5_A',  heigh1Shelf4_5_String);
+                } else {}
+
+                //s4_6
+                if ( self.options.shelvesCounterSection4_6 != 0 ) {
+                    params.set("s4_6_ss", self.options.s4_6_ShelvingStatus);
+                    params.set("s4_6_iss", self.options.s4_6_internlShelvinStatus);
+                    params.set("s4_6_isa",  document.getElementById("internalShelving_sect4_6").value);
+                    params.set("s4_6_ssa", document.getElementById("ShoeShelving_sect4_6").value);
+                    params.set("pf_is1_s4_6", document.getElementById("PositionField_InternalShelving1_S4_6").innerHTML);
+                    var heigh1Shelf4_6 = [];
+                    for (let i = 1; i <= self.options.shelvesCounterSection4_6; i++) {
+                    heigh1Shelf4_6[i] = self.scene.getObjectByName('internalShelf_4_6_'+'shelf'+i).position.y
+                        try {
+                            params.set("h0S4_6", self.options.heigh0Shelf4_6 );
+                            params.set("h1S4_6", self.options.heigh1Shelf4_6 );
+
+                            heigh1Shelf4_6[i] = self.scene.getObjectByName('internalShelf_4_6_'+'shelf'+i).position.y
+                
+                        } catch(e){}
+                        
+                    }
+                    var heigh1Shelf4_6_String = JSON.stringify(heigh1Shelf4_6);
+                    params.set('is_4_6_A',  heigh1Shelf4_6_String);
+                } else {}
+
   
 
                 //handles
@@ -38569,7 +42211,7 @@
 
     
                 // Update the URL without causing a page refresh
-                window.history.replaceState({}, '', '/ChestOfDrawers/' + '?' + params.toString());
+                window.history.replaceState({}, '', '/EntranceUnit/' + '?' + params.toString());
                 const updatedURL = window.location.href;
                 this.updatedURLString  = updatedURL;
 
@@ -38694,7 +42336,7 @@
 
                 // Data of the product to be created
                 let data = {
-                    name: "Your Chest Of Drawers", 
+                    name: "Your Entrance Unit", 
                     type: "simple", 
                     regular_price: price, 
                     meta_data: [
@@ -39295,6 +42937,7 @@
                 }
     
                 document.getElementById("MainInternalShelving_S1_1").style.display = "none";
+                document.getElementById("MainShoeShelving_S1_1").style.display = "none";
 
                 self.calculateOutput();
                 self.options.s1_doorStatus = 5; //for restoring🥝
@@ -39470,6 +43113,7 @@
             document.getElementById("Drawer_S1_2").addEventListener('click', function() {
                 if (self.options.Drawer_S1_2_status == true) {
                     createDrawer_S1_2();
+                    console.log('1');
                 }
                 else {
                     showHintPanel("Drawer: <br>Width 26cm – 79cm  <br>Depth 38cm – 45cm  <br>Height 15cm – 45cm");
@@ -39477,6 +43121,8 @@
             });    
             function createDrawer_S1_2() {
     
+                console.log('2');
+
                 if (self.scene.getObjectByName( "doorSection1_2Group", true ) != undefined) {
                     self.scene.remove(self.scene.getObjectByName('doorSection1_2Group'))
                 }
@@ -39498,6 +43144,7 @@
                 self.calculateOutput();
     
                 document.getElementById("MainInternalShelving_S1_2").style.display = "none";
+                document.getElementById("MainShoeShelving_S1_2").style.display = "none";
 
                 self.options.s1_2_doorStatus = 5;
                 self.updateDoorButtons();
@@ -39696,6 +43343,8 @@
                 self.calculateOutput(); 
     
                 document.getElementById("MainInternalShelving_S1_3").style.display = "none";
+                document.getElementById("MainShoeShelving_S1_3").style.display = "none";
+
 
                 self.options.s1_3_doorStatus = 5;
                 self.updateDoorButtons();
@@ -39888,6 +43537,9 @@
                 )
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S1_4").style.display = "none";
+                document.getElementById("MainShoeShelving_S1_4").style.display = "none";
     
                 self.options.s1_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -40079,6 +43731,9 @@
                 )
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S1_5").style.display = "none";
+                document.getElementById("MainShoeShelving_S1_5").style.display = "none";
     
                 self.options.s1_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -40273,6 +43928,9 @@
                 )
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S1_6").style.display = "none";
+                document.getElementById("MainShoeShelving_S1_6").style.display = "none";
     
                 self.options.s1_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -40466,7 +44124,7 @@
                 )
 
                 self.calculateOutput();
-    
+
                 self.options.s1_7_doorStatus = 5;
                 self.updateDoorButtons();
 
@@ -40721,6 +44379,7 @@
     
     
                 document.getElementById("MainInternalShelving_S2_1").style.display = "none";    
+                document.getElementById("MainShoeShelving_S2_1").style.display = "none";
 
                 self.calculateOutput();
     
@@ -40967,6 +44626,7 @@
                 } 
     
                 document.getElementById("MainInternalShelving_S2_2").style.display = "none";
+                document.getElementById("MainShoeShelving_S2_2").style.display = "none";
 
                 self.calculateOutput();
     
@@ -41216,6 +44876,8 @@
                 } 
     
                 document.getElementById("MainInternalShelving_S2_3").style.display = "none";
+                document.getElementById("MainShoeShelving_S2_3").style.display = "none";
+
  
                 self.calculateOutput();  
                 
@@ -41460,6 +45122,9 @@
     
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S2_4").style.display = "none";
+                document.getElementById("MainShoeShelving_S2_4").style.display = "none";
     
                 self.options.s2_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -41700,6 +45365,9 @@
     
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S2_5").style.display = "none";
+                document.getElementById("MainShoeShelving_S2_5").style.display = "none";
     
                 self.options.s2_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -41942,6 +45610,9 @@
     
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S2_6").style.display = "none";
+                document.getElementById("MainShoeShelving_S2_6").style.display = "none";
     
                 self.options.s2_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -42182,7 +45853,7 @@
     
 
                 self.calculateOutput();
-    
+
                 self.options.s2_7_doorStatus = 5;
                 self.updateDoorButtons();
     
@@ -42429,7 +46100,8 @@
                     )
                 } 
     
-                document.getElementById("MainInternalShelving_S3_1").style.display = "none";            
+                document.getElementById("MainInternalShelving_S3_1").style.display = "none";  
+                document.getElementById("MainShoeShelving_S3_1").style.display = "none";          
 
                 self.calculateOutput();
     
@@ -42677,7 +46349,8 @@
                     )
                 }
     
-                document.getElementById("MainInternalShelving_S3_2").style.display = "none";
+                document.getElementById("MainInternalShelving_S3_2").style.display = "none";  
+                document.getElementById("MainShoeShelving_S3_2").style.display = "none";  
 
                 self.calculateOutput();
     
@@ -42926,7 +46599,8 @@
                     )
                 }
     
-                document.getElementById("MainInternalShelving_S3_3").style.display = "none";        
+                document.getElementById("MainInternalShelving_S3_2").style.display = "none";  
+                document.getElementById("MainShoeShelving_S3_2").style.display = "none";    
 
                 self.calculateOutput();
     
@@ -43175,6 +46849,9 @@
                 }
     
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S3_4").style.display = "none";  
+                document.getElementById("MainShoeShelving_S3_4").style.display = "none";  
     
                 self.options.s3_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -43421,6 +47098,9 @@
                 }
     
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S3_5").style.display = "none";  
+                document.getElementById("MainShoeShelving_S3_5").style.display = "none";  
     
                 self.options.s3_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -43665,6 +47345,10 @@
                 }
     
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S3_6").style.display = "none";  
+                document.getElementById("MainShoeShelving_S3_6").style.display = "none";  
+
                 self.options.s3_6_doorStatus = 5;
                 self.updateDoorButtons();
     
@@ -43904,6 +47588,7 @@
                 }
     
                 self.calculateOutput();
+
                 self.options.s3_7_doorStatus = 5;
                 self.updateDoorButtons();
     
@@ -44023,6 +47708,9 @@
     
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S4_1").style.display = "none";  
+                document.getElementById("MainShoeShelving_S4_1").style.display = "none"; 
     
                 self.options.s4_1_doorStatus = 5;
                 self.updateDoorButtons();
@@ -44192,6 +47880,9 @@
     
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S4_2").style.display = "none";  
+                document.getElementById("MainShoeShelving_S4_2").style.display = "none";
     
                 self.options.s4_2_doorStatus = 5;
                 self.updateDoorButtons();
@@ -44363,6 +48054,9 @@
 
                 self.calculateOutput();
     
+                document.getElementById("MainInternalShelving_S4_3").style.display = "none";  
+                document.getElementById("MainShoeShelving_S4_3").style.display = "none";
+
                 self.options.s4_3_doorStatus = 5;
                 self.updateDoorButtons();
 
@@ -44530,6 +48224,9 @@
                 )
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S4_4").style.display = "none";  
+                document.getElementById("MainShoeShelving_S4_4").style.display = "none";
     
                 self.options.s4_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -44696,6 +48393,9 @@
                 )
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S4_5").style.display = "none";  
+                document.getElementById("MainShoeShelving_S4_5").style.display = "none";
     
                 self.options.s4_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -44861,6 +48561,9 @@
                 )
 
                 self.calculateOutput();
+
+                document.getElementById("MainInternalShelving_S4_6").style.display = "none";  
+                document.getElementById("MainShoeShelving_S4_6").style.display = "none";
     
                 self.options.s4_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -47305,16 +51008,7 @@
                 if ( this.scene.getObjectByName( "horizontalDividerSection1_6", true ) != undefined) {
                     this.scene.getObjectByName( "horizontalDividerSection1_6", true ).material.map = this.textures[this.options.shelf.texture].map;
                 }
-                if ( this.scene.getObjectByName( "horizontalDividerSection1_7", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection1_7", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-                if ( this.scene.getObjectByName( "horizontalDividerSection1_8", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection1_8", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-                if ( this.scene.getObjectByName( "horizontalDividerSection1_9", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection1_9", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-    
+                
     
                 if ( this.scene.getObjectByName( "horizontalDividerSection2_1", true ) != undefined) {
                     this.scene.getObjectByName( "horizontalDividerSection2_1", true ).material.map = this.textures[this.options.shelf.texture].map;
@@ -47334,16 +51028,7 @@
                 if ( this.scene.getObjectByName( "horizontalDividerSection2_6", true ) != undefined) {
                     this.scene.getObjectByName( "horizontalDividerSection2_6", true ).material.map = this.textures[this.options.shelf.texture].map;
                 }
-                if ( this.scene.getObjectByName( "horizontalDividerSection2_7", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection2_7", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-                if ( this.scene.getObjectByName( "horizontalDividerSection2_8", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection2_8", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-                if ( this.scene.getObjectByName( "horizontalDividerSection2_9", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection2_9", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-    
+                
                 if ( this.scene.getObjectByName( "horizontalDividerSection3_1", true ) != undefined) {
                     this.scene.getObjectByName( "horizontalDividerSection3_1", true ).material.map = this.textures[this.options.shelf.texture].map;
                 }
@@ -47362,15 +51047,7 @@
                 if ( this.scene.getObjectByName( "horizontalDividerSection3_6", true ) != undefined) {
                     this.scene.getObjectByName( "horizontalDividerSection3_6", true ).material.map = this.textures[this.options.shelf.texture].map;
                 }
-                if ( this.scene.getObjectByName( "horizontalDividerSection3_7", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection3_7", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-                if ( this.scene.getObjectByName( "horizontalDividerSection3_8", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection3_8", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
-                if ( this.scene.getObjectByName( "horizontalDividerSection3_9", true ) != undefined) {
-                    this.scene.getObjectByName( "horizontalDividerSection3_9", true ).material.map = this.textures[this.options.shelf.texture].map;
-                }
+                
     
     
                 if ( this.scene.getObjectByName( "horizontalDividerSection4_1", true ) != undefined) {
@@ -47384,6 +51061,12 @@
                 }
                 if ( this.scene.getObjectByName( "horizontalDividerSection4_4", true ) != undefined) {
                     this.scene.getObjectByName( "horizontalDividerSection4_4", true ).material.map = this.textures[this.options.shelf.texture].map;
+                }
+                if ( this.scene.getObjectByName( "horizontalDividerSection4_5", true ) != undefined) {
+                    this.scene.getObjectByName( "horizontalDividerSection4_5", true ).material.map = this.textures[this.options.shelf.texture].map;
+                }
+                if ( this.scene.getObjectByName( "horizontalDividerSection4_6", true ) != undefined) {
+                    this.scene.getObjectByName( "horizontalDividerSection4_6", true ).material.map = this.textures[this.options.shelf.texture].map;
                 }
     
     
@@ -47911,14 +51594,14 @@
 
             }
             if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
-                if ( self.options.s1_1_doorStatus !== 5 ) {
+                if ( self.options.s1_doorStatus !== 5 ) {
                     document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
                 }
             } else{
                 document.getElementById("MainShoeShelving_S1_1").style.display = "none";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 22) {
-                if ( self.options.s1_1_doorStatus !== 5 ) {
+                if ( self.options.s1_doorStatus !== 5 ) {
                     document.getElementById("MainInternalShelving_S1_1").style.display = "flex";
                 }
             } else {
@@ -48787,6 +52470,189 @@
             }
     
     
+            if (self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S1_6_status = false;
+                document.getElementById("DoorLeft_S1_6").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S1_6_status = false;
+                document.getElementById("DoorRight_S1_6").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S1_6_status = true;
+                document.getElementById("DoorLeft_S1_6").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S1_6_status = true;
+                document.getElementById("DoorRight_S1_6").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S1_6_status == true) {
+                document.getElementById("DoorLeft_S1_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S1_6").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S1_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S1_6").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S1_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S1_6").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S1_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S1_6").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S1_6_status == true) {
+                document.getElementById("DoorRight_S1_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S1_6").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S1_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S1_6").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S1_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S1_6").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S1_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S1_6").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S1_6_status = false;
+                document.getElementById("DoubleDoor_S1_6").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S1_6_status = true;
+                document.getElementById("DoubleDoor_S1_6").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S1_6_status == true) {
+                document.getElementById("DoubleDoor_S1_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S1_6").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S1_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S1_6").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S1_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S1_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S1_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S1_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S1_6_status = true;
+                document.getElementById("Drawer_S1_6").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S1_6_status = true;
+                document.getElementById("Drawer_S1_6").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S1_6_status == true) {
+                document.getElementById("Drawer_S1_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S1_6").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S1_6").onmouseout = function() {
+                    document.getElementById("Drawer_S1_6").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S1_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S1_6").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S1_6").onmouseout = function() {
+                    document.getElementById("Drawer_S1_6").src="icons/Drawer_Disable.jpg";
+                };
+            }
+
+
+            if (self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S1_7_status = false;
+                document.getElementById("DoorLeft_S1_7").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S1_7_status = false;
+                document.getElementById("DoorRight_S1_7").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S1_7_status = true;
+                document.getElementById("DoorLeft_S1_7").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S1_7_status = true;
+                document.getElementById("DoorRight_S1_7").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S1_7_status == true) {
+                document.getElementById("DoorLeft_S1_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S1_7").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S1_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S1_7").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S1_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S1_7").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S1_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S1_7").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S1_7_status == true) {
+                document.getElementById("DoorRight_S1_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S1_7").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S1_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S1_7").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S1_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S1_7").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S1_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S1_7").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S1_7_status = false;
+                document.getElementById("DoubleDoor_S1_7").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S1_7_status = true;
+                document.getElementById("DoubleDoor_S1_7").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S1_7_status == true) {
+                document.getElementById("DoubleDoor_S1_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S1_7").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S1_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S1_7").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S1_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S1_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S1_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S1_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_7').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S1_7_status = true;
+                document.getElementById("Drawer_S1_7").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S1_7_status = true;
+                document.getElementById("Drawer_S1_7").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S1_7_status == true) {
+                document.getElementById("Drawer_S1_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S1_7").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S1_7").onmouseout = function() {
+                    document.getElementById("Drawer_S1_7").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S1_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S1_7").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S1_7").onmouseout = function() {
+                    document.getElementById("Drawer_S1_7").src="icons/Drawer_Disable.jpg";
+                };
+            }
+
     
             
             if (self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) * 1.2  || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
@@ -49253,7 +53119,189 @@
                 };
             }       
     
+
+            if (self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S2_6_status = false;
+                document.getElementById("DoorLeft_S2_6").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S2_6_status = false;
+                document.getElementById("DoorRight_S2_6").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S2_6_status = true;
+                document.getElementById("DoorLeft_S2_6").src="icons/DoorLeft_Close.jpg";
     
+                self.options.RightDoor_S2_6_status = true;
+                document.getElementById("DoorRight_S2_6").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S2_6_status == true) {
+                document.getElementById("DoorLeft_S2_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S2_6").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S2_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S2_6").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S2_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S2_6").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S2_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S2_6").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S2_6_status == true) {
+                document.getElementById("DoorRight_S2_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S2_6").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S2_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S2_6").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S2_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S2_6").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S2_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S2_6").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S2_6_status = false;
+                document.getElementById("DoubleDoor_S2_6").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S2_6_status = true;
+                document.getElementById("DoubleDoor_S2_6").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S2_6_status == true) {
+                document.getElementById("DoubleDoor_S2_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S2_6").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S2_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S2_6").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S2_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S2_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S2_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S2_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S2_6_status = true;
+                document.getElementById("Drawer_S2_6").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S2_6_status = true;
+                document.getElementById("Drawer_S2_6").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S2_6_status == true) {
+                document.getElementById("Drawer_S2_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S2_6").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S2_6").onmouseout = function() {
+                    document.getElementById("Drawer_S2_6").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S2_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S2_6").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S2_6").onmouseout = function() {
+                    document.getElementById("Drawer_S2_6").src="icons/Drawer_Disable.jpg";
+                };
+            }    
+    
+
+            if (self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S2_7_status = false;
+                document.getElementById("DoorLeft_S2_7").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S2_7_status = false;
+                document.getElementById("DoorRight_S2_7").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S2_7_status = true;
+                document.getElementById("DoorLeft_S2_7").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S2_7_status = true;
+                document.getElementById("DoorRight_S2_7").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S2_7_status == true) {
+                document.getElementById("DoorLeft_S2_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S2_7").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S2_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S2_7").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S2_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S2_7").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S2_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S2_7").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S2_7_status == true) {
+                document.getElementById("DoorRight_S2_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S2_7").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S2_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S2_7").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S2_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S2_7").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S2_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S2_7").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S2_7_status = false;
+                document.getElementById("DoubleDoor_S2_7").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S2_7_status = true;
+                document.getElementById("DoubleDoor_S2_7").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S2_7_status == true) {
+                document.getElementById("DoubleDoor_S2_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S2_7").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S2_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S2_7").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S2_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S2_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S2_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S2_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section2Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S2_7_status = true;
+                document.getElementById("Drawer_S2_7").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S2_7_status = true;
+                document.getElementById("Drawer_S2_7").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S2_7_status == true) {
+                document.getElementById("Drawer_S2_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S2_7").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S2_7").onmouseout = function() {
+                    document.getElementById("Drawer_S2_7").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S2_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S2_7").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S2_7").onmouseout = function() {
+                    document.getElementById("Drawer_S2_7").src="icons/Drawer_Disable.jpg";
+                };
+            }    
     
     
             //3_1
@@ -49723,7 +53771,193 @@
                 document.getElementById("Drawer_S3_5").onmouseout = function() {
                     document.getElementById("Drawer_S3_5").src="icons/Drawer_Disable.jpg";
                 };
-            }       
+            } 
+            
+
+            if (self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S3_6_status = false;
+                document.getElementById("DoorLeft_S3_6").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S3_6_status = false;
+                document.getElementById("DoorRight_S3_6").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S3_6_status = true;
+                document.getElementById("DoorLeft_S3_6").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S3_6_status = true;
+                document.getElementById("DoorRight_S3_6").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S3_6_status == true) {
+                document.getElementById("DoorLeft_S3_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S3_6").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S3_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S3_6").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S3_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S3_6").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S3_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S3_6").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S3_6_status == true) {
+                document.getElementById("DoorRight_S3_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S3_6").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S3_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S3_6").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S3_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S3_6").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S3_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S3_6").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S3_6_status = false;
+                document.getElementById("DoubleDoor_S3_6").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S3_6_status = true;
+                document.getElementById("DoubleDoor_S3_6").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S3_6_status == true) {
+                document.getElementById("DoubleDoor_S3_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S3_6").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S3_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S3_6").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S3_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S3_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S3_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S3_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S3_6_status = true;
+                document.getElementById("Drawer_S3_6").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S3_6_status = true;
+                document.getElementById("Drawer_S3_6").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S3_6_status == true) {
+                document.getElementById("Drawer_S3_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S3_6").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S3_6").onmouseout = function() {
+                    document.getElementById("Drawer_S3_6").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S3_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S3_6").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S3_6").onmouseout = function() {
+                    document.getElementById("Drawer_S3_6").src="icons/Drawer_Disable.jpg";
+                };
+            } 
+
+
+            
+            if (self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S3_7_status = false;
+                document.getElementById("DoorLeft_S3_7").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S3_7_status = false;
+                document.getElementById("DoorRight_S3_7").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S3_7_status = true;
+                document.getElementById("DoorLeft_S3_7").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S3_7_status = true;
+                document.getElementById("DoorRight_S3_7").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S3_7_status == true) {
+                document.getElementById("DoorLeft_S3_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S3_7").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S3_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S3_7").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S3_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S3_7").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S3_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S3_7").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S3_7_status == true) {
+                document.getElementById("DoorRight_S3_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S3_7").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S3_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S3_7").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S3_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S3_7").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S3_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S3_7").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S3_7_status = false;
+                document.getElementById("DoubleDoor_S3_7").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S3_7_status = true;
+                document.getElementById("DoubleDoor_S3_7").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S3_7_status == true) {
+                document.getElementById("DoubleDoor_S3_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S3_7").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S3_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S3_7").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S3_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S3_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S3_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S3_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section3Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S3_7_status = true;
+                document.getElementById("Drawer_S3_7").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S3_7_status = true;
+                document.getElementById("Drawer_S3_7").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S3_7_status == true) {
+                document.getElementById("Drawer_S3_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S3_7").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S3_7").onmouseout = function() {
+                    document.getElementById("Drawer_S3_7").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S3_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S3_7").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S3_7").onmouseout = function() {
+                    document.getElementById("Drawer_S3_7").src="icons/Drawer_Disable.jpg";
+                };
+            } 
+
     
 
 
@@ -50194,7 +54428,193 @@
                 document.getElementById("Drawer_S4_5").onmouseout = function() {
                     document.getElementById("Drawer_S4_5").src="icons/Drawer_Disable.jpg";
                 };
-            }   
+            }  
+            
+
+            
+            if (self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S4_6_status = false;
+                document.getElementById("DoorLeft_S4_6").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S4_6_status = false;
+                document.getElementById("DoorRight_S4_6").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S4_6_status = true;
+                document.getElementById("DoorLeft_S4_6").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S4_6_status = true;
+                document.getElementById("DoorRight_S4_6").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S4_6_status == true) {
+                document.getElementById("DoorLeft_S4_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S4_6").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S4_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S4_6").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S4_6").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S4_6").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S4_6").onmouseout = function() {
+                    document.getElementById("DoorLeft_S4_6").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S4_6_status == true) {
+                document.getElementById("DoorRight_S4_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S4_6").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S4_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S4_6").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S4_6").onmouseover = function() { 
+                    document.getElementById("DoorRight_S4_6").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S4_6").onmouseout = function() {
+                    document.getElementById("DoorRight_S4_6").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S4_6_status = false;
+                document.getElementById("DoubleDoor_S4_6").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S4_6_status = true;
+                document.getElementById("DoubleDoor_S4_6").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S4_6_status == true) {
+                document.getElementById("DoubleDoor_S4_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S4_6").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S4_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S4_6").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S4_6").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S4_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S4_6").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S4_6").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S4_6_status = true;
+                document.getElementById("Drawer_S4_6").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S4_6_status = true;
+                document.getElementById("Drawer_S4_6").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S4_6_status == true) {
+                document.getElementById("Drawer_S4_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S4_6").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S4_6").onmouseout = function() {
+                    document.getElementById("Drawer_S4_6").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S4_6").onmouseover = function() { 
+                    document.getElementById("Drawer_S4_6").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S4_6").onmouseout = function() {
+                    document.getElementById("Drawer_S4_6").src="icons/Drawer_Disable.jpg";
+                };
+            }  
+
+
+            if (self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) >  parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) *1.2 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0])  < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
+                self.options.LeftDoor_S4_7_status = false;
+                document.getElementById("DoorLeft_S4_7").src="icons/DoorLeft_Disable.jpg";
+
+                self.options.RightDoor_S4_7_status = false;
+                document.getElementById("DoorRight_S4_7").src="icons/DoorRight_Disable.jpg";
+            }
+            else{
+                self.options.LeftDoor_S4_7_status = true;
+                document.getElementById("DoorLeft_S4_7").src="icons/DoorLeft_Close.jpg";
+    
+                self.options.RightDoor_S4_7_status = true;
+                document.getElementById("DoorRight_S4_7").src="icons/DoorRight_Close.jpg";
+            }
+            if (self.options.LeftDoor_S4_7_status == true) {
+                document.getElementById("DoorLeft_S4_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S4_7").src="icons/DoorLeft_Open.jpg";
+                };
+                document.getElementById("DoorLeft_S4_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S4_7").src="icons/DoorLeft_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorLeft_S4_7").onmouseover = function() { 
+                    document.getElementById("DoorLeft_S4_7").src="icons/DoorLeft_Disable.jpg";
+                };
+                document.getElementById("DoorLeft_S4_7").onmouseout = function() {
+                    document.getElementById("DoorLeft_S4_7").src="icons/DoorLeft_Disable.jpg";
+                };
+            }
+            if (self.options.RightDoor_S4_7_status == true) {
+                document.getElementById("DoorRight_S4_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S4_7").src="icons/DoorRight_Open.jpg";
+                };
+                document.getElementById("DoorRight_S4_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S4_7").src="icons/DoorRight_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoorRight_S4_7").onmouseover = function() { 
+                    document.getElementById("DoorRight_S4_7").src="icons/DoorRight_Disable.jpg";
+                };
+                document.getElementById("DoorRight_S4_7").onmouseout = function() {
+                    document.getElementById("DoorRight_S4_7").src="icons/DoorRight_Disable.jpg";
+                };
+            }
+            if ( self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) * 2.4 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 40 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0])  < 35 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) > 90) {
+                self.options.DoubleDoor_S4_7_status = false;
+                document.getElementById("DoubleDoor_S4_7").src="icons/DoubleDoor_Disable.jpg";
+            }
+            else{
+                self.options.DoubleDoor_S4_7_status = true;
+                document.getElementById("DoubleDoor_S4_7").src="icons/DoubleDoor_Close.jpg";
+            }
+            if (self.options.DoubleDoor_S4_7_status == true) {
+                document.getElementById("DoubleDoor_S4_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S4_7").src="icons/DoubleDoor_Open.jpg";
+                };
+                document.getElementById("DoubleDoor_S4_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S4_7").src="icons/DoubleDoor_Close.jpg";
+                };
+            } else {
+                document.getElementById("DoubleDoor_S4_7").onmouseover = function() { 
+                    document.getElementById("DoubleDoor_S4_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+                document.getElementById("DoubleDoor_S4_7").onmouseout = function() {
+                    document.getElementById("DoubleDoor_S4_7").src="icons/DoubleDoor_Disable.jpg";
+                };
+            }
+            if (self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section4Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 79 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0])  < 15 || parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) > 45 || document.getElementById('subdomainDepth_Cabinet_Dimensionsz').value < 38 ) {
+                self.options.Drawer_S4_7_status = true;
+                document.getElementById("Drawer_S4_7").src="icons/Drawer_Disable.jpg";
+            }
+            else{
+                self.options.Drawer_S4_7_status = true;
+                document.getElementById("Drawer_S4_7").src="icons/Drawer_Close.jpg";
+            }
+            if (self.options.Drawer_S4_7_status == true) {
+                document.getElementById("Drawer_S4_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S4_7").src="icons/Drawer_Open.jpg";
+                };
+                document.getElementById("Drawer_S4_7").onmouseout = function() {
+                    document.getElementById("Drawer_S4_7").src="icons/Drawer_Close.jpg";
+                };
+            } else {
+                document.getElementById("Drawer_S4_7").onmouseover = function() { 
+                    document.getElementById("Drawer_S4_7").src="icons/Drawer_Disable.jpg";
+                };
+                document.getElementById("Drawer_S4_7").onmouseout = function() {
+                    document.getElementById("Drawer_S4_7").src="icons/Drawer_Disable.jpg";
+                };
+            }  
+
 
 
         },
@@ -51313,9 +55733,6 @@
     
             var self = this 
     
-    
-            
-    
             if (self.scene.getObjectByName( "horizontalDividerSection1_1", true ) != undefined) {
                 self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection1_1", true ));
             }
@@ -51339,7 +55756,6 @@
             if (self.scene.getObjectByName( "horizontalDividerSection1_6", true ) != undefined) {
                 self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection1_6", true ));
             }
-
 
     
             var currentHeight = this.options.pillar.height
@@ -51417,7 +55833,9 @@
                     document.getElementById(`InternalShelving${i}_S1`).style.display = "none";
                 }
 
-                
+                document.getElementById("Drawer_S1").style.pointerEvents = "auto";
+                document.getElementById("Drawer_Section1").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect1_1").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
                 document.getElementById("InternalShelving_S1").checked = false;
@@ -51436,6 +55854,9 @@
                     document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
                 }
     
+                document.getElementById("Drawer_S1_2").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS1_2").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect1_2").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
                 document.getElementById("InternalShelving_S1_2").checked = false;
@@ -51453,6 +55874,9 @@
                 for (var i = 1; i <= 4; i++) {
                     document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
                 }
+
+                document.getElementById("Drawer_S1_3").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS1_3").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect1_3").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
@@ -51472,6 +55896,9 @@
                     document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S1_4").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS1_4").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect1_4").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
                 document.getElementById("InternalShelving_S1_4").checked = false;
@@ -51490,6 +55917,9 @@
                     document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S1_5").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS1_5").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect1_5").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
                 document.getElementById("InternalShelving_S1_5").checked = false;
@@ -51505,6 +55935,9 @@
                 self.scene.remove(self.shelvingGroup_section1_6);
     
                 document.getElementById("InternalShelving1_S1_6").style.display = "none";
+
+                document.getElementById("Drawer_S1_6").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS1_6").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect1_6").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
@@ -51685,6 +56118,8 @@
                     document.getElementById(`InternalShelving${i}_S2_1`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S2").style.pointerEvents = "auto";
+                document.getElementById("Drawer_Section2").style.pointerEvents = "auto";
                 
                 document.getElementById("internalShelving_sect2_1").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
@@ -51704,6 +56139,9 @@
                     document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
                 }
     
+                document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS2_2").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect2_2").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
                 document.getElementById("InternalShelving_S2_2").checked = false;
@@ -51721,6 +56159,9 @@
                 for (var i = 1; i <= 4; i++) {
                     document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
                 }
+
+                document.getElementById("Drawer_S2_3").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS2_3").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect2_3").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
@@ -51740,6 +56181,9 @@
                     document.getElementById(`InternalShelving${i}_S2_4`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S2_4").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS2_4").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect2_4").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
                 document.getElementById("InternalShelving_S2_4").checked = false;
@@ -51758,6 +56202,10 @@
                     document.getElementById(`InternalShelving${i}_S2_5`).style.display = "none";
                 }
 
+
+                document.getElementById("Drawer_S2_5").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS2_5").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect2_5").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
                 document.getElementById("InternalShelving_S2_5").checked = false;
@@ -51773,6 +56221,9 @@
                 self.scene.remove(self.shelvingGroup_section2_6);
     
                 document.getElementById("InternalShelving1_S2_6").style.display = "none";
+
+                document.getElementById("Drawer_S2_6").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS2_6").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect2_6").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
@@ -51891,13 +56342,6 @@
                 self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection3_6", true ));
             }
 
-            if (self.scene.getObjectByName( "horizontalDividerSection3_7", true ) != undefined) {
-                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection3_7", true ));
-            }
-
-            if (self.scene.getObjectByName( "horizontalDividerSection3_8", true ) != undefined) {
-                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection3_8", true ));
-            }
 
     
             var currentHeight = this.options.pillar.height
@@ -51951,20 +56395,6 @@
                 this.scene.remove(this.RayCastRecieverSection3_7);
             }
 
-            if (this.section3_WireframeMesh3_8) {
-                this.scene.remove(this.section3_WireframeMesh3_8);
-            }
-            if (this.RayCastRecieverSection3_8) {
-                this.scene.remove(this.RayCastRecieverSection3_8);
-            }
-
-            if (this.section3_WireframeMesh3_9) {
-                this.scene.remove(this.section3_WireframeMesh3_9);
-            }
-            if (this.RayCastRecieverSection3_9) {
-                this.scene.remove(this.RayCastRecieverSection3_9);
-            }
-    
             self.options.sectionHeight_3_1 = currentHeight
             self.options.s3_AmountOfHorDividers = 0
 
@@ -51978,6 +56408,8 @@
                     document.getElementById(`InternalShelving${i}_S3_1`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
+                document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
                 
                 document.getElementById("internalShelving_sect3_1").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
@@ -51997,6 +56429,9 @@
                     document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
                 }
     
+                document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect3_2").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
                 document.getElementById("InternalShelving_S3_2").checked = false;
@@ -52014,6 +56449,9 @@
                 for (var i = 1; i <= 4; i++) {
                     document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
                 }
+
+                document.getElementById("Drawer_S3_3").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS3_3").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect3_3").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
@@ -52033,6 +56471,9 @@
                     document.getElementById(`InternalShelving${i}_S3_4`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S3_4").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS3_4").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect3_4").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
                 document.getElementById("InternalShelving_S3_4").checked = false;
@@ -52051,6 +56492,9 @@
                     document.getElementById(`InternalShelving${i}_S3_5`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S3_5").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS3_5").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect3_5").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
                 document.getElementById("InternalShelving_S3_5").checked = false;
@@ -52065,6 +56509,9 @@
             if ( self.options.shelvesCounterSection3_6!= 0 ) {
                 self.options.shelvesCounterSection3_6 = 0
                 self.scene.remove(self.shelvingGroup_section3_6);
+
+                document.getElementById("Drawer_S3_6").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS3_6").style.pointerEvents = "auto";
     
                 document.getElementById("InternalShelving1_S3_6").style.display = "none";
 
@@ -52137,12 +56584,7 @@
             if (self.scene.getObjectByName( "drawerSection3_7Group", true ) != undefined) {
                 self.scene.remove(self.scene.getObjectByName('drawerSection3_7Group'))
             }
-            if (self.scene.getObjectByName( "drawerSection3_8Group", true ) != undefined) {
-                self.scene.remove(self.scene.getObjectByName('drawerSection3_8Group'))
-            }
-            if (self.scene.getObjectByName( "drawerSection3_9Group", true ) != undefined) {
-                self.scene.remove(self.scene.getObjectByName('drawerSection3_9Group'))
-            }
+            
     
     
             self.options.s3_horizDividStatus = 0
@@ -52152,7 +56594,6 @@
             self.options.s3_5_horizDividStatus = 0
             self.options.s3_6_horizDividStatus = 0
             self.options.s3_7_horizDividStatus = 0
-            self.options.s3_8_horizDividStatus = 0
     
             
             self.calculateOutput();
@@ -52181,6 +56622,14 @@
 
             if (self.scene.getObjectByName( "horizontalDividerSection4_4", true ) != undefined) {
                 self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_4", true ));
+            }
+
+            if (self.scene.getObjectByName( "horizontalDividerSection4_5", true ) != undefined) {
+                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_5", true ));
+            }
+
+            if (self.scene.getObjectByName( "horizontalDividerSection4_6", true ) != undefined) {
+                self.scene.remove(self.scene.getObjectByName( "horizontalDividerSection4_6", true ));
             }
     
             var currentHeight = this.options.pillar.height
@@ -52219,6 +56668,20 @@
             if (this.RayCastRecieverSection4_5) {
                 this.scene.remove(this.RayCastRecieverSection4_5);
             }
+
+            if (this.section4_WireframeMesh4_6) {
+                this.scene.remove(this.section4_WireframeMesh4_6);
+            }
+            if (this.RayCastRecieverSection4_6) {
+                this.scene.remove(this.RayCastRecieverSection4_6);
+            }
+
+            if (this.section4_WireframeMesh4_7) {
+                this.scene.remove(this.section4_WireframeMesh4_7);
+            }
+            if (this.RayCastRecieverSection4_7) {
+                this.scene.remove(this.RayCastRecieverSection4_7);
+            }
     
             self.options.sectionHeight_4_1 = currentHeight
             self.options.s4_AmountOfHorDividers = 0
@@ -52234,6 +56697,9 @@
                     document.getElementById(`InternalShelving${i}_S4_1`).style.display = "none";
                 }
   
+                document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
+                document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect4_1").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
                 document.getElementById("InternalShelving_S4_1").checked = false;
@@ -52252,6 +56718,9 @@
                     document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
                 }
     
+                document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect4_2").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
                 document.getElementById("InternalShelving_S4_2").checked = false;
@@ -52269,6 +56738,9 @@
                 for (var i = 1; i <= 4; i++) {
                     document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
                 }
+
+                document.getElementById("Drawer_S4_3").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS4_3").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect4_3").value = '0'
                 document.getElementById("sectionMoveInternalShelving_4_3").style.display = "none";
@@ -52288,6 +56760,9 @@
                     document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S4_4").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS4_4").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect4_4").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
                 document.getElementById("InternalShelving_S4_4").checked = false;
@@ -52306,6 +56781,9 @@
                     document.getElementById(`InternalShelving${i}_S4_5`).style.display = "none";
                 }
 
+                document.getElementById("Drawer_S4_5").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS4_5").style.pointerEvents = "auto";
+
                 document.getElementById("internalShelving_sect4_5").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
                 document.getElementById("InternalShelving_S4_5").checked = false;
@@ -52321,6 +56799,9 @@
                 self.scene.remove(self.shelvingGroup_section4_6);
     
                 document.getElementById("InternalShelving1_S4_6").style.display = "none";
+
+                document.getElementById("Drawer_S4_6").style.pointerEvents = "auto";
+                document.getElementById("Drawer_SectionS4_6").style.pointerEvents = "auto";
 
                 document.getElementById("internalShelving_sect4_6").value = '0'
                 document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
@@ -52339,6 +56820,10 @@
             self.options.s4_3_doorStatus = 1;
             self.options.s4_4_doorStatus = 1;
             self.options.s4_5_doorStatus = 1;
+            self.options.s4_6_doorStatus = 1;
+            self.options.s4_7_doorStatus = 1;
+            self.options.s4_8_doorStatus = 1;
+            self.options.s4_9_doorStatus = 1;
     
     
             document.getElementById("HorizontalPartition_S4_1").checked = false;
@@ -52346,6 +56831,8 @@
             document.getElementById("RemoveHorizontalPartition_S4_3").checked = true;
             document.getElementById("RemoveHorizontalPartition_S4_4").checked = true;
             document.getElementById("RemoveHorizontalPartition_S4_5").checked = true;
+            document.getElementById("RemoveHorizontalPartition_S4_6").checked = true;
+            document.getElementById("RemoveHorizontalPartition_S4_7").checked = true;
     
             document.getElementById("amountHorizontalPartition_S4_1").style.display = "none";
 
@@ -52380,6 +56867,12 @@
             if (self.scene.getObjectByName( "drawerSection4_5Group", true ) != undefined) {
                 self.scene.remove(self.scene.getObjectByName('drawerSection4_5Group'))
             }
+            if (self.scene.getObjectByName( "drawerSection4_6Group", true ) != undefined) {
+                self.scene.remove(self.scene.getObjectByName('drawerSection4_6Group'))
+            }
+            if (self.scene.getObjectByName( "drawerSection4_7Group", true ) != undefined) {
+                self.scene.remove(self.scene.getObjectByName('drawerSection4_7Group'))
+            }
   
     
     
@@ -52388,6 +56881,8 @@
             self.options.s4_3_horizDividStatus = 0
             self.options.s4_4_horizDividStatus = 0
             self.options.s4_5_horizDividStatus = 0
+            self.options.s4_6_horizDividStatus = 0
+            self.options.s4_7_horizDividStatus = 0
     
             
             self.calculateOutput();
@@ -52749,110 +57244,6 @@
         },
 
 
-        createhorizontalDividerSection1_7: function(shelfId) {
-    
-            var self = this 
-    
-            self.scene.remove(this.horizontalDividerSection1_7);
-    
-            let currentHeight = self.options.sectionHeight_1_7;
-    
-            var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
-            
-            var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
-            
-            var horizontalDividerSection1_7 = new THREE.Mesh(geometry, material);
-            
-            horizontalDividerSection1_7.geometry.translate( self.options.section1Length / 2, 0, 0 );
-    
-            horizontalDividerSection1_7.name = 'horizontalDividerSection1_7'
-            horizontalDividerSection1_7.material.needsUpdate = true;
-    
-            horizontalDividerSection1_7.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
-            horizontalDividerSection1_7.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
-    
-    
-            if (shelfId == 'savedURL'){
-                horizontalDividerSection1_7.position.y = parseFloat(+self.params.get('hDS1_7'));
-                self.options.sectionHeight_1_7 = +self.params.get('H_S1_7');
-                self.options.sectionHeight_1_8 = +self.params.get('H_S1_8');
-            } else {
-                horizontalDividerSection1_7.position.y = self.scene.getObjectByName('horizontalDividerSection1_6').position.y + 12;
-                self.options.sectionHeight_1_7 = 13
-                self.options.sectionHeight_1_8 = currentHeight - 12
-            }
-    
-            self.scene.add(horizontalDividerSection1_7);
-        
-            if (shelfId == 'savedURL'){
-                self.createWireframeBack_section1_7('savedCorrectionURL');
-                self.createRayCastRecieverSection1_7('savedCorrectionURL');
-            
-                self.createWireframeBack_section1_8('savedCorrectionURL');
-                self.createRayCastRecieverSection1_8('savedCorrectionURL'); 
-    
-            } else {
-                self.createWireframeBack_section1_8(); 
-                self.createRayCastRecieverSection1_8();
-    
-                self.createWireframeBack_section1_7();
-                self.createRayCastRecieverSection1_7();      
-            }
-            
-        },
-
-
-        createhorizontalDividerSection1_8: function(shelfId) {
-    
-            var self = this 
-    
-            self.scene.remove(this.horizontalDividerSection1_8);
-    
-            let currentHeight = self.options.sectionHeight_1_8;
-    
-            var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
-            
-            var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
-            
-            var horizontalDividerSection1_8 = new THREE.Mesh(geometry, material);
-            
-            horizontalDividerSection1_8.geometry.translate( self.options.section1Length / 2, 0, 0 );
-    
-            horizontalDividerSection1_8.name = 'horizontalDividerSection1_8'
-            horizontalDividerSection1_8.material.needsUpdate = true;
-    
-            horizontalDividerSection1_8.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x+0.5;
-            horizontalDividerSection1_8.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
-    
-    
-            if (shelfId == 'savedURL'){
-                horizontalDividerSection1_8.position.y = parseFloat(+self.params.get('hDS1_8'));
-                self.options.sectionHeight_1_8 = +self.params.get('H_S1_8');
-                self.options.sectionHeight_1_9 = +self.params.get('H_S1_9');
-            } else {
-                horizontalDividerSection1_8.position.y = self.scene.getObjectByName('horizontalDividerSection1_7').position.y + 12;
-                self.options.sectionHeight_1_8 = 13
-                self.options.sectionHeight_1_9 = currentHeight - 12
-            }
-    
-            self.scene.add(horizontalDividerSection1_8);
-        
-            if (shelfId == 'savedURL'){
-                self.createWireframeBack_section1_8('savedCorrectionURL');
-                self.createRayCastRecieverSection1_8('savedCorrectionURL');
-            
-                self.createWireframeBack_section1_9('savedCorrectionURL');
-                self.createRayCastRecieverSection1_9('savedCorrectionURL'); 
-    
-            } else {
-                self.createWireframeBack_section1_9(); 
-                self.createRayCastRecieverSection1_9();
-    
-                self.createWireframeBack_section1_8();
-                self.createRayCastRecieverSection1_8();      
-            }
-            
-        },
     
 
         
@@ -53511,7 +57902,7 @@
     
     
             if (shelfId == 'savedURL'){
-                horizontalDividerSection3_5.position.y = parseFloat(+self.params.get('hDS2_5'));
+                horizontalDividerSection3_5.position.y = parseFloat(+self.params.get('hDS3_5'));
                 self.options.sectionHeight_3_5 = +self.params.get('H_S3_5');
                 self.options.sectionHeight_3_6 = +self.params.get('H_S3_6');
             } else {
@@ -53564,7 +57955,7 @@
     
     
             if (shelfId == 'savedURL'){
-                horizontalDividerSection3_6.position.y = parseFloat(+self.params.get('hDS2_6'));
+                horizontalDividerSection3_6.position.y = parseFloat(+self.params.get('hDS3_6'));
                 self.options.sectionHeight_3_6 = +self.params.get('H_S3_6');
                 self.options.sectionHeight_3_7 = +self.params.get('H_S3_7');
             } else {
@@ -53592,111 +57983,6 @@
             
         },
 
-
-        createhorizontalDividerSection3_7: function(shelfId) {
-    
-            var self = this 
-    
-            self.scene.remove(this.horizontalDividerSection3_7);
-    
-            let currentHeight = self.options.sectionHeight_3_7;
-    
-            var geometry = new THREE.BoxGeometry(self.options.section3Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
-            
-            var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
-            
-            var horizontalDividerSection3_7 = new THREE.Mesh(geometry, material);
-            
-            horizontalDividerSection3_7.geometry.translate( self.options.section3Length / 2, 0, 0 );
-    
-            horizontalDividerSection3_7.name = 'horizontalDividerSection3_7'
-            horizontalDividerSection3_7.material.needsUpdate = true;
-    
-            horizontalDividerSection3_7.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
-            horizontalDividerSection3_7.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
-    
-    
-            if (shelfId == 'savedURL'){
-                horizontalDividerSection3_7.position.y = parseFloat(+self.params.get('hDS3_7'));
-                self.options.sectionHeight_3_7 = +self.params.get('H_S3_7');
-                self.options.sectionHeight_3_8 = +self.params.get('H_S3_8');
-            } else {
-                horizontalDividerSection3_7.position.y = self.scene.getObjectByName('horizontalDividerSection3_6').position.y + 12;
-                self.options.sectionHeight_3_7 = 13
-                self.options.sectionHeight_3_8 = currentHeight - 12
-            }
-    
-            self.scene.add(horizontalDividerSection3_7);
-        
-            if (shelfId == 'savedURL'){
-                self.createWireframeBack_section3_7('savedCorrectionURL');
-                self.createRayCastRecieverSection3_7('savedCorrectionURL');
-            
-                self.createWireframeBack_section3_8('savedCorrectionURL');
-                self.createRayCastRecieverSection3_8('savedCorrectionURL'); 
-    
-            } else {
-                self.createWireframeBack_section3_8(); 
-                self.createRayCastRecieverSection3_8();
-    
-                self.createWireframeBack_section3_7();
-                self.createRayCastRecieverSection3_7();      
-            }
-            
-        },
-
-
-        createhorizontalDividerSection3_8: function(shelfId) {
-    
-            var self = this 
-    
-            self.scene.remove(this.horizontalDividerSection3_8);
-    
-            let currentHeight = self.options.sectionHeight_3_8;
-    
-            var geometry = new THREE.BoxGeometry(self.options.section3Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
-            
-            var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
-            
-            var horizontalDividerSection3_8 = new THREE.Mesh(geometry, material);
-            
-            horizontalDividerSection3_8.geometry.translate( self.options.section3Length / 2, 0, 0 );
-    
-            horizontalDividerSection3_8.name = 'horizontalDividerSection3_8'
-            horizontalDividerSection3_8.material.needsUpdate = true;
-    
-            horizontalDividerSection3_8.position.x = this.scene.getObjectByName( "pillar2", true ).position.x+0.5;
-            horizontalDividerSection3_8.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
-    
-    
-            if (shelfId == 'savedURL'){
-                horizontalDividerSection3_8.position.y = parseFloat(+self.params.get('hDS3_8'));
-                self.options.sectionHeight_3_8 = +self.params.get('H_S3_8');
-                self.options.sectionHeight_3_9 = +self.params.get('H_S3_9');
-            } else {
-                horizontalDividerSection3_8.position.y = self.scene.getObjectByName('horizontalDividerSection3_7').position.y + 12;
-                self.options.sectionHeight_3_8 = 13
-                self.options.sectionHeight_3_9 = currentHeight - 12
-            }
-    
-            self.scene.add(horizontalDividerSection3_8);
-        
-            if (shelfId == 'savedURL'){
-                self.createWireframeBack_section3_8('savedCorrectionURL');
-                self.createRayCastRecieverSection3_8('savedCorrectionURL');
-            
-                self.createWireframeBack_section3_9('savedCorrectionURL');
-                self.createRayCastRecieverSection3_9('savedCorrectionURL'); 
-    
-            } else {
-                self.createWireframeBack_section3_9(); 
-                self.createRayCastRecieverSection3_9();
-    
-                self.createWireframeBack_section3_8();
-                self.createRayCastRecieverSection3_8();      
-            }
-            
-        },
     
     
     
@@ -53728,9 +58014,9 @@
                 self.options.sectionHeight_4_1 = +self.params.get('H_S4_1');
                 self.options.sectionHeight_4_2 = +self.params.get('H_S4_2');
             } else {
-                horizontalDividerSection4_1.position.y = 12.5
-                self.options.sectionHeight_4_1 = 12.5
-                self.options.sectionHeight_4_2 = currentHeight - 12.5 
+                horizontalDividerSection4_1.position.y = 12
+                self.options.sectionHeight_4_1 = 12
+                self.options.sectionHeight_4_2 = currentHeight - 12
             }
     
             self.scene.add(horizontalDividerSection4_1);
@@ -53778,9 +58064,9 @@
                 self.options.sectionHeight_4_3 = +self.params.get('H_S4_3');
                 self.options.sectionHeight_4_2 = +self.params.get('H_S4_2');
             } else {
-                horizontalDividerSection4_2.position.y = self.scene.getObjectByName('horizontalDividerSection4_1').position.y + 12.5
-                self.options.sectionHeight_4_2 = 12.5 +1
-                self.options.sectionHeight_4_3 = currentHeight - 12.5
+                horizontalDividerSection4_2.position.y = self.scene.getObjectByName('horizontalDividerSection4_1').position.y + 12
+                self.options.sectionHeight_4_2 = 13
+                self.options.sectionHeight_4_3 = currentHeight - 12
             }
     
             self.scene.add(horizontalDividerSection4_2);
@@ -53831,9 +58117,9 @@
                 self.options.sectionHeight_4_3 = +self.params.get('H_S4_3');
                 self.options.sectionHeight_4_4 = +self.params.get('H_S4_4');
             } else {
-                horizontalDividerSection4_3.position.y = self.scene.getObjectByName('horizontalDividerSection4_2').position.y + 12.5;
-                self.options.sectionHeight_4_3 = 12.5 + 1
-                self.options.sectionHeight_4_4 = currentHeight - 12.5
+                horizontalDividerSection4_3.position.y = self.scene.getObjectByName('horizontalDividerSection4_2').position.y + 12
+                self.options.sectionHeight_4_3 = 13
+                self.options.sectionHeight_4_4 = currentHeight - 12
             }
     
             self.scene.add(horizontalDividerSection4_3);
@@ -53908,6 +58194,111 @@
           
         },
 
+        //4_5 cuts 4_4
+        createhorizontalDividerSection4_5: function(shelfId) {
+    
+            var self = this 
+    
+            self.scene.remove(this.horizontalDividerSection4_5);
+    
+            let currentHeight = self.options.sectionHeight_4_5
+    
+            var geometry = new THREE.BoxGeometry(self.options.section4Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
+            
+            var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
+            
+            var horizontalDividerSection4_5 = new THREE.Mesh(geometry, material);
+            
+            horizontalDividerSection4_5.geometry.translate( self.options.section4Length / 2, 0, 0 );
+    
+            horizontalDividerSection4_5.name = 'horizontalDividerSection4_5'
+            horizontalDividerSection4_5.material.needsUpdate = true;
+    
+            horizontalDividerSection4_5.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
+            horizontalDividerSection4_5.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
+    
+    
+            if (shelfId == 'savedURL'){
+                horizontalDividerSection4_5.position.y = parseFloat(+self.params.get('hDS4_5'));
+                self.options.sectionHeight_4_5 = +self.params.get('H_S4_5');
+                self.options.sectionHeight_4_6 = +self.params.get('H_S4_6');
+            } else {
+                horizontalDividerSection4_5.position.y = self.scene.getObjectByName('horizontalDividerSection4_4').position.y + 12;
+                self.options.sectionHeight_4_5 = 13
+                self.options.sectionHeight_4_6 = currentHeight - 12
+            }
+    
+            self.scene.add(horizontalDividerSection4_5);
+        
+            if (shelfId == 'savedURL'){
+                self.createWireframeBack_section4_5('savedCorrectionURL');
+                self.createRayCastRecieverSection4_5('savedCorrectionURL');
+            
+                self.createWireframeBack_section4_6('savedCorrectionURL');
+                self.createRayCastRecieverSection4_6('savedCorrectionURL'); 
+    
+            } else {
+                self.createWireframeBack_section4_6(); 
+                self.createRayCastRecieverSection4_6();
+    
+                self.createWireframeBack_section4_5();
+                self.createRayCastRecieverSection4_5();      
+            }
+            
+        },
+
+        //4_6 cuts 4_5
+        createhorizontalDividerSection4_6: function(shelfId) {
+    
+            var self = this 
+    
+            self.scene.remove(this.horizontalDividerSection4_6);
+    
+            let currentHeight = self.options.sectionHeight_4_6
+    
+            var geometry = new THREE.BoxGeometry(self.options.section4Length + self.options.pillar.thickness/2, self.options.shelf.thickness, self.options.shelf.width);
+            
+            var material = new THREE.MeshStandardMaterial({color: self.options.shelf.color});
+            
+            var horizontalDividerSection4_6 = new THREE.Mesh(geometry, material);
+            
+            horizontalDividerSection4_6.geometry.translate( self.options.section4Length / 2, 0, 0 );
+    
+            horizontalDividerSection4_6.name = 'horizontalDividerSection4_6'
+            horizontalDividerSection4_6.material.needsUpdate = true;
+    
+            horizontalDividerSection4_6.position.x = this.scene.getObjectByName( "pillar3", true ).position.x+0.5;
+            horizontalDividerSection4_6.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
+    
+    
+            if (shelfId == 'savedURL'){
+                horizontalDividerSection4_6.position.y = parseFloat(+self.params.get('hDS4_6'));
+                self.options.sectionHeight_4_6 = +self.params.get('H_S4_6');
+                self.options.sectionHeight_4_7 = +self.params.get('H_S4_7');
+            } else {
+                horizontalDividerSection4_6.position.y = self.scene.getObjectByName('horizontalDividerSection4_5').position.y + 12;
+                self.options.sectionHeight_4_6 = 13
+                self.options.sectionHeight_4_7 = currentHeight - 12
+            }
+    
+            self.scene.add(horizontalDividerSection4_6);
+        
+            if (shelfId == 'savedURL'){
+                self.createWireframeBack_section4_6('savedCorrectionURL');
+                self.createRayCastRecieverSection4_6('savedCorrectionURL');
+            
+                self.createWireframeBack_section4_7('savedCorrectionURL');
+                self.createRayCastRecieverSection4_7('savedCorrectionURL'); 
+    
+            } else {
+                self.createWireframeBack_section4_7(); 
+                self.createRayCastRecieverSection4_7();
+    
+                self.createWireframeBack_section4_6();
+                self.createRayCastRecieverSection4_6();      
+            }
+            
+        },
         
     
     
@@ -53944,15 +58335,15 @@
 
             var self = this;
             
-            var geometry = new THREE.BoxGeometry(sectionLength +1, this.options.shelf.thickness, 31.2); 
+            var geometry = new THREE.BoxGeometry(sectionLength +1, this.options.shelf.thickness, 33.2); 
             var material = new THREE.MeshStandardMaterial({color: this.options.shelf.color, transparent: true, opacity: 1});
             var shelfToGroupProto = new THREE.Mesh(geometry, material);
             shelfToGroupProto.castShadow = true
             shelfToGroupProto.receiveShadow = true
             shelfToGroupProto.name = 'internalShelf'+'_'+section+'_shelf'+shelfId;
-            shelfToGroupProto.geometry.translate( sectionLength / 2, 0, -31.2 /2  );
-            shelfToGroupProto.position.z = - 1
-            shelfToGroupProto.rotation.x = THREE.MathUtils.degToRad(-15);
+            shelfToGroupProto.geometry.translate( sectionLength / 2, 0, 33.2/2  );
+            shelfToGroupProto.position.z = -self.options.shelf.width / 2
+            shelfToGroupProto.rotation.x = THREE.MathUtils.degToRad(14);
             shelfToGroupProto.position.y = posShelf;
             shelfToGroupProto.material.needsUpdate = true;
 
@@ -53971,10 +58362,10 @@
             shelfToGroupProto.castShadow = true
             shelfToGroupProto.receiveShadow = true
             shelfToGroupProto.name = 'internalShelfShoe'+'_'+section+'_shelf'+shelfId;
-            shelfToGroupProto.geometry.translate( sectionLength / 2, 0, 0  );
-            shelfToGroupProto.position.z = - 31.2
-            shelfToGroupProto.rotation.x = THREE.MathUtils.degToRad(-105);
-            shelfToGroupProto.position.y = posShelf - 6;
+            shelfToGroupProto.geometry.translate( sectionLength / 2, -self.options.shelf.width / 2, 0  );
+            shelfToGroupProto.position.z = 33.2
+            shelfToGroupProto.rotation.x = THREE.MathUtils.degToRad(105);
+            shelfToGroupProto.position.y = posShelf - 13;
             shelfToGroupProto.material.needsUpdate = true;
 
             this.shelfToGroupProto = shelfToGroupProto;
@@ -55937,7 +60328,6 @@
             this.scene.add(RayCastRecieverSection3_6);
         },
 
-
         //3_7 cuts 3_6
         createWireframeBack_section3_7: function(savedCorrection) {
             var self = this;
@@ -56006,140 +60396,6 @@
         },
 
 
-        //3_8 cuts 3_7
-        createWireframeBack_section3_8: function(savedCorrection) {
-            var self = this;
-            this.scene.remove(this.section3_WireframeMesh3_8);
-    
-            var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
-    
-            var geometry = new THREE.PlaneGeometry(this.options.section3Length - this.options.pillar.thickness/2, this.options.sectionHeight_3_8 - this.options.shelf.thickness ); 
-    
-            var section3_WireframeMesh3_8 = new THREE.Mesh(geometry, material);
-    
-            section3_WireframeMesh3_8.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_7", true ).position.y + this.options.sectionHeight_3_8 / 2 - this.options.shelf.thickness/2, 0 );
-            
-            if (savedCorrection == 'savedCorrectionURL'){
-                section3_WireframeMesh3_8.position.y = parseFloat(self.params.get('WRS3_8_pY')) + this.options.shelf.thickness/2;
-            } else {
-            } 
-    
-            section3_WireframeMesh3_8.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
-    
-            section3_WireframeMesh3_8.position.z = -999
-    
-            section3_WireframeMesh3_8.name = "section3_WireframeMesh3_8"
-            
-            section3_WireframeMesh3_8.visible = true;
-            this.section3_WireframeMesh3_8 = section3_WireframeMesh3_8;
-    
-            this.scene.add(section3_WireframeMesh3_8);
-    
-        },
-    
-        createRayCastRecieverSection3_8: function(savedCorrection) {
-            var self = this;
-            this.scene.remove(this.RayCastRecieverSection3_8);
-    
-            var geometry = new THREE.BoxGeometry(this.options.section3Length - this.options.pillar.thickness/2, this.options.sectionHeight_3_8 - this.options.shelf.thickness , self.options.shelf.width-1);
-    
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
-    
-            var RayCastRecieverSection3_8 = new THREE.Mesh(geometry, material);
-    
-            RayCastRecieverSection3_8.geometry.translate( self.options.section3Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection3_7", true ).position.y + this.options.sectionHeight_3_8 / 2 - this.options.shelf.thickness/2, 0 );
-            
-            if (savedCorrection == 'savedCorrectionURL'){
-                RayCastRecieverSection3_8.position.y = parseFloat(self.params.get('RCS3_8_pY')) + this.options.shelf.thickness/2;
-            } else {
-            } 
-    
-            RayCastRecieverSection3_8.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
-    
-            RayCastRecieverSection3_8.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
-            RayCastRecieverSection3_8.name = "RayCastRecieverSection3_8"
-            RayCastRecieverSection3_8.renderOrder = 999
-            RayCastRecieverSection3_8.visible = true;
-            this.RayCastRecieverSection3_8 = RayCastRecieverSection3_8;
-    
-            if ( self.options.intersectsChooseStatus === 38) {
-                self.RayCastRecieverSection3_8.material.opacity = 0.2
-                self.section3_WireframeMesh3_8.material.opacity = 0.2
-            } else {
-                self.RayCastRecieverSection3_8.material.opacity = 0.0
-                self.section3_WireframeMesh3_8.material.opacity = 0.0
-            }
-    
-            this.scene.add(RayCastRecieverSection3_8);
-        },
-
-
-        //3_9 cuts 3_8
-        createWireframeBack_section3_9: function(savedCorrection) {
-            var self = this;
-            this.scene.remove(this.section3_WireframeMesh3_9);
-    
-            var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
-    
-            var geometry = new THREE.PlaneGeometry(this.options.section3Length - this.options.pillar.thickness/2, this.options.sectionHeight_3_9 - this.options.shelf.thickness ); 
-    
-            var section3_WireframeMesh3_9 = new THREE.Mesh(geometry, material);
-    
-            section3_WireframeMesh3_9.geometry.translate( self.options.section3Length / 2 , this.scene.getObjectByName( "horizontalDividerSection3_8", true ).position.y + this.options.sectionHeight_3_9 / 2 - this.options.shelf.thickness/2, 0 );
-            
-            if (savedCorrection == 'savedCorrectionURL'){
-                section3_WireframeMesh3_9.position.y = parseFloat(self.params.get('WRS3_9_pY')) + this.options.shelf.thickness/2;
-            } else {
-            } 
-    
-            section3_WireframeMesh3_9.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
-    
-            section3_WireframeMesh3_9.position.z = -999
-    
-            section3_WireframeMesh3_9.name = "section3_WireframeMesh3_9"
-            
-            section3_WireframeMesh3_9.visible = true;
-            this.section3_WireframeMesh3_9 = section3_WireframeMesh3_9;
-    
-            this.scene.add(section3_WireframeMesh3_9);
-    
-        },
-    
-        createRayCastRecieverSection3_9: function(savedCorrection) {
-            var self = this;
-            this.scene.remove(this.RayCastRecieverSection3_9);
-    
-            var geometry = new THREE.BoxGeometry(this.options.section3Length - this.options.pillar.thickness/2, this.options.sectionHeight_3_9 - this.options.shelf.thickness , self.options.shelf.width-1);
-    
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
-    
-            var RayCastRecieverSection3_9 = new THREE.Mesh(geometry, material);
-    
-            RayCastRecieverSection3_9.geometry.translate( self.options.section3Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection3_8", true ).position.y + this.options.sectionHeight_3_9 / 2 - this.options.shelf.thickness/2, 0 );
-            
-            if (savedCorrection == 'savedCorrectionURL'){
-                RayCastRecieverSection3_9.position.y = parseFloat(self.params.get('RCS3_9_pY')) + this.options.shelf.thickness/2;
-            } else {
-            } 
-    
-            RayCastRecieverSection3_9.position.x = this.scene.getObjectByName( "pillar2", true ).position.x;
-    
-            RayCastRecieverSection3_9.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
-            RayCastRecieverSection3_9.name = "RayCastRecieverSection3_9"
-            RayCastRecieverSection_9.renderOrder = 999
-            RayCastRecieverSection3_9.visible = true;
-            this.RayCastRecieverSection3_9 = RayCastRecieverSection3_9;
-    
-            if ( self.options.intersectsChooseStatus === 39) {
-                self.RayCastRecieverSection3_9.material.opacity = 0.2
-                self.section3_WireframeMesh3_9.material.opacity = 0.2
-            } else {
-                self.RayCastRecieverSection3_9.material.opacity = 0.0
-                self.section3_WireframeMesh3_9.material.opacity = 0.0
-            }
-    
-            this.scene.add(RayCastRecieverSection3_9);
-        },
     
     
     
@@ -56486,6 +60742,145 @@
     
             this.scene.add(RayCastRecieverSection4_5);
         },
+
+
+        //4_6 cuts 4_5
+        createWireframeBack_section4_6: function(savedCorrection) {
+            var self = this;
+            this.scene.remove(this.section4_WireframeMesh4_6);
+    
+            var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
+    
+            if (this.options.amountOfSections === 3 ) {
+                var geometry = new THREE.PlaneGeometry(this.options.section4Length - this.options.pillar.thickness/2, this.options.sectionHeight_4_6 - this.options.shelf.thickness );
+            } else{
+                var geometry = new THREE.PlaneGeometry(this.options.section4Length - this.options.pillar.thickness, this.options.sectionHeight_4_6 - this.options.shelf.thickness );
+            } 
+    
+            var section4_WireframeMesh4_6 = new THREE.Mesh(geometry, material);
+    
+            section4_WireframeMesh4_6.geometry.translate( self.options.section4Length / 2 , this.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y + this.options.sectionHeight_4_6 / 2 - this.options.shelf.thickness/2, 0 );
+            
+            if (savedCorrection == 'savedCorrectionURL'){
+                section4_WireframeMesh4_6.position.y = parseFloat(self.params.get('WRS4_6_pY')) + this.options.shelf.thickness/2;
+            } else {
+            } 
+    
+            section4_WireframeMesh4_6.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
+    
+            section4_WireframeMesh4_6.position.z = -999
+    
+            section4_WireframeMesh4_6.name = "section4_WireframeMesh4_6"
+            
+            section4_WireframeMesh4_6.visible = true;
+            this.section4_WireframeMesh4_6 = section4_WireframeMesh4_6;
+    
+            this.scene.add(section4_WireframeMesh4_6);
+    
+        },
+    
+        createRayCastRecieverSection4_6: function(savedCorrection) {
+            var self = this;
+            this.scene.remove(this.RayCastRecieverSection4_6);
+    
+            var geometry = new THREE.BoxGeometry(this.options.section4Length - this.options.pillar.thickness/2, this.options.sectionHeight_4_6 - this.options.shelf.thickness , self.options.shelf.width-1);
+    
+            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+    
+            var RayCastRecieverSection4_6 = new THREE.Mesh(geometry, material);
+    
+            RayCastRecieverSection4_6.geometry.translate( self.options.section4Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y + this.options.sectionHeight_4_6 / 2 - this.options.shelf.thickness/2, 0 );
+            
+            if (savedCorrection == 'savedCorrectionURL'){
+                RayCastRecieverSection4_6.position.y = parseFloat(self.params.get('RCS4_6_pY')) + this.options.shelf.thickness/2;
+            } else {
+            } 
+    
+            RayCastRecieverSection4_6.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
+    
+            RayCastRecieverSection4_6.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
+            RayCastRecieverSection4_6.name = "RayCastRecieverSection4_6"
+            RayCastRecieverSection4_6.renderOrder = 999
+            RayCastRecieverSection4_6.visible = true;
+            this.RayCastRecieverSection4_6 = RayCastRecieverSection4_6;
+    
+            if ( self.options.intersectsChooseStatus === 36) {
+                self.RayCastRecieverSection4_6.material.opacity = 0.2
+                self.section4_WireframeMesh4_6.material.opacity = 0.2
+            } else {
+                self.RayCastRecieverSection4_6.material.opacity = 0.0
+                self.section4_WireframeMesh4_6.material.opacity = 0.0
+            }
+    
+            this.scene.add(RayCastRecieverSection4_6);
+        },
+
+        //4_7 cuts 4_6
+        createWireframeBack_section4_7: function(savedCorrection) {
+            var self = this;
+            this.scene.remove(this.section4_WireframeMesh4_7);
+    
+            var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
+    
+            var geometry = new THREE.PlaneGeometry(this.options.section4Length - this.options.pillar.thickness/2, this.options.sectionHeight_4_7 - this.options.shelf.thickness ); 
+    
+            var section4_WireframeMesh4_7 = new THREE.Mesh(geometry, material);
+    
+            section4_WireframeMesh4_7.geometry.translate( self.options.section4Length / 2 , this.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y + this.options.sectionHeight_4_7 / 2 - this.options.shelf.thickness/2, 0 );
+            
+            if (savedCorrection == 'savedCorrectionURL'){
+                section4_WireframeMesh4_7.position.y = parseFloat(self.params.get('WRS4_7_pY')) + this.options.shelf.thickness/2;
+            } else {
+            } 
+    
+            section4_WireframeMesh4_7.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
+    
+            section4_WireframeMesh4_7.position.z = -999
+    
+            section4_WireframeMesh4_7.name = "section4_WireframeMesh4_7"
+            
+            section4_WireframeMesh4_7.visible = true;
+            this.section4_WireframeMesh4_7 = section4_WireframeMesh4_7;
+    
+            this.scene.add(section4_WireframeMesh4_7);
+    
+        },
+    
+        createRayCastRecieverSection4_7: function(savedCorrection) {
+            var self = this;
+            this.scene.remove(this.RayCastRecieverSection4_7);
+    
+            var geometry = new THREE.BoxGeometry(this.options.section4Length - this.options.pillar.thickness/2, this.options.sectionHeight_4_7 - this.options.shelf.thickness , self.options.shelf.width-1);
+    
+            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+    
+            var RayCastRecieverSection4_7 = new THREE.Mesh(geometry, material);
+    
+            RayCastRecieverSection4_7.geometry.translate( self.options.section4Length / 2 + 0.5, this.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y + this.options.sectionHeight_4_7 / 2 - this.options.shelf.thickness/2, 0 );
+            
+            if (savedCorrection == 'savedCorrectionURL'){
+                RayCastRecieverSection4_7.position.y = parseFloat(self.params.get('RCS4_7_pY')) + this.options.shelf.thickness/2;
+            } else {
+            } 
+    
+            RayCastRecieverSection4_7.position.x = this.scene.getObjectByName( "pillar3", true ).position.x;
+    
+            RayCastRecieverSection4_7.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2;
+            RayCastRecieverSection4_7.name = "RayCastRecieverSection4_7"
+            RayCastRecieverSection4_7.renderOrder = 999
+            RayCastRecieverSection4_7.visible = true;
+            this.RayCastRecieverSection4_7 = RayCastRecieverSection4_7;
+    
+            if ( self.options.intersectsChooseStatus === 37) {
+                self.RayCastRecieverSection4_7.material.opacity = 0.2
+                self.section4_WireframeMesh4_7.material.opacity = 0.2
+            } else {
+                self.RayCastRecieverSection4_7.material.opacity = 0.0
+                self.section4_WireframeMesh4_7.material.opacity = 0.0
+            }
+    
+            this.scene.add(RayCastRecieverSection4_7);
+        },
     
         
   
@@ -56785,6 +61180,21 @@
                         var hsec1_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec1_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                     }
+                    if ( self.options.shelvesCounterSection1_2 === 4 ) {
+                        var hsec1_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection1_2 === 5 ) {
+                        var hsec1_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_2_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf1_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
                 if ( self.options.shelvesCounterSection1_1 === 1 ) {
                     var hsec1_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -56808,6 +61218,23 @@
                     var hsec1_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                     var hsec1_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                 }
+                if ( self.options.shelvesCounterSection1_1 === 5 ) {
+                    var hsec1_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                }
+                if ( self.options.shelvesCounterSection1_1 === 6 ) {
+                    var hsec1_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    var hsec1_1_shelf6 = new THREE.TextGeometry( (self.options.heigh6Shelf1_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                }
 
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_2", true ) != undefined) {
                     var hsec1_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -56817,6 +61244,19 @@
                         var hsec1_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                     }
                     if ( self.options.shelvesCounterSection1_3 === 2 ) {
+                        var hsec1_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection1_3 === 3 ) {
+                        var hsec1_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection1_3 === 4 ) {
+                        var hsec1_3_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec1_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec1_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec1_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -56831,14 +61271,40 @@
                         var hsec1_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec1_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                     }
+                    if ( self.options.shelvesCounterSection1_4 === 2 ) {
+                        var hsec1_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection1_4 === 3 ) {
+                        var hsec1_4_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
 
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_4", true ) != undefined) {
-                    var hsec1_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                    var hsec1_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    
+                    if ( self.options.shelvesCounterSection1_5 === 1 ) {
+                        var hsec1_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection1_5 === 2 ) {
+                        var hsec1_5_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf1_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
 
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_5", true ) != undefined) {
-                    var hsec1_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                    var hsec1_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );   
+                    
+                    if ( self.options.shelvesCounterSection1_6 === 1 ) {
+                        var hsec1_6_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf1_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec1_6_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf1_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
                 }
 
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_6", true ) != undefined) {
@@ -56934,7 +61400,7 @@
                 }
                 if ( self.options.shelvesCounterSection1_1 === 4) {
                     dimensionsFontGroup.remove(hsec1_1Mesh); 
-                    dimensionsFontGroup.remove(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh);
+                    dimensionsFontGroup.remove(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh,hsec1_1_shelf4Mesh);
                     var hsec1_1_shelf1Mesh = new THREE.Mesh(hsec1_1_shelf1, self.fontColor);
                     hsec1_1_shelf1Mesh.position.set(
                     self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
@@ -56971,6 +61437,107 @@
                     )
     
                     dimensionsFontGroup.add(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh, hsec1_1_shelf4Mesh);
+                }
+                if ( self.options.shelvesCounterSection1_1 === 5) {
+                    dimensionsFontGroup.remove(hsec1_1Mesh); 
+                    dimensionsFontGroup.remove(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh, hsec1_1_shelf4Mesh, hsec1_1_shelf5Mesh);
+                    var hsec1_1_shelf1Mesh = new THREE.Mesh(hsec1_1_shelf1, self.fontColor);
+                    hsec1_1_shelf1Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y + ( (self.options.sectionHeight_1_1 - self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y) / 2) -1,
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec1_1_shelf0Mesh = new THREE.Mesh(hsec1_1_shelf0, self.fontColor);
+                    hsec1_1_shelf0Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf5", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec1_1_shelf2Mesh = new THREE.Mesh(hsec1_1_shelf2, self.fontColor);
+                    hsec1_1_shelf2Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+
+                    var hsec1_1_shelf3Mesh = new THREE.Mesh(hsec1_1_shelf3, self.fontColor);
+                    hsec1_1_shelf3Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf3", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                    )
+
+                    var hsec1_1_shelf4Mesh = new THREE.Mesh(hsec1_1_shelf4, self.fontColor);
+                    hsec1_1_shelf4Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf4", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+
+                    var hsec1_1_shelf5Mesh = new THREE.Mesh(hsec1_1_shelf5, self.fontColor);
+                    hsec1_1_shelf5Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf5", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    dimensionsFontGroup.add(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh, hsec1_1_shelf4Mesh, hsec1_1_shelf5Mesh);
+                }
+                if ( self.options.shelvesCounterSection1_1 === 6) {
+                    dimensionsFontGroup.remove(hsec1_1Mesh); 
+                    dimensionsFontGroup.remove(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh, hsec1_1_shelf4Mesh, hsec1_1_shelf5Mesh, hsec1_1_shelf6Mesh);
+                    var hsec1_1_shelf1Mesh = new THREE.Mesh(hsec1_1_shelf1, self.fontColor);
+                    hsec1_1_shelf1Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y + ( (self.options.sectionHeight_1_1 - self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y) / 2) -1,
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec1_1_shelf0Mesh = new THREE.Mesh(hsec1_1_shelf0, self.fontColor);
+                    hsec1_1_shelf0Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf6", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    var hsec1_1_shelf2Mesh = new THREE.Mesh(hsec1_1_shelf2, self.fontColor);
+                    hsec1_1_shelf2Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+
+                    var hsec1_1_shelf3Mesh = new THREE.Mesh(hsec1_1_shelf3, self.fontColor);
+                    hsec1_1_shelf3Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf3", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                    )
+
+                    var hsec1_1_shelf4Mesh = new THREE.Mesh(hsec1_1_shelf4, self.fontColor);
+                    hsec1_1_shelf4Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf4", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+
+                    var hsec1_1_shelf5Mesh = new THREE.Mesh(hsec1_1_shelf5, self.fontColor);
+                    hsec1_1_shelf5Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf5", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+
+                    var hsec1_1_shelf6Mesh = new THREE.Mesh(hsec1_1_shelf6, self.fontColor);
+                    hsec1_1_shelf6Mesh.position.set(
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.x + 3,
+                    self.scene.getObjectByName( "internalShelf_1_1_shelf6", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_1_1_shelf5", true ).position.y - self.scene.getObjectByName( "internalShelf_1_1_shelf6", true ).position.y) / 2),
+                    self.scene.getObjectByName( "RayCastRecieverSection1_1", true ).position.z + self.options.shelf.width / 2 + 2
+                    )
+    
+                    dimensionsFontGroup.add(hsec1_1_shelf1Mesh, hsec1_1_shelf0Mesh, hsec1_1_shelf2Mesh, hsec1_1_shelf3Mesh, hsec1_1_shelf4Mesh, hsec1_1_shelf5Mesh,hsec1_1_shelf6Mesh);
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_1", true ) != undefined) {
                     var hsec1_2Mesh = new THREE.Mesh(hsec1_2, self.fontColor);
@@ -57058,6 +61625,93 @@
     
                         dimensionsFontGroup.add(hsec1_2_shelf1Mesh, hsec1_2_shelf0Mesh, hsec1_2_shelf2Mesh, hsec1_2_shelf3Mesh);
                     }
+                    if ( self.options.shelvesCounterSection1_2 === 4) {
+                        dimensionsFontGroup.remove(hsec1_2Mesh); 
+                        dimensionsFontGroup.remove(hsec1_2_shelf1Mesh, hsec1_2_shelf0Mesh, hsec1_2_shelf2Mesh, hsec1_2_shelf3Mesh, hsec1_2_shelf4Mesh);
+                        var hsec1_2_shelf1Mesh = new THREE.Mesh(hsec1_2_shelf1, self.fontColor);
+                        hsec1_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y + ( (self.options.sectionHeight_1_2 - self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec1_2_shelf0Mesh = new THREE.Mesh(hsec1_2_shelf0, self.fontColor);
+                        hsec1_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_2_shelf4", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec1_2_shelf2Mesh = new THREE.Mesh(hsec1_2_shelf2, self.fontColor);
+                        hsec1_2_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec1_2_shelf3Mesh = new THREE.Mesh(hsec1_2_shelf3, self.fontColor);
+                        hsec1_2_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf3", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec1_2_shelf4Mesh = new THREE.Mesh(hsec1_2_shelf4, self.fontColor);
+                        hsec1_2_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf4", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_2_shelf1Mesh, hsec1_2_shelf0Mesh, hsec1_2_shelf2Mesh, hsec1_2_shelf3Mesh, hsec1_2_shelf4Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection1_2 === 5) {
+                        dimensionsFontGroup.remove(hsec1_2Mesh); 
+                        dimensionsFontGroup.remove(hsec1_2_shelf1Mesh, hsec1_2_shelf0Mesh, hsec1_2_shelf2Mesh, hsec1_2_shelf3Mesh, hsec1_2_shelf4Mesh, hsec1_2_shelf5Mesh);
+                        var hsec1_2_shelf1Mesh = new THREE.Mesh(hsec1_2_shelf1, self.fontColor);
+                        hsec1_2_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y + ( (self.options.sectionHeight_1_2 - self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec1_2_shelf0Mesh = new THREE.Mesh(hsec1_2_shelf0, self.fontColor);
+                        hsec1_2_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_2_shelf5", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec1_2_shelf2Mesh = new THREE.Mesh(hsec1_2_shelf2, self.fontColor);
+                        hsec1_2_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec1_2_shelf3Mesh = new THREE.Mesh(hsec1_2_shelf3, self.fontColor);
+                        hsec1_2_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf3", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec1_2_shelf4Mesh = new THREE.Mesh(hsec1_2_shelf4, self.fontColor);
+                        hsec1_2_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf4", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec1_2_shelf5Mesh = new THREE.Mesh(hsec1_2_shelf5, self.fontColor);
+                        hsec1_2_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + self.scene.getObjectByName( "internalShelf_1_2_shelf5", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_2_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_1_2_shelf5", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_2", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_2_shelf1Mesh, hsec1_2_shelf0Mesh, hsec1_2_shelf2Mesh, hsec1_2_shelf3Mesh, hsec1_2_shelf4Mesh, hsec1_2_shelf5Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_2", true ) != undefined) {
                     var hsec1_3Mesh = new THREE.Mesh(hsec1_3, self.fontColor);
@@ -57111,6 +61765,72 @@
     
                         dimensionsFontGroup.add(hsec1_3_shelf1Mesh, hsec1_3_shelf0Mesh, hsec1_3_shelf2Mesh);
                     }
+                    if ( self.options.shelvesCounterSection1_3 === 3) {
+                        dimensionsFontGroup.remove(hsec1_3Mesh); 
+                        dimensionsFontGroup.remove(hsec1_3_shelf1Mesh, hsec1_3_shelf0Mesh, hsec1_3_shelf2Mesh, hsec1_3_shelf3Mesh);
+                        var hsec1_3_shelf1Mesh = new THREE.Mesh(hsec1_3_shelf1, self.fontColor);
+                        hsec1_3_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf1", true ).position.y + ( (self.options.sectionHeight_1_3 - self.scene.getObjectByName( "internalShelf_1_3_shelf1", true ).position.y) / 2 - 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf0Mesh = new THREE.Mesh(hsec1_3_shelf0, self.fontColor);
+                        hsec1_3_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_3_shelf3", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf2Mesh = new THREE.Mesh(hsec1_3_shelf2, self.fontColor);
+                        hsec1_3_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_3_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf3Mesh = new THREE.Mesh(hsec1_3_shelf3, self.fontColor);
+                        hsec1_3_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_3_shelf3", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_3_shelf1Mesh, hsec1_3_shelf0Mesh, hsec1_3_shelf2Mesh, hsec1_3_shelf3Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection1_3 === 4) {
+                        dimensionsFontGroup.remove(hsec1_3Mesh); 
+                        dimensionsFontGroup.remove(hsec1_3_shelf1Mesh, hsec1_3_shelf0Mesh, hsec1_3_shelf2Mesh, hsec1_3_shelf3Mesh, hsec1_3_shelf4Mesh);
+                        var hsec1_3_shelf1Mesh = new THREE.Mesh(hsec1_3_shelf1, self.fontColor);
+                        hsec1_3_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf1", true ).position.y + ( (self.options.sectionHeight_1_3 - self.scene.getObjectByName( "internalShelf_1_3_shelf1", true ).position.y) / 2 - 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf0Mesh = new THREE.Mesh(hsec1_3_shelf0, self.fontColor);
+                        hsec1_3_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_3_shelf4", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf2Mesh = new THREE.Mesh(hsec1_3_shelf2, self.fontColor);
+                        hsec1_3_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_3_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf3Mesh = new THREE.Mesh(hsec1_3_shelf3, self.fontColor);
+                        hsec1_3_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_3_shelf3", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_3_shelf4Mesh = new THREE.Mesh(hsec1_3_shelf4, self.fontColor);
+                        hsec1_3_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + self.scene.getObjectByName( "internalShelf_1_3_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_3_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_1_3_shelf4", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_3", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_3_shelf1Mesh, hsec1_3_shelf0Mesh, hsec1_3_shelf2Mesh, hsec1_3_shelf3Mesh, hsec1_3_shelf4Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_3", true ) != undefined) {
                     var hsec1_4Mesh = new THREE.Mesh(hsec1_4, self.fontColor);
@@ -57140,6 +61860,60 @@
     
                         dimensionsFontGroup.add(hsec1_4_shelf1Mesh, hsec1_4_shelf0Mesh);
                     }
+                    if ( self.options.shelvesCounterSection1_4 === 2) {
+                        dimensionsFontGroup.remove(hsec1_4Mesh); 
+                        dimensionsFontGroup.remove(hsec1_4_shelf1Mesh, hsec1_4_shelf0Mesh, hsec1_4_shelf2Mesh);
+                        var hsec1_4_shelf1Mesh = new THREE.Mesh(hsec1_4_shelf1, self.fontColor);
+                        hsec1_4_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + self.scene.getObjectByName( "internalShelf_1_4_shelf1", true ).position.y + ( (self.options.sectionHeight_1_4 - self.scene.getObjectByName( "internalShelf_1_4_shelf1", true ).position.y) / 2 - 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_4_shelf0Mesh = new THREE.Mesh(hsec1_4_shelf0, self.fontColor);
+                        hsec1_4_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_4_shelf2", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_4_shelf2Mesh = new THREE.Mesh(hsec1_4_shelf2, self.fontColor);
+                        hsec1_4_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + self.scene.getObjectByName( "internalShelf_1_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_4_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_4_shelf1Mesh, hsec1_4_shelf0Mesh, hsec1_4_shelf2Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection1_4 === 3) {
+                        dimensionsFontGroup.remove(hsec1_4Mesh); 
+                        dimensionsFontGroup.remove(hsec1_4_shelf1Mesh, hsec1_4_shelf0Mesh, hsec1_4_shelf2Mesh, hsec1_4_shelf3Mesh);
+                        var hsec1_4_shelf1Mesh = new THREE.Mesh(hsec1_4_shelf1, self.fontColor);
+                        hsec1_4_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + self.scene.getObjectByName( "internalShelf_1_4_shelf1", true ).position.y + ( (self.options.sectionHeight_1_4 - self.scene.getObjectByName( "internalShelf_1_4_shelf1", true ).position.y) / 2 - 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_4_shelf0Mesh = new THREE.Mesh(hsec1_4_shelf0, self.fontColor);
+                        hsec1_4_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_4_shelf3", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_4_shelf2Mesh = new THREE.Mesh(hsec1_4_shelf2, self.fontColor);
+                        hsec1_4_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + self.scene.getObjectByName( "internalShelf_1_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_4_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_4_shelf3Mesh = new THREE.Mesh(hsec1_4_shelf3, self.fontColor);
+                        hsec1_4_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + self.scene.getObjectByName( "internalShelf_1_4_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_4_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_1_4_shelf3", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_4", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_4_shelf1Mesh, hsec1_4_shelf0Mesh, hsec1_4_shelf2Mesh, hsec1_4_shelf3Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_4", true ) != undefined) {
                     var hsec1_5Mesh = new THREE.Mesh(hsec1_5, self.fontColor);
@@ -57149,6 +61923,50 @@
                     self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec1_5Mesh);
+
+                    if ( self.options.shelvesCounterSection1_5 === 1) {
+                        dimensionsFontGroup.remove(hsec1_5Mesh); 
+                        dimensionsFontGroup.remove(hsec1_5_shelf1Mesh, hsec1_5_shelf0Mesh);
+                        var hsec1_5_shelf1Mesh = new THREE.Mesh(hsec1_5_shelf1, self.fontColor);
+                        hsec1_5_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + self.scene.getObjectByName( "internalShelf_1_5_shelf1", true ).position.y + ( (self.options.sectionHeight_1_5 - self.scene.getObjectByName( "internalShelf_1_5_shelf1", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec1_5_shelf0Mesh = new THREE.Mesh(hsec1_5_shelf0, self.fontColor);
+                        hsec1_5_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_5_shelf1", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_5_shelf1Mesh, hsec1_5_shelf0Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection1_5 === 2) {
+                        dimensionsFontGroup.remove(hsec1_5Mesh); 
+                        dimensionsFontGroup.remove(hsec1_5_shelf1Mesh, hsec1_5_shelf0Mesh, hsec1_5_shelf2Mesh);
+                        var hsec1_5_shelf1Mesh = new THREE.Mesh(hsec1_5_shelf1, self.fontColor);
+                        hsec1_5_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + self.scene.getObjectByName( "internalShelf_1_5_shelf1", true ).position.y + ( (self.options.sectionHeight_1_5 - self.scene.getObjectByName( "internalShelf_1_5_shelf1", true ).position.y) / 2 - 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_5_shelf0Mesh = new THREE.Mesh(hsec1_5_shelf0, self.fontColor);
+                        hsec1_5_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_5_shelf2", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec1_5_shelf2Mesh = new THREE.Mesh(hsec1_5_shelf2, self.fontColor);
+                        hsec1_5_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + self.scene.getObjectByName( "internalShelf_1_5_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_1_5_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_1_5_shelf2", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_5", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_5_shelf1Mesh, hsec1_5_shelf0Mesh, hsec1_5_shelf2Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_5", true ) != undefined) {
                     var hsec1_6Mesh = new THREE.Mesh(hsec1_6, self.fontColor);
@@ -57158,6 +61976,26 @@
                     self.scene.getObjectByName( "RayCastRecieverSection1_6", true ).position.z + self.options.shelf.width / 2 + 2
                     )
                     dimensionsFontGroup.add(hsec1_6Mesh);
+
+                    if ( self.options.shelvesCounterSection1_6 === 1) {
+                        dimensionsFontGroup.remove(hsec1_6Mesh); 
+                        dimensionsFontGroup.remove(hsec1_6_shelf1Mesh, hsec1_6_shelf0Mesh);
+                        var hsec1_6_shelf1Mesh = new THREE.Mesh(hsec1_6_shelf1, self.fontColor);
+                        hsec1_6_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_6", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_5", true ).position.y + self.scene.getObjectByName( "internalShelf_1_6_shelf1", true ).position.y + ( (self.options.sectionHeight_1_6 - self.scene.getObjectByName( "internalShelf_1_6_shelf1", true ).position.y) / 2 -2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_6", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        var hsec1_6_shelf0Mesh = new THREE.Mesh(hsec1_6_shelf0, self.fontColor);
+                        hsec1_6_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection1_6", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection1_5", true ).position.y + ( self.scene.getObjectByName( "internalShelf_1_6_shelf1", true ).position.y / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection1_6", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+    
+                        dimensionsFontGroup.add(hsec1_6_shelf1Mesh, hsec1_6_shelf0Mesh);
+                    }
                 }
                 if ( self.scene.getObjectByName( "horizontalDividerSection1_6", true ) != undefined) {
                     var hsec1_7Mesh = new THREE.Mesh(hsec1_7, self.fontColor);
@@ -57168,24 +62006,7 @@
                     )
                     dimensionsFontGroup.add(hsec1_7Mesh);
                 }
-                if ( self.scene.getObjectByName( "horizontalDividerSection1_7", true ) != undefined) {
-                    var hsec1_8Mesh = new THREE.Mesh(hsec1_8, self.fontColor);
-                    hsec1_8Mesh.position.set(
-                    self.scene.getObjectByName( "RayCastRecieverSection1_8", true ).position.x + 3,
-                    self.scene.getObjectByName( "horizontalDividerSection1_7", true ).position.y + self.options.sectionHeight_1_8 /2 - 1,
-                    self.scene.getObjectByName( "RayCastRecieverSection1_8", true ).position.z + self.options.shelf.width / 2 + 2
-                    )
-                    dimensionsFontGroup.add(hsec1_8Mesh);
-                }
-                if ( self.scene.getObjectByName( "horizontalDividerSection1_8", true ) != undefined) {
-                    var hsec1_9Mesh = new THREE.Mesh(hsec1_9, self.fontColor);
-                    hsec1_9Mesh.position.set(
-                    self.scene.getObjectByName( "RayCastRecieverSection1_9", true ).position.x + 3,
-                    self.scene.getObjectByName( "horizontalDividerSection1_8", true ).position.y + self.options.sectionHeight_1_9 /2 - 1,
-                    self.scene.getObjectByName( "RayCastRecieverSection1_9", true ).position.z + self.options.shelf.width / 2 + 2
-                    )
-                    dimensionsFontGroup.add(hsec1_9Mesh);
-                }
+                
 
 
 
@@ -57236,7 +62057,21 @@
                             var hsec2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec2_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec2_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-
+                        }
+                        if ( self.options.shelvesCounterSection2_2 === 4 ) {
+                            var hsec2_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection2_2 === 5 ) {
+                            var hsec2_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_2_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf2_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
                     }
                     if ( self.options.shelvesCounterSection2_1 === 1 ) {
@@ -57262,6 +62097,23 @@
                         var hsec2_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
 
                     }
+                    if ( self.options.shelvesCounterSection2_1 === 5 ) {
+                        var hsec2_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection2_1 === 6 ) {
+                        var hsec2_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec2_1_shelf6 = new THREE.TextGeometry( (self.options.heigh6Shelf2_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_2", true ) != undefined) {
                         var hsec2_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -57271,6 +62123,19 @@
                             var hsec2_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
                         if ( self.options.shelvesCounterSection2_3 === 2 ) {
+                            var hsec2_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection2_3 === 3 ) {
+                            var hsec2_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection2_3 === 4 ) {
+                            var hsec2_3_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec2_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec2_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec2_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -57285,27 +62150,46 @@
                             var hsec2_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec2_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
+                        if ( self.options.shelvesCounterSection2_4 === 2 ) {
+                            var hsec2_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection2_4 === 3 ) {
+                            var hsec2_4_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_4", true ) != undefined) {
-                        var hsec2_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                        var hsec2_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } ); 
+                        
+                        if ( self.options.shelvesCounterSection2_5 === 1 ) {
+                            var hsec2_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection2_5 === 2 ) {
+                            var hsec2_5_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf2_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_5", true ) != undefined) {
-                        var hsec2_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                        var hsec2_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );  
+                        
+                        if ( self.options.shelvesCounterSection2_6 === 1 ) {
+                            var hsec2_6_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf2_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec2_6_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf2_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_6", true ) != undefined) {
                         var hsec2_7 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_7').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
                     }
 
-                    if ( self.scene.getObjectByName( "horizontalDividerSection2_7", true ) != undefined) {
-                        var hsec2_8 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_8').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
-                    }
-
-                    if ( self.scene.getObjectByName( "horizontalDividerSection2_8", true ) != undefined) {
-                        var hsec2_9 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S2_9').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
-                    }
                         
                     var hsec2_1Mesh = new THREE.Mesh(hsec2_1, self.fontColor);
                     hsec2_1Mesh.position.set(
@@ -57395,7 +62279,7 @@
                     }
                     if ( self.options.shelvesCounterSection2_1 === 4) {
                         dimensionsFontGroup.remove(hsec2_1Mesh); 
-                        dimensionsFontGroup.remove(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh);
+                        dimensionsFontGroup.remove(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh, hsec2_1_shelf4Mesh);
                         var hsec2_1_shelf1Mesh = new THREE.Mesh(hsec2_1_shelf1, self.fontColor);
                         hsec2_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
@@ -57432,6 +62316,101 @@
                         )
         
                         dimensionsFontGroup.add(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh, hsec2_1_shelf4Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection2_1 === 5) {
+                        dimensionsFontGroup.remove(hsec2_1Mesh); 
+                        dimensionsFontGroup.remove(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh, hsec2_1_shelf4Mesh, hsec2_1_shelf5Mesh);
+                        var hsec2_1_shelf1Mesh = new THREE.Mesh(hsec2_1_shelf1, self.fontColor);
+                        hsec2_1_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y + ( (self.options.sectionHeight_2_1 - self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        var hsec2_1_shelf0Mesh = new THREE.Mesh(hsec2_1_shelf0, self.fontColor);
+                        hsec2_1_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        var hsec2_1_shelf2Mesh = new THREE.Mesh(hsec2_1_shelf2, self.fontColor);
+                        hsec2_1_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec2_1_shelf3Mesh = new THREE.Mesh(hsec2_1_shelf3, self.fontColor);
+                        hsec2_1_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf3", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                        )
+
+                        var hsec2_1_shelf4Mesh = new THREE.Mesh(hsec2_1_shelf4, self.fontColor);
+                        hsec2_1_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf4", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+
+                        var hsec2_1_shelf5Mesh = new THREE.Mesh(hsec2_1_shelf5, self.fontColor);
+                        hsec2_1_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        dimensionsFontGroup.add(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh, hsec2_1_shelf4Mesh, hsec2_1_shelf5Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection2_1 === 6) {
+                        dimensionsFontGroup.remove(hsec2_1Mesh); 
+                        dimensionsFontGroup.remove(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh, hsec2_1_shelf4Mesh, hsec2_1_shelf5Mesh, hsec2_1_shelf6Mesh);
+                        var hsec2_1_shelf1Mesh = new THREE.Mesh(hsec2_1_shelf1, self.fontColor);
+                        hsec2_1_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y + ( (self.options.sectionHeight_2_1 - self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec2_1_shelf0Mesh = new THREE.Mesh(hsec2_1_shelf0, self.fontColor);
+                        hsec2_1_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf6", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec2_1_shelf2Mesh = new THREE.Mesh(hsec2_1_shelf2, self.fontColor);
+                        hsec2_1_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec2_1_shelf3Mesh = new THREE.Mesh(hsec2_1_shelf3, self.fontColor);
+                        hsec2_1_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf3", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                        )
+                        var hsec2_1_shelf4Mesh = new THREE.Mesh(hsec2_1_shelf4, self.fontColor);
+                        hsec2_1_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf4", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec2_1_shelf5Mesh = new THREE.Mesh(hsec2_1_shelf5, self.fontColor);
+                        hsec2_1_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec2_1_shelf6Mesh = new THREE.Mesh(hsec2_1_shelf6, self.fontColor);
+                        hsec2_1_shelf6Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_2_1_shelf6", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_2_1_shelf5", true ).position.y - self.scene.getObjectByName( "internalShelf_2_1_shelf6", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection2_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        dimensionsFontGroup.add(hsec2_1_shelf1Mesh, hsec2_1_shelf0Mesh, hsec2_1_shelf2Mesh, hsec2_1_shelf3Mesh, hsec2_1_shelf4Mesh, hsec2_1_shelf5Mesh, hsec2_1_shelf6Mesh);
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_1", true ) != undefined) {
                         var hsec2_2Mesh = new THREE.Mesh(hsec2_2, self.fontColor);
@@ -57519,6 +62498,93 @@
         
                             dimensionsFontGroup.add(hsec2_2_shelf1Mesh, hsec2_2_shelf0Mesh, hsec2_2_shelf2Mesh, hsec2_2_shelf3Mesh);
                         }
+                        if ( self.options.shelvesCounterSection2_2 === 4) {
+                            dimensionsFontGroup.remove(hsec2_2Mesh); 
+                            dimensionsFontGroup.remove(hsec2_2_shelf1Mesh, hsec2_2_shelf0Mesh, hsec2_2_shelf2Mesh, hsec2_2_shelf3Mesh, hsec2_2_shelf4Mesh);
+                            var hsec2_2_shelf1Mesh = new THREE.Mesh(hsec2_2_shelf1, self.fontColor);
+                            hsec2_2_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y + ( (self.options.sectionHeight_2_2 - self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_2_shelf0Mesh = new THREE.Mesh(hsec2_2_shelf0, self.fontColor);
+                            hsec2_2_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_2_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_2_shelf2Mesh = new THREE.Mesh(hsec2_2_shelf2, self.fontColor);
+                            hsec2_2_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec2_2_shelf3Mesh = new THREE.Mesh(hsec2_2_shelf3, self.fontColor);
+                            hsec2_2_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec2_2_shelf4Mesh = new THREE.Mesh(hsec2_2_shelf4, self.fontColor);
+                            hsec2_2_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_2_shelf1Mesh, hsec2_2_shelf0Mesh, hsec2_2_shelf2Mesh, hsec2_2_shelf3Mesh, hsec2_2_shelf4Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection2_2 === 5) {
+                            dimensionsFontGroup.remove(hsec2_2Mesh); 
+                            dimensionsFontGroup.remove(hsec2_2_shelf1Mesh, hsec2_2_shelf0Mesh, hsec2_2_shelf2Mesh, hsec2_2_shelf3Mesh, hsec2_2_shelf4Mesh, hsec2_2_shelf5Mesh);
+                            var hsec2_2_shelf1Mesh = new THREE.Mesh(hsec2_2_shelf1, self.fontColor);
+                            hsec2_2_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y + ( (self.options.sectionHeight_2_2 - self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_2_shelf0Mesh = new THREE.Mesh(hsec2_2_shelf0, self.fontColor);
+                            hsec2_2_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_2_shelf5", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_2_shelf2Mesh = new THREE.Mesh(hsec2_2_shelf2, self.fontColor);
+                            hsec2_2_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec2_2_shelf3Mesh = new THREE.Mesh(hsec2_2_shelf3, self.fontColor);
+                            hsec2_2_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec2_2_shelf4Mesh = new THREE.Mesh(hsec2_2_shelf4, self.fontColor);
+                            hsec2_2_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_2_shelf5Mesh = new THREE.Mesh(hsec2_2_shelf5, self.fontColor);
+                            hsec2_2_shelf5Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + self.scene.getObjectByName( "internalShelf_2_2_shelf5", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_2_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_2_2_shelf5", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            dimensionsFontGroup.add(hsec2_2_shelf1Mesh, hsec2_2_shelf0Mesh, hsec2_2_shelf2Mesh, hsec2_2_shelf3Mesh, hsec2_2_shelf4Mesh, hsec2_2_shelf5Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_2", true ) != undefined) {
                         var hsec2_3Mesh = new THREE.Mesh(hsec2_3, self.fontColor);
@@ -57572,6 +62638,72 @@
         
                             dimensionsFontGroup.add(hsec2_3_shelf1Mesh, hsec2_3_shelf0Mesh, hsec2_3_shelf2Mesh);
                         }
+                        if ( self.options.shelvesCounterSection2_3 === 3) {
+                            dimensionsFontGroup.remove(hsec2_3Mesh); 
+                            dimensionsFontGroup.remove(hsec2_3_shelf1Mesh, hsec2_3_shelf0Mesh, hsec2_3_shelf2Mesh, hsec2_3_shelf3Mesh);
+                            var hsec2_3_shelf1Mesh = new THREE.Mesh(hsec2_3_shelf1, self.fontColor);
+                            hsec2_3_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf1", true ).position.y + ( (self.options.sectionHeight_2_3 - self.scene.getObjectByName( "internalShelf_2_3_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf0Mesh = new THREE.Mesh(hsec2_3_shelf0, self.fontColor);
+                            hsec2_3_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_3_shelf3", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf2Mesh = new THREE.Mesh(hsec2_3_shelf2, self.fontColor);
+                            hsec2_3_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_3_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf3Mesh = new THREE.Mesh(hsec2_3_shelf3, self.fontColor);
+                            hsec2_3_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_3_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_3_shelf1Mesh, hsec2_3_shelf0Mesh, hsec2_3_shelf2Mesh, hsec2_3_shelf3Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection2_3 === 4) {
+                            dimensionsFontGroup.remove(hsec2_3Mesh); 
+                            dimensionsFontGroup.remove(hsec2_3_shelf1Mesh, hsec2_3_shelf0Mesh, hsec2_3_shelf2Mesh, hsec2_3_shelf3Mesh, hsec2_3_shelf4Mesh);
+                            var hsec2_3_shelf1Mesh = new THREE.Mesh(hsec2_3_shelf1, self.fontColor);
+                            hsec2_3_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf1", true ).position.y + ( (self.options.sectionHeight_2_3 - self.scene.getObjectByName( "internalShelf_2_3_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf0Mesh = new THREE.Mesh(hsec2_3_shelf0, self.fontColor);
+                            hsec2_3_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_3_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf2Mesh = new THREE.Mesh(hsec2_3_shelf2, self.fontColor);
+                            hsec2_3_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_3_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf3Mesh = new THREE.Mesh(hsec2_3_shelf3, self.fontColor);
+                            hsec2_3_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_3_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_3_shelf4Mesh = new THREE.Mesh(hsec2_3_shelf3, self.fontColor);
+                            hsec2_3_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + self.scene.getObjectByName( "internalShelf_2_3_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_3_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_2_3_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_3_shelf1Mesh, hsec2_3_shelf0Mesh, hsec2_3_shelf2Mesh, hsec2_3_shelf3Mesh, hsec2_3_shelf4Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_3", true ) != undefined) {
                         var hsec2_4Mesh = new THREE.Mesh(hsec2_4, self.fontColor);
@@ -57601,6 +62733,60 @@
         
                             dimensionsFontGroup.add(hsec2_4_shelf1Mesh, hsec2_4_shelf0Mesh);
                         }
+                        if ( self.options.shelvesCounterSection2_4 === 2) {
+                            dimensionsFontGroup.remove(hsec2_4Mesh); 
+                            dimensionsFontGroup.remove(hsec2_4_shelf1Mesh, hsec2_4_shelf0Mesh, hsec2_4_shelf2Mesh);
+                            var hsec2_4_shelf1Mesh = new THREE.Mesh(hsec2_4_shelf1, self.fontColor);
+                            hsec2_4_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.scene.getObjectByName( "internalShelf_2_4_shelf1", true ).position.y + ( (self.options.sectionHeight_2_4 - self.scene.getObjectByName( "internalShelf_2_4_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_4_shelf0Mesh = new THREE.Mesh(hsec2_4_shelf0, self.fontColor);
+                            hsec2_4_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_4_shelf2", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_4_shelf2Mesh = new THREE.Mesh(hsec2_4_shelf2, self.fontColor);
+                            hsec2_4_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.scene.getObjectByName( "internalShelf_2_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_4_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_4_shelf1Mesh, hsec2_4_shelf0Mesh, hsec2_4_shelf2Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection2_4 === 3) {
+                            dimensionsFontGroup.remove(hsec2_4Mesh); 
+                            dimensionsFontGroup.remove(hsec2_4_shelf1Mesh, hsec2_4_shelf0Mesh, hsec2_4_shelf2Mesh, hsec2_4_shelf3Mesh);
+                            var hsec2_4_shelf1Mesh = new THREE.Mesh(hsec2_4_shelf1, self.fontColor);
+                            hsec2_4_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.scene.getObjectByName( "internalShelf_2_4_shelf1", true ).position.y + ( (self.options.sectionHeight_2_4 - self.scene.getObjectByName( "internalShelf_2_4_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_4_shelf0Mesh = new THREE.Mesh(hsec2_4_shelf0, self.fontColor);
+                            hsec2_4_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_4_shelf3", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_4_shelf2Mesh = new THREE.Mesh(hsec2_4_shelf2, self.fontColor);
+                            hsec2_4_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.scene.getObjectByName( "internalShelf_2_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_4_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_4_shelf3Mesh = new THREE.Mesh(hsec2_4_shelf3, self.fontColor);
+                            hsec2_4_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + self.scene.getObjectByName( "internalShelf_2_4_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_4_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_2_4_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_4_shelf1Mesh, hsec2_4_shelf0Mesh, hsec2_4_shelf2Mesh, hsec2_4_shelf3Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_4", true ) != undefined) {
                         var hsec2_5Mesh = new THREE.Mesh(hsec2_5, self.fontColor);
@@ -57610,6 +62796,50 @@
                         self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.z + self.options.shelf.width / 2 + 2
                         )
                         dimensionsFontGroup.add(hsec2_5Mesh);
+
+                        if ( self.options.shelvesCounterSection2_5 === 1) {
+                            dimensionsFontGroup.remove(hsec2_5Mesh); 
+                            dimensionsFontGroup.remove(hsec2_5_shelf1Mesh, hsec2_5_shelf0Mesh);
+                            var hsec2_5_shelf1Mesh = new THREE.Mesh(hsec2_5_shelf1, self.fontColor);
+                            hsec2_5_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_4", true ).position.y + self.scene.getObjectByName( "internalShelf_2_5_shelf1", true ).position.y + ( (self.options.sectionHeight_2_5 - self.scene.getObjectByName( "internalShelf_2_5_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_5_shelf0Mesh = new THREE.Mesh(hsec2_5_shelf0, self.fontColor);
+                            hsec2_5_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_5_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_5_shelf1Mesh, hsec2_5_shelf0Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection2_5 === 2) {
+                            dimensionsFontGroup.remove(hsec2_5Mesh); 
+                            dimensionsFontGroup.remove(hsec2_5_shelf1Mesh, hsec2_5_shelf0Mesh, hsec2_5_shelf2Mesh);
+                            var hsec2_5_shelf1Mesh = new THREE.Mesh(hsec2_5_shelf1, self.fontColor);
+                            hsec2_5_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_4", true ).position.y + self.scene.getObjectByName( "internalShelf_2_5_shelf1", true ).position.y + ( (self.options.sectionHeight_2_5 - self.scene.getObjectByName( "internalShelf_2_5_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_5_shelf0Mesh = new THREE.Mesh(hsec2_5_shelf0, self.fontColor);
+                            hsec2_5_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_5_shelf2", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec2_5_shelf2Mesh = new THREE.Mesh(hsec2_5_shelf2, self.fontColor);
+                            hsec2_5_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_4", true ).position.y + self.scene.getObjectByName( "internalShelf_2_5_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_2_5_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_2_5_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_5_shelf1Mesh, hsec2_5_shelf0Mesh, hsec2_5_shelf2Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_5", true ) != undefined) {
                         var hsec2_6Mesh = new THREE.Mesh(hsec2_6, self.fontColor);
@@ -57619,6 +62849,26 @@
                         self.scene.getObjectByName( "RayCastRecieverSection2_6", true ).position.z + self.options.shelf.width / 2 + 2
                         )
                         dimensionsFontGroup.add(hsec2_6Mesh);
+
+                        if ( self.options.shelvesCounterSection2_6 === 1) {
+                            dimensionsFontGroup.remove(hsec2_6Mesh); 
+                            dimensionsFontGroup.remove(hsec2_6_shelf1Mesh, hsec2_6_shelf0Mesh);
+                            var hsec2_6_shelf1Mesh = new THREE.Mesh(hsec2_6_shelf1, self.fontColor);
+                            hsec2_6_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_6", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_5", true ).position.y + self.scene.getObjectByName( "internalShelf_2_6_shelf1", true ).position.y + ( (self.options.sectionHeight_2_6 - self.scene.getObjectByName( "internalShelf_2_6_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_6", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec2_6_shelf0Mesh = new THREE.Mesh(hsec2_6_shelf0, self.fontColor);
+                            hsec2_6_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection2_6", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection2_5", true ).position.y + ( self.scene.getObjectByName( "internalShelf_2_6_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection2_6", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec2_6_shelf1Mesh, hsec2_6_shelf0Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection2_6", true ) != undefined) {
                         var hsec2_7Mesh = new THREE.Mesh(hsec2_7, self.fontColor);
@@ -57629,24 +62879,7 @@
                         )
                         dimensionsFontGroup.add(hsec2_7Mesh);
                     }
-                    if ( self.scene.getObjectByName( "horizontalDividerSection2_7", true ) != undefined) {
-                        var hsec2_8Mesh = new THREE.Mesh(hsec2_8, self.fontColor);
-                        hsec2_8Mesh.position.set(
-                        self.scene.getObjectByName( "RayCastRecieverSection2_8", true ).position.x + 3,
-                        self.scene.getObjectByName( "horizontalDividerSection2_7", true ).position.y + self.options.sectionHeight_2_8 /2 - 1,
-                        self.scene.getObjectByName( "RayCastRecieverSection2_8", true ).position.z + self.options.shelf.width / 2 + 2
-                        )
-                        dimensionsFontGroup.add(hsec2_8Mesh);
-                    }
-                    if ( self.scene.getObjectByName( "horizontalDividerSection2_8", true ) != undefined) {
-                        var hsec2_9Mesh = new THREE.Mesh(hsec2_9, self.fontColor);
-                        hsec2_9Mesh.position.set(
-                        self.scene.getObjectByName( "RayCastRecieverSection2_9", true ).position.x + 3,
-                        self.scene.getObjectByName( "horizontalDividerSection2_8", true ).position.y + self.options.sectionHeight_2_9 /2 - 1,
-                        self.scene.getObjectByName( "RayCastRecieverSection2_9", true ).position.z + self.options.shelf.width / 2 + 2
-                        )
-                        dimensionsFontGroup.add(hsec2_9Mesh);
-                    }
+                    
 
                 } 
 
@@ -57692,7 +62925,21 @@
                             var hsec3_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec3_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec3_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-
+                        }
+                        if ( self.options.shelvesCounterSection3_2 === 4 ) {
+                            var hsec3_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection3_2 === 5 ) {
+                            var hsec3_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_2_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf3_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
                     }
                     if ( self.options.shelvesCounterSection3_1 === 1 ) {
@@ -57716,7 +62963,23 @@
                         var hsec3_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec3_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         var hsec3_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-
+                    }
+                    if ( self.options.shelvesCounterSection3_1 === 5 ) {
+                        var hsec3_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
+                    if ( self.options.shelvesCounterSection3_1 === 6 ) {
+                        var hsec3_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec3_1_shelf6 = new THREE.TextGeometry( (self.options.heigh6Shelf3_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_2", true ) != undefined) {
@@ -57731,6 +62994,19 @@
                             var hsec3_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec3_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
+                        if ( self.options.shelvesCounterSection3_3 === 3 ) {
+                            var hsec3_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection3_3 === 4 ) {
+                            var hsec3_3_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
         
                     }
 
@@ -57741,26 +63017,44 @@
                             var hsec3_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec3_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
+                        if ( self.options.shelvesCounterSection3_4 === 2 ) {
+                            var hsec3_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection3_4 === 3 ) {
+                            var hsec3_4_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_4", true ) != undefined) {
-                        var hsec3_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                        var hsec3_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );  
+                        
+                        if ( self.options.shelvesCounterSection3_5 === 1 ) {
+                            var hsec3_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection3_5 === 2 ) {
+                            var hsec3_5_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf3_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_5", true ) != undefined) {
-                        var hsec3_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                        var hsec3_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );  
+                        
+                        if ( self.options.shelvesCounterSection3_6 === 1 ) {
+                            var hsec3_6_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf3_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec3_6_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf3_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
                         
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_6", true ) != undefined) {
                         var hsec3_7 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_7').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
-                    }
-
-                    if ( self.scene.getObjectByName( "horizontalDividerSection3_7", true ) != undefined) {
-                        var hsec3_8 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_8').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
-                    }
-
-                    if ( self.scene.getObjectByName( "horizontalDividerSection3_8", true ) != undefined) {
-                        var hsec3_9 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S3_9').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
                     }
                         
 
@@ -57852,7 +63146,7 @@
                     }
                     if ( self.options.shelvesCounterSection3_1 === 4) {
                         dimensionsFontGroup.remove(hsec3_1Mesh); 
-                        dimensionsFontGroup.remove(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh);
+                        dimensionsFontGroup.remove(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh, hsec3_1_shelf4Mesh);
                         var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
                         hsec3_1_shelf1Mesh.position.set(
                         self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
@@ -57889,6 +63183,98 @@
                         )
         
                         dimensionsFontGroup.add(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh, hsec3_1_shelf4Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection3_1 === 5) {
+                        dimensionsFontGroup.remove(hsec3_1Mesh); 
+                        dimensionsFontGroup.remove(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh, hsec3_1_shelf4Mesh, hsec3_1_shelf5Mesh);
+                        var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
+                        hsec3_1_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + ( (self.options.sectionHeight_3_1 - self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        var hsec3_1_shelf0Mesh = new THREE.Mesh(hsec3_1_shelf0, self.fontColor);
+                        hsec3_1_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf2Mesh = new THREE.Mesh(hsec3_1_shelf2, self.fontColor);
+                        hsec3_1_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf3Mesh = new THREE.Mesh(hsec3_1_shelf3, self.fontColor);
+                        hsec3_1_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf3", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                        )
+                        var hsec3_1_shelf4Mesh = new THREE.Mesh(hsec3_1_shelf4, self.fontColor);
+                        hsec3_1_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf4", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf5Mesh = new THREE.Mesh(hsec3_1_shelf5, self.fontColor);
+                        hsec3_1_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        dimensionsFontGroup.add(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh, hsec3_1_shelf4Mesh, hsec3_1_shelf5Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection3_1 === 6) {
+                        dimensionsFontGroup.remove(hsec3_1Mesh); 
+                        dimensionsFontGroup.remove(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh, hsec3_1_shelf4Mesh, hsec3_1_shelf5Mesh,hsec3_1_shelf6Mesh);
+                        var hsec3_1_shelf1Mesh = new THREE.Mesh(hsec3_1_shelf1, self.fontColor);
+                        hsec3_1_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y + ( (self.options.sectionHeight_3_1 - self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        var hsec3_1_shelf0Mesh = new THREE.Mesh(hsec3_1_shelf0, self.fontColor);
+                        hsec3_1_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf6", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf2Mesh = new THREE.Mesh(hsec3_1_shelf2, self.fontColor);
+                        hsec3_1_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf3Mesh = new THREE.Mesh(hsec3_1_shelf3, self.fontColor);
+                        hsec3_1_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf3", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                        )
+                        var hsec3_1_shelf4Mesh = new THREE.Mesh(hsec3_1_shelf4, self.fontColor);
+                        hsec3_1_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf4", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf5Mesh = new THREE.Mesh(hsec3_1_shelf5, self.fontColor);
+                        hsec3_1_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec3_1_shelf6Mesh = new THREE.Mesh(hsec3_1_shelf6, self.fontColor);
+                        hsec3_1_shelf6Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_3_1_shelf6", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_3_1_shelf5", true ).position.y - self.scene.getObjectByName( "internalShelf_3_1_shelf6", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection3_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        dimensionsFontGroup.add(hsec3_1_shelf1Mesh, hsec3_1_shelf0Mesh, hsec3_1_shelf2Mesh, hsec3_1_shelf3Mesh, hsec3_1_shelf4Mesh, hsec3_1_shelf5Mesh, hsec3_1_shelf6Mesh);
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_1", true ) != undefined) {
                         var hsec3_2Mesh = new THREE.Mesh(hsec3_2, self.fontColor);
@@ -57976,6 +63362,88 @@
         
                             dimensionsFontGroup.add(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh, hsec3_2_shelf3Mesh);
                         }
+                        if ( self.options.shelvesCounterSection3_2 === 4) {
+                            dimensionsFontGroup.remove(hsec3_2Mesh); 
+                            dimensionsFontGroup.remove(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh, hsec3_2_shelf3Mesh, hsec3_2_shelf4Mesh);
+                            var hsec3_2_shelf1Mesh = new THREE.Mesh(hsec3_2_shelf1, self.fontColor);
+                            hsec3_2_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y + ( (self.options.sectionHeight_3_2 - self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_2_shelf0Mesh = new THREE.Mesh(hsec3_2_shelf0, self.fontColor);
+                            hsec3_2_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_2_shelf2Mesh = new THREE.Mesh(hsec3_2_shelf2, self.fontColor);
+                            hsec3_2_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_2_shelf3Mesh = new THREE.Mesh(hsec3_2_shelf3, self.fontColor);
+                            hsec3_2_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_2_shelf4Mesh = new THREE.Mesh(hsec3_2_shelf4, self.fontColor);
+                            hsec3_2_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh, hsec3_2_shelf3Mesh, hsec3_2_shelf4Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection3_2 === 5) {
+                            dimensionsFontGroup.remove(hsec3_2Mesh); 
+                            dimensionsFontGroup.remove(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh, hsec3_2_shelf3Mesh, hsec3_2_shelf4Mesh, hsec3_2_shelf5Mesh);
+                            var hsec3_2_shelf1Mesh = new THREE.Mesh(hsec3_2_shelf1, self.fontColor);
+                            hsec3_2_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y + ( (self.options.sectionHeight_3_2 - self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_2_shelf0Mesh = new THREE.Mesh(hsec3_2_shelf0, self.fontColor);
+                            hsec3_2_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_2_shelf2Mesh = new THREE.Mesh(hsec3_2_shelf2, self.fontColor);
+                            hsec3_2_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_2_shelf3Mesh = new THREE.Mesh(hsec3_2_shelf3, self.fontColor);
+                            hsec3_2_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_2_shelf4Mesh = new THREE.Mesh(hsec3_2_shelf4, self.fontColor);
+                            hsec3_2_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_2_shelf5Mesh = new THREE.Mesh(hsec3_2_shelf5, self.fontColor);
+                            hsec3_2_shelf5Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_1", true ).position.y + self.scene.getObjectByName( "internalShelf_3_2_shelf5", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_2_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_3_2_shelf5", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_2_shelf1Mesh, hsec3_2_shelf0Mesh, hsec3_2_shelf2Mesh, hsec3_2_shelf3Mesh, hsec3_2_shelf4Mesh, hsec3_2_shelf5Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_2", true ) != undefined) {
                         var hsec3_3Mesh = new THREE.Mesh(hsec3_3, self.fontColor);
@@ -58029,6 +63497,77 @@
         
                             dimensionsFontGroup.add(hsec3_3_shelf1Mesh, hsec3_3_shelf0Mesh, hsec3_3_shelf2Mesh);
                         }
+                        if ( self.options.shelvesCounterSection3_3 === 3) {
+                            dimensionsFontGroup.remove(hsec3_3Mesh); 
+                            dimensionsFontGroup.remove(hsec3_3_shelf1Mesh, hsec3_3_shelf0Mesh, hsec3_3_shelf2Mesh, hsec3_3_shelf3Mesh);
+                            var hsec3_3_shelf1Mesh = new THREE.Mesh(hsec3_3_shelf1, self.fontColor);
+                            hsec3_3_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf1", true ).position.y + ( (self.options.sectionHeight_3_3 - self.scene.getObjectByName( "internalShelf_3_3_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_3_shelf0Mesh = new THREE.Mesh(hsec3_3_shelf0, self.fontColor);
+                            hsec3_3_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_3_shelf3", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_3_shelf2Mesh = new THREE.Mesh(hsec3_3_shelf2, self.fontColor);
+                            hsec3_3_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_3_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec3_3_shelf3Mesh = new THREE.Mesh(hsec3_3_shelf3, self.fontColor);
+                            hsec3_3_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_3_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_3_shelf1Mesh, hsec3_3_shelf0Mesh, hsec3_3_shelf2Mesh, hsec3_3_shelf3Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection3_3 === 4) {
+                            dimensionsFontGroup.remove(hsec3_3Mesh); 
+                            dimensionsFontGroup.remove(hsec3_3_shelf1Mesh, hsec3_3_shelf0Mesh, hsec3_3_shelf2Mesh, hsec3_3_shelf3Mesh, hsec3_3_shelf4Mesh);
+                            var hsec3_3_shelf1Mesh = new THREE.Mesh(hsec3_3_shelf1, self.fontColor);
+                            hsec3_3_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf1", true ).position.y + ( (self.options.sectionHeight_3_3 - self.scene.getObjectByName( "internalShelf_3_3_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_3_shelf0Mesh = new THREE.Mesh(hsec3_3_shelf0, self.fontColor);
+                            hsec3_3_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_3_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_3_shelf2Mesh = new THREE.Mesh(hsec3_3_shelf2, self.fontColor);
+                            hsec3_3_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_3_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_3_shelf3Mesh = new THREE.Mesh(hsec3_3_shelf3, self.fontColor);
+                            hsec3_3_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_3_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_3_shelf4Mesh = new THREE.Mesh(hsec3_3_shelf4, self.fontColor);
+                            hsec3_3_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_2", true ).position.y + self.scene.getObjectByName( "internalShelf_3_3_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_3_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_3_3_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_3_shelf1Mesh, hsec3_3_shelf0Mesh, hsec3_3_shelf2Mesh, hsec3_3_shelf3Mesh, hsec3_3_shelf4Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_3", true ) != undefined) {
                         var hsec3_4Mesh = new THREE.Mesh(hsec3_4, self.fontColor);
@@ -58058,6 +63597,63 @@
         
                             dimensionsFontGroup.add(hsec3_4_shelf1Mesh, hsec3_4_shelf0Mesh);
                         }
+                        if ( self.options.shelvesCounterSection3_4 === 2) {
+                            dimensionsFontGroup.remove(hsec3_4Mesh); 
+                            dimensionsFontGroup.remove(hsec3_4_shelf1Mesh, hsec3_4_shelf0Mesh, hsec3_4_shelf2Mesh);
+                            var hsec3_4_shelf1Mesh = new THREE.Mesh(hsec3_4_shelf1, self.fontColor);
+                            hsec3_4_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + self.scene.getObjectByName( "internalShelf_3_4_shelf1", true ).position.y + ( (self.options.sectionHeight_3_4 - self.scene.getObjectByName( "internalShelf_3_4_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_4_shelf0Mesh = new THREE.Mesh(hsec3_4_shelf0, self.fontColor);
+                            hsec3_4_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_4_shelf2", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_4_shelf2Mesh = new THREE.Mesh(hsec3_4_shelf2, self.fontColor);
+                            hsec3_4_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + self.scene.getObjectByName( "internalShelf_3_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_4_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_4_shelf1Mesh, hsec3_4_shelf0Mesh, hsec3_4_shelf2Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection3_4 === 3) {
+                            dimensionsFontGroup.remove(hsec3_4Mesh); 
+                            dimensionsFontGroup.remove(hsec3_4_shelf1Mesh, hsec3_4_shelf0Mesh, hsec3_4_shelf2Mesh, hsec3_4_shelf3Mesh);
+                            var hsec3_4_shelf1Mesh = new THREE.Mesh(hsec3_4_shelf1, self.fontColor);
+                            hsec3_4_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + self.scene.getObjectByName( "internalShelf_3_4_shelf1", true ).position.y + ( (self.options.sectionHeight_3_4 - self.scene.getObjectByName( "internalShelf_3_4_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_4_shelf0Mesh = new THREE.Mesh(hsec3_4_shelf0, self.fontColor);
+                            hsec3_4_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_4_shelf3", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_4_shelf2Mesh = new THREE.Mesh(hsec3_4_shelf2, self.fontColor);
+                            hsec3_4_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + self.scene.getObjectByName( "internalShelf_3_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_4_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec3_4_shelf3Mesh = new THREE.Mesh(hsec3_4_shelf3, self.fontColor);
+                            hsec3_4_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_3", true ).position.y + self.scene.getObjectByName( "internalShelf_3_4_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_4_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_3_4_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_4_shelf1Mesh, hsec3_4_shelf0Mesh, hsec3_4_shelf2Mesh, hsec3_4_shelf3Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_4", true ) != undefined) {
                         var hsec3_5Mesh = new THREE.Mesh(hsec3_5, self.fontColor);
@@ -58067,6 +63663,50 @@
                         self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.z + self.options.shelf.width / 2 + 2
                         )
                         dimensionsFontGroup.add(hsec3_5Mesh);
+
+                        if ( self.options.shelvesCounterSection3_5 === 1) {
+                            dimensionsFontGroup.remove(hsec3_5Mesh); 
+                            dimensionsFontGroup.remove(hsec3_5_shelf1Mesh, hsec3_5_shelf0Mesh);
+                            var hsec3_5_shelf1Mesh = new THREE.Mesh(hsec3_5_shelf1, self.fontColor);
+                            hsec3_5_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_4", true ).position.y + self.scene.getObjectByName( "internalShelf_3_5_shelf1", true ).position.y + ( (self.options.sectionHeight_3_5 - self.scene.getObjectByName( "internalShelf_3_5_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_5_shelf0Mesh = new THREE.Mesh(hsec3_5_shelf0, self.fontColor);
+                            hsec3_5_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_5_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_5_shelf1Mesh, hsec3_5_shelf0Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection3_5 === 2) {
+                            dimensionsFontGroup.remove(hsec3_5Mesh); 
+                            dimensionsFontGroup.remove(hsec3_5_shelf1Mesh, hsec3_5_shelf0Mesh, hsec3_5_shelf2Mesh);
+                            var hsec3_5_shelf1Mesh = new THREE.Mesh(hsec3_5_shelf1, self.fontColor);
+                            hsec3_5_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_4", true ).position.y + self.scene.getObjectByName( "internalShelf_3_5_shelf1", true ).position.y + ( (self.options.sectionHeight_3_5 - self.scene.getObjectByName( "internalShelf_3_5_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_5_shelf0Mesh = new THREE.Mesh(hsec3_5_shelf0, self.fontColor);
+                            hsec3_5_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_5_shelf2", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec3_5_shelf2Mesh = new THREE.Mesh(hsec3_5_shelf2, self.fontColor);
+                            hsec3_5_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_4", true ).position.y + self.scene.getObjectByName( "internalShelf_3_5_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_3_5_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_3_5_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_5_shelf1Mesh, hsec3_5_shelf0Mesh, hsec3_5_shelf2Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_5", true ) != undefined) {
                         var hsec3_6Mesh = new THREE.Mesh(hsec3_6, self.fontColor);
@@ -58076,6 +63716,26 @@
                         self.scene.getObjectByName( "RayCastRecieverSection3_6", true ).position.z + self.options.shelf.width / 2 + 2
                         )
                         dimensionsFontGroup.add(hsec3_6Mesh);
+
+                        if ( self.options.shelvesCounterSection3_6 === 1) {
+                            dimensionsFontGroup.remove(hsec3_6Mesh); 
+                            dimensionsFontGroup.remove(hsec3_6_shelf1Mesh, hsec3_6_shelf0Mesh);
+                            var hsec3_6_shelf1Mesh = new THREE.Mesh(hsec3_6_shelf1, self.fontColor);
+                            hsec3_6_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_6", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_5", true ).position.y + self.scene.getObjectByName( "internalShelf_3_6_shelf1", true ).position.y + ( (self.options.sectionHeight_3_6 - self.scene.getObjectByName( "internalShelf_3_6_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_6", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec3_6_shelf0Mesh = new THREE.Mesh(hsec3_6_shelf0, self.fontColor);
+                            hsec3_6_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection3_6", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection3_5", true ).position.y + ( self.scene.getObjectByName( "internalShelf_3_6_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection3_6", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec3_6_shelf1Mesh, hsec3_6_shelf0Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection3_6", true ) != undefined) {
                         var hsec3_7Mesh = new THREE.Mesh(hsec3_7, self.fontColor);
@@ -58086,30 +63746,11 @@
                         )
                         dimensionsFontGroup.add(hsec3_7Mesh);
                     }
-                    if ( self.scene.getObjectByName( "horizontalDividerSection3_7", true ) != undefined) {
-                        var hsec3_8Mesh = new THREE.Mesh(hsec3_8, self.fontColor);
-                        hsec3_8Mesh.position.set(
-                        self.scene.getObjectByName( "RayCastRecieverSection3_8", true ).position.x + 3,
-                        self.scene.getObjectByName( "horizontalDividerSection3_7", true ).position.y + self.options.sectionHeight_3_8 /2 - 1,
-                        self.scene.getObjectByName( "RayCastRecieverSection3_8", true ).position.z + self.options.shelf.width / 2 + 2
-                        )
-                        dimensionsFontGroup.add(hsec3_8Mesh);
-                    }
-                    if ( self.scene.getObjectByName( "horizontalDividerSection3_8", true ) != undefined) {
-                        var hsec3_9Mesh = new THREE.Mesh(hsec3_9, self.fontColor);
-                        hsec3_9Mesh.position.set(
-                        self.scene.getObjectByName( "RayCastRecieverSection3_9", true ).position.x + 3,
-                        self.scene.getObjectByName( "horizontalDividerSection3_8", true ).position.y + self.options.sectionHeight_3_9 /2 - 1,
-                        self.scene.getObjectByName( "RayCastRecieverSection3_9", true ).position.z + self.options.shelf.width / 2 + 2
-                        )
-                        dimensionsFontGroup.add(hsec3_9Mesh);
-                    }
 
                 } 
 
  
-                //🪞
-                //sect3
+                //sect4
                 if (self.scene.getObjectByName('RayCastRecieverSection4_1') != undefined) {
 
                     //w
@@ -58151,8 +63792,23 @@
                             var hsec4_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec4_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec4_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
-
                         }
+                        if ( self.options.shelvesCounterSection4_2 === 4 ) {
+                            var hsec4_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection4_2 === 5 ) {
+                            var hsec4_2_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_2_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf4_2 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        
                     }
                     if ( self.options.shelvesCounterSection4_1 === 1 ) {
                         var hsec4_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -58177,6 +63833,24 @@
                         var hsec4_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
 
                     }
+                    if ( self.options.shelvesCounterSection4_1 === 5 ) {
+                        var hsec4_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+
+                    }
+                    if ( self.options.shelvesCounterSection4_1 === 6 ) {
+                        var hsec4_1_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf5 = new THREE.TextGeometry( (self.options.heigh5Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        var hsec4_1_shelf6 = new THREE.TextGeometry( (self.options.heigh6Shelf4_1 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                    }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection4_2", true ) != undefined) {
                         var hsec4_3 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
@@ -58190,6 +63864,21 @@
                             var hsec4_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec4_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
+                        if ( self.options.shelvesCounterSection4_3 === 3 ) {
+                            var hsec4_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection4_3 === 4 ) {
+                            var hsec4_3_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_3_shelf4 = new THREE.TextGeometry( (self.options.heigh4Shelf4_3 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+    
+                        }
+                        
         
                     }
 
@@ -58200,10 +63889,45 @@
                             var hsec4_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                             var hsec4_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
                         }
+                        if ( self.options.shelvesCounterSection4_4 === 2 ) {
+                            var hsec4_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection4_4 === 3 ) {
+                            var hsec4_4_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_4_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_4_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_4_shelf3 = new THREE.TextGeometry( (self.options.heigh3Shelf4_4 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
                     }
 
                     if ( self.scene.getObjectByName( "horizontalDividerSection4_4", true ) != undefined) {
-                        var hsec4_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
+                        var hsec4_5 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );   
+                        
+                        if ( self.options.shelvesCounterSection4_5 === 1 ) {
+                            var hsec4_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                        if ( self.options.shelvesCounterSection4_5 === 2 ) {
+                            var hsec4_5_shelf2 = new THREE.TextGeometry( (self.options.heigh2Shelf4_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_5_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_5_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_5 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+
+                    }
+
+                    if ( self.scene.getObjectByName( "horizontalDividerSection4_5", true ) != undefined) {
+                        var hsec4_6 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );  
+                        
+                        if ( self.options.shelvesCounterSection4_6 === 1 ) {
+                            var hsec4_6_shelf1 = new THREE.TextGeometry( (self.options.heigh1Shelf4_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                            var hsec4_6_shelf0 = new THREE.TextGeometry( (self.options.heigh0Shelf4_6 ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );
+                        }
+                    }
+                        
+                    if ( self.scene.getObjectByName( "horizontalDividerSection4_6", true ) != undefined) {
+                        var hsec4_7 = new THREE.TextGeometry( (parseFloat(document.getElementById('Height_HorizontalPartition_S4_7').textContent.match(/\d+(\.\d+)?/)[0]) ) + " ", { font: font, size: 2, height: 0.1, curveSegments: 12, bevelThickness: 0, bevelSize: 2, bevelEnabled: false, } );    
                     }
                         
                     var hsec4_1Mesh = new THREE.Mesh(hsec4_1, self.fontColor);
@@ -58332,6 +64056,98 @@
         
                         dimensionsFontGroup.add(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh, hsec4_1_shelf3Mesh, hsec4_1_shelf4Mesh);
                     }
+                    if ( self.options.shelvesCounterSection4_1 === 5) {
+                        dimensionsFontGroup.remove(hsec4_1Mesh); 
+                        dimensionsFontGroup.remove(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh, hsec4_1_shelf3Mesh, hsec4_1_shelf4Mesh, hsec4_1_shelf5Mesh);
+                        var hsec4_1_shelf1Mesh = new THREE.Mesh(hsec4_1_shelf1, self.fontColor);
+                        hsec4_1_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + ( (self.options.sectionHeight_4_1 - self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        var hsec4_1_shelf0Mesh = new THREE.Mesh(hsec4_1_shelf0, self.fontColor);
+                        hsec4_1_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf2Mesh = new THREE.Mesh(hsec4_1_shelf2, self.fontColor);
+                        hsec4_1_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf3Mesh = new THREE.Mesh(hsec4_1_shelf3, self.fontColor);
+                        hsec4_1_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf3", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                        )
+                        var hsec4_1_shelf4Mesh = new THREE.Mesh(hsec4_1_shelf4, self.fontColor);
+                        hsec4_1_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf4", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf5Mesh = new THREE.Mesh(hsec4_1_shelf5, self.fontColor);
+                        hsec4_1_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        dimensionsFontGroup.add(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh, hsec4_1_shelf3Mesh, hsec4_1_shelf4Mesh, hsec4_1_shelf5Mesh);
+                    }
+                    if ( self.options.shelvesCounterSection4_1 === 6) {
+                        dimensionsFontGroup.remove(hsec4_1Mesh); 
+                        dimensionsFontGroup.remove(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh, hsec4_1_shelf3Mesh, hsec4_1_shelf4Mesh, hsec4_1_shelf5Mesh,hsec4_1_shelf6Mesh);
+                        var hsec4_1_shelf1Mesh = new THREE.Mesh(hsec4_1_shelf1, self.fontColor);
+                        hsec4_1_shelf1Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y + ( (self.options.sectionHeight_4_1 - self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y) / 2) -1,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        var hsec4_1_shelf0Mesh = new THREE.Mesh(hsec4_1_shelf0, self.fontColor);
+                        hsec4_1_shelf0Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "shelf_0_0", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf6", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf2Mesh = new THREE.Mesh(hsec4_1_shelf2, self.fontColor);
+                        hsec4_1_shelf2Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf3Mesh = new THREE.Mesh(hsec4_1_shelf3, self.fontColor);
+                        hsec4_1_shelf3Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf3", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf3", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width/ 2 + 2
+                        )
+                        var hsec4_1_shelf4Mesh = new THREE.Mesh(hsec4_1_shelf4, self.fontColor);
+                        hsec4_1_shelf4Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf4", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf4", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf5Mesh = new THREE.Mesh(hsec4_1_shelf5, self.fontColor);
+                        hsec4_1_shelf5Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf5", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf5", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        var hsec4_1_shelf6Mesh = new THREE.Mesh(hsec4_1_shelf6, self.fontColor);
+                        hsec4_1_shelf6Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.x + 3,
+                        self.scene.getObjectByName( "internalShelf_4_1_shelf6", true ).position.y + ( ( self.scene.getObjectByName( "internalShelf_4_1_shelf5", true ).position.y - self.scene.getObjectByName( "internalShelf_4_1_shelf6", true ).position.y) / 2),
+                        self.scene.getObjectByName( "RayCastRecieverSection4_1", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+        
+                        dimensionsFontGroup.add(hsec4_1_shelf1Mesh, hsec4_1_shelf0Mesh, hsec4_1_shelf2Mesh, hsec4_1_shelf3Mesh, hsec4_1_shelf4Mesh, hsec4_1_shelf5Mesh, hsec4_1_shelf6Mesh);
+                    }
                     if ( self.scene.getObjectByName( "horizontalDividerSection4_1", true ) != undefined) {
                         var hsec4_2Mesh = new THREE.Mesh(hsec4_2, self.fontColor);
                         hsec4_2Mesh.position.set(
@@ -58418,6 +64234,88 @@
         
                             dimensionsFontGroup.add(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh, hsec4_2_shelf3Mesh);
                         }
+                        if ( self.options.shelvesCounterSection4_2 === 4) {
+                            dimensionsFontGroup.remove(hsec4_2Mesh); 
+                            dimensionsFontGroup.remove(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh, hsec4_2_shelf3Mesh, hsec4_2_shelf4Mesh);
+                            var hsec4_2_shelf1Mesh = new THREE.Mesh(hsec4_2_shelf1, self.fontColor);
+                            hsec4_2_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y + ( (self.options.sectionHeight_4_2 - self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_2_shelf0Mesh = new THREE.Mesh(hsec4_2_shelf0, self.fontColor);
+                            hsec4_2_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_2_shelf2Mesh = new THREE.Mesh(hsec4_2_shelf2, self.fontColor);
+                            hsec4_2_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_2_shelf3Mesh = new THREE.Mesh(hsec4_2_shelf3, self.fontColor);
+                            hsec4_2_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_2_shelf4Mesh = new THREE.Mesh(hsec4_2_shelf4, self.fontColor);
+                            hsec4_2_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh, hsec4_2_shelf3Mesh, hsec4_2_shelf4Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection4_2 === 5) {
+                            dimensionsFontGroup.remove(hsec4_2Mesh); 
+                            dimensionsFontGroup.remove(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh, hsec4_2_shelf3Mesh, hsec4_2_shelf4Mesh, hsec4_2_shelf5Mesh);
+                            var hsec4_2_shelf1Mesh = new THREE.Mesh(hsec4_2_shelf1, self.fontColor);
+                            hsec4_2_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y + ( (self.options.sectionHeight_4_2 - self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_2_shelf0Mesh = new THREE.Mesh(hsec4_2_shelf0, self.fontColor);
+                            hsec4_2_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_2_shelf2Mesh = new THREE.Mesh(hsec4_2_shelf2, self.fontColor);
+                            hsec4_2_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_2_shelf3Mesh = new THREE.Mesh(hsec4_2_shelf3, self.fontColor);
+                            hsec4_2_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_2_shelf4Mesh = new THREE.Mesh(hsec4_2_shelf4, self.fontColor);
+                            hsec4_2_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_2_shelf5Mesh = new THREE.Mesh(hsec4_2_shelf5, self.fontColor);
+                            hsec4_2_shelf5Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + self.scene.getObjectByName( "internalShelf_4_2_shelf5", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_2_shelf4", true ).position.y - self.scene.getObjectByName( "internalShelf_4_2_shelf5", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_2", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_2_shelf1Mesh, hsec4_2_shelf0Mesh, hsec4_2_shelf2Mesh, hsec4_2_shelf3Mesh, hsec4_2_shelf4Mesh, hsec4_2_shelf5Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection4_2", true ) != undefined) {
                         var hsec4_3Mesh = new THREE.Mesh(hsec4_3, self.fontColor);
@@ -58471,6 +64369,77 @@
         
                             dimensionsFontGroup.add(hsec4_3_shelf1Mesh, hsec4_3_shelf0Mesh, hsec4_3_shelf2Mesh);
                         }
+                        if ( self.options.shelvesCounterSection4_3 === 3) {
+                            dimensionsFontGroup.remove(hsec4_3Mesh); 
+                            dimensionsFontGroup.remove(hsec4_3_shelf1Mesh, hsec4_3_shelf0Mesh, hsec4_3_shelf2Mesh, hsec4_3_shelf3Mesh);
+                            var hsec4_3_shelf1Mesh = new THREE.Mesh(hsec4_3_shelf1, self.fontColor);
+                            hsec4_3_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf1", true ).position.y + ( (self.options.sectionHeight_4_3 - self.scene.getObjectByName( "internalShelf_4_3_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_3_shelf0Mesh = new THREE.Mesh(hsec4_3_shelf0, self.fontColor);
+                            hsec4_3_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_3_shelf3", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_3_shelf2Mesh = new THREE.Mesh(hsec4_3_shelf2, self.fontColor);
+                            hsec4_3_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_3_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec4_3_shelf3Mesh = new THREE.Mesh(hsec4_3_shelf3, self.fontColor);
+                            hsec4_3_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_3_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_3_shelf1Mesh, hsec4_3_shelf0Mesh, hsec4_3_shelf2Mesh, hsec4_3_shelf3Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection4_3 === 4) {
+                            dimensionsFontGroup.remove(hsec4_3Mesh); 
+                            dimensionsFontGroup.remove(hsec4_3_shelf1Mesh, hsec4_3_shelf0Mesh, hsec4_3_shelf2Mesh, hsec4_3_shelf3Mesh, hsec4_3_shelf4Mesh);
+                            var hsec4_3_shelf1Mesh = new THREE.Mesh(hsec4_3_shelf1, self.fontColor);
+                            hsec4_3_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf1", true ).position.y + ( (self.options.sectionHeight_4_3 - self.scene.getObjectByName( "internalShelf_4_3_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_3_shelf0Mesh = new THREE.Mesh(hsec4_3_shelf0, self.fontColor);
+                            hsec4_3_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_3_shelf4", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_3_shelf2Mesh = new THREE.Mesh(hsec4_3_shelf2, self.fontColor);
+                            hsec4_3_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_3_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_3_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_3_shelf3Mesh = new THREE.Mesh(hsec4_3_shelf3, self.fontColor);
+                            hsec4_3_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_3_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_3_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_3_shelf4Mesh = new THREE.Mesh(hsec4_3_shelf4, self.fontColor);
+                            hsec4_3_shelf4Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_2", true ).position.y + self.scene.getObjectByName( "internalShelf_4_3_shelf4", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_3_shelf3", true ).position.y - self.scene.getObjectByName( "internalShelf_4_3_shelf4", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_3", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_3_shelf1Mesh, hsec4_3_shelf0Mesh, hsec4_3_shelf2Mesh, hsec4_3_shelf3Mesh, hsec4_3_shelf4Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection4_3", true ) != undefined) {
                         var hsec4_4Mesh = new THREE.Mesh(hsec4_4, self.fontColor);
@@ -58500,6 +64469,63 @@
         
                             dimensionsFontGroup.add(hsec4_4_shelf1Mesh, hsec4_4_shelf0Mesh);
                         }
+                        if ( self.options.shelvesCounterSection4_4 === 2) {
+                            dimensionsFontGroup.remove(hsec4_4Mesh); 
+                            dimensionsFontGroup.remove(hsec4_4_shelf1Mesh, hsec4_4_shelf0Mesh, hsec4_4_shelf2Mesh);
+                            var hsec4_4_shelf1Mesh = new THREE.Mesh(hsec4_4_shelf1, self.fontColor);
+                            hsec4_4_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + self.scene.getObjectByName( "internalShelf_4_4_shelf1", true ).position.y + ( (self.options.sectionHeight_4_4 - self.scene.getObjectByName( "internalShelf_4_4_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_4_shelf0Mesh = new THREE.Mesh(hsec4_4_shelf0, self.fontColor);
+                            hsec4_4_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_4_shelf2", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_4_shelf2Mesh = new THREE.Mesh(hsec4_4_shelf2, self.fontColor);
+                            hsec4_4_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + self.scene.getObjectByName( "internalShelf_4_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_4_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_4_shelf1Mesh, hsec4_4_shelf0Mesh, hsec4_4_shelf2Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection4_4 === 3) {
+                            dimensionsFontGroup.remove(hsec4_4Mesh); 
+                            dimensionsFontGroup.remove(hsec4_4_shelf1Mesh, hsec4_4_shelf0Mesh, hsec4_4_shelf2Mesh, hsec4_4_shelf3Mesh);
+                            var hsec4_4_shelf1Mesh = new THREE.Mesh(hsec4_4_shelf1, self.fontColor);
+                            hsec4_4_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + self.scene.getObjectByName( "internalShelf_4_4_shelf1", true ).position.y + ( (self.options.sectionHeight_4_4 - self.scene.getObjectByName( "internalShelf_4_4_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_4_shelf0Mesh = new THREE.Mesh(hsec4_4_shelf0, self.fontColor);
+                            hsec4_4_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_4_shelf3", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_4_shelf2Mesh = new THREE.Mesh(hsec4_4_shelf2, self.fontColor);
+                            hsec4_4_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + self.scene.getObjectByName( "internalShelf_4_4_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_4_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_4_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+
+                            var hsec4_4_shelf3Mesh = new THREE.Mesh(hsec4_4_shelf3, self.fontColor);
+                            hsec4_4_shelf3Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_3", true ).position.y + self.scene.getObjectByName( "internalShelf_4_4_shelf3", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_4_shelf2", true ).position.y - self.scene.getObjectByName( "internalShelf_4_4_shelf3", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_4", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_4_shelf1Mesh, hsec4_4_shelf0Mesh, hsec4_4_shelf2Mesh, hsec4_4_shelf3Mesh);
+                        }
                     }
                     if ( self.scene.getObjectByName( "horizontalDividerSection4_4", true ) != undefined) {
                         var hsec4_5Mesh = new THREE.Mesh(hsec4_5, self.fontColor);
@@ -58509,7 +64535,90 @@
                         self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.z + self.options.shelf.width / 2 + 2
                         )
                         dimensionsFontGroup.add(hsec4_5Mesh);
+
+                        if ( self.options.shelvesCounterSection4_5 === 1) {
+                            dimensionsFontGroup.remove(hsec4_5Mesh); 
+                            dimensionsFontGroup.remove(hsec4_5_shelf1Mesh, hsec4_5_shelf0Mesh);
+                            var hsec4_5_shelf1Mesh = new THREE.Mesh(hsec4_5_shelf1, self.fontColor);
+                            hsec4_5_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_4", true ).position.y + self.scene.getObjectByName( "internalShelf_4_5_shelf1", true ).position.y + ( (self.options.sectionHeight_4_5 - self.scene.getObjectByName( "internalShelf_4_5_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_5_shelf0Mesh = new THREE.Mesh(hsec4_5_shelf0, self.fontColor);
+                            hsec4_5_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_5_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_5_shelf1Mesh, hsec4_5_shelf0Mesh);
+                        }
+                        if ( self.options.shelvesCounterSection4_5 === 2) {
+                            dimensionsFontGroup.remove(hsec4_5Mesh); 
+                            dimensionsFontGroup.remove(hsec4_5_shelf1Mesh, hsec4_5_shelf0Mesh, hsec4_5_shelf2Mesh);
+                            var hsec4_5_shelf1Mesh = new THREE.Mesh(hsec4_5_shelf1, self.fontColor);
+                            hsec4_5_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_4", true ).position.y + self.scene.getObjectByName( "internalShelf_4_5_shelf1", true ).position.y + ( (self.options.sectionHeight_4_5 - self.scene.getObjectByName( "internalShelf_4_5_shelf1", true ).position.y) / 2 - 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_5_shelf0Mesh = new THREE.Mesh(hsec4_5_shelf0, self.fontColor);
+                            hsec4_5_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_4", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_5_shelf2", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+                            var hsec4_5_shelf2Mesh = new THREE.Mesh(hsec4_5_shelf2, self.fontColor);
+                            hsec4_5_shelf2Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_4", true ).position.y + self.scene.getObjectByName( "internalShelf_4_5_shelf2", true ).position.y + ( (self.scene.getObjectByName( "internalShelf_4_5_shelf1", true ).position.y - self.scene.getObjectByName( "internalShelf_4_5_shelf2", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_5", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_5_shelf1Mesh, hsec4_5_shelf0Mesh, hsec4_5_shelf2Mesh);
+                        }
                     }
+                    if ( self.scene.getObjectByName( "horizontalDividerSection4_5", true ) != undefined) {
+                        var hsec4_6Mesh = new THREE.Mesh(hsec4_6, self.fontColor);
+                        hsec4_6Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_6", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y + self.options.sectionHeight_4_6 /2 - 1,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_6", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        dimensionsFontGroup.add(hsec4_6Mesh);
+
+                        if ( self.options.shelvesCounterSection4_6 === 1) {
+                            dimensionsFontGroup.remove(hsec4_6Mesh); 
+                            dimensionsFontGroup.remove(hsec4_6_shelf1Mesh, hsec4_6_shelf0Mesh);
+                            var hsec4_6_shelf1Mesh = new THREE.Mesh(hsec4_6_shelf1, self.fontColor);
+                            hsec4_6_shelf1Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_6", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y + self.scene.getObjectByName( "internalShelf_4_6_shelf1", true ).position.y + ( (self.options.sectionHeight_4_6 - self.scene.getObjectByName( "internalShelf_4_6_shelf1", true ).position.y) / 2 -2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_6", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            var hsec4_6_shelf0Mesh = new THREE.Mesh(hsec4_6_shelf0, self.fontColor);
+                            hsec4_6_shelf0Mesh.position.set(
+                            self.scene.getObjectByName( "RayCastRecieverSection4_6", true ).position.x + 3,
+                            self.scene.getObjectByName( "horizontalDividerSection4_5", true ).position.y + ( self.scene.getObjectByName( "internalShelf_4_6_shelf1", true ).position.y / 2),
+                            self.scene.getObjectByName( "RayCastRecieverSection4_6", true ).position.z + self.options.shelf.width / 2 + 2
+                            )
+        
+                            dimensionsFontGroup.add(hsec4_6_shelf1Mesh, hsec4_6_shelf0Mesh);
+                        }
+                    }
+                    if ( self.scene.getObjectByName( "horizontalDividerSection4_6", true ) != undefined) {
+                        var hsec4_7Mesh = new THREE.Mesh(hsec4_7, self.fontColor);
+                        hsec4_7Mesh.position.set(
+                        self.scene.getObjectByName( "RayCastRecieverSection4_7", true ).position.x + 3,
+                        self.scene.getObjectByName( "horizontalDividerSection4_6", true ).position.y + self.options.sectionHeight_4_7 /2 - 1,
+                        self.scene.getObjectByName( "RayCastRecieverSection4_7", true ).position.z + self.options.shelf.width / 2 + 2
+                        )
+                        dimensionsFontGroup.add(hsec4_7Mesh);
+                    }
+                    
 
                 } 
 
