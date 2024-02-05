@@ -11926,7 +11926,9 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                        }
                         document.getElementById("InternalShelving1_S1").style.display = "none";
                         document.getElementById('internalShelving_sect1_1').value = 0
                         self.options.shelvesCounterSection1_1 = 0;
@@ -11972,7 +11974,9 @@
 
                     document.getElementById("internalShelving_sect1_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                    document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                    }
 
                     document.getElementById("Drawer_S1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section1").style.pointerEvents = "auto";
@@ -13225,7 +13229,9 @@
 
                     document.getElementById("internalShelving_sect1_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                    document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                    }
 
 
                     document.getElementById("Drawer_S1_2").style.pointerEvents = "auto";
@@ -13284,7 +13290,9 @@
 
                         document.getElementById("internalShelving_sect1_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                        }
 
         
                         document.getElementById("Drawer_S1_2").style.pointerEvents = "auto";
@@ -14339,7 +14347,9 @@
                         document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
-                    document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                    }
 
                     document.getElementById("internalShelving_sect1_3").value = '0'
 
@@ -14395,7 +14405,9 @@
                         }
                         document.getElementById("InternalShelving2_S1_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                        }
 
                         document.getElementById("internalShelving_sect1_3").value = '0'
                         
@@ -15259,7 +15271,9 @@
                         document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
-                    document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
+                    }
 
                     document.getElementById("internalShelving_sect1_4").value = '0'
 
@@ -15315,8 +15329,9 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
+                        }
                         document.getElementById("internalShelving_sect1_4").value = '0'
 
                         document.getElementById("Drawer_S1_4").style.pointerEvents = "auto";
@@ -16034,8 +16049,9 @@
                         document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
                     };
                     document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
-                    document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
+                    }
                     document.getElementById("internalShelving_sect1_5").value = '0'
 
                     self.options.s1_5_internlShelvinStatus = 0
@@ -16086,8 +16102,9 @@
 
                         document.getElementById("InternalShelving1_S1_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
+                        }
 
                         document.getElementById("internalShelving_sect1_5").value = '0'
 
@@ -16631,8 +16648,9 @@
 
                     document.getElementById("InternalShelving1_S1_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
-                    document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
+                    }
                     document.getElementById("internalShelving_sect1_6").value = '0'
 
                     self.options.s1_6_internlShelvinStatus = 0
@@ -16683,8 +16701,9 @@
 
                         document.getElementById("InternalShelving1_S1_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
+                        }
                         document.getElementById("internalShelving_sect1_6").value = '0'
 
                         document.getElementById("Drawer_S1_6").style.pointerEvents = "auto";
@@ -17086,7 +17105,9 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                        }                        
                         document.getElementById("InternalShelving1_S2_1").style.display = "none";
                         document.getElementById('internalShelving_sect2_1').value = 0
                         self.options.shelvesCounterSection2_1 = 0;
@@ -17132,8 +17153,9 @@
 
                     document.getElementById("internalShelving_sect2_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                    document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                    }   
                     document.getElementById("Drawer_S2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_S2").src="icons/Drawer_Close.jpg";
@@ -17194,7 +17216,9 @@
 
                         document.getElementById("internalShelving_sect2_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                        }   
 
                         document.getElementById("Drawer_S2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section2").style.pointerEvents = "auto";
@@ -17226,7 +17250,9 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                            document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                                document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                            }   
                             document.getElementById("InternalShelving_S2_1").style.display = "none";
                             document.getElementById('internalShelving_sect2_1').value = 0
                             self.options.shelvesCounterSection2_1 = 0;
@@ -18382,8 +18408,9 @@
 
                     document.getElementById("internalShelving_sect2_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                    document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
+                    }   
 
                     document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS2_2").style.pointerEvents = "auto";
@@ -18441,8 +18468,9 @@
 
                         document.getElementById("internalShelving_sect2_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
+                        }       
         
                         document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section2_2").style.pointerEvents = "auto";
@@ -19495,7 +19523,9 @@
                         document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
-                    document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
+                    }   
 
                     document.getElementById("internalShelving_sect2_3").value = '0'
 
@@ -19551,8 +19581,9 @@
                         }
                         document.getElementById("InternalShelving2_S2_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
+                        }  
                         document.getElementById("internalShelving_sect2_3").value = '0'
                         
 
@@ -20416,8 +20447,9 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
-                    document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
+                    }  
                     document.getElementById("internalShelving_sect2_4").value = '0'
 
                     self.options.s2_4_internlShelvinStatus = 0
@@ -20472,8 +20504,9 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect2_4").value = '0'
 
                         document.getElementById("Drawer_S2_4").style.pointerEvents = "auto";
@@ -21192,8 +21225,9 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
-                    document.getElementById("MainShoeShelving_S2_5").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S2_5").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect2_5").value = '0'
 
                     self.options.s2_5_internlShelvinStatus = 0
@@ -21244,8 +21278,9 @@
 
                         document.getElementById("InternalShelving1_S2_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_5").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
+                        } 
 
                         document.getElementById("internalShelving_sect2_5").value = '0'
 
@@ -21789,8 +21824,9 @@
 
                     document.getElementById("InternalShelving1_S2_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
-                    document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect2_6").value = '0'
 
                     self.options.s2_6_internlShelvinStatus = 0
@@ -21841,8 +21877,9 @@
 
                         document.getElementById("InternalShelving1_S2_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
-                        document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect2_6").value = '0'
 
                         document.getElementById("Drawer_S2_6").style.pointerEvents = "auto";
@@ -22247,7 +22284,9 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                        } 
                         document.getElementById("InternalShelving1_S3_1").style.display = "none";
                         document.getElementById('internalShelving_sect3_1').value = 0
                         self.options.shelvesCounterSection3_1 = 0;
@@ -22293,8 +22332,9 @@
 
                     document.getElementById("internalShelving_sect3_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                    document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                    } 
                     document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_S3_1").src="icons/Drawer_Close.jpg";
@@ -22355,8 +22395,9 @@
 
                         document.getElementById("internalShelving_sect3_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                        } 
                         document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_S3_1").src="icons/Drawer_Close.jpg";
@@ -22387,7 +22428,9 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                            document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                                document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                            } 
                             document.getElementById("InternalShelving_S3_1").style.display = "none";
                             document.getElementById('internalShelving_sect3_1').value = 0
                             self.options.shelvesCounterSection3_1 = 0;
@@ -23543,8 +23586,9 @@
 
                     document.getElementById("internalShelving_sect3_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                    document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
+                    } 
 
                     document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "auto";
@@ -23602,8 +23646,9 @@
 
                         document.getElementById("internalShelving_sect3_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
+                        } 
         
                         document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section3_2").style.pointerEvents = "auto";
@@ -24656,8 +24701,9 @@
                         document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
-                    document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect3_3").value = '0'
 
                     self.options.s3_3_internlShelvinStatus = 0
@@ -24712,8 +24758,9 @@
                         }
                         document.getElementById("InternalShelving2_S3_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect3_3").value = '0'
                         
 
@@ -25577,8 +25624,9 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
-                    document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect3_4").value = '0'
 
                     self.options.s3_4_internlShelvinStatus = 0
@@ -25633,8 +25681,9 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect3_4").value = '0'
 
                         document.getElementById("Drawer_S3_4").style.pointerEvents = "auto";
@@ -26353,8 +26402,9 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
-                    document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect3_5").value = '0'
 
                     self.options.s3_5_internlShelvinStatus = 0
@@ -26405,8 +26455,9 @@
 
                         document.getElementById("InternalShelving1_S3_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
+                        } 
 
                         document.getElementById("internalShelving_sect3_5").value = '0'
 
@@ -26950,8 +27001,9 @@
 
                     document.getElementById("InternalShelving1_S3_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
-                    document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect3_6").value = '0'
 
                     self.options.s3_6_internlShelvinStatus = 0
@@ -27002,8 +27054,9 @@
 
                         document.getElementById("InternalShelving1_S3_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
-                        document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect3_6").value = '0'
 
                         document.getElementById("Drawer_S3_6").style.pointerEvents = "auto";
@@ -27408,7 +27461,9 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                        } 
                         document.getElementById("InternalShelving1_S4_1").style.display = "none";
                         document.getElementById('internalShelving_sect4_1').value = 0
                         self.options.shelvesCounterSection4_1 = 0;
@@ -27454,8 +27509,9 @@
 
                     document.getElementById("internalShelving_sect4_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                    document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                    } 
                     document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_S4_1").src="icons/Drawer_Close.jpg";
@@ -27516,8 +27572,9 @@
 
                         document.getElementById("internalShelving_sect4_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                        } 
                         document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_S4_1").src="icons/Drawer_Close.jpg";
@@ -27548,7 +27605,9 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                            document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                                document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                            } 
                             document.getElementById("InternalShelving_S4_1").style.display = "none";
                             document.getElementById('internalShelving_sect4_1').value = 0
                             self.options.shelvesCounterSection4_1 = 0;
@@ -28704,8 +28763,9 @@
 
                     document.getElementById("internalShelving_sect4_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                    document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
+                    } 
 
                     document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "auto";
@@ -28763,8 +28823,9 @@
 
                         document.getElementById("internalShelving_sect4_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
+                        } 
         
                         document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section4_2").style.pointerEvents = "auto";
@@ -29817,8 +29878,9 @@
                         document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
-                    document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect4_3").value = '0'
 
                     self.options.s4_3_internlShelvinStatus = 0
@@ -29873,8 +29935,9 @@
                         }
                         document.getElementById("InternalShelving2_S4_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect4_3").value = '0'
                         
 
@@ -30737,8 +30800,9 @@
                         document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
-                    document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect4_4").value = '0'
 
                     self.options.s4_4_internlShelvinStatus = 0
@@ -30793,8 +30857,9 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect4_4").value = '0'
 
                         document.getElementById("Drawer_S4_4").style.pointerEvents = "auto";
@@ -31516,8 +31581,9 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
-                    document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect4_5").value = '0'
 
                     self.options.s4_5_internlShelvinStatus = 0
@@ -31568,8 +31634,9 @@
 
                         document.getElementById("InternalShelving1_S4_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
+                        } 
 
                         document.getElementById("internalShelving_sect4_5").value = '0'
 
@@ -32113,8 +32180,9 @@
 
                     document.getElementById("InternalShelving1_S4_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
-                    document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
-
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                        document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
+                    } 
                     document.getElementById("internalShelving_sect4_6").value = '0'
 
                     self.options.s4_6_internlShelvinStatus = 0
@@ -32165,8 +32233,9 @@
 
                         document.getElementById("InternalShelving1_S4_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
-                        document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
-
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
+                            document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
+                        } 
                         document.getElementById("internalShelving_sect4_6").value = '0'
 
                         document.getElementById("Drawer_S4_6").style.pointerEvents = "auto";
