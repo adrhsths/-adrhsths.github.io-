@@ -1041,7 +1041,7 @@
             statusHideRoom: 0,
             statusHideHint: 1,
             statusLegs: 0,
-            statusShowDimensions: 0,
+            statusShowDimensions: 1,
     
     
         },
@@ -7632,12 +7632,7 @@
                             setDisplay(1, 'none');
                             setDisplay(2, 'none');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
 
                             var pillarPositionS1 = Math.floor(self.options.section1Length - 1.8 * 2 - 1 ) + "cm";
                             for (let i = 1; i <= 7; i++) {
@@ -7686,12 +7681,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
                             
     
     
@@ -7749,12 +7739,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
                             
     
     
@@ -7812,12 +7797,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
                             
     
     
@@ -7891,12 +7871,7 @@
                             setDisplay(1, 'none');
                             setDisplay(2, 'none');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
     
                             var pillarPositionS1 = Math.floor(self.options.section1Length - 1.8 * 2 - 1 ) + "cm";
                             for (let i = 1; i <= 7; i++) {
@@ -7944,12 +7919,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
     
     
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8006,12 +7976,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'flex');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
         
         
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8081,12 +8046,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'flex');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
         
         
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8170,12 +8130,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
     
     
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8228,12 +8183,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
     
     
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8290,12 +8240,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'flex');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
         
         
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8364,12 +8309,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'flex');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
         
         
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8452,12 +8392,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
     
     
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8510,12 +8445,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
     
     
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8572,12 +8502,7 @@
                             setDisplay(1, 'flex');
                             setDisplay(2, 'flex');
                             setDisplay(3, 'flex');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
         
         
                             var pillarPositionS1 = Math.floor(self.options.section1Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
@@ -8652,18 +8577,18 @@
                             }
 
                             var pillarPositionS3 = Math.floor(self.options.section3Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                            for (let i = 1; i <= 5; i++) {
+                            for (let i = 1; i <= 7; i++) {
                                 document.getElementById(`pillar3PositionField_S3_${i}`).innerHTML = pillarPositionS3;
                             }
 
                             var pillarPositionS4 = Math.floor(self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                            for (let i = 1; i <= 5; i++) {
+                            for (let i = 1; i <= 7; i++) {
                                 document.getElementById(`pillar4PositionField_S4_${i}`).innerHTML = pillarPositionS4;
                             }
 
     
                             var setDisplay = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
+                                for (let i = 1; i <= 7; i++) {
                                     document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
                                 }
                             };
@@ -11893,8 +11818,11 @@
                 if ( document.getElementById("InternalShelving_S1").checked == true || self.options.s1_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S1_1").style.display = "none";
 
+                    document.getElementById("Cover_ShoeShelving_S1").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S1_1").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S1_1"), document.getElementById("InternalShelving6_S1").nextSibling);
+                    
                     
 
                     document.getElementById("Drawer_S1").style.pointerEvents = "none";
@@ -11920,14 +11848,16 @@
                         }
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
 
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_1"), document.getElementById("MainInternalShelving_S1_1").nextSibling);
                         }
                         document.getElementById("InternalShelving1_S1").style.display = "none";
                         document.getElementById('internalShelving_sect1_1').value = 0
@@ -11940,7 +11870,6 @@
         
                         self.shelvingGroup_section1_1.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
-                        //!!
                         self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
         
                         self.shelvingGroup_section1_1.name = 'shelvingGroup_section1_1';
@@ -11974,8 +11903,10 @@
 
                     document.getElementById("internalShelving_sect1_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S1").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S1_1").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S1_1"), document.getElementById("MainInternalShelving_S1_1").nextSibling);
                     }
 
                     document.getElementById("Drawer_S1").style.pointerEvents = "auto";
@@ -12038,7 +11969,11 @@
 
                         document.getElementById("internalShelving_sect1_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                        document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_1"), document.getElementById("MainInternalShelving_S1_1").nextSibling);
+                        }
 
                         document.getElementById("Drawer_S1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section1").style.pointerEvents = "auto";
@@ -12064,13 +11999,17 @@
                             }
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
     
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S1_1").style.display = "none";
-                            document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                                document.getElementById("Cover_ShoeShelving_S1").style.display = "none";
+                                var parent = document.getElementById("MainShoeShelving_S1_1").parentNode;
+                                parent.insertBefore(document.getElementById("MainShoeShelving_S1_1"), document.getElementById("MainInternalShelving_S1_1").nextSibling);
+                            }
                             document.getElementById("InternalShelving1_S1").style.display = "none";
                             document.getElementById('internalShelving_sect1_1').value = 0
                             self.options.shelvesCounterSection1_1 = 0;
@@ -12342,7 +12281,7 @@
                 if ( document.getElementById("ShoeShelving_S1").checked == true || self.options.s1_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S1_1").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S1").style.display = "block";
                     
                     document.getElementById("Drawer_S1").style.pointerEvents = "none";
                     document.getElementById("Drawer_Section1").style.pointerEvents = "none";
@@ -12352,14 +12291,14 @@
 
                     document.getElementById("ShoeShelving_sect1_1").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect1_1").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section1_1);
                         
                         self.shelvingGroup_section1_1 = new THREE.Group();
-                        self.options.posShelf1_sect1_1 = 14;
+                        self.options.posShelf1_sect1_1 = 19;
 
                         self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
                         self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
@@ -12370,14 +12309,14 @@
                         }
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
 
 
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1").style.display = "block";
                         document.getElementById("InternalShelving1_S1").style.display = "none";
                         document.getElementById('ShoeShelving_sect1_1').value = 0
                         self.options.shelvesCounterSection1_1 = 0;
@@ -12390,7 +12329,6 @@
                         self.shelvingGroup_section1_1.position.x = self.shelving.getObjectByName( "pillar_0", true ).position.x + 0.5;
         
                         //!!
-                        //self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width - 3 ;
                         self.shelvingGroup_section1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width / 2;
 
         
@@ -12430,7 +12368,7 @@
 
                     document.getElementById("ShoeShelving_sect1_1").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "none";
-                    document.getElementById("MainInternalShelving_S1_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1").style.display = "none";
 
                     document.getElementById("Drawer_S1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section1").style.pointerEvents = "auto";
@@ -12447,7 +12385,7 @@
                 }
     
                 self.options.heigh1Shelf1_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_1 = 5
+                self.options.heigh0Shelf1_1 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_1").addEventListener('click', requestChangeShoeShelving1_1); 
@@ -12490,7 +12428,7 @@
                         
                         document.getElementById("ShoeShelving_sect1_1").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1").style.display = "none";
     
                         document.getElementById("Drawer_S1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section1").style.pointerEvents = "auto";
@@ -12501,13 +12439,13 @@
                     case 1:
                         self.options.shelvesCounterSection1_1 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect1_1").value = '1'
                             self.scene.remove(self.shelvingGroup_section1_1);
                             
                             self.shelvingGroup_section1_1 = new THREE.Group();
-                            self.options.posShelf1_sect1_1 = 14;
+                            self.options.posShelf1_sect1_1 = 19;
 
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length));
@@ -12517,7 +12455,7 @@
                                 document.getElementById(`InternalShelving${i}_S1`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf1_1 = 5
+                            self.options.heigh0Shelf1_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -12527,7 +12465,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S1_1").style.display = "none";
-                            document.getElementById("MainInternalShelving_S1_1").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S1").style.display = "none";
 
                             document.getElementById("InternalShelving1_S1").style.display = "none";
                             document.getElementById('ShoeShelving_sect1_1').value = 0
@@ -12539,11 +12477,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection1_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section1_1);
                             self.shelvingGroup_section1_1 = new THREE.Group();
-                            self.options.posShelf2_sect1_1 =  14;
-                            self.options.posShelf1_sect1_1 = self.options.posShelf2_sect1_1 + 27.5;
+                            self.options.posShelf2_sect1_1 =  19;
+                            self.options.posShelf1_sect1_1 = self.options.posShelf2_sect1_1 + 23;
     
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length));
                             
@@ -12554,12 +12492,12 @@
                                 document.getElementById(`InternalShelving${i}_S1`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf1_1 = 5
+                            self.options.heigh0Shelf1_1 = 10
     
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -12576,9 +12514,9 @@
                             self.scene.remove(self.shelvingGroup_section1_1);                        
 
                             self.shelvingGroup_section1_1 = new THREE.Group();
-                            self.options.posShelf3_sect1_1 = 14
-                            self.options.posShelf2_sect1_1 = self.options.posShelf3_sect1_1 + 27.5
-                            self.options.posShelf1_sect1_1 = self.options.posShelf2_sect1_1 + 27.5
+                            self.options.posShelf3_sect1_1 = 19
+                            self.options.posShelf2_sect1_1 = self.options.posShelf3_sect1_1 + 23
+                            self.options.posShelf1_sect1_1 = self.options.posShelf2_sect1_1 + 23
 
                         
                             self.shelvingGroup_section1_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_1, 1, '1_1', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_1, 2, '1_1', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf3_sect1_1, 3, '1_1', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect1_1, 3, '1_1', self.options.section1Length));
@@ -12590,14 +12528,14 @@
                                 document.getElementById(`InternalShelving${i}_S1`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf1_1 = 5
+                            self.options.heigh0Shelf1_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S1_1").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S1_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S1_1").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -12659,7 +12597,7 @@
                 
                 if (self.options.sectionHeight_1_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12691,7 +12629,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_1 > 25 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_1 > 20 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12709,7 +12647,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12739,7 +12677,7 @@
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2).position.y += 1.05
@@ -12760,7 +12698,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12788,7 +12726,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_1 > 25 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_1 > 20 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2).position.y -= 1.05
@@ -12810,7 +12748,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12838,7 +12776,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12858,7 +12796,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12887,7 +12825,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh4Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh4Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
@@ -12907,7 +12845,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 5 && self.options.s1_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_1 > 10 && self.options.s1_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_1_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s1_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_1_1_'+'shelf'+3).position.y -= 1.05
@@ -13163,7 +13101,9 @@
                 if ( document.getElementById("InternalShelving_S1_2").checked == true || self.options.s1_2_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S1_2").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S1_2").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S1_2").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S1_2"), document.getElementById("InternalShelving5_S1_2").nextSibling);
 
                     document.getElementById("Drawer_S1_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_2").style.pointerEvents = "none";
@@ -13217,7 +13157,7 @@
         
                     } else {} 
                     
-                    document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
                     self.options.s1_2_internlShelvinStatus = 1
                     self.options.s1_2_ShelvingStatus = 'Wood'
@@ -13233,8 +13173,10 @@
 
                     document.getElementById("internalShelving_sect1_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S1_2").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S1_2").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S1_2"), document.getElementById("MainInternalShelving_S1_2").nextSibling);
                     }
 
 
@@ -13294,8 +13236,10 @@
 
                         document.getElementById("internalShelving_sect1_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1_2").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_2").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_2"), document.getElementById("MainInternalShelving_S1_2").nextSibling);
                         }
 
         
@@ -13322,7 +13266,7 @@
                             document.getElementById("InternalShelving3_S1_2").style.display = "none";
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S1_2").style.display = "none";
@@ -13548,7 +13492,7 @@
                 if ( document.getElementById("ShoeShelving_S1_2").checked == true || self.options.s1_2_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S1_2").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S1_2").style.display = "block";
                     
                     document.getElementById("Drawer_S1_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_2").style.pointerEvents = "none";
@@ -13558,14 +13502,14 @@
 
                     document.getElementById("ShoeShelving_sect1_2").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect1_2").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section1_2);
                         
                         self.shelvingGroup_section1_2 = new THREE.Group();
-                        self.options.posShelf1_sect1_2 = 14;
+                        self.options.posShelf1_sect1_2 = 19;
 
                         self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
                         self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
@@ -13583,7 +13527,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_2").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_2").style.display = "none";
                         document.getElementById("InternalShelving1_S1_2").style.display = "none";
                         document.getElementById('ShoeShelving_sect1_2').value = 0
                         self.options.shelvesCounterSection1_2 = 0;
@@ -13635,7 +13579,7 @@
 
                     document.getElementById("ShoeShelving_sect1_2").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
-                    document.getElementById("MainInternalShelving_S1_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_2").style.display = "none";
 
                     document.getElementById("Drawer_S1_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS1_2").style.pointerEvents = "auto";
@@ -13652,7 +13596,7 @@
                 }
     
                 self.options.heigh1Shelf1_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_2 = 5
+                self.options.heigh0Shelf1_2 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_2").addEventListener('click', requestChangeShoeShelving1_2); 
@@ -13695,7 +13639,7 @@
                         
                         document.getElementById("ShoeShelving_sect1_2").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_2").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_2").style.display = "none";
     
                         
                         document.getElementById("Drawer_S1_2").style.pointerEvents = "auto";
@@ -13707,13 +13651,13 @@
                     case 1:
                         self.options.shelvesCounterSection1_2 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect1_2").value = '1'
                             self.scene.remove(self.shelvingGroup_section1_2);
                             
                             self.shelvingGroup_section1_2 = new THREE.Group();
-                            self.options.posShelf1_sect1_2 = 14;
+                            self.options.posShelf1_sect1_2 = 19;
 
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length));
@@ -13723,7 +13667,7 @@
                                 document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf1_2 = 5 
+                            self.options.heigh0Shelf1_2 = 10 
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -13733,7 +13677,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S1_2").style.display = "none";
-                            document.getElementById("MainInternalShelving_S1_2").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S1_2").style.display = "none";
 
                             document.getElementById("InternalShelving1_S1_2").style.display = "none";
                             document.getElementById('ShoeShelving_sect1_2').value = 0
@@ -13745,11 +13689,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection1_2 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section1_2);
                             self.shelvingGroup_section1_2 = new THREE.Group();
-                            self.options.posShelf2_sect1_2 =  14;
-                            self.options.posShelf1_sect1_2 = self.options.posShelf2_sect1_2 + 27.5;
+                            self.options.posShelf2_sect1_2 =  19;
+                            self.options.posShelf1_sect1_2 = self.options.posShelf2_sect1_2 + 23;
     
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_2, 2, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_2, 2, '1_2', self.options.section1Length));
                             
@@ -13760,12 +13704,12 @@
                                 document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf1_2 = 5 
+                            self.options.heigh0Shelf1_2 = 10 
     
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -13782,9 +13726,9 @@
                             self.scene.remove(self.shelvingGroup_section1_2);                        
 
                             self.shelvingGroup_section1_2 = new THREE.Group();
-                            self.options.posShelf3_sect1_2 = 14
-                            self.options.posShelf2_sect1_2 = self.options.posShelf3_sect1_2 + 27.5
-                            self.options.posShelf1_sect1_2 = self.options.posShelf2_sect1_2 + 27.5
+                            self.options.posShelf3_sect1_2 = 19
+                            self.options.posShelf2_sect1_2 = self.options.posShelf3_sect1_2 + 23
+                            self.options.posShelf1_sect1_2 = self.options.posShelf2_sect1_2 + 23
 
                         
                             self.shelvingGroup_section1_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_2, 1, '1_2', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_2, 2, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_2, 2, '1_2', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf3_sect1_2, 3, '1_2', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect1_2, 3, '1_2', self.options.section1Length));
@@ -13796,14 +13740,14 @@
                                 document.getElementById(`InternalShelving${i}_S1_2`).style.display = "none";
                             }    
                             
-                            self.options.heigh0Shelf1_2 = 5 
+                            self.options.heigh0Shelf1_2 = 10 
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S1_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S1_2").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S1_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S1_2").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -13865,7 +13809,7 @@
                 
                 if (self.options.sectionHeight_1_2 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+1).position.y += 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -13897,7 +13841,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_2 > 25 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_2 > 20 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -13915,7 +13859,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_2 > 5 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -13945,7 +13889,7 @@
                 if (self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+2).position.y += 1.05
@@ -13966,7 +13910,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+2).position.y += 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -13994,7 +13938,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_2 > 25 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_2 > 20 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+2).position.y -= 1.05
@@ -14016,7 +13960,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_2 > 5 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_2 > 10 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -14044,7 +13988,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -14064,7 +14008,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_2_ShelvingStatus === 'Shoe') {
@@ -14287,7 +14231,9 @@
                 if ( document.getElementById("InternalShelving_S1_3").checked == true || self.options.s1_3_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S1_3").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S1_3").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S1_3").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S1_3"), document.getElementById("InternalShelving4_S1_3").nextSibling);
 
                     document.getElementById("Drawer_S1_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_3").style.pointerEvents = "none";
@@ -14355,8 +14301,10 @@
                         document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S1_3").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S1_3").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S1_3"), document.getElementById("MainInternalShelving_S1_3").nextSibling);
                     }
 
                     document.getElementById("internalShelving_sect1_3").value = '0'
@@ -14413,8 +14361,10 @@
                         }
                         document.getElementById("InternalShelving2_S1_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S1_3").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1_3").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_3").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_3"), document.getElementById("MainInternalShelving_S1_3").nextSibling);
                         }
 
                         document.getElementById("internalShelving_sect1_3").value = '0'
@@ -14612,7 +14562,7 @@
                 if ( document.getElementById("ShoeShelving_S1_3").checked == true || self.options.s1_3_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S1_3").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S1_3").style.display = "block";
                     
                     document.getElementById("Drawer_S1_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_3").style.pointerEvents = "none";
@@ -14622,14 +14572,14 @@
 
                     document.getElementById("ShoeShelving_sect1_3").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect1_3").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section1_3);
                         
                         self.shelvingGroup_section1_3 = new THREE.Group();
-                        self.options.posShelf1_sect1_3 = 14;
+                        self.options.posShelf1_sect1_3 = 19;
 
                         self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
                         self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
@@ -14647,7 +14597,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_3").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_3").style.display = "none";
                         document.getElementById("InternalShelving1_S1_3").style.display = "none";
                         document.getElementById('ShoeShelving_sect1_3').value = 0
                         self.options.shelvesCounterSection1_3 = 0;
@@ -14698,7 +14648,7 @@
 
                     document.getElementById("ShoeShelving_sect1_3").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
-                    document.getElementById("MainInternalShelving_S1_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_3").style.display = "none";
 
                     document.getElementById("Drawer_S1_3").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS1_3").style.pointerEvents = "auto";
@@ -14715,7 +14665,7 @@
                 }
     
                 self.options.heigh1Shelf1_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_3 = 5
+                self.options.heigh0Shelf1_3 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_3").addEventListener('click', requestChangeShoeShelving1_3); 
@@ -14758,7 +14708,7 @@
                         
                         document.getElementById("ShoeShelving_sect1_3").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_3").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_3").style.display = "none";
     
                         
                         document.getElementById("Drawer_S1_3").style.pointerEvents = "auto";
@@ -14770,13 +14720,13 @@
                     case 1:
                         self.options.shelvesCounterSection1_3 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect1_3").value = '1'
                             self.scene.remove(self.shelvingGroup_section1_3);
                             
                             self.shelvingGroup_section1_3 = new THREE.Group();
-                            self.options.posShelf1_sect1_3 = 14;
+                            self.options.posShelf1_sect1_3 = 19;
 
                             self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
                             self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length));
@@ -14786,7 +14736,7 @@
                                 document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf1_3 = 5
+                            self.options.heigh0Shelf1_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -14794,7 +14744,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S1_3").style.display = "none";
-                            document.getElementById("MainInternalShelving_S1_3").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S1_3").style.display = "none";
 
                             document.getElementById("InternalShelving1_S1_3").style.display = "none";
                             document.getElementById('ShoeShelving_sect1_3').value = 0
@@ -14806,11 +14756,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection1_3 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section1_3);
                             self.shelvingGroup_section1_3 = new THREE.Group();
-                            self.options.posShelf2_sect1_3 =  14;
-                            self.options.posShelf1_sect1_3 = self.options.posShelf2_sect1_3 + 27.5;
+                            self.options.posShelf2_sect1_3 =  19;
+                            self.options.posShelf1_sect1_3 = self.options.posShelf2_sect1_3 + 23;
     
                             self.shelvingGroup_section1_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_3, 1, '1_3', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_3, 2, '1_3', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_3, 2, '1_3', self.options.section1Length));
                             
@@ -14821,12 +14771,12 @@
                                 document.getElementById(`InternalShelving${i}_S1_3`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf1_3 = 5
+                            self.options.heigh0Shelf1_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S1_3").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S1_3").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -14883,7 +14833,7 @@
                 
                 if (self.options.sectionHeight_1_3 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+1).position.y += 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -14915,7 +14865,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_3 > 25 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_3 > 20 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -14933,7 +14883,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_3 > 5 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -14963,7 +14913,7 @@
                 if (self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+2).position.y += 1.05
@@ -14984,7 +14934,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+2).position.y += 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -15012,7 +14962,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_3 > 25 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_3 > 20 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+2).position.y -= 1.05
@@ -15034,7 +14984,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_3 > 5 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -15062,7 +15012,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -15082,7 +15032,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -15111,7 +15061,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf1_3 > 25 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf1_3 > 10 && self.options.s1_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf1_3 > 20 && self.options.s1_3_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_1_3_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s1_3_ShelvingStatus === 'Shoe') {
@@ -15214,7 +15164,9 @@
                 if ( document.getElementById("InternalShelving_S1_4").checked == true || self.options.s1_4_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S1_4").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S1_4").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S1_4").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S1_4"), document.getElementById("InternalShelving3_S1_4").nextSibling);
 
                     document.getElementById("Drawer_S1_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_4").style.pointerEvents = "none";
@@ -15279,8 +15231,10 @@
                         document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S1_4").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S1_4").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S1_4"), document.getElementById("MainInternalShelving_S1_4").nextSibling);
                     }
 
                     document.getElementById("internalShelving_sect1_4").value = '0'
@@ -15337,8 +15291,10 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S1_4").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1_4").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_4").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_4"), document.getElementById("MainInternalShelving_S1_4").nextSibling);
                         }
                         document.getElementById("internalShelving_sect1_4").value = '0'
 
@@ -15484,7 +15440,7 @@
                 if ( document.getElementById("ShoeShelving_S1_4").checked == true || self.options.s1_4_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S1_4").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S1_4").style.display = "block";
                     
                     document.getElementById("Drawer_S1_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_4").style.pointerEvents = "none";
@@ -15494,14 +15450,14 @@
 
                     document.getElementById("ShoeShelving_sect1_4").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect1_4").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section1_4);
                         
                         self.shelvingGroup_section1_4 = new THREE.Group();
-                        self.options.posShelf1_sect1_4 = 14;
+                        self.options.posShelf1_sect1_4 = 19;
 
                         self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
                         self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
@@ -15519,7 +15475,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_4").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_4").style.display = "none";
                         document.getElementById("InternalShelving1_S1_4").style.display = "none";
                         document.getElementById('ShoeShelving_sect1_4').value = 0
                         self.options.shelvesCounterSection1_4 = 0;
@@ -15570,7 +15526,7 @@
 
                     document.getElementById("ShoeShelving_sect1_4").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
-                    document.getElementById("MainInternalShelving_S1_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_4").style.display = "none";
 
                     document.getElementById("Drawer_S1_4").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS1_4").style.pointerEvents = "auto";
@@ -15587,7 +15543,7 @@
                 }
     
                 self.options.heigh1Shelf1_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_4 = 5
+                self.options.heigh0Shelf1_4 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_4").addEventListener('click', requestChangeShoeShelving1_4); 
@@ -15629,8 +15585,7 @@
                         
                         document.getElementById("ShoeShelving_sect1_4").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_4").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S1_4").style.display = "none";    
                         
                         document.getElementById("Drawer_S1_4").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS1_4").style.pointerEvents = "auto";
@@ -15641,13 +15596,13 @@
                     case 1:
                         self.options.shelvesCounterSection1_4 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect1_4").value = '1'
                             self.scene.remove(self.shelvingGroup_section1_4);
                             
                             self.shelvingGroup_section1_4 = new THREE.Group();
-                            self.options.posShelf1_sect1_4 = 14;
+                            self.options.posShelf1_sect1_4 = 19;
 
                             self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
                             self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length));
@@ -15657,7 +15612,7 @@
                                 document.getElementById(`InternalShelving${i}_S1_4`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf1_4 = 5
+                            self.options.heigh0Shelf1_4 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -15667,7 +15622,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S1_4").style.display = "none";
-                            document.getElementById("MainInternalShelving_S1_4").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S1_4").style.display = "none";
 
                             document.getElementById("InternalShelving1_S1_4").style.display = "none";
                             document.getElementById('ShoeShelving_sect1_4').value = 0
@@ -15679,11 +15634,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection1_4 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section1_4);
                             self.shelvingGroup_section1_4 = new THREE.Group();
-                            self.options.posShelf2_sect1_4 =  14;
-                            self.options.posShelf1_sect1_4 = self.options.posShelf2_sect1_4 + 27.5;
+                            self.options.posShelf2_sect1_4 =  19;
+                            self.options.posShelf1_sect1_4 = self.options.posShelf2_sect1_4 + 23;
     
                             self.shelvingGroup_section1_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect1_4, 1, '1_4', self.options.section1Length), self.createShelfShoeToGroup(self.options.posShelf2_sect1_4, 2, '1_4', self.options.section1Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect1_4, 2, '1_4', self.options.section1Length));
                             
@@ -15692,12 +15647,12 @@
                             document.getElementById("InternalShelving2_S1_4").style.display = "flex";
                             document.getElementById("InternalShelving3_S1_4").style.display = "none";
 
-                            self.options.heigh0Shelf1_4 = 5
+                            self.options.heigh0Shelf1_4 = 10
     
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S1_4").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S1_4").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -15752,7 +15707,7 @@
                 
                 if (self.options.sectionHeight_1_4 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+1).position.y += 1.05
                         if (self.options.s1_4_ShelvingStatus === 'Shoe') {
@@ -15784,7 +15739,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_4 > 25 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_4 > 20 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_4_ShelvingStatus === 'Shoe') {
@@ -15802,7 +15757,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_4 > 5 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_4_ShelvingStatus === 'Shoe') {
@@ -15832,7 +15787,7 @@
                 if (self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+2).position.y += 1.05
@@ -15853,7 +15808,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+2).position.y += 1.05
                         if (self.options.s1_4_ShelvingStatus === 'Shoe') {
@@ -15881,7 +15836,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_4 > 25 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf1_4 > 20 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+2).position.y -= 1.05
@@ -15903,7 +15858,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_4 > 5 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_4 > 10 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s1_4_ShelvingStatus === 'Shoe') {
@@ -15929,7 +15884,7 @@
             //section1_4_shelf3 up&down
             document.getElementById("MoveInternalShelving3_S1_4_UP").addEventListener('click', async function() {
             
-                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_4_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_1_4_'+'shelf'+3).position.y += 1.05
                     if (self.options.s1_4_ShelvingStatus === 'Shoe') {
@@ -15991,7 +15946,9 @@
                 if ( document.getElementById("InternalShelving_S1_5").checked == true || self.options.s1_5_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S1_5").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S1_5").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S1_5").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S1_5"), document.getElementById("InternalShelving2_S1_5").nextSibling);
 
                     document.getElementById("Drawer_S1_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_5").style.pointerEvents = "none";
@@ -16058,8 +16015,10 @@
                         document.getElementById(`InternalShelving${i}_S1_5`).style.display = "none";
                     };
                     document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S1_5").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S1_5").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S1_5"), document.getElementById("MainInternalShelving_S1_5").nextSibling);
                     }
                     document.getElementById("internalShelving_sect1_5").value = '0'
 
@@ -16111,8 +16070,10 @@
 
                         document.getElementById("InternalShelving1_S1_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S1_5").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1_5").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_5").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_5"), document.getElementById("MainInternalShelving_S1_5").nextSibling);
                         }
 
                         document.getElementById("internalShelving_sect1_5").value = '0'
@@ -16225,7 +16186,7 @@
                 if ( document.getElementById("ShoeShelving_S1_5").checked == true || self.options.s1_5_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S1_5").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S1_5").style.display = "block";
                     
                     document.getElementById("Drawer_S1_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_5").style.pointerEvents = "none";
@@ -16235,14 +16196,14 @@
 
                     document.getElementById("ShoeShelving_sect1_5").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect1_5").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section1_5);
                         
                         self.shelvingGroup_section1_5 = new THREE.Group();
-                        self.options.posShelf1_sect1_5 = 14;
+                        self.options.posShelf1_sect1_5 = 19;
 
                         self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
                         self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
@@ -16258,7 +16219,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_5").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_5").style.display = "none";
                         document.getElementById("InternalShelving1_S1_5").style.display = "none";
                         document.getElementById('ShoeShelving_sect1_5').value = 0
                         self.options.shelvesCounterSection1_5 = 0;
@@ -16307,7 +16268,7 @@
 
                     document.getElementById("ShoeShelving_sect1_5").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
-                    document.getElementById("MainInternalShelving_S1_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_5").style.display = "none";
 
                     document.getElementById("Drawer_S1_5").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS1_5").style.pointerEvents = "auto";
@@ -16324,7 +16285,7 @@
                 }
     
                 self.options.heigh1Shelf1_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_5 = 5
+                self.options.heigh0Shelf1_5 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_5").addEventListener('click', requestChangeShoeShelving1_5); 
@@ -16366,8 +16327,7 @@
                         
                         document.getElementById("ShoeShelving_sect1_5").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_5").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S1_5").style.display = "none";    
                         
                         document.getElementById("Drawer_S1_5").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS1_5").style.pointerEvents = "auto";
@@ -16378,13 +16338,13 @@
                     case 1:
                         self.options.shelvesCounterSection1_5 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect1_5").value = '1'
                             self.scene.remove(self.shelvingGroup_section1_5);
                             
                             self.shelvingGroup_section1_5 = new THREE.Group();
-                            self.options.posShelf1_sect1_5 = 14;
+                            self.options.posShelf1_sect1_5 = 19;
 
                             self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
                             self.shelvingGroup_section1_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_5, 1, '1_5', self.options.section1Length));
@@ -16392,7 +16352,7 @@
                             document.getElementById("InternalShelving1_S1_5").style.display = "flex";
                             document.getElementById("InternalShelving2_S1_5").style.display = "none";
 
-                            self.options.heigh0Shelf1_5 = 5
+                            self.options.heigh0Shelf1_5 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_5").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -16402,7 +16362,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S1_5").style.display = "none";
-                            document.getElementById("MainInternalShelving_S1_5").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S1_5").style.display = "none";
 
                             document.getElementById("InternalShelving1_S1_5").style.display = "none";
                             document.getElementById('ShoeShelving_sect1_5').value = 0
@@ -16454,7 +16414,7 @@
                 
                 if (self.options.sectionHeight_1_5 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+1).position.y += 1.05
                         if (self.options.s1_5_ShelvingStatus === 'Shoe') {
@@ -16486,7 +16446,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_5 > 25 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf1_5 > 20 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_5_ShelvingStatus === 'Shoe') {
@@ -16504,7 +16464,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_5 > 5 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s1_5_ShelvingStatus === 'Shoe') {
@@ -16530,7 +16490,7 @@
             //section1_5_shelf2 up&down
             document.getElementById("MoveInternalShelving2_S1_5_UP").addEventListener('click', async function() {
                 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+2).position.y += 1.05
                     if (self.options.s1_5_ShelvingStatus === 'Shoe') {
@@ -16556,7 +16516,7 @@
             });
             document.getElementById("MoveInternalShelving2_S1_5_DOWN").addEventListener('click', async function() {
 
-                if (self.options.heigh0Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_5 > 5 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
+                if (self.options.heigh0Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf1_5 > 10 && self.options.s1_5_ShelvingStatus === 'Shoe' ) {
     
                     self.scene.getObjectByName('internalShelf_1_5_'+'shelf'+2).position.y -= 1.05
                     if (self.options.s1_5_ShelvingStatus === 'Shoe') {
@@ -16592,7 +16552,9 @@
                 if ( document.getElementById("InternalShelving_S1_6").checked == true || self.options.s1_6_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S1_6").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S1_6").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S1_6").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S1_6"), document.getElementById("InternalShelving1_S1_6").nextSibling);
 
                     document.getElementById("Drawer_S1_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_6").style.pointerEvents = "none";
@@ -16656,8 +16618,10 @@
 
                     document.getElementById("InternalShelving1_S1_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S1_6").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S1_6").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S1_6"), document.getElementById("MainInternalShelving_S1_6").nextSibling);
                     }
                     document.getElementById("internalShelving_sect1_6").value = '0'
 
@@ -16709,8 +16673,10 @@
 
                         document.getElementById("InternalShelving1_S1_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S1_6").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S1_6").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S1_6").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S1_6"), document.getElementById("MainInternalShelving_S1_6").nextSibling);
                         }
                         document.getElementById("internalShelving_sect1_6").value = '0'
 
@@ -16790,7 +16756,7 @@
                 if ( document.getElementById("ShoeShelving_S1_6").checked == true || self.options.s1_6_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S1_6").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S1_6").style.display = "block";
                     
                     document.getElementById("Drawer_S1_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS1_6").style.pointerEvents = "none";
@@ -16800,14 +16766,14 @@
 
                     document.getElementById("ShoeShelving_sect1_6").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect1_6").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section1_6);
                         
                         self.shelvingGroup_section1_6 = new THREE.Group();
-                        self.options.posShelf1_sect1_6 = 14;
+                        self.options.posShelf1_sect1_6 = 19;
 
                         self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
                         self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
@@ -16822,7 +16788,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_6").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S1_6").style.display = "none";
                         document.getElementById("InternalShelving1_S1_6").style.display = "none";
                         document.getElementById('ShoeShelving_sect1_6').value = 0
                         self.options.shelvesCounterSection1_6 = 0;
@@ -16869,7 +16835,7 @@
                     
                     document.getElementById("ShoeShelving_sect1_6").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
-                    document.getElementById("MainInternalShelving_S1_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_6").style.display = "none";
 
                     document.getElementById("Drawer_S1_6").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS1_6").style.pointerEvents = "auto";
@@ -16886,7 +16852,7 @@
                 }
     
                 self.options.heigh1Shelf1_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf1_6 = 5
+                self.options.heigh0Shelf1_6 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves1_6").addEventListener('click', requestChangeShoeShelving1_6); 
@@ -16926,8 +16892,7 @@
 
                         document.getElementById("ShoeShelving_sect1_6").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S1_6").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S1_6").style.display = "none";    
                         
                         document.getElementById("Drawer_S1_6").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS1_6").style.pointerEvents = "auto";
@@ -16938,20 +16903,20 @@
                     case 1:
                         self.options.shelvesCounterSection1_6 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect1_6").value = '1'
                             self.scene.remove(self.shelvingGroup_section1_6);
                             
                             self.shelvingGroup_section1_6 = new THREE.Group();
-                            self.options.posShelf1_sect1_6 = 14;
+                            self.options.posShelf1_sect1_6 = 19;
 
                             self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
                             self.shelvingGroup_section1_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect1_6, 1, '1_6', self.options.section1Length));
 
                             document.getElementById("InternalShelving1_S1_6").style.display = "flex";
 
-                            self.options.heigh0Shelf1_6 = 5
+                            self.options.heigh0Shelf1_6 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S1_6").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -16961,7 +16926,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S1_6").style.display = "none";
-                            document.getElementById("MainInternalShelving_S1_6").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S1_6").style.display = "none";
 
                             document.getElementById("InternalShelving1_S1_6").style.display = "none";
                             document.getElementById('ShoeShelving_sect1_6').value = 0
@@ -17010,10 +16975,9 @@
             //section1_6_shelf1 up&down
             document.getElementById("MoveInternalShelving1_S1_6_UP").addEventListener('click', async function( ) {
                 
-                console.log(parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]));
-                console.log(self.options.s1_6_ShelvingStatus);
+                
 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s1_6_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s1_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s1_6_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_1_6_'+'shelf'+1).position.y += 1.05
                     if (self.options.s1_6_ShelvingStatus === 'Shoe') {
@@ -17079,8 +17043,10 @@
                 if ( document.getElementById("InternalShelving_S2_1").checked == true || self.options.s2_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S2_1").style.display = "none";
 
+                    document.getElementById("Cover_ShoeShelving_S2_1").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S2_1").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S2_1"), document.getElementById("InternalShelving6_S2_1").nextSibling);
                     
 
                     document.getElementById("Drawer_S2").style.pointerEvents = "none";
@@ -17106,15 +17072,17 @@
                         }
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
 
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
-                        }                        
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_1"), document.getElementById("MainInternalShelving_S2_1").nextSibling);
+                        }                     
                         document.getElementById("InternalShelving1_S2_1").style.display = "none";
                         document.getElementById('internalShelving_sect2_1').value = 0
                         self.options.shelvesCounterSection2_1 = 0;
@@ -17160,9 +17128,11 @@
 
                     document.getElementById("internalShelving_sect2_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
-                    }   
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S2_1").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S2_1").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S2_1"), document.getElementById("MainInternalShelving_S2_1").nextSibling);
+                    }     
                     document.getElementById("Drawer_S2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_S2").src="icons/Drawer_Close.jpg";
@@ -17223,8 +17193,10 @@
 
                         document.getElementById("internalShelving_sect2_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_1"), document.getElementById("MainInternalShelving_S2_1").nextSibling);
                         }   
 
                         document.getElementById("Drawer_S2").style.pointerEvents = "auto";
@@ -17251,15 +17223,17 @@
                             }
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
     
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S2_1").style.display = "none";
-                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                                document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
-                            }   
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                                document.getElementById("Cover_ShoeShelving_S4_1").style.display = "none";
+                                var parent = document.getElementById("MainShoeShelving_S4_1").parentNode;
+                                parent.insertBefore(document.getElementById("MainShoeShelving_S4_1"), document.getElementById("MainInternalShelving_S4_1").nextSibling);
+                            }     
                             document.getElementById("InternalShelving_S2_1").style.display = "none";
                             document.getElementById('internalShelving_sect2_1').value = 0
                             self.options.shelvesCounterSection2_1 = 0;
@@ -17530,7 +17504,7 @@
                 if ( document.getElementById("ShoeShelving_S2_1").checked == true || self.options.s2_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S2_1").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S2_1").style.display = "block";
                     
                     document.getElementById("Drawer_S2").style.pointerEvents = "none";
                     document.getElementById("Drawer_Section2").style.pointerEvents = "none";
@@ -17540,14 +17514,14 @@
 
                     document.getElementById("ShoeShelving_sect2_1").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect2_1").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section2_1);
                         
                         self.shelvingGroup_section2_1 = new THREE.Group();
-                        self.options.posShelf1_sect2_1 = 14;
+                        self.options.posShelf1_sect2_1 = 19;
 
                         self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
                         self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
@@ -17565,7 +17539,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_1").style.display = "none";
                         document.getElementById("InternalShelving1_S2_1").style.display = "none";
                         document.getElementById('ShoeShelving_sect2_1').value = 0
                         self.options.shelvesCounterSection2_1 = 0;
@@ -17616,7 +17590,7 @@
 
                     document.getElementById("ShoeShelving_sect2_1").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "none";
-                    document.getElementById("MainInternalShelving_S2_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_1").style.display = "none";
 
                     document.getElementById("Drawer_S2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section2").style.pointerEvents = "auto";
@@ -17633,7 +17607,7 @@
                 }
     
                 self.options.heigh1Shelf2_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_1 = 5
+                self.options.heigh0Shelf2_1 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_1").addEventListener('click', requestChangeShoeShelving2_1); 
@@ -17676,7 +17650,7 @@
                         
                         document.getElementById("ShoeShelving_sect2_1").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_1").style.display = "none";
     
                         document.getElementById("Drawer_S2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section2").style.pointerEvents = "auto";
@@ -17687,13 +17661,13 @@
                     case 1:
                         self.options.shelvesCounterSection2_1 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect2_1").value = '1'
                             self.scene.remove(self.shelvingGroup_section2_1);
                             
                             self.shelvingGroup_section2_1 = new THREE.Group();
-                            self.options.posShelf1_sect2_1 = 14;
+                            self.options.posShelf1_sect2_1 = 19;
 
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length));
@@ -17703,7 +17677,7 @@
                                 document.getElementById(`InternalShelving${i}_S2_1`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf2_1 = 5
+                            self.options.heigh0Shelf2_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -17713,7 +17687,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S2_1").style.display = "none";
-                            document.getElementById("MainInternalShelving_S2_1").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S2_1").style.display = "none";
 
                             document.getElementById("InternalShelving1_S2_1").style.display = "none";
                             document.getElementById('ShoeShelving_sect2_1').value = 0
@@ -17725,11 +17699,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection2_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section2_1);
                             self.shelvingGroup_section2_1 = new THREE.Group();
-                            self.options.posShelf2_sect2_1 =  14;
-                            self.options.posShelf1_sect2_1 = self.options.posShelf2_sect2_1 + 27.5;
+                            self.options.posShelf2_sect2_1 =  19;
+                            self.options.posShelf1_sect2_1 = self.options.posShelf2_sect2_1 + 23;
     
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_1, 2, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_1, 2, '2_1', self.options.section2Length));
                             
@@ -17740,12 +17714,12 @@
                                 document.getElementById(`InternalShelving${i}_S2_1`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf2_1 = 5
+                            self.options.heigh0Shelf2_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -17762,9 +17736,9 @@
                             self.scene.remove(self.shelvingGroup_section2_1);                        
 
                             self.shelvingGroup_section2_1 = new THREE.Group();
-                            self.options.posShelf3_sect2_1 = 14
-                            self.options.posShelf2_sect2_1 = self.options.posShelf3_sect2_1 + 27.5
-                            self.options.posShelf1_sect2_1 = self.options.posShelf2_sect2_1 + 27.5
+                            self.options.posShelf3_sect2_1 = 19
+                            self.options.posShelf2_sect2_1 = self.options.posShelf3_sect2_1 + 23
+                            self.options.posShelf1_sect2_1 = self.options.posShelf2_sect2_1 + 23
 
                         
                             self.shelvingGroup_section2_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_1, 1, '2_1', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_1, 2, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_1, 2, '2_1', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf3_sect2_1, 3, '2_1', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect2_1, 3, '2_1', self.options.section2Length));
@@ -17776,14 +17750,14 @@
                                 document.getElementById(`InternalShelving${i}_S2_1`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf2_1 = 5
+                            self.options.heigh0Shelf2_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S2_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S2_1").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S2_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S2_1").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -17846,7 +17820,7 @@
                 
                 if (self.options.sectionHeight_2_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17878,7 +17852,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_1 > 25 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_1 > 20 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17896,7 +17870,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17926,7 +17900,7 @@
                 if (self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2).position.y += 1.05
@@ -17947,7 +17921,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -17975,7 +17949,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_1 > 25 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_1 > 20 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2).position.y -= 1.05
@@ -17997,7 +17971,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -18025,7 +17999,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -18045,7 +18019,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -18074,7 +18048,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh4Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh4Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
@@ -18094,7 +18068,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 5 && self.options.s2_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_1 > 10 && self.options.s2_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_2_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s2_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_2_1_'+'shelf'+3).position.y -= 1.05
@@ -18350,7 +18324,9 @@
                 if ( document.getElementById("InternalShelving_S2_2").checked == true || self.options.s2_2_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S2_2").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S2_2").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S2_2").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S2_2"), document.getElementById("InternalShelving5_S2_2").nextSibling);
 
                     document.getElementById("Drawer_S2_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_2").style.pointerEvents = "none";
@@ -18404,7 +18380,7 @@
         
                     } else {} 
                     
-                    document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
                     self.options.s2_2_internlShelvinStatus = 1
                     self.options.s2_2_ShelvingStatus = 'Wood'
@@ -18420,8 +18396,10 @@
 
                     document.getElementById("internalShelving_sect2_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S2_2").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S2_2").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S2_2"), document.getElementById("MainInternalShelving_S2_2").nextSibling);
                     }   
 
                     document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
@@ -18480,9 +18458,11 @@
 
                         document.getElementById("internalShelving_sect2_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
-                        }       
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_2").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_2").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_2"), document.getElementById("MainInternalShelving_S2_2").nextSibling);
+                        }         
         
                         document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section2_2").style.pointerEvents = "auto";
@@ -18507,7 +18487,7 @@
                             document.getElementById("InternalShelving3_S2_2").style.display = "none";
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S2_2").style.display = "none";
@@ -18733,7 +18713,7 @@
                 if ( document.getElementById("ShoeShelving_S2_2").checked == true || self.options.s2_2_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S2_2").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S2_2").style.display = "block";
                     
                     document.getElementById("Drawer_S2_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_2").style.pointerEvents = "none";
@@ -18743,14 +18723,14 @@
 
                     document.getElementById("ShoeShelving_sect2_2").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect2_2").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section2_2);
                         
                         self.shelvingGroup_section2_2 = new THREE.Group();
-                        self.options.posShelf1_sect2_2 = 14;
+                        self.options.posShelf1_sect2_2 = 19;
 
                         self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
                         self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
@@ -18768,7 +18748,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_2").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_2").style.display = "none";
                         document.getElementById("InternalShelving1_S2_2").style.display = "none";
                         document.getElementById('ShoeShelving_sect2_2').value = 0
                         self.options.shelvesCounterSection2_2 = 0;
@@ -18819,7 +18799,7 @@
 
                     document.getElementById("ShoeShelving_sect2_2").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
-                    document.getElementById("MainInternalShelving_S2_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_2").style.display = "none";
 
                     document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS2_2").style.pointerEvents = "auto";
@@ -18836,7 +18816,7 @@
                 }
     
                 self.options.heigh1Shelf2_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_2 = 5
+                self.options.heigh0Shelf2_2 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_2").addEventListener('click', requestChangeShoeShelving2_2); 
@@ -18879,8 +18859,7 @@
                         
                         document.getElementById("ShoeShelving_sect2_2").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_2").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S2_2").style.display = "none";    
                         
                         document.getElementById("Drawer_S2_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS2_2").style.pointerEvents = "auto";
@@ -18891,13 +18870,13 @@
                     case 1:
                         self.options.shelvesCounterSection2_2 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect2_2").value = '1'
                             self.scene.remove(self.shelvingGroup_section2_2);
                             
                             self.shelvingGroup_section2_2 = new THREE.Group();
-                            self.options.posShelf1_sect2_2 = 14;
+                            self.options.posShelf1_sect2_2 = 19;
 
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length));
@@ -18907,7 +18886,7 @@
                                 document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf2_2 = 5
+                            self.options.heigh0Shelf2_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -18917,7 +18896,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S2_2").style.display = "none";
-                            document.getElementById("MainInternalShelving_S2_2").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S2_2").style.display = "none";
 
                             document.getElementById("InternalShelving1_S2_2").style.display = "none";
                             document.getElementById('ShoeShelving_sect2_2').value = 0
@@ -18929,11 +18908,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection2_2 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section2_2);
                             self.shelvingGroup_section2_2 = new THREE.Group();
-                            self.options.posShelf2_sect2_2 =  14;
-                            self.options.posShelf1_sect2_2 = self.options.posShelf2_sect2_2 + 27.5;
+                            self.options.posShelf2_sect2_2 =  19;
+                            self.options.posShelf1_sect2_2 = self.options.posShelf2_sect2_2 + 23;
     
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_2, 2, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_2, 2, '2_2', self.options.section2Length));
                             
@@ -18944,12 +18923,12 @@
                                 document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf2_2 = 5
+                            self.options.heigh0Shelf2_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -18966,9 +18945,9 @@
                             self.scene.remove(self.shelvingGroup_section2_2);                        
 
                             self.shelvingGroup_section2_2 = new THREE.Group();
-                            self.options.posShelf3_sect2_2 = 14
-                            self.options.posShelf2_sect2_2 = self.options.posShelf3_sect2_2 + 27.5
-                            self.options.posShelf1_sect2_2 = self.options.posShelf2_sect2_2 + 27.5
+                            self.options.posShelf3_sect2_2 = 19
+                            self.options.posShelf2_sect2_2 = self.options.posShelf3_sect2_2 + 23
+                            self.options.posShelf1_sect2_2 = self.options.posShelf2_sect2_2 + 23
 
                         
                             self.shelvingGroup_section2_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_2, 1, '2_2', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_2, 2, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_2, 2, '2_2', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf3_sect2_2, 3, '2_2', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect2_2, 3, '2_2', self.options.section2Length));
@@ -18980,14 +18959,14 @@
                                 document.getElementById(`InternalShelving${i}_S2_2`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf2_2 = 5
+                            self.options.heigh0Shelf2_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S2_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S2_2").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S2_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S2_2").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -19050,7 +19029,7 @@
                 
                 if (self.options.sectionHeight_2_2 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+1).position.y += 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19082,7 +19061,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_2 > 25 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_2 > 20 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19100,7 +19079,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_2 > 5 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19130,7 +19109,7 @@
                 if (self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+2).position.y += 1.05
@@ -19151,7 +19130,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+2).position.y += 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19179,7 +19158,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_2 > 25 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_2 > 20 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+2).position.y -= 1.05
@@ -19201,7 +19180,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_2 > 5 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_2 > 10 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19229,7 +19208,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19249,7 +19228,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_2_ShelvingStatus === 'Shoe') {
@@ -19472,7 +19451,9 @@
                 if ( document.getElementById("InternalShelving_S2_3").checked == true || self.options.s2_3_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S2_3").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S2_3").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S2_3").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S2_3"), document.getElementById("InternalShelving4_S2_3").nextSibling);
 
                     document.getElementById("Drawer_S2_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_3").style.pointerEvents = "none";
@@ -19540,9 +19521,11 @@
                         document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
-                    }   
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S2_3").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S2_3").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S2_3"), document.getElementById("MainInternalShelving_S2_3").nextSibling);
+                    } 
 
                     document.getElementById("internalShelving_sect2_3").value = '0'
 
@@ -19598,9 +19581,11 @@
                         }
                         document.getElementById("InternalShelving2_S2_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S2_3").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
-                        }  
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_3").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_3").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_3"), document.getElementById("MainInternalShelving_S2_3").nextSibling);
+                        } 
                         document.getElementById("internalShelving_sect2_3").value = '0'
                         
 
@@ -19796,7 +19781,7 @@
                 if ( document.getElementById("ShoeShelving_S2_3").checked == true || self.options.s2_3_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S2_3").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S2_3").style.display = "block";
                     
                     document.getElementById("Drawer_S2_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_3").style.pointerEvents = "none";
@@ -19806,14 +19791,14 @@
 
                     document.getElementById("ShoeShelving_sect2_3").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect2_3").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section2_3);
                         
                         self.shelvingGroup_section2_3 = new THREE.Group();
-                        self.options.posShelf1_sect2_3 = 14;
+                        self.options.posShelf1_sect2_3 = 19;
 
                         self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
                         self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
@@ -19831,7 +19816,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_3").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_3").style.display = "none";
                         document.getElementById("InternalShelving1_S2_3").style.display = "none";
                         document.getElementById('ShoeShelving_sect2_3').value = 0
                         self.options.shelvesCounterSection2_3 = 0;
@@ -19882,7 +19867,7 @@
 
                     document.getElementById("ShoeShelving_sect2_3").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
-                    document.getElementById("MainInternalShelving_S2_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_3").style.display = "none";
 
                     document.getElementById("Drawer_S2_3").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS2_3").style.pointerEvents = "auto";
@@ -19899,7 +19884,7 @@
                 }
     
                 self.options.heigh1Shelf2_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_3 = 5
+                self.options.heigh0Shelf2_3 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_3").addEventListener('click', requestChangeShoeShelving2_3); 
@@ -19942,8 +19927,7 @@
                         
                         document.getElementById("ShoeShelving_sect2_3").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_3").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S2_3").style.display = "none";    
                         
                         document.getElementById("Drawer_S2_3").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS2_3").style.pointerEvents = "auto";
@@ -19954,13 +19938,13 @@
                     case 1:
                         self.options.shelvesCounterSection2_3 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect2_3").value = '1'
                             self.scene.remove(self.shelvingGroup_section2_3);
                             
                             self.shelvingGroup_section2_3 = new THREE.Group();
-                            self.options.posShelf1_sect2_3 = 14;
+                            self.options.posShelf1_sect2_3 = 19;
 
                             self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
                             self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length));
@@ -19970,7 +19954,7 @@
                                 document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf2_3 = 5
+                            self.options.heigh0Shelf2_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -19980,7 +19964,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S2_3").style.display = "none";
-                            document.getElementById("MainInternalShelving_S2_3").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S2_3").style.display = "none";
 
                             document.getElementById("InternalShelving1_S2_3").style.display = "none";
                             document.getElementById('ShoeShelving_sect2_3').value = 0
@@ -19992,11 +19976,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection2_3 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section2_3);
                             self.shelvingGroup_section2_3 = new THREE.Group();
-                            self.options.posShelf2_sect2_3 =  14;
-                            self.options.posShelf1_sect2_3 = self.options.posShelf2_sect2_3 + 27.5;
+                            self.options.posShelf2_sect2_3 =  19;
+                            self.options.posShelf1_sect2_3 = self.options.posShelf2_sect2_3 + 23;
     
                             self.shelvingGroup_section2_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_3, 1, '2_3', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_3, 2, '2_3', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_3, 2, '2_3', self.options.section2Length));
                             
@@ -20007,12 +19991,12 @@
                                 document.getElementById(`InternalShelving${i}_S2_3`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf2_3 = 5
+                            self.options.heigh0Shelf2_3 = 10
     
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S2_3").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -20068,7 +20052,7 @@
                 
                 if (self.options.sectionHeight_2_3 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+1).position.y += 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20100,7 +20084,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_3 > 25 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_3 > 20 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20118,7 +20102,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_3 > 5 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20148,7 +20132,7 @@
                 if (self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+2).position.y += 1.05
@@ -20169,7 +20153,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+2).position.y += 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20197,7 +20181,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_3 > 25 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_3 > 20 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+2).position.y -= 1.05
@@ -20219,7 +20203,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_3 > 5 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20247,7 +20231,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20267,7 +20251,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20296,7 +20280,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf2_3 > 25 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf2_3 > 10 && self.options.s2_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf2_3 > 20 && self.options.s2_3_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_2_3_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s2_3_ShelvingStatus === 'Shoe') {
@@ -20399,7 +20383,9 @@
                 if ( document.getElementById("InternalShelving_S2_4").checked == true || self.options.s2_4_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S2_4").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S2_4").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S2_4").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S2_4"), document.getElementById("InternalShelving3_S2_4").nextSibling);
 
                     document.getElementById("Drawer_S2_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_4").style.pointerEvents = "none";
@@ -20465,8 +20451,10 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S2_4").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S2_4").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S2_4"), document.getElementById("MainInternalShelving_S2_4").nextSibling);
                     }  
                     document.getElementById("internalShelving_sect2_4").value = '0'
 
@@ -20522,9 +20510,11 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S2_4").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_4").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_4").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_4"), document.getElementById("MainInternalShelving_S2_4").nextSibling);
+                        }  
                         document.getElementById("internalShelving_sect2_4").value = '0'
 
                         document.getElementById("Drawer_S2_4").style.pointerEvents = "auto";
@@ -20669,7 +20659,7 @@
                 if ( document.getElementById("ShoeShelving_S2_4").checked == true || self.options.s2_4_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S2_4").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S2_4").style.display = "block";
                     
                     document.getElementById("Drawer_S2_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_4").style.pointerEvents = "none";
@@ -20679,14 +20669,14 @@
 
                     document.getElementById("ShoeShelving_sect2_4").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect2_4").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section2_4);
                         
                         self.shelvingGroup_section2_4 = new THREE.Group();
-                        self.options.posShelf1_sect2_4 = 14;
+                        self.options.posShelf1_sect2_4 = 19;
 
                         self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
                         self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
@@ -20704,7 +20694,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_4").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_4").style.display = "none";
                         document.getElementById("InternalShelving1_S2_4").style.display = "none";
                         document.getElementById('ShoeShelving_sect2_4').value = 0
                         self.options.shelvesCounterSection2_4 = 0;
@@ -20755,7 +20745,7 @@
 
                     document.getElementById("ShoeShelving_sect2_4").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
-                    document.getElementById("MainInternalShelving_S2_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_4").style.display = "none";
 
                     document.getElementById("Drawer_S2_4").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS2_4").style.pointerEvents = "auto";
@@ -20772,7 +20762,7 @@
                 }
     
                 self.options.heigh1Shelf2_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_4 = 5
+                self.options.heigh0Shelf2_4 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_4").addEventListener('click', requestChangeShoeShelving2_4); 
@@ -20814,8 +20804,7 @@
                         
                         document.getElementById("ShoeShelving_sect2_4").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_4").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S2_4").style.display = "none";    
                         
                         document.getElementById("Drawer_S2_4").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS2_4").style.pointerEvents = "auto";
@@ -20826,13 +20815,13 @@
                     case 1:
                         self.options.shelvesCounterSection2_4 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect2_4").value = '1'
                             self.scene.remove(self.shelvingGroup_section2_4);
                             
                             self.shelvingGroup_section2_4 = new THREE.Group();
-                            self.options.posShelf1_sect2_4 = 14;
+                            self.options.posShelf1_sect2_4 = 19;
 
                             self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
                             self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length));
@@ -20842,7 +20831,7 @@
                                 document.getElementById(`InternalShelving${i}_S2_4`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf2_4 = 5
+                            self.options.heigh0Shelf2_4 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -20852,7 +20841,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S2_4").style.display = "none";
-                            document.getElementById("MainInternalShelving_S2_4").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S2_4").style.display = "none";
 
                             document.getElementById("InternalShelving1_S2_4").style.display = "none";
                             document.getElementById('ShoeShelving_sect2_4').value = 0
@@ -20864,11 +20853,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection2_4 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section2_4);
                             self.shelvingGroup_section2_4 = new THREE.Group();
-                            self.options.posShelf2_sect2_4 =  14;
-                            self.options.posShelf1_sect2_4 = self.options.posShelf2_sect2_4 + 27.5;
+                            self.options.posShelf2_sect2_4 =  19;
+                            self.options.posShelf1_sect2_4 = self.options.posShelf2_sect2_4 + 23;
     
                             self.shelvingGroup_section2_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect2_4, 1, '2_4', self.options.section2Length), self.createShelfShoeToGroup(self.options.posShelf2_sect2_4, 2, '2_4', self.options.section2Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect2_4, 2, '2_4', self.options.section2Length));
                             
@@ -20877,12 +20866,12 @@
                             document.getElementById("InternalShelving2_S2_4").style.display = "flex";
                             document.getElementById("InternalShelving3_S2_4").style.display = "none";
 
-                            self.options.heigh0Shelf2_4 = 5
+                            self.options.heigh0Shelf2_4 = 10
     
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S2_4").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S2_4").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -20937,7 +20926,7 @@
                 
                 if (self.options.sectionHeight_2_4 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+1).position.y += 1.05
                         if (self.options.s2_4_ShelvingStatus === 'Shoe') {
@@ -20969,7 +20958,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_4 > 25 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_4 > 20 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_4_ShelvingStatus === 'Shoe') {
@@ -20987,7 +20976,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_4 > 5 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_4_ShelvingStatus === 'Shoe') {
@@ -21017,7 +21006,7 @@
                 if (self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+2).position.y += 1.05
@@ -21038,7 +21027,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+2).position.y += 1.05
                         if (self.options.s2_4_ShelvingStatus === 'Shoe') {
@@ -21066,7 +21055,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_4 > 25 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf2_4 > 20 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+2).position.y -= 1.05
@@ -21088,7 +21077,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_4 > 5 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_4 > 10 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s2_4_ShelvingStatus === 'Shoe') {
@@ -21114,7 +21103,7 @@
             //section2_4_shelf3 up&down
             document.getElementById("MoveInternalShelving3_S2_4_UP").addEventListener('click', async function() {
             
-                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_4_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_2_4_'+'shelf'+3).position.y += 1.05
                     if (self.options.s2_4_ShelvingStatus === 'Shoe') {
@@ -21176,7 +21165,9 @@
                 if ( document.getElementById("InternalShelving_S2_5").checked == true || self.options.s2_5_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S2_5").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S2_5").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S2_5").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S2_5"), document.getElementById("InternalShelving2_S2_5").nextSibling);
 
                     document.getElementById("Drawer_S2_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_5").style.pointerEvents = "none";
@@ -21244,9 +21235,11 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S2_5").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S2_5").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S2_5").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S2_5"), document.getElementById("MainInternalShelving_S2_5").nextSibling);
+                    }  
                     document.getElementById("internalShelving_sect2_5").value = '0'
 
                     self.options.s2_5_internlShelvinStatus = 0
@@ -21297,9 +21290,11 @@
 
                         document.getElementById("InternalShelving1_S2_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S2_5").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_5").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_5").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_5"), document.getElementById("MainInternalShelving_S2_5").nextSibling);
+                        }  
 
                         document.getElementById("internalShelving_sect2_5").value = '0'
 
@@ -21411,7 +21406,7 @@
                 if ( document.getElementById("ShoeShelving_S2_5").checked == true || self.options.s2_5_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S2_5").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S2_5").style.display = "block";
                     
                     document.getElementById("Drawer_S2_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_5").style.pointerEvents = "none";
@@ -21421,14 +21416,14 @@
 
                     document.getElementById("ShoeShelving_sect2_5").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect2_5").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section2_5);
                         
                         self.shelvingGroup_section2_5 = new THREE.Group();
-                        self.options.posShelf1_sect2_5 = 14;
+                        self.options.posShelf1_sect2_5 = 19;
 
                         self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
                         self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
@@ -21444,7 +21439,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_5").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_5").style.display = "none";
                         document.getElementById("InternalShelving1_S2_5").style.display = "none";
                         document.getElementById('ShoeShelving_sect2_5').value = 0
                         self.options.shelvesCounterSection2_5 = 0;
@@ -21493,7 +21488,7 @@
 
                     document.getElementById("ShoeShelving_sect2_5").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
-                    document.getElementById("MainInternalShelving_S2_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_5").style.display = "none";
 
                     document.getElementById("Drawer_S2_5").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS2_5").style.pointerEvents = "auto";
@@ -21510,7 +21505,7 @@
                 }
     
                 self.options.heigh1Shelf2_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_5 = 5
+                self.options.heigh0Shelf2_5 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_5").addEventListener('click', requestChangeShoeShelving2_5); 
@@ -21552,8 +21547,7 @@
                         
                         document.getElementById("ShoeShelving_sect2_5").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_5").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S2_5").style.display = "none";    
                         
                         document.getElementById("Drawer_S2_5").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS2_5").style.pointerEvents = "auto";
@@ -21564,13 +21558,13 @@
                     case 1:
                         self.options.shelvesCounterSection2_5 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect2_5").value = '1'
                             self.scene.remove(self.shelvingGroup_section2_5);
                             
                             self.shelvingGroup_section2_5 = new THREE.Group();
-                            self.options.posShelf1_sect2_5 = 14;
+                            self.options.posShelf1_sect2_5 = 19;
 
                             self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
                             self.shelvingGroup_section2_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_5, 1, '2_5', self.options.section2Length));
@@ -21578,7 +21572,7 @@
                             document.getElementById("InternalShelving1_S2_5").style.display = "flex";
                             document.getElementById("InternalShelving2_S2_5").style.display = "none";
 
-                            self.options.heigh0Shelf2_5 = 5
+                            self.options.heigh0Shelf2_5 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_5").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -21588,7 +21582,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S2_5").style.display = "none";
-                            document.getElementById("MainInternalShelving_S2_5").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S2_5").style.display = "none";
 
                             document.getElementById("InternalShelving1_S2_5").style.display = "none";
                             document.getElementById('ShoeShelving_sect2_5').value = 0
@@ -21640,7 +21634,7 @@
                 
                 if (self.options.sectionHeight_2_5 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+1).position.y += 1.05
                         if (self.options.s2_5_ShelvingStatus === 'Shoe') {
@@ -21672,7 +21666,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_5 > 25 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf2_5 > 20 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_5_ShelvingStatus === 'Shoe') {
@@ -21690,7 +21684,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_5 > 5 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s2_5_ShelvingStatus === 'Shoe') {
@@ -21716,7 +21710,7 @@
             //section2_5_shelf2 up&down
             document.getElementById("MoveInternalShelving2_S2_5_UP").addEventListener('click', async function() {
                 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+2).position.y += 1.05
                     if (self.options.s2_5_ShelvingStatus === 'Shoe') {
@@ -21742,7 +21736,7 @@
             });
             document.getElementById("MoveInternalShelving2_S2_5_DOWN").addEventListener('click', async function() {
 
-                if (self.options.heigh0Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_5 > 5 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
+                if (self.options.heigh0Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf2_5 > 10 && self.options.s2_5_ShelvingStatus === 'Shoe' ) {
     
                     self.scene.getObjectByName('internalShelf_2_5_'+'shelf'+2).position.y -= 1.05
                     if (self.options.s2_5_ShelvingStatus === 'Shoe') {
@@ -21778,7 +21772,9 @@
                 if ( document.getElementById("InternalShelving_S2_6").checked == true || self.options.s2_6_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S2_6").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S2_6").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S2_6").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S2_6"), document.getElementById("InternalShelving1_S2_6").nextSibling);
 
                     document.getElementById("Drawer_S2_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_6").style.pointerEvents = "none";
@@ -21842,9 +21838,11 @@
 
                     document.getElementById("InternalShelving1_S2_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S2_6").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S2_6").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S2_6"), document.getElementById("MainInternalShelving_S2_6").nextSibling);
+                    }   
                     document.getElementById("internalShelving_sect2_6").value = '0'
 
                     self.options.s2_6_internlShelvinStatus = 0
@@ -21895,9 +21893,11 @@
 
                         document.getElementById("InternalShelving1_S2_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S2_6").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S2_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S2_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S2_1"), document.getElementById("MainInternalShelving_S2_1").nextSibling);
+                        }   
                         document.getElementById("internalShelving_sect2_6").value = '0'
 
                         document.getElementById("Drawer_S2_6").style.pointerEvents = "auto";
@@ -21976,7 +21976,7 @@
                 if ( document.getElementById("ShoeShelving_S2_6").checked == true || self.options.s2_6_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S2_6").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S2_6").style.display = "block";
                     
                     document.getElementById("Drawer_S2_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS2_6").style.pointerEvents = "none";
@@ -21986,14 +21986,14 @@
 
                     document.getElementById("ShoeShelving_sect2_6").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect2_6").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section2_6);
                         
                         self.shelvingGroup_section2_6 = new THREE.Group();
-                        self.options.posShelf1_sect2_6 = 14;
+                        self.options.posShelf1_sect2_6 = 19;
 
                         self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
                         self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
@@ -22008,7 +22008,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_6").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S2_6").style.display = "none";
                         document.getElementById("InternalShelving1_S2_6").style.display = "none";
                         document.getElementById('ShoeShelving_sect2_6').value = 0
                         self.options.shelvesCounterSection2_6 = 0;
@@ -22055,7 +22055,7 @@
                     
                     document.getElementById("ShoeShelving_sect2_6").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
-                    document.getElementById("MainInternalShelving_S2_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_6").style.display = "none";
 
                     document.getElementById("Drawer_S2_6").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS2_6").style.pointerEvents = "auto";
@@ -22072,7 +22072,7 @@
                 }
     
                 self.options.heigh1Shelf2_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf2_6 = 5
+                self.options.heigh0Shelf2_6 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves2_6").addEventListener('click', requestChangeShoeShelving2_6); 
@@ -22112,8 +22112,7 @@
 
                         document.getElementById("ShoeShelving_sect2_6").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S2_6").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S2_6").style.display = "none";    
                         
                         document.getElementById("Drawer_S2_6").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS2_6").style.pointerEvents = "auto";
@@ -22124,20 +22123,20 @@
                     case 1:
                         self.options.shelvesCounterSection2_6 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect2_6").value = '1'
                             self.scene.remove(self.shelvingGroup_section2_6);
                             
                             self.shelvingGroup_section2_6 = new THREE.Group();
-                            self.options.posShelf1_sect2_6 = 14;
+                            self.options.posShelf1_sect2_6 = 19;
 
                             self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
                             self.shelvingGroup_section2_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect2_6, 1, '2_6', self.options.section2Length));
 
                             document.getElementById("InternalShelving1_S2_6").style.display = "flex";
 
-                            self.options.heigh0Shelf2_6 = 5
+                            self.options.heigh0Shelf2_6 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S2_6").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -22147,7 +22146,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S2_6").style.display = "none";
-                            document.getElementById("MainInternalShelving_S2_6").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S2_6").style.display = "none";
 
                             document.getElementById("InternalShelving1_S2_6").style.display = "none";
                             document.getElementById('ShoeShelving_sect2_6').value = 0
@@ -22196,10 +22195,9 @@
             //section2_6_shelf1 up&down
             document.getElementById("MoveInternalShelving1_S2_6_UP").addEventListener('click', async function( ) {
                 
-                console.log(parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]));
-                console.log(self.options.s2_6_ShelvingStatus);
+                
 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s2_6_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s2_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s2_6_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_2_6_'+'shelf'+1).position.y += 1.05
                     if (self.options.s2_6_ShelvingStatus === 'Shoe') {
@@ -22268,9 +22266,10 @@
                 if ( document.getElementById("InternalShelving_S3_1").checked == true || self.options.s3_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S3_1").style.display = "none";
 
-                    
+                    document.getElementById("Cover_ShoeShelving_S3_1").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S3_1").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S3_1"), document.getElementById("InternalShelving6_S3_1").nextSibling);
 
                     document.getElementById("Drawer_S3_1").style.pointerEvents = "none";
                     document.getElementById("Drawer_Section3_1").style.pointerEvents = "none";
@@ -22295,15 +22294,17 @@
                         }
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
 
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_1"), document.getElementById("MainInternalShelving_S3_1").nextSibling);
+                        }   
                         document.getElementById("InternalShelving1_S3_1").style.display = "none";
                         document.getElementById('internalShelving_sect3_1').value = 0
                         self.options.shelvesCounterSection3_1 = 0;
@@ -22349,9 +22350,11 @@
 
                     document.getElementById("internalShelving_sect3_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S3_1").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S3_1").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S3_1"), document.getElementById("MainInternalShelving_S3_1").nextSibling);
+                    }   
                     document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_S3_1").src="icons/Drawer_Close.jpg";
@@ -22412,9 +22415,11 @@
 
                         document.getElementById("internalShelving_sect3_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_1"), document.getElementById("MainInternalShelving_S3_1").nextSibling);
+                        }   
                         document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_S3_1").src="icons/Drawer_Close.jpg";
@@ -22439,15 +22444,17 @@
                             }
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
     
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S3_1").style.display = "none";
-                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                                document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
-                            } 
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                                document.getElementById("Cover_ShoeShelving_S3_1").style.display = "none";
+                                var parent = document.getElementById("MainShoeShelving_S3_1").parentNode;
+                                parent.insertBefore(document.getElementById("MainShoeShelving_S3_1"), document.getElementById("MainInternalShelving_S3_1").nextSibling);
+                            }   
                             document.getElementById("InternalShelving_S3_1").style.display = "none";
                             document.getElementById('internalShelving_sect3_1').value = 0
                             self.options.shelvesCounterSection3_1 = 0;
@@ -22718,7 +22725,7 @@
                 if ( document.getElementById("ShoeShelving_S3_1").checked == true || self.options.s3_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S3_1").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S3_1").style.display = "block";
                     
                     document.getElementById("Drawer_S3_1").style.pointerEvents = "none";
                     document.getElementById("Drawer_Section3_1").style.pointerEvents = "none";
@@ -22728,14 +22735,14 @@
 
                     document.getElementById("ShoeShelving_sect3_1").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect3_1").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section3_1);
                         
                         self.shelvingGroup_section3_1 = new THREE.Group();
-                        self.options.posShelf1_sect3_1 = 14;
+                        self.options.posShelf1_sect3_1 = 19;
 
                         self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
                         self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
@@ -22753,7 +22760,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_1").style.display = "none";
                         document.getElementById("InternalShelving1_S3_1").style.display = "none";
                         document.getElementById('ShoeShelving_sect3_1').value = 0
                         self.options.shelvesCounterSection3_1 = 0;
@@ -22804,7 +22811,7 @@
 
                     document.getElementById("ShoeShelving_sect3_1").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "none";
-                    document.getElementById("MainInternalShelving_S3_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_1").style.display = "none";
 
                     document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
@@ -22821,7 +22828,7 @@
                 }
     
                 self.options.heigh1Shelf3_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_1 = 5
+                self.options.heigh0Shelf3_1 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_1").addEventListener('click', requestChangeShoeShelving3_1); 
@@ -22864,7 +22871,7 @@
                         
                         document.getElementById("ShoeShelving_sect3_1").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_1").style.display = "none";
     
                         document.getElementById("Drawer_S3_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section3_1").style.pointerEvents = "auto";
@@ -22875,13 +22882,13 @@
                     case 1:
                         self.options.shelvesCounterSection3_1 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect3_1").value = '1'
                             self.scene.remove(self.shelvingGroup_section3_1);
                             
                             self.shelvingGroup_section3_1 = new THREE.Group();
-                            self.options.posShelf1_sect3_1 = 14;
+                            self.options.posShelf1_sect3_1 = 19;
 
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length));
@@ -22891,7 +22898,7 @@
                                 document.getElementById(`InternalShelving${i}_S3_1`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf3_1 = 5
+                            self.options.heigh0Shelf3_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -22901,7 +22908,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S3_1").style.display = "none";
-                            document.getElementById("MainInternalShelving_S3_1").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S3_1").style.display = "none";
 
                             document.getElementById("InternalShelving1_S3_1").style.display = "none";
                             document.getElementById('ShoeShelving_sect3_1').value = 0
@@ -22913,11 +22920,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection3_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section3_1);
                             self.shelvingGroup_section3_1 = new THREE.Group();
-                            self.options.posShelf2_sect3_1 =  14;
-                            self.options.posShelf1_sect3_1 = self.options.posShelf2_sect3_1 + 27.5;
+                            self.options.posShelf2_sect3_1 =  19;
+                            self.options.posShelf1_sect3_1 = self.options.posShelf2_sect3_1 + 23;
     
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_1, 2, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_1, 2, '3_1', self.options.section3Length));
                             
@@ -22928,12 +22935,12 @@
                                 document.getElementById(`InternalShelving${i}_S3_1`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf3_1 = 5
+                            self.options.heigh0Shelf3_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -22950,9 +22957,9 @@
                             self.scene.remove(self.shelvingGroup_section3_1);                        
 
                             self.shelvingGroup_section3_1 = new THREE.Group();
-                            self.options.posShelf3_sect3_1 = 14
-                            self.options.posShelf2_sect3_1 = self.options.posShelf3_sect3_1 + 27.5
-                            self.options.posShelf1_sect3_1 = self.options.posShelf2_sect3_1 + 27.5
+                            self.options.posShelf3_sect3_1 = 19
+                            self.options.posShelf2_sect3_1 = self.options.posShelf3_sect3_1 + 23
+                            self.options.posShelf1_sect3_1 = self.options.posShelf2_sect3_1 + 23
 
                         
                             self.shelvingGroup_section3_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_1, 1, '3_1', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_1, 2, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_1, 2, '3_1', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf3_sect3_1, 3, '3_1', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect3_1, 3, '3_1', self.options.section3Length));
@@ -22964,14 +22971,14 @@
                                 document.getElementById(`InternalShelving${i}_S3_1`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf3_1 = 5
+                            self.options.heigh0Shelf3_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S3_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S3_1").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S3_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S3_1").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -23033,7 +23040,7 @@
                 
                 if (self.options.sectionHeight_3_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23065,7 +23072,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_1 > 25 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_1 > 20 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23083,7 +23090,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23113,7 +23120,7 @@
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2).position.y += 1.05
@@ -23134,7 +23141,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23162,7 +23169,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2).position.y -= 1.05
@@ -23184,7 +23191,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23212,7 +23219,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23232,7 +23239,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23261,7 +23268,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
@@ -23281,7 +23288,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 5 && self.options.s3_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_1 > 10 && self.options.s3_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_3_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s3_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_3_1_'+'shelf'+3).position.y -= 1.05
@@ -23537,7 +23544,9 @@
                 if ( document.getElementById("InternalShelving_S3_2").checked == true || self.options.s3_2_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S3_2").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S3_2").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S3_2").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S3_2"), document.getElementById("InternalShelving5_S3_2").nextSibling);
 
                     document.getElementById("Drawer_S3_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "none";
@@ -23591,7 +23600,7 @@
         
                     } else {} 
                     
-                    document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
                     self.options.s3_2_internlShelvinStatus = 1
                     self.options.s3_2_ShelvingStatus = 'Wood'
@@ -23607,9 +23616,11 @@
 
                     document.getElementById("internalShelving_sect3_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S3_2").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S3_2").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S3_2"), document.getElementById("MainInternalShelving_S3_2").nextSibling);
+                    }   
 
                     document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "auto";
@@ -23667,9 +23678,11 @@
 
                         document.getElementById("internalShelving_sect3_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_2").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_2").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_2"), document.getElementById("MainInternalShelving_S3_2").nextSibling);
+                        }   
         
                         document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section3_2").style.pointerEvents = "auto";
@@ -23694,7 +23707,7 @@
                             document.getElementById("InternalShelving3_S3_2").style.display = "none";
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S3_2").style.display = "none";
@@ -23920,7 +23933,7 @@
                 if ( document.getElementById("ShoeShelving_S3_2").checked == true || self.options.s3_2_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S3_2").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S3_2").style.display = "block";
                     
                     document.getElementById("Drawer_S3_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "none";
@@ -23930,14 +23943,14 @@
 
                     document.getElementById("ShoeShelving_sect3_2").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect3_2").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section3_2);
                         
                         self.shelvingGroup_section3_2 = new THREE.Group();
-                        self.options.posShelf1_sect3_2 = 14;
+                        self.options.posShelf1_sect3_2 = 19;
 
                         self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
                         self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
@@ -23955,7 +23968,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_2").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_2").style.display = "none";
                         document.getElementById("InternalShelving1_S3_2").style.display = "none";
                         document.getElementById('ShoeShelving_sect3_2').value = 0
                         self.options.shelvesCounterSection3_2 = 0;
@@ -24006,7 +24019,7 @@
 
                     document.getElementById("ShoeShelving_sect3_2").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
-                    document.getElementById("MainInternalShelving_S3_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_2").style.display = "none";
 
                     document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "auto";
@@ -24023,7 +24036,7 @@
                 }
     
                 self.options.heigh1Shelf3_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_2 = 5
+                self.options.heigh0Shelf3_2 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_2").addEventListener('click', requestChangeShoeShelving3_2); 
@@ -24066,8 +24079,7 @@
                         
                         document.getElementById("ShoeShelving_sect3_2").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_2").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S3_2").style.display = "none";    
                         
                         document.getElementById("Drawer_S3_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS3_2").style.pointerEvents = "auto";
@@ -24078,13 +24090,13 @@
                     case 1:
                         self.options.shelvesCounterSection3_2 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect3_2").value = '1'
                             self.scene.remove(self.shelvingGroup_section3_2);
                             
                             self.shelvingGroup_section3_2 = new THREE.Group();
-                            self.options.posShelf1_sect3_2 = 14;
+                            self.options.posShelf1_sect3_2 = 19;
 
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length));
@@ -24094,7 +24106,7 @@
                                 document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf3_2 = 5
+                            self.options.heigh0Shelf3_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -24104,7 +24116,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S3_2").style.display = "none";
-                            document.getElementById("MainInternalShelving_S3_2").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S3_2").style.display = "none";
 
                             document.getElementById("InternalShelving1_S3_2").style.display = "none";
                             document.getElementById('ShoeShelving_sect3_2').value = 0
@@ -24116,11 +24128,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection3_2 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section3_2);
                             self.shelvingGroup_section3_2 = new THREE.Group();
-                            self.options.posShelf2_sect3_2 =  14;
-                            self.options.posShelf1_sect3_2 = self.options.posShelf2_sect3_2 + 27.5;
+                            self.options.posShelf2_sect3_2 =  19;
+                            self.options.posShelf1_sect3_2 = self.options.posShelf2_sect3_2 + 23;
     
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_2, 2, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_2, 2, '3_2', self.options.section3Length));
                             
@@ -24131,12 +24143,12 @@
                                 document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf3_2 = 5
+                            self.options.heigh0Shelf3_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -24153,9 +24165,9 @@
                             self.scene.remove(self.shelvingGroup_section3_2);                        
 
                             self.shelvingGroup_section3_2 = new THREE.Group();
-                            self.options.posShelf3_sect3_2 = 14
-                            self.options.posShelf2_sect3_2 = self.options.posShelf3_sect3_2 + 27.5
-                            self.options.posShelf1_sect3_2 = self.options.posShelf2_sect3_2 + 27.5
+                            self.options.posShelf3_sect3_2 = 19
+                            self.options.posShelf2_sect3_2 = self.options.posShelf3_sect3_2 + 23
+                            self.options.posShelf1_sect3_2 = self.options.posShelf2_sect3_2 + 23
 
                         
                             self.shelvingGroup_section3_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_2, 1, '3_2', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_2, 2, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_2, 2, '3_2', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf3_sect3_2, 3, '3_2', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect3_2, 3, '3_2', self.options.section3Length));
@@ -24167,14 +24179,14 @@
                                 document.getElementById(`InternalShelving${i}_S3_2`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf3_2 = 5
+                            self.options.heigh0Shelf3_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S3_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S3_2").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S3_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S3_2").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -24236,7 +24248,7 @@
                 
                 if (self.options.sectionHeight_3_2 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+1).position.y += 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24268,7 +24280,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_2 > 25 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_2 > 20 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24286,7 +24298,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_2 > 5 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24316,7 +24328,7 @@
                 if (self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+2).position.y += 1.05
@@ -24337,7 +24349,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+2).position.y += 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24365,7 +24377,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_2 > 25 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_2 > 20 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+2).position.y -= 1.05
@@ -24387,7 +24399,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_2 > 5 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_2 > 10 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24415,7 +24427,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24435,7 +24447,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_2_ShelvingStatus === 'Shoe') {
@@ -24658,7 +24670,9 @@
                 if ( document.getElementById("InternalShelving_S3_3").checked == true || self.options.s3_3_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S3_3").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S3_3").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S3_3").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S3_3"), document.getElementById("InternalShelving4_S3_3").nextSibling);
 
                     document.getElementById("Drawer_S3_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_3").style.pointerEvents = "none";
@@ -24726,8 +24740,10 @@
                         document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S3_3").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S3_3").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S3_3"), document.getElementById("MainInternalShelving_S3_3").nextSibling);
                     } 
                     document.getElementById("internalShelving_sect3_3").value = '0'
 
@@ -24783,8 +24799,10 @@
                         }
                         document.getElementById("InternalShelving2_S3_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S3_3").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_3").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_3").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_3"), document.getElementById("MainInternalShelving_S3_3").nextSibling);
                         } 
                         document.getElementById("internalShelving_sect3_3").value = '0'
                         
@@ -24981,7 +24999,7 @@
                 if ( document.getElementById("ShoeShelving_S3_3").checked == true || self.options.s3_3_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S3_3").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S3_3").style.display = "block";
                     
                     document.getElementById("Drawer_S3_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_3").style.pointerEvents = "none";
@@ -24991,14 +25009,14 @@
 
                     document.getElementById("ShoeShelving_sect3_3").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect3_3").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section3_3);
                         
                         self.shelvingGroup_section3_3 = new THREE.Group();
-                        self.options.posShelf1_sect3_3 = 14;
+                        self.options.posShelf1_sect3_3 = 19;
 
                         self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
                         self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
@@ -25016,7 +25034,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_3").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_3").style.display = "none";
                         document.getElementById("InternalShelving1_S3_3").style.display = "none";
                         document.getElementById('ShoeShelving_sect3_3').value = 0
                         self.options.shelvesCounterSection3_3 = 0;
@@ -25067,7 +25085,7 @@
 
                     document.getElementById("ShoeShelving_sect3_3").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
-                    document.getElementById("MainInternalShelving_S3_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_3").style.display = "none";
 
                     document.getElementById("Drawer_S3_3").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_3").style.pointerEvents = "auto";
@@ -25084,7 +25102,7 @@
                 }
     
                 self.options.heigh1Shelf3_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_3 = 5
+                self.options.heigh0Shelf3_3 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_3").addEventListener('click', requestChangeShoeShelving3_3); 
@@ -25127,8 +25145,7 @@
                         
                         document.getElementById("ShoeShelving_sect3_3").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_3").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S3_3").style.display = "none";    
                         
                         document.getElementById("Drawer_S3_3").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS3_3").style.pointerEvents = "auto";
@@ -25139,13 +25156,13 @@
                     case 1:
                         self.options.shelvesCounterSection3_3 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect3_3").value = '1'
                             self.scene.remove(self.shelvingGroup_section3_3);
                             
                             self.shelvingGroup_section3_3 = new THREE.Group();
-                            self.options.posShelf1_sect3_3 = 14;
+                            self.options.posShelf1_sect3_3 = 19;
 
                             self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
                             self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length));
@@ -25155,7 +25172,7 @@
                                 document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf3_3 = 5
+                            self.options.heigh0Shelf3_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -25165,7 +25182,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S3_3").style.display = "none";
-                            document.getElementById("MainInternalShelving_S3_3").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S3_3").style.display = "none";
 
                             document.getElementById("InternalShelving1_S3_3").style.display = "none";
                             document.getElementById('ShoeShelving_sect3_3').value = 0
@@ -25177,11 +25194,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection3_3 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section3_3);
                             self.shelvingGroup_section3_3 = new THREE.Group();
-                            self.options.posShelf2_sect3_3 =  14;
-                            self.options.posShelf1_sect3_3 = self.options.posShelf2_sect3_3 + 27.5;
+                            self.options.posShelf2_sect3_3 =  19;
+                            self.options.posShelf1_sect3_3 = self.options.posShelf2_sect3_3 + 23;
     
                             self.shelvingGroup_section3_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_3, 1, '3_3', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_3, 2, '3_3', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_3, 2, '3_3', self.options.section3Length));
                             
@@ -25192,12 +25209,12 @@
                                 document.getElementById(`InternalShelving${i}_S3_3`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf3_3 = 5
+                            self.options.heigh0Shelf3_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S3_3").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S3_3").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -25254,7 +25271,7 @@
                 
                 if (self.options.sectionHeight_3_3 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+1).position.y += 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25286,7 +25303,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_3 > 25 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_3 > 20 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25304,7 +25321,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_3 > 5 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25334,7 +25351,7 @@
                 if (self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+2).position.y += 1.05
@@ -25355,7 +25372,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+2).position.y += 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25383,7 +25400,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_3 > 25 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_3 > 20 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+2).position.y -= 1.05
@@ -25405,7 +25422,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_3 > 5 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25433,7 +25450,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25453,7 +25470,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25482,7 +25499,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf3_3 > 25 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf3_3 > 10 && self.options.s3_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf3_3 > 20 && self.options.s3_3_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_3_3_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s3_3_ShelvingStatus === 'Shoe') {
@@ -25585,7 +25602,9 @@
                 if ( document.getElementById("InternalShelving_S3_4").checked == true || self.options.s3_4_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S3_4").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S3_4").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S3_4").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S3_4"), document.getElementById("InternalShelving3_S3_4").nextSibling);
 
                     document.getElementById("Drawer_S3_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_4").style.pointerEvents = "none";
@@ -25651,8 +25670,10 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S3_4").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S3_4").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S3_4"), document.getElementById("MainInternalShelving_S3_4").nextSibling);
                     } 
                     document.getElementById("internalShelving_sect3_4").value = '0'
 
@@ -25708,8 +25729,10 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S3_4").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_4").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_4").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_4"), document.getElementById("MainInternalShelving_S3_4").nextSibling);
                         } 
                         document.getElementById("internalShelving_sect3_4").value = '0'
 
@@ -25855,7 +25878,7 @@
                 if ( document.getElementById("ShoeShelving_S3_4").checked == true || self.options.s3_4_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S3_4").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S3_4").style.display = "block";
                     
                     document.getElementById("Drawer_S3_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_4").style.pointerEvents = "none";
@@ -25865,14 +25888,14 @@
 
                     document.getElementById("ShoeShelving_sect3_4").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect3_4").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section3_4);
                         
                         self.shelvingGroup_section3_4 = new THREE.Group();
-                        self.options.posShelf1_sect3_4 = 14;
+                        self.options.posShelf1_sect3_4 = 19;
 
                         self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
                         self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
@@ -25890,7 +25913,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_4").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_4").style.display = "none";
                         document.getElementById("InternalShelving1_S3_4").style.display = "none";
                         document.getElementById('ShoeShelving_sect3_4').value = 0
                         self.options.shelvesCounterSection3_4 = 0;
@@ -25941,7 +25964,7 @@
 
                     document.getElementById("ShoeShelving_sect3_4").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
-                    document.getElementById("MainInternalShelving_S3_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_4").style.display = "none";
 
                     document.getElementById("Drawer_S3_4").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_4").style.pointerEvents = "auto";
@@ -25958,7 +25981,7 @@
                 }
     
                 self.options.heigh1Shelf3_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_4 = 5
+                self.options.heigh0Shelf3_4 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_4").addEventListener('click', requestChangeShoeShelving3_4); 
@@ -26000,8 +26023,7 @@
                         
                         document.getElementById("ShoeShelving_sect3_4").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_4").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S3_4").style.display = "none";    
                         
                         document.getElementById("Drawer_S3_4").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS3_4").style.pointerEvents = "auto";
@@ -26012,13 +26034,13 @@
                     case 1:
                         self.options.shelvesCounterSection3_4 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect3_4").value = '1'
                             self.scene.remove(self.shelvingGroup_section3_4);
                             
                             self.shelvingGroup_section3_4 = new THREE.Group();
-                            self.options.posShelf1_sect3_4 = 14;
+                            self.options.posShelf1_sect3_4 = 19;
 
                             self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
                             self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length));
@@ -26028,7 +26050,7 @@
                                 document.getElementById(`InternalShelving${i}_S3_4`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf3_4 = 5
+                            self.options.heigh0Shelf3_4 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -26038,7 +26060,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S3_4").style.display = "none";
-                            document.getElementById("MainInternalShelving_S3_4").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S3_4").style.display = "none";
 
                             document.getElementById("InternalShelving1_S3_4").style.display = "none";
                             document.getElementById('ShoeShelving_sect3_4').value = 0
@@ -26050,11 +26072,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection3_4 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section3_4);
                             self.shelvingGroup_section3_4 = new THREE.Group();
-                            self.options.posShelf2_sect3_4 =  14;
-                            self.options.posShelf1_sect3_4 = self.options.posShelf2_sect3_4 + 27.5;
+                            self.options.posShelf2_sect3_4 =  19;
+                            self.options.posShelf1_sect3_4 = self.options.posShelf2_sect3_4 + 23;
     
                             self.shelvingGroup_section3_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect3_4, 1, '3_4', self.options.section3Length), self.createShelfShoeToGroup(self.options.posShelf2_sect3_4, 2, '3_4', self.options.section3Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect3_4, 2, '3_4', self.options.section3Length));
                             
@@ -26063,12 +26085,12 @@
                             document.getElementById("InternalShelving2_S3_4").style.display = "flex";
                             document.getElementById("InternalShelving3_S3_4").style.display = "none";
 
-                            self.options.heigh0Shelf3_4 = 5
+                            self.options.heigh0Shelf3_4 = 10
     
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S3_4").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S3_4").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -26123,7 +26145,7 @@
                 
                 if (self.options.sectionHeight_3_4 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+1).position.y += 1.05
                         if (self.options.s3_4_ShelvingStatus === 'Shoe') {
@@ -26155,7 +26177,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_4 > 25 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_4 > 20 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_4_ShelvingStatus === 'Shoe') {
@@ -26173,7 +26195,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_4 > 5 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_4_ShelvingStatus === 'Shoe') {
@@ -26203,7 +26225,7 @@
                 if (self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+2).position.y += 1.05
@@ -26224,7 +26246,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+2).position.y += 1.05
                         if (self.options.s3_4_ShelvingStatus === 'Shoe') {
@@ -26252,7 +26274,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_4 > 25 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf3_4 > 20 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+2).position.y -= 1.05
@@ -26274,7 +26296,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_4 > 5 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_4 > 10 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s3_4_ShelvingStatus === 'Shoe') {
@@ -26300,7 +26322,7 @@
             //section3_4_shelf3 up&down
             document.getElementById("MoveInternalShelving3_S3_4_UP").addEventListener('click', async function() {
             
-                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_4_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_3_4_'+'shelf'+3).position.y += 1.05
                     if (self.options.s3_4_ShelvingStatus === 'Shoe') {
@@ -26362,7 +26384,9 @@
                 if ( document.getElementById("InternalShelving_S3_5").checked == true || self.options.s3_5_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S3_5").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S3_5").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S3_5").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S3_5"), document.getElementById("InternalShelving2_S3_5").nextSibling);
 
                     document.getElementById("Drawer_S3_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_5").style.pointerEvents = "none";
@@ -26430,8 +26454,10 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S3_5").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S3_5").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S3_5"), document.getElementById("MainInternalShelving_S3_5").nextSibling);
                     } 
                     document.getElementById("internalShelving_sect3_5").value = '0'
 
@@ -26483,8 +26509,10 @@
 
                         document.getElementById("InternalShelving1_S3_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S3_5").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_5").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_5").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_5"), document.getElementById("MainInternalShelving_S3_5").nextSibling);
                         } 
 
                         document.getElementById("internalShelving_sect3_5").value = '0'
@@ -26597,7 +26625,7 @@
                 if ( document.getElementById("ShoeShelving_S3_5").checked == true || self.options.s3_5_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S3_5").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S3_5").style.display = "block";
                     
                     document.getElementById("Drawer_S3_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_5").style.pointerEvents = "none";
@@ -26607,14 +26635,14 @@
 
                     document.getElementById("ShoeShelving_sect3_5").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect3_5").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section3_5);
                         
                         self.shelvingGroup_section3_5 = new THREE.Group();
-                        self.options.posShelf1_sect3_5 = 14;
+                        self.options.posShelf1_sect3_5 = 19;
 
                         self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
                         self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
@@ -26630,7 +26658,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_5").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_5").style.display = "none";
                         document.getElementById("InternalShelving1_S3_5").style.display = "none";
                         document.getElementById('ShoeShelving_sect3_5').value = 0
                         self.options.shelvesCounterSection3_5 = 0;
@@ -26679,7 +26707,7 @@
 
                     document.getElementById("ShoeShelving_sect3_5").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
-                    document.getElementById("MainInternalShelving_S3_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_5").style.display = "none";
 
                     document.getElementById("Drawer_S3_5").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_5").style.pointerEvents = "auto";
@@ -26696,7 +26724,7 @@
                 }
     
                 self.options.heigh1Shelf3_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_5 = 5
+                self.options.heigh0Shelf3_5 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_5").addEventListener('click', requestChangeShoeShelving3_5); 
@@ -26738,8 +26766,7 @@
                         
                         document.getElementById("ShoeShelving_sect3_5").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_5").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S3_5").style.display = "none";    
                         
                         document.getElementById("Drawer_S3_5").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS3_5").style.pointerEvents = "auto";
@@ -26750,13 +26777,13 @@
                     case 1:
                         self.options.shelvesCounterSection3_5 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect3_5").value = '1'
                             self.scene.remove(self.shelvingGroup_section3_5);
                             
                             self.shelvingGroup_section3_5 = new THREE.Group();
-                            self.options.posShelf1_sect3_5 = 14;
+                            self.options.posShelf1_sect3_5 = 19;
 
                             self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
                             self.shelvingGroup_section3_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_5, 1, '3_5', self.options.section3Length));
@@ -26764,7 +26791,7 @@
                             document.getElementById("InternalShelving1_S3_5").style.display = "flex";
                             document.getElementById("InternalShelving2_S3_5").style.display = "none";
 
-                            self.options.heigh0Shelf3_5 = 5
+                            self.options.heigh0Shelf3_5 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_5").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -26774,7 +26801,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S3_5").style.display = "none";
-                            document.getElementById("MainInternalShelving_S3_5").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S3_5").style.display = "none";
 
                             document.getElementById("InternalShelving1_S3_5").style.display = "none";
                             document.getElementById('ShoeShelving_sect3_5').value = 0
@@ -26826,7 +26853,7 @@
                 
                 if (self.options.sectionHeight_3_5 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+1).position.y += 1.05
                         if (self.options.s3_5_ShelvingStatus === 'Shoe') {
@@ -26858,7 +26885,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_5 > 25 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf3_5 > 20 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_5_ShelvingStatus === 'Shoe') {
@@ -26876,7 +26903,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_5 > 5 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s3_5_ShelvingStatus === 'Shoe') {
@@ -26902,7 +26929,7 @@
             //section3_5_shelf2 up&down
             document.getElementById("MoveInternalShelving2_S3_5_UP").addEventListener('click', async function() {
                 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+2).position.y += 1.05
                     if (self.options.s3_5_ShelvingStatus === 'Shoe') {
@@ -26928,7 +26955,7 @@
             });
             document.getElementById("MoveInternalShelving2_S3_5_DOWN").addEventListener('click', async function() {
 
-                if (self.options.heigh0Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_5 > 5 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
+                if (self.options.heigh0Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf3_5 > 10 && self.options.s3_5_ShelvingStatus === 'Shoe' ) {
     
                     self.scene.getObjectByName('internalShelf_3_5_'+'shelf'+2).position.y -= 1.05
                     if (self.options.s3_5_ShelvingStatus === 'Shoe') {
@@ -26964,7 +26991,9 @@
                 if ( document.getElementById("InternalShelving_S3_6").checked == true || self.options.s3_6_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S3_6").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S3_6").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S3_6").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S3_6"), document.getElementById("InternalShelving1_S3_6").nextSibling);
 
                     document.getElementById("Drawer_S3_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_6").style.pointerEvents = "none";
@@ -27028,9 +27057,11 @@
 
                     document.getElementById("InternalShelving1_S3_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S3_6").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S3_6").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S3_6"), document.getElementById("MainInternalShelving_S3_6").nextSibling);
+                    }   
                     document.getElementById("internalShelving_sect3_6").value = '0'
 
                     self.options.s3_6_internlShelvinStatus = 0
@@ -27081,9 +27112,11 @@
 
                         document.getElementById("InternalShelving1_S3_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S3_6").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S3_6").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S3_6").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S3_6"), document.getElementById("MainInternalShelving_S3_6").nextSibling);
+                        }   
                         document.getElementById("internalShelving_sect3_6").value = '0'
 
                         document.getElementById("Drawer_S3_6").style.pointerEvents = "auto";
@@ -27162,7 +27195,7 @@
                 if ( document.getElementById("ShoeShelving_S3_6").checked == true || self.options.s3_6_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S3_6").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S3_6").style.display = "block";
                     
                     document.getElementById("Drawer_S3_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS3_6").style.pointerEvents = "none";
@@ -27172,14 +27205,14 @@
 
                     document.getElementById("ShoeShelving_sect3_6").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect3_6").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section3_6);
                         
                         self.shelvingGroup_section3_6 = new THREE.Group();
-                        self.options.posShelf1_sect3_6 = 14;
+                        self.options.posShelf1_sect3_6 = 19;
 
                         self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
                         self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
@@ -27194,7 +27227,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_6").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S3_6").style.display = "none";
                         document.getElementById("InternalShelving1_S3_6").style.display = "none";
                         document.getElementById('ShoeShelving_sect3_6').value = 0
                         self.options.shelvesCounterSection3_6 = 0;
@@ -27241,7 +27274,7 @@
                     
                     document.getElementById("ShoeShelving_sect3_6").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
-                    document.getElementById("MainInternalShelving_S3_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_6").style.display = "none";
 
                     document.getElementById("Drawer_S3_6").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS3_6").style.pointerEvents = "auto";
@@ -27258,7 +27291,7 @@
                 }
     
                 self.options.heigh1Shelf3_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf3_6 = 5
+                self.options.heigh0Shelf3_6 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves3_6").addEventListener('click', requestChangeShoeShelving3_6); 
@@ -27298,8 +27331,7 @@
 
                         document.getElementById("ShoeShelving_sect3_6").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S3_6").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S3_6").style.display = "none";    
                         
                         document.getElementById("Drawer_S3_6").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS3_6").style.pointerEvents = "auto";
@@ -27310,20 +27342,20 @@
                     case 1:
                         self.options.shelvesCounterSection3_6 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect3_6").value = '1'
                             self.scene.remove(self.shelvingGroup_section3_6);
                             
                             self.shelvingGroup_section3_6 = new THREE.Group();
-                            self.options.posShelf1_sect3_6 = 14;
+                            self.options.posShelf1_sect3_6 = 19;
 
                             self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
                             self.shelvingGroup_section3_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect3_6, 1, '3_6', self.options.section3Length));
 
                             document.getElementById("InternalShelving1_S3_6").style.display = "flex";
 
-                            self.options.heigh0Shelf3_6 = 5
+                            self.options.heigh0Shelf3_6 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S3_6").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -27333,7 +27365,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S3_6").style.display = "none";
-                            document.getElementById("MainInternalShelving_S3_6").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S3_6").style.display = "none";
 
                             document.getElementById("InternalShelving1_S3_6").style.display = "none";
                             document.getElementById('ShoeShelving_sect3_6').value = 0
@@ -27382,10 +27414,9 @@
             //section3_6_shelf1 up&down
             document.getElementById("MoveInternalShelving1_S3_6_UP").addEventListener('click', async function( ) {
                 
-                console.log(parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]));
-                console.log(self.options.s3_6_ShelvingStatus);
+               
 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s3_6_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s3_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s3_6_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_3_6_'+'shelf'+1).position.y += 1.05
                     if (self.options.s3_6_ShelvingStatus === 'Shoe') {
@@ -27454,7 +27485,9 @@
                 if ( document.getElementById("InternalShelving_S4_1").checked == true || self.options.s4_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S4_1").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_1").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S4_1").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S4_1"), document.getElementById("InternalShelving6_S4_1").nextSibling);
 
                     
 
@@ -27481,15 +27514,17 @@
                         }
 
                         //UPDATE CORRESPONDING INTERFACE TOO
-                        document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                        document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
 
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_1"), document.getElementById("MainInternalShelving_S4_1").nextSibling);
+                        }    
                         document.getElementById("InternalShelving1_S4_1").style.display = "none";
                         document.getElementById('internalShelving_sect4_1').value = 0
                         self.options.shelvesCounterSection4_1 = 0;
@@ -27535,8 +27570,10 @@
 
                     document.getElementById("internalShelving_sect4_1").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S4_1").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S4_1").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S4_1"), document.getElementById("MainInternalShelving_S4_1").nextSibling);
                     } 
                     document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
@@ -27598,8 +27635,10 @@
 
                         document.getElementById("internalShelving_sect4_1").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_1").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_1").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_1"), document.getElementById("MainInternalShelving_S4_1").nextSibling);
                         } 
                         document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
@@ -27625,14 +27664,16 @@
                             }
     
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
     
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionMoveInternalShelving_S4_1").style.display = "none";
-                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                                document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                            if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                                document.getElementById("Cover_ShoeShelving_S4_1").style.display = "none";
+                                var parent = document.getElementById("MainShoeShelving_S4_1").parentNode;
+                                parent.insertBefore(document.getElementById("MainShoeShelving_S4_1"), document.getElementById("MainInternalShelving_S4_1").nextSibling);
                             } 
                             document.getElementById("InternalShelving_S4_1").style.display = "none";
                             document.getElementById('internalShelving_sect4_1').value = 0
@@ -27904,7 +27945,7 @@
                 if ( document.getElementById("ShoeShelving_S4_1").checked == true || self.options.s4_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S4_1").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S4_1").style.display = "block";
                     
                     document.getElementById("Drawer_S4_1").style.pointerEvents = "none";
                     document.getElementById("Drawer_Section4_1").style.pointerEvents = "none";
@@ -27914,14 +27955,14 @@
 
                     document.getElementById("ShoeShelving_sect4_1").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect4_1").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section4_1);
                         
                         self.shelvingGroup_section4_1 = new THREE.Group();
-                        self.options.posShelf1_sect4_1 = 14;
+                        self.options.posShelf1_sect4_1 = 19;
 
                         self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
                         self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
@@ -27939,7 +27980,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_1").style.display = "none";
                         document.getElementById("InternalShelving1_S4_1").style.display = "none";
                         document.getElementById('ShoeShelving_sect4_1').value = 0
                         self.options.shelvesCounterSection4_1 = 0;
@@ -27990,7 +28031,7 @@
 
                     document.getElementById("ShoeShelving_sect4_1").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "none";
-                    document.getElementById("MainInternalShelving_S4_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_1").style.display = "none";
 
                     document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
                     document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
@@ -28007,7 +28048,7 @@
                 }
     
                 self.options.heigh1Shelf4_1 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_1 = 5
+                self.options.heigh0Shelf4_1 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_1").addEventListener('click', requestChangeShoeShelving4_1); 
@@ -28050,7 +28091,7 @@
                         
                         document.getElementById("ShoeShelving_sect4_1").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_1").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_1").style.display = "none";
     
                         document.getElementById("Drawer_S4_1").style.pointerEvents = "auto";
                         document.getElementById("Drawer_Section4_1").style.pointerEvents = "auto";
@@ -28061,13 +28102,13 @@
                     case 1:
                         self.options.shelvesCounterSection4_1 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect4_1").value = '1'
                             self.scene.remove(self.shelvingGroup_section4_1);
                             
                             self.shelvingGroup_section4_1 = new THREE.Group();
-                            self.options.posShelf1_sect4_1 = 14;
+                            self.options.posShelf1_sect4_1 = 19;
 
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length));
@@ -28077,7 +28118,7 @@
                                 document.getElementById(`InternalShelving${i}_S4_1`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf4_1 = 5
+                            self.options.heigh0Shelf4_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -28087,7 +28128,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S4_1").style.display = "none";
-                            document.getElementById("MainInternalShelving_S4_1").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S4_1").style.display = "none";
 
                             document.getElementById("InternalShelving1_S4_1").style.display = "none";
                             document.getElementById('ShoeShelving_sect4_1').value = 0
@@ -28099,11 +28140,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection4_1 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section4_1);
                             self.shelvingGroup_section4_1 = new THREE.Group();
-                            self.options.posShelf2_sect4_1 =  14;
-                            self.options.posShelf1_sect4_1 = self.options.posShelf2_sect4_1 + 27.5;
+                            self.options.posShelf2_sect4_1 =  19;
+                            self.options.posShelf1_sect4_1 = self.options.posShelf2_sect4_1 + 23;
     
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_1, 2, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_1, 2, '4_1', self.options.section4Length));
                             
@@ -28114,12 +28155,12 @@
                                 document.getElementById(`InternalShelving${i}_S4_1`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf4_1 = 5
+                            self.options.heigh0Shelf4_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -28136,9 +28177,9 @@
                             self.scene.remove(self.shelvingGroup_section4_1);                        
 
                             self.shelvingGroup_section4_1 = new THREE.Group();
-                            self.options.posShelf3_sect4_1 = 14
-                            self.options.posShelf2_sect4_1 = self.options.posShelf3_sect4_1 + 27.5
-                            self.options.posShelf1_sect4_1 = self.options.posShelf2_sect4_1 + 27.5
+                            self.options.posShelf3_sect4_1 = 19
+                            self.options.posShelf2_sect4_1 = self.options.posShelf3_sect4_1 + 23
+                            self.options.posShelf1_sect4_1 = self.options.posShelf2_sect4_1 + 23
 
                         
                             self.shelvingGroup_section4_1.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_1, 1, '4_1', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_1, 2, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_1, 2, '4_1', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf3_sect4_1, 3, '4_1', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect4_1, 3, '4_1', self.options.section4Length));
@@ -28150,14 +28191,14 @@
                                 document.getElementById(`InternalShelving${i}_S4_1`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf4_1 = 5
+                            self.options.heigh0Shelf4_1 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S4_1").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S4_1").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S4_1").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S4_1").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -28219,7 +28260,7 @@
                 
                 if (self.options.sectionHeight_4_1 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28251,7 +28292,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_1 > 25 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_1 > 20 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28269,7 +28310,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28299,7 +28340,7 @@
                 if (self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2).position.y += 1.05
@@ -28320,7 +28361,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28348,7 +28389,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_1 > 25 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_1 > 20 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2).position.y -= 1.05
@@ -28370,7 +28411,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28398,7 +28439,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28418,7 +28459,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28447,7 +28488,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh4Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh4Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
@@ -28467,7 +28508,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 5 && self.options.s4_ShelvingStatus === 'Shoe' ) {        
+                    if (self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_1 > 10 && self.options.s4_ShelvingStatus === 'Shoe' ) {        
                         self.scene.getObjectByName('internalShelf_4_1_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s4_ShelvingStatus === 'Shoe') {
                             self.scene.getObjectByName('internalShelfShoe_4_1_'+'shelf'+3).position.y -= 1.05
@@ -28723,7 +28764,9 @@
                 if ( document.getElementById("InternalShelving_S4_2").checked == true || self.options.s4_2_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S4_2").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_2").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S4_2").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S4_2"), document.getElementById("InternalShelving5_S4_2").nextSibling);
 
                     document.getElementById("Drawer_S4_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "none";
@@ -28777,7 +28820,7 @@
         
                     } else {} 
                     
-                    document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                    document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
 
                     self.options.s4_2_internlShelvinStatus = 1
                     self.options.s4_2_ShelvingStatus = 'Wood'
@@ -28793,9 +28836,11 @@
 
                     document.getElementById("internalShelving_sect4_2").value = '0'
                     document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S4_2").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S4_2").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S4_2"), document.getElementById("MainInternalShelving_S4_2").nextSibling);
+                    }   
 
                     document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "auto";
@@ -28853,8 +28898,10 @@
 
                         document.getElementById("internalShelving_sect4_2").value = '0'
                         document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_2").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_2").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_2"), document.getElementById("MainInternalShelving_S4_2").nextSibling);
                         } 
         
                         document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
@@ -28880,7 +28927,7 @@
                             document.getElementById("InternalShelving3_S4_2").style.display = "none";
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 11 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 12 +"cm";
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionMoveInternalShelving_S4_2").style.display = "none";
@@ -29106,7 +29153,7 @@
                 if ( document.getElementById("ShoeShelving_S4_2").checked == true || self.options.s4_2_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S4_2").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S4_2").style.display = "block";
                     
                     document.getElementById("Drawer_S4_2").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "none";
@@ -29116,14 +29163,14 @@
 
                     document.getElementById("ShoeShelving_sect4_2").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect4_2").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section4_2);
                         
                         self.shelvingGroup_section4_2 = new THREE.Group();
-                        self.options.posShelf1_sect4_2 = 14;
+                        self.options.posShelf1_sect4_2 = 19;
 
                         self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
                         self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
@@ -29141,7 +29188,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_2").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_2").style.display = "none";
                         document.getElementById("InternalShelving1_S4_2").style.display = "none";
                         document.getElementById('ShoeShelving_sect4_2').value = 0
                         self.options.shelvesCounterSection4_2 = 0;
@@ -29192,7 +29239,7 @@
 
                     document.getElementById("ShoeShelving_sect4_2").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
-                    document.getElementById("MainInternalShelving_S4_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_2").style.display = "none";
 
                     document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "auto";
@@ -29209,7 +29256,7 @@
                 }
     
                 self.options.heigh1Shelf4_2 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_2 = 5
+                self.options.heigh0Shelf4_2 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_2").addEventListener('click', requestChangeShoeShelving4_2); 
@@ -29252,8 +29299,7 @@
                         
                         document.getElementById("ShoeShelving_sect4_2").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_2").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S4_2").style.display = "none";    
                         
                         document.getElementById("Drawer_S4_2").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS4_2").style.pointerEvents = "auto";
@@ -29264,13 +29310,13 @@
                     case 1:
                         self.options.shelvesCounterSection4_2 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect4_2").value = '1'
                             self.scene.remove(self.shelvingGroup_section4_2);
                             
                             self.shelvingGroup_section4_2 = new THREE.Group();
-                            self.options.posShelf1_sect4_2 = 14;
+                            self.options.posShelf1_sect4_2 = 19;
 
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length));
@@ -29280,7 +29326,7 @@
                                 document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf4_2 = 5
+                            self.options.heigh0Shelf4_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -29290,7 +29336,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S4_2").style.display = "none";
-                            document.getElementById("MainInternalShelving_S4_2").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S4_2").style.display = "none";
 
                             document.getElementById("InternalShelving1_S4_2").style.display = "none";
                             document.getElementById('ShoeShelving_sect4_2').value = 0
@@ -29302,11 +29348,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection4_2 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section4_2);
                             self.shelvingGroup_section4_2 = new THREE.Group();
-                            self.options.posShelf2_sect4_2 =  14;
-                            self.options.posShelf1_sect4_2 = self.options.posShelf2_sect4_2 + 27.5;
+                            self.options.posShelf2_sect4_2 =  19;
+                            self.options.posShelf1_sect4_2 = self.options.posShelf2_sect4_2 + 23;
     
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_2, 2, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_2, 2, '4_2', self.options.section4Length));
                             
@@ -29317,12 +29363,12 @@
                                 document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf4_2 = 5
+                            self.options.heigh0Shelf4_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -29339,9 +29385,9 @@
                             self.scene.remove(self.shelvingGroup_section4_2);                        
 
                             self.shelvingGroup_section4_2 = new THREE.Group();
-                            self.options.posShelf3_sect4_2 = 14
-                            self.options.posShelf2_sect4_2 = self.options.posShelf3_sect4_2 + 27.5
-                            self.options.posShelf1_sect4_2 = self.options.posShelf2_sect4_2 + 27.5
+                            self.options.posShelf3_sect4_2 = 19
+                            self.options.posShelf2_sect4_2 = self.options.posShelf3_sect4_2 + 23
+                            self.options.posShelf1_sect4_2 = self.options.posShelf2_sect4_2 + 23
 
                         
                             self.shelvingGroup_section4_2.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_2, 1, '4_2', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_2, 2, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_2, 2, '4_2', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf3_sect4_2, 3, '4_2', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf3_sect4_2, 3, '4_2', self.options.section4Length));
@@ -29353,14 +29399,14 @@
                                 document.getElementById(`InternalShelving${i}_S4_2`).style.display = "none";
                             }        
 
-                            self.options.heigh0Shelf4_2 = 5
+                            self.options.heigh0Shelf4_2 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
-                            document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 61 +"cm";
+                            document.getElementById("PositionField_InternalShelving1_S4_2").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) - 56 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S4_2").innerHTML = 20 +"cm";
 
-                            document.getElementById("PositionField_InternalShelving3_S4_2").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving3_S4_2").innerHTML = 20 +"cm";
 
 
                         } else {
@@ -29423,7 +29469,7 @@
                 
                 if (self.options.sectionHeight_4_2 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+1).position.y += 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29455,7 +29501,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_2 > 25 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_2 > 20 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29473,7 +29519,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_2 > 5 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29503,7 +29549,7 @@
                 if (self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+2).position.y += 1.05
@@ -29524,7 +29570,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+2).position.y += 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29552,7 +29598,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_2 > 25 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_2 > 20 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+2).position.y -= 1.05
@@ -29574,7 +29620,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_2 > 5 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_2 > 10 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29602,7 +29648,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29622,7 +29668,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_2_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_2_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_2_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_2_ShelvingStatus === 'Shoe') {
@@ -29845,7 +29891,9 @@
                 if ( document.getElementById("InternalShelving_S4_3").checked == true || self.options.s4_3_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S4_3").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_3").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S4_3").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S4_3"), document.getElementById("InternalShelving4_S4_3").nextSibling);
 
                     document.getElementById("Drawer_S4_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_3").style.pointerEvents = "none";
@@ -29913,8 +29961,10 @@
                         document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S4_3").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S4_3").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S4_3"), document.getElementById("MainInternalShelving_S4_3").nextSibling);
                     } 
                     document.getElementById("internalShelving_sect4_3").value = '0'
 
@@ -29970,8 +30020,10 @@
                         }
                         document.getElementById("InternalShelving2_S4_3").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S4_3").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_3").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_3").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_3"), document.getElementById("MainInternalShelving_S4_3").nextSibling);
                         } 
                         document.getElementById("internalShelving_sect4_3").value = '0'
                         
@@ -30168,7 +30220,7 @@
                 if ( document.getElementById("ShoeShelving_S4_3").checked == true || self.options.s4_3_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S4_3").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S4_3").style.display = "block";
                     
                     document.getElementById("Drawer_S4_3").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_3").style.pointerEvents = "none";
@@ -30178,14 +30230,14 @@
 
                     document.getElementById("ShoeShelving_sect4_3").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect4_3").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section4_3);
                         
                         self.shelvingGroup_section4_3 = new THREE.Group();
-                        self.options.posShelf1_sect4_3 = 14;
+                        self.options.posShelf1_sect4_3 = 19;
 
                         self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
                         self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
@@ -30203,7 +30255,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_3").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_3").style.display = "none";
                         document.getElementById("InternalShelving1_S4_3").style.display = "none";
                         document.getElementById('ShoeShelving_sect4_3').value = 0
                         self.options.shelvesCounterSection4_3 = 0;
@@ -30254,7 +30306,7 @@
 
                     document.getElementById("ShoeShelving_sect4_3").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
-                    document.getElementById("MainInternalShelving_S4_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_3").style.display = "none";
 
                     document.getElementById("Drawer_S4_3").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_3").style.pointerEvents = "auto";
@@ -30271,7 +30323,7 @@
                 }
     
                 self.options.heigh1Shelf4_3 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_3 = 5
+                self.options.heigh0Shelf4_3 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_3").addEventListener('click', requestChangeShoeShelving4_3); 
@@ -30314,8 +30366,7 @@
                         
                         document.getElementById("ShoeShelving_sect4_3").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_3").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S4_3").style.display = "none";    
                         
                         document.getElementById("Drawer_S4_3").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS4_3").style.pointerEvents = "auto";
@@ -30326,13 +30377,13 @@
                     case 1:
                         self.options.shelvesCounterSection4_3 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect4_3").value = '1'
                             self.scene.remove(self.shelvingGroup_section4_3);
                             
                             self.shelvingGroup_section4_3 = new THREE.Group();
-                            self.options.posShelf1_sect4_3 = 14;
+                            self.options.posShelf1_sect4_3 = 19;
 
                             self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
                             self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length));
@@ -30342,7 +30393,7 @@
                                 document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf4_3 = 5
+                            self.options.heigh0Shelf4_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -30352,7 +30403,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S4_3").style.display = "none";
-                            document.getElementById("MainInternalShelving_S4_3").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S4_3").style.display = "none";
 
                             document.getElementById("InternalShelving1_S4_3").style.display = "none";
                             document.getElementById('ShoeShelving_sect4_3').value = 0
@@ -30364,11 +30415,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection4_3 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section4_3);
                             self.shelvingGroup_section4_3 = new THREE.Group();
-                            self.options.posShelf2_sect4_3 =  14;
-                            self.options.posShelf1_sect4_3 = self.options.posShelf2_sect4_3 + 27.5;
+                            self.options.posShelf2_sect4_3 =  19;
+                            self.options.posShelf1_sect4_3 = self.options.posShelf2_sect4_3 + 23;
     
                             self.shelvingGroup_section4_3.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_3, 1, '4_3', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_3, 2, '4_3', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_3, 2, '4_3', self.options.section4Length));
                             
@@ -30379,12 +30430,12 @@
                                 document.getElementById(`InternalShelving${i}_S4_3`).style.display = "none";
                             }
     
-                            self.options.heigh0Shelf4_3 = 5
+                            self.options.heigh0Shelf4_3 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_3").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S4_3").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S4_3").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -30442,7 +30493,7 @@
                 
                 if (self.options.sectionHeight_4_3 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+1).position.y += 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30474,7 +30525,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_3 > 25 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_3 > 20 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30492,7 +30543,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_3 > 5 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30522,7 +30573,7 @@
                 if (self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+2).position.y += 1.05
@@ -30543,7 +30594,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+2).position.y += 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30571,7 +30622,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_3 > 25 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_3 > 20 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+2).position.y -= 1.05
@@ -30593,7 +30644,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_3 > 5 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30621,7 +30672,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+4) != undefined) {
                     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30641,7 +30692,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_3_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+3).position.y += 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30670,7 +30721,7 @@
                 
                 if (self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+4) != undefined) {
 
-                    if (self.options.heigh4Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf4_3 > 25 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh4Shelf4_3 > 10 && self.options.s4_3_ShelvingStatus === 'Wood' || self.options.heigh4Shelf4_3 > 20 && self.options.s4_3_ShelvingStatus === 'Shoe' ) {
                         
                         self.scene.getObjectByName('internalShelf_4_3_'+'shelf'+3).position.y -= 1.05
                         if (self.options.s4_3_ShelvingStatus === 'Shoe') {
@@ -30773,7 +30824,9 @@
                 if ( document.getElementById("InternalShelving_S4_4").checked == true || self.options.s4_4_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S4_4").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_4").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S4_4").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S4_4"), document.getElementById("InternalShelving3_S4_4").nextSibling);
 
                     document.getElementById("Drawer_S4_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_4").style.pointerEvents = "none";
@@ -30838,9 +30891,11 @@
                         document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
                     }
                     document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S4_4").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S4_4").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S4_4"), document.getElementById("MainInternalShelving_S4_4").nextSibling);
+                    }
                     document.getElementById("internalShelving_sect4_4").value = '0'
 
                     self.options.s4_4_internlShelvinStatus = 0
@@ -30895,9 +30950,11 @@
                         }
 
                         document.getElementById("sectionMoveInternalShelving_S4_4").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_4").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_4").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_4"), document.getElementById("MainInternalShelving_S4_4").nextSibling);
+                        }
                         document.getElementById("internalShelving_sect4_4").value = '0'
 
                         document.getElementById("Drawer_S4_4").style.pointerEvents = "auto";
@@ -31045,7 +31102,7 @@
                 if ( document.getElementById("ShoeShelving_S4_4").checked == true || self.options.s4_4_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S4_4").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S4_4").style.display = "block";
                     
                     document.getElementById("Drawer_S4_4").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_4").style.pointerEvents = "none";
@@ -31055,14 +31112,14 @@
 
                     document.getElementById("ShoeShelving_sect4_4").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect4_4").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section4_4);
                         
                         self.shelvingGroup_section4_4 = new THREE.Group();
-                        self.options.posShelf1_sect4_4 = 14;
+                        self.options.posShelf1_sect4_4 = 19;
 
                         self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
                         self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
@@ -31080,7 +31137,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_4").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_4").style.display = "none";
                         document.getElementById("InternalShelving1_S4_4").style.display = "none";
                         document.getElementById('ShoeShelving_sect4_4').value = 0
                         self.options.shelvesCounterSection4_4 = 0;
@@ -31131,7 +31188,7 @@
 
                     document.getElementById("ShoeShelving_sect4_4").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
-                    document.getElementById("MainInternalShelving_S4_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_4").style.display = "none";
 
                     document.getElementById("Drawer_S4_4").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_4").style.pointerEvents = "auto";
@@ -31148,7 +31205,7 @@
                 }
     
                 self.options.heigh1Shelf4_4 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_4 = 5
+                self.options.heigh0Shelf4_4 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_4").addEventListener('click', requestChangeShoeShelving4_4); 
@@ -31190,8 +31247,7 @@
                         
                         document.getElementById("ShoeShelving_sect4_4").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_4").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S4_4").style.display = "none";    
                         
                         document.getElementById("Drawer_S4_4").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS4_4").style.pointerEvents = "auto";
@@ -31202,13 +31258,13 @@
                     case 1:
                         self.options.shelvesCounterSection4_4 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect4_4").value = '1'
                             self.scene.remove(self.shelvingGroup_section4_4);
                             
                             self.shelvingGroup_section4_4 = new THREE.Group();
-                            self.options.posShelf1_sect4_4 = 14;
+                            self.options.posShelf1_sect4_4 = 19;
 
                             self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
                             self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length));
@@ -31218,7 +31274,7 @@
                                 document.getElementById(`InternalShelving${i}_S4_4`).style.display = "none";
                             }
 
-                            self.options.heigh0Shelf4_4 = 5
+                            self.options.heigh0Shelf4_4 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -31228,7 +31284,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S4_4").style.display = "none";
-                            document.getElementById("MainInternalShelving_S4_4").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S4_4").style.display = "none";
 
                             document.getElementById("InternalShelving1_S4_4").style.display = "none";
                             document.getElementById('ShoeShelving_sect4_4').value = 0
@@ -31240,11 +31296,11 @@
                     case 2:
     
                         self.options.shelvesCounterSection4_4 = 2;
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 47) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 52) {
                             self.scene.remove(self.shelvingGroup_section4_4);
                             self.shelvingGroup_section4_4 = new THREE.Group();
-                            self.options.posShelf2_sect4_4 =  14;
-                            self.options.posShelf1_sect4_4 = self.options.posShelf2_sect4_4 + 27.5;
+                            self.options.posShelf2_sect4_4 =  19;
+                            self.options.posShelf1_sect4_4 = self.options.posShelf2_sect4_4 + 23;
     
                             self.shelvingGroup_section4_4.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf1_sect4_4, 1, '4_4', self.options.section4Length), self.createShelfShoeToGroup(self.options.posShelf2_sect4_4, 2, '4_4', self.options.section4Length), self.createShelfShoeToGroup2(self.options.posShelf2_sect4_4, 2, '4_4', self.options.section4Length));
                             
@@ -31253,12 +31309,12 @@
                             document.getElementById("InternalShelving2_S4_4").style.display = "flex";
                             document.getElementById("InternalShelving3_S4_4").style.display = "none";
 
-                            self.options.heigh0Shelf4_4 = 5
+                            self.options.heigh0Shelf4_4 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_4").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) - 34 +"cm";
     
-                            document.getElementById("PositionField_InternalShelving2_S4_4").innerHTML = 25 +"cm";
+                            document.getElementById("PositionField_InternalShelving2_S4_4").innerHTML = 20 +"cm";
     
     
                         } else {showHintPanel("The maximum number of shelves within this height has been reached.");
@@ -31313,7 +31369,7 @@
                 
                 if (self.options.sectionHeight_4_4 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+1).position.y += 1.05
                         if (self.options.s4_4_ShelvingStatus === 'Shoe') {
@@ -31345,7 +31401,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_4 > 25 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_4 > 20 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_4_ShelvingStatus === 'Shoe') {
@@ -31363,7 +31419,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_4 > 5 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_4_ShelvingStatus === 'Shoe') {
@@ -31393,7 +31449,7 @@
                 if (self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+3) != undefined) {
 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
 
 
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+2).position.y += 1.05
@@ -31414,7 +31470,7 @@
 
                 } else {
 
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+2).position.y += 1.05
                         if (self.options.s4_4_ShelvingStatus === 'Shoe') {
@@ -31442,7 +31498,7 @@
 
                 if (self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+3) != undefined) {
                 
-                    if (self.options.heigh3Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_4 > 25 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh3Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh3Shelf4_4 > 20 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
 
         
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+2).position.y -= 1.05
@@ -31464,7 +31520,7 @@
     
                 } else {
 
-                    if (self.options.heigh0Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_4 > 5 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_4 > 10 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
         
                         self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+2).position.y -= 1.05
                         if (self.options.s4_4_ShelvingStatus === 'Shoe') {
@@ -31490,7 +31546,7 @@
             //section4_4_shelf3 up&down
             document.getElementById("MoveInternalShelving3_S4_4_UP").addEventListener('click', async function() {
             
-                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving3_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_4_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving3_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_4_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_4_4_'+'shelf'+3).position.y += 1.05
                     if (self.options.s4_4_ShelvingStatus === 'Shoe') {
@@ -31552,7 +31608,9 @@
                 if ( document.getElementById("InternalShelving_S4_5").checked == true || self.options.s4_5_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S4_5").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_5").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S4_5").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S4_5"), document.getElementById("InternalShelving2_S4_5").nextSibling);
 
                     document.getElementById("Drawer_S4_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_5").style.pointerEvents = "none";
@@ -31620,9 +31678,11 @@
                     }
 
                     document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S4_5").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S4_5").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S4_5"), document.getElementById("MainInternalShelving_S4_5").nextSibling);
+                    }  
                     document.getElementById("internalShelving_sect4_5").value = '0'
 
                     self.options.s4_5_internlShelvinStatus = 0
@@ -31673,9 +31733,11 @@
 
                         document.getElementById("InternalShelving1_S4_5").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S4_5").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_5").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_5").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_5"), document.getElementById("MainInternalShelving_S4_5").nextSibling);
+                        }  
 
                         document.getElementById("internalShelving_sect4_5").value = '0'
 
@@ -31787,7 +31849,7 @@
                 if ( document.getElementById("ShoeShelving_S4_5").checked == true || self.options.s4_5_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S4_5").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S4_5").style.display = "block";
                     
                     document.getElementById("Drawer_S4_5").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_5").style.pointerEvents = "none";
@@ -31797,14 +31859,14 @@
 
                     document.getElementById("ShoeShelving_sect4_5").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect4_5").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section4_5);
                         
                         self.shelvingGroup_section4_5 = new THREE.Group();
-                        self.options.posShelf1_sect4_5 = 14;
+                        self.options.posShelf1_sect4_5 = 19;
 
                         self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
                         self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
@@ -31820,7 +31882,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_5").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_5").style.display = "none";
                         document.getElementById("InternalShelving1_S4_5").style.display = "none";
                         document.getElementById('ShoeShelving_sect4_5').value = 0
                         self.options.shelvesCounterSection4_5 = 0;
@@ -31869,7 +31931,7 @@
 
                     document.getElementById("ShoeShelving_sect4_5").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
-                    document.getElementById("MainInternalShelving_S4_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_5").style.display = "none";
 
                     document.getElementById("Drawer_S4_5").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_5").style.pointerEvents = "auto";
@@ -31886,7 +31948,7 @@
                 }
     
                 self.options.heigh1Shelf4_5 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_5 = 5
+                self.options.heigh0Shelf4_5 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_5").addEventListener('click', requestChangeShoeShelving4_5); 
@@ -31928,8 +31990,7 @@
                         
                         document.getElementById("ShoeShelving_sect4_5").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_5").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S4_5").style.display = "none";    
                         
                         document.getElementById("Drawer_S4_5").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS4_5").style.pointerEvents = "auto";
@@ -31940,13 +32001,13 @@
                     case 1:
                         self.options.shelvesCounterSection4_5 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect4_5").value = '1'
                             self.scene.remove(self.shelvingGroup_section4_5);
                             
                             self.shelvingGroup_section4_5 = new THREE.Group();
-                            self.options.posShelf1_sect4_5 = 14;
+                            self.options.posShelf1_sect4_5 = 19;
 
                             self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
                             self.shelvingGroup_section4_5.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_5, 1, '4_5', self.options.section4Length));
@@ -31954,7 +32015,7 @@
                             document.getElementById("InternalShelving1_S4_5").style.display = "flex";
                             document.getElementById("InternalShelving2_S4_5").style.display = "none";
 
-                            self.options.heigh0Shelf4_5 = 5
+                            self.options.heigh0Shelf4_5 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_5").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -31964,7 +32025,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S4_5").style.display = "none";
-                            document.getElementById("MainInternalShelving_S4_5").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S4_5").style.display = "none";
 
                             document.getElementById("InternalShelving1_S4_5").style.display = "none";
                             document.getElementById('ShoeShelving_sect4_5').value = 0
@@ -32016,7 +32077,7 @@
                 
                 if (self.options.sectionHeight_4_5 > 10  ) { 
     
-                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
+                    if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
     
                         self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+1).position.y += 1.05
                         if (self.options.s4_5_ShelvingStatus === 'Shoe') {
@@ -32048,7 +32109,7 @@
                         
                 if (self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+2) != undefined) {
 
-                    if (self.options.heigh2Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_5 > 25 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh2Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Wood' || self.options.heigh2Shelf4_5 > 20 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_5_ShelvingStatus === 'Shoe') {
@@ -32066,7 +32127,7 @@
                     } else { showHintPanel("A minimum height is required between shelves and/or partitions."); }
                 } else {
 
-                    if (self.options.heigh0Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_5 > 5 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
+                    if (self.options.heigh0Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
 
                         self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+1).position.y -= 1.05
                         if (self.options.s4_5_ShelvingStatus === 'Shoe') {
@@ -32092,7 +32153,7 @@
             //section4_5_shelf2 up&down
             document.getElementById("MoveInternalShelving2_S4_5_UP").addEventListener('click', async function() {
                 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 26 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving2_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_5_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving2_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+2).position.y += 1.05
                     if (self.options.s4_5_ShelvingStatus === 'Shoe') {
@@ -32118,7 +32179,7 @@
             });
             document.getElementById("MoveInternalShelving2_S4_5_DOWN").addEventListener('click', async function() {
 
-                if (self.options.heigh0Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_5 > 5 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
+                if (self.options.heigh0Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Wood' || self.options.heigh0Shelf4_5 > 10 && self.options.s4_5_ShelvingStatus === 'Shoe' ) {
     
                     self.scene.getObjectByName('internalShelf_4_5_'+'shelf'+2).position.y -= 1.05
                     if (self.options.s4_5_ShelvingStatus === 'Shoe') {
@@ -32154,7 +32215,9 @@
                 if ( document.getElementById("InternalShelving_S4_6").checked == true || self.options.s4_6_internlShelvinStatus == 0 ) {
 
                     document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "flex";
-                    document.getElementById("MainShoeShelving_S4_6").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_6").style.display = "block";
+                    var parent = document.getElementById("MainShoeShelving_S4_6").parentNode;
+                    parent.insertBefore(document.getElementById("MainShoeShelving_S4_6"), document.getElementById("InternalShelving1_S4_6").nextSibling);
 
                     document.getElementById("Drawer_S4_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_6").style.pointerEvents = "none";
@@ -32218,9 +32281,11 @@
 
                     document.getElementById("InternalShelving1_S4_6").style.display = "none";
                     document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
-                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                        document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
-                    } 
+                    if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                        document.getElementById("Cover_ShoeShelving_S4_6").style.display = "none";
+                        var parent = document.getElementById("MainShoeShelving_S4_6").parentNode;
+                        parent.insertBefore(document.getElementById("MainShoeShelving_S4_6"), document.getElementById("MainInternalShelving_S4_6").nextSibling);
+                    }  
                     document.getElementById("internalShelving_sect4_6").value = '0'
 
                     self.options.s4_6_internlShelvinStatus = 0
@@ -32271,9 +32336,11 @@
 
                         document.getElementById("InternalShelving1_S4_6").style.display = "none";
                         document.getElementById("sectionMoveInternalShelving_S4_6").style.display = "none";
-                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39) {
-                            document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
-                        } 
+                        if (parseInt(document.getElementById                            ("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41) {
+                            document.getElementById("Cover_ShoeShelving_S4_6").style.display = "none";
+                            var parent = document.getElementById("MainShoeShelving_S4_6").parentNode;
+                            parent.insertBefore(document.getElementById("MainShoeShelving_S4_6"), document.getElementById("MainInternalShelving_S4_6").nextSibling);
+                        }  
                         document.getElementById("internalShelving_sect4_6").value = '0'
 
                         document.getElementById("Drawer_S4_6").style.pointerEvents = "auto";
@@ -32352,7 +32419,7 @@
                 if ( document.getElementById("ShoeShelving_S4_6").checked == true || self.options.s4_6_internlShelvinStatus == 0 ) {
         
                     document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "flex";
-                    document.getElementById("MainInternalShelving_S4_6").style.display = "none";
+                    document.getElementById("Cover_InternalShelving_S4_6").style.display = "block";
                     
                     document.getElementById("Drawer_S4_6").style.pointerEvents = "none";
                     document.getElementById("Drawer_SectionS4_6").style.pointerEvents = "none";
@@ -32362,14 +32429,14 @@
 
                     document.getElementById("ShoeShelving_sect4_6").value = '1'
 
-                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                    if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                         document.getElementById("ShoeShelving_sect4_6").value = '1'
 
                         self.scene.remove(self.shelvingGroup_section4_6);
                         
                         self.shelvingGroup_section4_6 = new THREE.Group();
-                        self.options.posShelf1_sect4_6 = 14;
+                        self.options.posShelf1_sect4_6 = 19;
 
                         self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
                         self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
@@ -32384,7 +32451,7 @@
                     } else {
                         showHintPanel("The maximum number of shelves within this height has been reached.");
                         document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_6").style.display = "flex";
+                        document.getElementById("Cover_InternalShelving_S4_6").style.display = "none";
                         document.getElementById("InternalShelving1_S4_6").style.display = "none";
                         document.getElementById('ShoeShelving_sect4_6').value = 0
                         self.options.shelvesCounterSection4_6 = 0;
@@ -32431,7 +32498,7 @@
                     
                     document.getElementById("ShoeShelving_sect4_6").value = '0'
                     document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
-                    document.getElementById("MainInternalShelving_S4_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_6").style.display = "none";
 
                     document.getElementById("Drawer_S4_6").style.pointerEvents = "auto";
                     document.getElementById("Drawer_SectionS4_6").style.pointerEvents = "auto";
@@ -32448,7 +32515,7 @@
                 }
     
                 self.options.heigh1Shelf4_6 = parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) 
-                self.options.heigh0Shelf4_6 = 5
+                self.options.heigh0Shelf4_6 = 10
     
             }
             document.getElementById("subButtonMinus_ShoeShelves4_6").addEventListener('click', requestChangeShoeShelving4_6); 
@@ -32488,8 +32555,7 @@
 
                         document.getElementById("ShoeShelving_sect4_6").value = '0'
                         document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
-                        document.getElementById("MainInternalShelving_S4_6").style.display = "flex";
-    
+                        document.getElementById("Cover_InternalShelving_S4_6").style.display = "none";    
                         
                         document.getElementById("Drawer_S4_6").style.pointerEvents = "auto";
                         document.getElementById("Drawer_SectionS4_6").style.pointerEvents = "auto";
@@ -32500,20 +32566,20 @@
                     case 1:
                         self.options.shelvesCounterSection4_6 = 1;
 
-                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20) {
+                        if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32) {
 
                             document.getElementById("ShoeShelving_sect4_6").value = '1'
                             self.scene.remove(self.shelvingGroup_section4_6);
                             
                             self.shelvingGroup_section4_6 = new THREE.Group();
-                            self.options.posShelf1_sect4_6 = 14;
+                            self.options.posShelf1_sect4_6 = 19;
 
                             self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
                             self.shelvingGroup_section4_6.add(self.createShelfShoeToGroup2(self.options.posShelf1_sect4_6, 1, '4_6', self.options.section4Length));
 
                             document.getElementById("InternalShelving1_S4_6").style.display = "flex";
 
-                            self.options.heigh0Shelf4_6 = 5
+                            self.options.heigh0Shelf4_6 = 10
 
                             //UPDATE CORRESPONDING INTERFACE TOO
                             document.getElementById("PositionField_InternalShelving1_S4_6").innerHTML = parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) - 7 +"cm";
@@ -32523,7 +32589,7 @@
                         } else {
                             showHintPanel("The maximum number of shelves within this height has been reached.");
                             document.getElementById("sectionAmountShoeShelving_S4_6").style.display = "none";
-                            document.getElementById("MainInternalShelving_S4_6").style.display = "flex";
+                            document.getElementById("Cover_InternalShelving_S4_6").style.display = "none";
 
                             document.getElementById("InternalShelving1_S4_6").style.display = "none";
                             document.getElementById('ShoeShelving_sect4_6').value = 0
@@ -32572,10 +32638,9 @@
             //section4_6_shelf1 up&down
             document.getElementById("MoveInternalShelving1_S4_6_UP").addEventListener('click', async function( ) {
                 
-                console.log(parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]));
-                console.log(self.options.s4_6_ShelvingStatus);
+               
 
-                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 14 && self.options.s4_6_ShelvingStatus === 'Shoe' ) {
+                if (parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 11 && self.options.s4_6_ShelvingStatus === 'Wood' || parseFloat(document.getElementById('PositionField_InternalShelving1_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 21 && self.options.s4_6_ShelvingStatus === 'Shoe' ) {
 
                     self.scene.getObjectByName('internalShelf_4_6_'+'shelf'+1).position.y += 1.05
                     if (self.options.s4_6_ShelvingStatus === 'Shoe') {
@@ -38626,7 +38691,7 @@
     
                    
                     var pillarPositionS4 = Math.floor(self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                    for (let i = 1; i <= 5; i++) {
+                    for (let i = 1; i <= 7; i++) {
                         document.getElementById(`pillar4PositionField_S4_${i}`).innerHTML = pillarPositionS4;
                     }
 
@@ -38716,7 +38781,7 @@
                     
     
                     var pillarPositionS4 = Math.floor(self.options.section4Length - ((1.8*2 + 1.8 * (self.options.amountOfSections-1) ) / self.options.amountOfSections)) + "cm";
-                    for (let i = 1; i <= 5; i++) {
+                    for (let i = 1; i <= 7; i++) {
                         document.getElementById(`pillar4PositionField_S4_${i}`).innerHTML = pillarPositionS4;
                     }
 
@@ -41631,7 +41696,7 @@
 
                         } catch(e){}
                     }
-                    console.log( JSON.stringify(heigh1Shelf1_1) );
+                    
                     var heigh1Shelf1_1_String = JSON.stringify(heigh1Shelf1_1);
                     params.set('is_1_1_A',  heigh1Shelf1_1_String);
 
@@ -42714,7 +42779,6 @@
                     hideLoader()
                 }
 
-                Info.style.animation = 'beat .50s infinite alternate, changeColor 1s infinite alternate';
                 showHintPanel("Welcome to Sallux Configurator!");
 
             }
@@ -43042,8 +43106,8 @@
                         )
                 }
     
-                document.getElementById("MainInternalShelving_S1_1").style.display = "none";
-                document.getElementById("MainShoeShelving_S1_1").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S1").style.display = "block";
 
                 self.calculateOutput();
                 self.options.s1_doorStatus = 5; 
@@ -43219,7 +43283,6 @@
             document.getElementById("Drawer_S1_2").addEventListener('click', function() {
                 if (self.options.Drawer_S1_2_status == true) {
                     createDrawer_S1_2();
-                    console.log('1');
                 }
                 else {
                     showHintPanel("Drawer: <br>Width 26cm – 79cm  <br>Depth 38cm – 45cm  <br>Height 15cm – 45cm");
@@ -43227,7 +43290,6 @@
             });    
             function createDrawer_S1_2() {
     
-                console.log('2');
 
                 if (self.scene.getObjectByName( "doorSection1_2Group", true ) != undefined) {
                     self.scene.remove(self.scene.getObjectByName('doorSection1_2Group'))
@@ -43249,8 +43311,8 @@
     
                 self.calculateOutput();
     
-                document.getElementById("MainInternalShelving_S1_2").style.display = "none";
-                document.getElementById("MainShoeShelving_S1_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_2").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S1_2").style.display = "block";
 
                 self.options.s1_2_doorStatus = 5;
                 self.updateDoorButtons();
@@ -43448,8 +43510,8 @@
 
                 self.calculateOutput(); 
     
-                document.getElementById("MainInternalShelving_S1_3").style.display = "none";
-                document.getElementById("MainShoeShelving_S1_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_3").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S1_3").style.display = "block";
 
 
                 self.options.s1_3_doorStatus = 5;
@@ -43644,8 +43706,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S1_4").style.display = "none";
-                document.getElementById("MainShoeShelving_S1_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_4").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S1_4").style.display = "block";
     
                 self.options.s1_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -43838,8 +43900,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S1_5").style.display = "none";
-                document.getElementById("MainShoeShelving_S1_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_5").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S1_5").style.display = "block";
     
                 self.options.s1_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -44035,8 +44097,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S1_6").style.display = "none";
-                document.getElementById("MainShoeShelving_S1_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_6").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S1_6").style.display = "block";
     
                 self.options.s1_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -44478,8 +44540,8 @@
                 } 
     
     
-                document.getElementById("MainInternalShelving_S2_1").style.display = "none";    
-                document.getElementById("MainShoeShelving_S2_1").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_1").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S2_1").style.display = "block";
 
                 self.calculateOutput();
     
@@ -44725,8 +44787,8 @@
                     ) 
                 } 
     
-                document.getElementById("MainInternalShelving_S2_2").style.display = "none";
-                document.getElementById("MainShoeShelving_S2_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_2").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S2_2").style.display = "block";
 
                 self.calculateOutput();
     
@@ -44975,8 +45037,8 @@
                     )
                 } 
     
-                document.getElementById("MainInternalShelving_S2_3").style.display = "none";
-                document.getElementById("MainShoeShelving_S2_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_3").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S2_3").style.display = "block";
 
  
                 self.calculateOutput();  
@@ -45223,8 +45285,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S2_4").style.display = "none";
-                document.getElementById("MainShoeShelving_S2_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_4").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S2_4").style.display = "block";
     
                 self.options.s2_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -45466,8 +45528,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S2_5").style.display = "none";
-                document.getElementById("MainShoeShelving_S2_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_5").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S2_5").style.display = "block";
     
                 self.options.s2_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -45711,8 +45773,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S2_6").style.display = "none";
-                document.getElementById("MainShoeShelving_S2_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_6").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S2_6").style.display = "block";
     
                 self.options.s2_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -46200,8 +46262,8 @@
                     )
                 } 
     
-                document.getElementById("MainInternalShelving_S3_1").style.display = "none";  
-                document.getElementById("MainShoeShelving_S3_1").style.display = "none";          
+                document.getElementById("Cover_InternalShelving_S3_1").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S3_1").style.display = "block";   
 
                 self.calculateOutput();
     
@@ -46449,8 +46511,8 @@
                     )
                 }
     
-                document.getElementById("MainInternalShelving_S3_2").style.display = "none";  
-                document.getElementById("MainShoeShelving_S3_2").style.display = "none";  
+                document.getElementById("Cover_InternalShelving_S3_2").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S3_2").style.display = "block";    
 
                 self.calculateOutput();
     
@@ -46699,8 +46761,8 @@
                     )
                 }
     
-                document.getElementById("MainInternalShelving_S3_2").style.display = "none";  
-                document.getElementById("MainShoeShelving_S3_2").style.display = "none";    
+                document.getElementById("Cover_InternalShelving_S3_3").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S3_3").style.display = "block";  
 
                 self.calculateOutput();
     
@@ -46950,8 +47012,8 @@
     
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S3_4").style.display = "none";  
-                document.getElementById("MainShoeShelving_S3_4").style.display = "none";  
+                document.getElementById("Cover_InternalShelving_S3_4").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S3_4").style.display = "block";    
     
                 self.options.s3_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -47199,8 +47261,8 @@
     
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S3_5").style.display = "none";  
-                document.getElementById("MainShoeShelving_S3_5").style.display = "none";  
+                document.getElementById("Cover_InternalShelving_S3_5").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S3_5").style.display = "block";   
     
                 self.options.s3_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -47446,8 +47508,8 @@
     
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S3_6").style.display = "none";  
-                document.getElementById("MainShoeShelving_S3_6").style.display = "none";  
+                document.getElementById("Cover_InternalShelving_S3_6").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S3_6").style.display = "block";   
 
                 self.options.s3_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -47809,8 +47871,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S4_1").style.display = "none";  
-                document.getElementById("MainShoeShelving_S4_1").style.display = "none"; 
+                document.getElementById("Cover_InternalShelving_S4_1").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S4_1").style.display = "block";  
     
                 self.options.s4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -47981,8 +48043,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S4_2").style.display = "none";  
-                document.getElementById("MainShoeShelving_S4_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_2").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S4_2").style.display = "block";  
     
                 self.options.s4_2_doorStatus = 5;
                 self.updateDoorButtons();
@@ -48154,8 +48216,8 @@
 
                 self.calculateOutput();
     
-                document.getElementById("MainInternalShelving_S4_3").style.display = "none";  
-                document.getElementById("MainShoeShelving_S4_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_3").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S4_3").style.display = "block"; 
 
                 self.options.s4_3_doorStatus = 5;
                 self.updateDoorButtons();
@@ -48325,8 +48387,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S4_4").style.display = "none";  
-                document.getElementById("MainShoeShelving_S4_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_4").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S4_4").style.display = "block"; 
     
                 self.options.s4_4_doorStatus = 5;
                 self.updateDoorButtons();
@@ -48494,8 +48556,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S4_5").style.display = "none";  
-                document.getElementById("MainShoeShelving_S4_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_5").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S4_5").style.display = "block"; 
     
                 self.options.s4_5_doorStatus = 5;
                 self.updateDoorButtons();
@@ -48662,8 +48724,8 @@
 
                 self.calculateOutput();
 
-                document.getElementById("MainInternalShelving_S4_6").style.display = "none";  
-                document.getElementById("MainShoeShelving_S4_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_6").style.display = "block";
+                document.getElementById("Cover_ShoeShelving_S4_6").style.display = "block"; 
     
                 self.options.s4_6_doorStatus = 5;
                 self.updateDoorButtons();
@@ -50092,7 +50154,7 @@
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
 
                 self.options.pillar.texture = 13;
-                self.options.shelf.texture = 14;
+                self.options.shelf.texture = 19;
                 self.changeShelfTexture();
                 self.changePillarTexture();
                 self.scene.traverse(function(child) {
@@ -50839,7 +50901,7 @@
     
             this.createBackPlate();
 
-    
+            this.createDimensions();
             this.calculateOutput();
             this.run();
     
@@ -51678,6 +51740,17 @@
                 document.getElementById("moveHorizontalPartition4_4_Upper").style.display = "none";
             }
 
+            if (self.options.s4_AmountOfHorDividers > 4 ) {
+                document.getElementById("moveHorizontalPartition4_5_Upper").style.display = "flex";
+            } else {
+                document.getElementById("moveHorizontalPartition4_5_Upper").style.display = "none";
+            }
+
+            if (self.options.s4_AmountOfHorDividers > 5 ) {
+                document.getElementById("moveHorizontalPartition4_6_Upper").style.display = "flex";
+            } else {
+                document.getElementById("moveHorizontalPartition4_6_Upper").style.display = "none";
+            }
 
             //1section shelving
             //1_1
@@ -51694,94 +51767,95 @@
 
             }
 
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s1_ShelvingStatus !== 'Wood') {
+
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s1_ShelvingStatus !== 'Wood') {
                 if ( self.options.s1_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S1_1").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S1").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S1_1").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S1").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s1_ShelvingStatus !== 'Shoe') {
                 if ( self.options.s1_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S1_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S1_1").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1").style.display = "block";
             }
             //1_2 
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s1_2_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s1_2_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s1_2_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S1_2").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S1_2").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S1_2").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S1_2").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s1_2_ShelvingStatus !== 'Shoe' ) {   
                 if ( self.options.s1_2_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S1_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_2").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S1_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_2").style.display = "block";
             }      
             //1_3
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s1_3_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s1_3_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s1_3_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S1_3").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S1_3").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S1_3").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S1_3").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s1_3_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s1_3_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S1_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_3").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S1_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_3").style.display = "block";
             }
             //1_4
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s1_4_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s1_4_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s1_4_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S1_4").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S1_4").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S1_4").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S1_4").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s1_4_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s1_4_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S1_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_4").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S1_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_4").style.display = "block";
             }
             //1_5
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s1_5_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s1_5_ShelvingStatus !== 'Wood') {
                 if ( self.options.s1_5_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S1_5").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S1_5").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S1_5").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S1_5").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s1_5_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s1_5_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S1_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_5").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S1_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_5").style.display = "block";
             }
             //1_6
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s1_6_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s1_6_ShelvingStatus !== 'Wood') {
                 if ( self.options.s1_6_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S1_6").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S1_6").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S1_6").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S1_6").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S1_6').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s1_6_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s1_6_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S1_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S1_6").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S1_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S1_6").style.display = "block";
             }
 
             //2section
@@ -51798,94 +51872,94 @@
                 }
 
             }
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s2_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s2_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s2_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S2_1").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S2_1").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S2_1").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S2_1").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s2_ShelvingStatus !== 'Shoe') {
                 if ( self.options.s2_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S2_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_1").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S2_1").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_1").style.display = "block";
             }
             //2_2 
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s2_2_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s2_2_ShelvingStatus !== 'Wood') {
                 if ( self.options.s2_2_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S2_2").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S2_2").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S2_2").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S2_2").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s2_2_ShelvingStatus !== 'Shoe') {   
                 if ( self.options.s2_2_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S2_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_2").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S2_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_2").style.display = "block";
             }      
             //2_3
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s2_3_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s2_3_ShelvingStatus !== 'Wood') {
                 if ( self.options.s2_3_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S2_3").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S2_3").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S2_3").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S2_3").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s2_3_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s2_3_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S2_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_3").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S2_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_3").style.display = "block";
             }
             //2_4
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s2_4_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s2_4_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s2_4_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S2_4").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S2_4").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S2_4").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S2_4").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s2_4_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s2_4_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S2_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_4").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S2_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_4").style.display = "block";
             }
             //2_5
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s2_5_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s2_5_ShelvingStatus !== 'Wood') {
                 if ( self.options.s2_5_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S2_5").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S2_5").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S2_5").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S2_5").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_5').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s2_5_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s2_5_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S2_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_5").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S2_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_6").style.display = "none";
             }
             //2_6
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s2_6_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s2_6_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s2_6_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S2_6").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S2_6").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S2_6").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S2_6").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S2_6').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s2_6_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s2_6_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S2_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S2_6").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S2_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S2_6").style.display = "block";
             }
 
             //3section
@@ -51902,94 +51976,94 @@
                 }
 
             }
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s3_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s3_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s3_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S3_1").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S3_1").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S3_1").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S3_1").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s3_ShelvingStatus !== 'Shoe' ) {
                 if ( self.options.s3_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S3_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_1").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S3_1").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S3_1").style.display = "block";
             }
             //3_2 
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s3_2_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s3_2_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s3_2_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S3_2").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S3_2").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S3_2").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S3_1").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S3_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s3_2_ShelvingStatus !== 'Shoe' ) {   
                 if ( self.options.s3_2_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S3_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_2").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S3_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S3_2").style.display = "block";
             }      
             //3_3
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s3_3_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s3_3_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s3_3_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S3_3").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S3_3").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S3_3").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S3_3").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_3').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s3_3_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s3_3_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S3_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_3").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S3_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S3_3").style.display = "block";
             }
             //3_4
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s3_4_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s3_4_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s3_4_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S3_4").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S3_4").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S3_4").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S3_4").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_4').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s3_4_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s3_4_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S3_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_4").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S3_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S3_4").style.display = "block";
             }
             //3_5
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s3_5_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s3_5_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s3_5_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S3_5").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S3_5").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S3_5").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S3_5").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_5').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s3_5_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s3_5_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S3_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_5").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S3_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S3_5").style.display = "block";
             }
             //3_6
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s3_6_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s3_6_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s3_6_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S3_6").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S3_6").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S3_6").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S3_6").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S3_6').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s3_6_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s3_6_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S3_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S3_6").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S3_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S3_6").style.display = "block";
             }
     
             //4section
@@ -52006,99 +52080,100 @@
                 }
 
             }
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s4_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s4_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s4_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S4_1").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S4_1").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S4_1").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S4_1").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_1').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s4_ShelvingStatus !== 'Shoe' ) {
                 if ( self.options.s4_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S4_1").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_1").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S4_1").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_1").style.display = "block";
             }
             //4_2 
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s4_2_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s4_2_ShelvingStatus !== 'Wood') {
                 if ( self.options.s4_2_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S4_2").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S4_2").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S4_2").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S4_2").style.display = "block";
             }
             if (parseFloat(document.getElementById('Height_HorizontalPartition_S4_2').textContent.match(/\d+(\.\d+)?/)[0]) >= 22 && self.options.s4_2_ShelvingStatus !== 'Shoe') {   
                 if ( self.options.s4_2_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S4_2").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_2").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S4_2").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_2").style.display = "block";
             }      
             //4_3
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s4_3_ShelvingStatus !== 'Wood') {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s4_3_ShelvingStatus !== 'Wood') {
                 if ( self.options.s4_3_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S4_3").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S4_3").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S4_3").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S4_3").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_3').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s4_3_ShelvingStatus !== 'Shoe') {    
                 if ( self.options.s4_3_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S4_3").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_3").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S4_3").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_3").style.display = "block";
             }
             //4_4
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s4_4_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s4_4_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s4_4_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S4_4").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S4_4").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S4_4").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S4_4").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_4').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s4_4_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s4_4_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S4_4").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_4").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S4_4").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_4").style.display = "block";
             }
             //4_5
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s4_5_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s4_5_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s4_5_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S4_5").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S4_5").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S4_5").style.display = "none";
+                document.getElementById("Cover_ShoeShelving_S4_5").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_5').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s4_5_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s4_5_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S4_5").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_5").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S4_5").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_5").style.display = "block";
             }
             //4_6
-            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 39 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 20 && self.options.s4_6_ShelvingStatus !== 'Wood' ) {
+            if (parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10) >= 41 && parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0]) >= 32 && self.options.s4_6_ShelvingStatus !== 'Wood' ) {
                 if ( self.options.s4_6_doorStatus !== 5 ) {
-                    document.getElementById("MainShoeShelving_S4_6").style.display = "flex";
+                    document.getElementById("Cover_ShoeShelving_S4_6").style.display = "none";
                 }
             } else{
-                document.getElementById("MainShoeShelving_S4_6").style.display = "none";
+                    document.getElementById("Cover_ShoeShelving_S4_6").style.display = "block";
             }
             if ( parseFloat(document.getElementById('Height_HorizontalPartition_S4_6').textContent.match(/\d+(\.\d+)?/)[0])  >= 22 && self.options.s4_6_ShelvingStatus !== 'Shoe' ) {    
                 if ( self.options.s4_6_doorStatus !== 5 ) {
-                    document.getElementById("MainInternalShelving_S4_6").style.display = "flex";
+                    document.getElementById("Cover_InternalShelving_S4_6").style.display = "none";
                 }
             } else {
-                document.getElementById("MainInternalShelving_S4_6").style.display = "none";
+                document.getElementById("Cover_InternalShelving_S4_6").style.display = "block";
             }
 
 
 
-    
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
             //doors
             if (self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) * 1.2  || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) > 90 ) {
                 self.options.LeftDoor_S1_status = false;
@@ -52109,17 +52184,29 @@
             }
             else{
                 self.options.LeftDoor_S1_status = true;
-                document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Open.jpg";
+                } else {
+                    document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                }
     
                 self.options.RightDoor_S1_status = true;
-                document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoorRight_S1").src="icons/DoorRight_Open.jpg";
+                } else {
+                    document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                }
             }
             if (self.options.LeftDoor_S1_status == true) {
                 document.getElementById("DoorLeft_S1").onmouseover = function() { 
                     document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Open.jpg";
                 };
                 document.getElementById("DoorLeft_S1").onmouseout = function() {
-                    document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Open.jpg";
+                    } else {
+                        document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                    }
                 };
             } else {
                 document.getElementById("DoorLeft_S1").onmouseover = function() { 
@@ -52134,7 +52221,11 @@
                     document.getElementById("DoorRight_S1").src="icons/DoorRight_Open.jpg";
                 };
                 document.getElementById("DoorRight_S1").onmouseout = function() {
-                    document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoorRight_S1").src="icons/DoorRight_Open.jpg";
+                    } else {
+                        document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                    }                
                 };
             } else {
                 document.getElementById("DoorRight_S1").onmouseover = function() { 
@@ -55183,12 +55274,7 @@
                             setDisplay(1, 'none');
                             setDisplay(2, 'none');
                             setDisplay(3, 'none');
-                            var setDisplay4 = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
-                                    document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
-                                }
-                            };
-                            setDisplay4(4, 'none');
+                            setDisplay(4, 'none');
 
 
 
@@ -55509,17 +55595,17 @@
                             }
 
                             var pillarPositionS3 = Math.floor(this.options.section3Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) + "cm";
-                            for (let i = 1; i <= 5; i++) {
+                            for (let i = 1; i <= 7; i++) {
                                 document.getElementById(`pillar3PositionField_S3_${i}`).innerHTML = pillarPositionS3;
                             }
 
                             var pillarPositionS4 = Math.floor(this.options.section4Length - ((1.8*2 + 1.8 * (this.options.amountOfSections-1) ) / this.options.amountOfSections)) + "cm";
-                            for (let i = 1; i <= 5; i++) {
+                            for (let i = 1; i <= 7; i++) {
                                 document.getElementById(`pillar4PositionField_S4_${i}`).innerHTML = pillarPositionS4;
                             }
 
                             var setDisplay = (section, display) => {
-                                for (let i = 1; i <= 5; i++) {
+                                for (let i = 1; i <= 7; i++) {
                                     document.getElementById(`section${section}HTMLWidth_S${section}_${i}`).style.display = display;
                                 }
                             };
