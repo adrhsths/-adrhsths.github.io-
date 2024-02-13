@@ -1497,17 +1497,17 @@
         }
     
         /* SWITCH  */
-        #CoverBackPanel_Div{
+        .Coverdiv{
             display: none;
             position: absolute;
-            width: 167px;
+            width: 169px;
             height: 2.3em;
             overflow: hidden;
             background-color:  #dadada;
             border-radius: 3em;
             z-index: 30;
             opacity: 0.8;
-            margin-left: 3.6em;
+            margin-left: 0em;
         }
         #button1 .knobs:before {
             content: "Off";
@@ -2955,10 +2955,10 @@
         }
     
         /* SWITCH  */
-        #CoverBackPanel_Div{
+        .Coverdiv{
             display: none;
             position: absolute;
-            width: 10em;
+            width: 9.4em;
             height: 2.3em;
             overflow: hidden;
             background-color: #dadada;
