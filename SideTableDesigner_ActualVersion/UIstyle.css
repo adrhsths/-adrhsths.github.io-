@@ -326,6 +326,19 @@
             border-radius: 0;
         }
 
+        .popup-info-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2.4em;
+            border-radius: 0;
+            max-width: 31vw;
+            width: auto;
+            max-height: 83vh;
+        }
+
         input[type="email"] {
             font-size: 1em;
             padding: 0.7em 3.6em 0.7em 1.3em;
@@ -346,8 +359,9 @@
             transform: translate(-50%, 0%);
         }
 
+         /* 🍏 */
         #Logo {
-            left: 66px;
+            left: 8px;
             bottom: 24px;
             width: 13em;
             position: fixed;
@@ -435,6 +449,7 @@
         align-items: center;
         }
     
+        /* 🍏 */
         #TopPanel {
             position: fixed;
             margin-top: 2vh;
@@ -449,27 +464,40 @@
             background-color: #fff;
             box-shadow: rgba(0, 0, 0, 0.1) 00px 10px 20px 10px, rgba(0, 0, 0, 0.05) 0px 4px 6px 0px;
             color: #000;
-            font-size: 1.1em;
+            font-size: 1em;
             z-index: 10;
             font-family: MontserratRegular;
         }
 
-        #OpenaButtonsPanel{
+        /* 🍏 */
+        #ProductName {
+            margin-top: 0em;
+        }
+
+        #subProductName {
+            font-family: MontserratLight;
+            margin-top: -0.4em;
+        }
+
+         /* 🍏 */
+        #ReturnButton{
             width: 155px;
+            height: 37px;
             background-color: #356b4d;
             color: white;
-            border-radius: 15px;
+            border-radius: 25px;
             font-size: 0.8em;
             justify-content: center;
             padding-right: 0.7em;
-            font-family: MontserratLight;
+            font-family: MontserratRegular;
         }
     
         #productPrice{
-        font-family: MontserratRegular;
-        color: #000;
-        font-size: 2.2em;
-        margin-bottom: -0.3em;
+            font-family: MontserratRegular;
+            color: #000;
+            font-size: 26px;
+            margin-bottom: -0.7em;
+            margin-top: 0.2em;
         }
     
         #MiddlePanel {
@@ -646,6 +674,7 @@
             width: 86%;
             padding-right: 1.7em;
         }
+        /* 🍏 */
         .dimensionName {
             width: 6em;
             height: 8.2vh;
@@ -654,7 +683,8 @@
             font-size: 0.8em;
             background-color: transparent;
             border: none;
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
             cursor: text; 
             pointer-events: none;  
         }
@@ -663,6 +693,8 @@
             margin-left: 1.5em;
             font-size: 0.8em;
             pointer-events: none;
+            z-index: 12;
+
         }
     
         .dimensionMenu {
@@ -741,14 +773,15 @@
             bottom: 0%;
             top: auto;
             position: relative;
-            margin: 1vh;
-            padding: 0.8em 3.6em;
+            margin: 0vh;
+            padding: 0.7em 2.1em;
             text-align: center;
             transition: 0.5s;
             color: white;
             display: block;
             border: 0px;
-            font-family: MontserratRegular;
+            border-radius: 35px;
+            font-family: MontserratBold;
             box-shadow: 0px 0px 14px -7px #f09819;
             cursor: pointer;
             user-select: none;
@@ -860,21 +893,67 @@
         .c-button-round:hover {
         border-color: #356B4D;
         }
-    
-    
-        .colorsPanel{
-            width: 12.2em;
+
+        /* 🍏 */
+        .info-button-round {
+            width: 18px;
+            height: 18px;
+            margin-left: -0.3em;
+            background-color: #eaeaea;
             display: flex;
-            margin-left: 2em;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-size: cover;
+            border: 1px solid #edf0f0;
+            overflow: hidden;
+            transition: border-color .2s ease,background-color .2s ease;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+            font-size: 0.7em;
+            z-index: 100;
+            pointer-events: auto;
+        }
+
+        .color-button-rounded {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 37px;
+            height: 23px;
+            border-radius: 13px;
+            background-color: #fff;
+            background-size: cover;
+            border: 1px solid #edf0f0;
+            overflow: hidden;
+            transition: border-color .2s ease,background-color .2s ease;
+            outline: none;
+            cursor: pointer;
+            margin: 0.1em;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+            font-size: 0.7em;
+        }
+    
+        .color-button-rounded:hover {
+        border-color: #356B4D;
+        }
+    
+        /* 🍏 */
+        .colorsPanel{
+            width: 12em;
+            display: flex;
+            margin-left: 2.5em;
             min-width: 11.5em;
             grid-gap: 0.1em;
             flex-direction: row;
             justify-content: end;
         }
     
+        /* 🍏 */
         .choosenColor {
             font-size: 0.8em;
-            line-height: 2.5em;
+            line-height: 1.8em;
             text-align: right;
             width: 10em;
         }
@@ -1299,7 +1378,11 @@
             margin-top: 0;
         }
     
+        /* 🍏 */
         .dimensionNameLeft {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             width: 15.4em;
             font-size: 0.76em;
             text-align: left;
@@ -1926,6 +2009,19 @@
             transform: translate(-50%, 0%);
         }
 
+        .popup-info-form {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 2.4em;
+            border-radius: 0;
+            max-width: 90vw;
+            width: 78vw;
+            height: auto;
+        }
+
         #Logo {
             z-index: 9;
             left: 15px;
@@ -2141,7 +2237,7 @@
             position: relative;
             display: flex;
             flex-direction: row;
-            width: 8em;
+            width: 158px;
             color: grey;
             justify-content: center;
             align-items: center;
@@ -2193,14 +2289,15 @@
             bottom: 0%;
             top: auto;
             position: relative;
-            margin: 1vh;
-            padding: 0.8em 3.6em;
+            margin: 0vh;
+            padding: 0.8em 3.2em;
             text-align: center;
             transition: 0.5s;
             color: white;
             display: block;
             border: 0px;
-            font-family: MontserratRegular;
+            border-radius: 25px;
+            font-family: MontserratBold;
             box-shadow: 0px 0px 14px -7px #f09819;
             cursor: pointer;
             user-select: none;
@@ -2260,7 +2357,7 @@
         display: none;
         }
     
-    
+        /* 🍏 */
         .colorSection {
             position: relative;
             display: flex;
@@ -2268,8 +2365,8 @@
             justify-content: center;
             align-items: center;
             height: 24vh;
-            width: 100%;
-            margin-top: 42px;
+            width: 55%;
+            /* margin-top: 42px; */
             margin-bottom: 1em;
         }
     
@@ -2296,7 +2393,52 @@
         border-color: #356B4D;
         }
     
+        /* 🍏 */
+        .info-button-round {
+            width: 18px;
+            height: 18px;
+            margin-left: -0.3em;
+            background-color: #eaeaea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-size: cover;
+            border: 1px solid #edf0f0;
+            overflow: hidden;
+            transition: border-color .2s ease,background-color .2s ease;
+            outline: none;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+            font-size: 0.7em;
+            z-index: 100;
+            pointer-events: auto;
+        }
+
+        .color-button-rounded {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 37px;
+            height: 23px;
+            border-radius: 13px;
+            background-color: #fff;
+            background-size: cover;
+            border: 1px solid #edf0f0;
+            overflow: hidden;
+            transition: border-color .2s ease,background-color .2s ease;
+            outline: none;
+            cursor: pointer;
+            margin: 0.1em;
+            box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+            font-size: 0.7em;
+        }
     
+        .color-button-rounded:hover {
+        border-color: #356B4D;
+        }
+    
+        /* 🍏 */
         .colorsPanel{
             width: 13.3em;
             display: flex;
@@ -2304,6 +2446,7 @@
             grid-gap: 0.1em;
             flex-direction: row;
             justify-content: center;
+            align-items: center;
         }
 
         .choosenColor {
@@ -2764,7 +2907,11 @@
             margin-top: 0;
         }
     
+        /* 🍏 */
         .dimensionNameLeft {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
             width: 15.4em;
             font-size: 0.76em;
             text-align: left;
@@ -3016,7 +3163,7 @@
         
         .button {
             position: relative;
-            width: 10em;
+            width: 158px;
             height: 2.3em;
             overflow: hidden;
             background-color: #e9e9ed;
@@ -3078,7 +3225,7 @@
             position: absolute;
         }
     
-    
+        /* 🍏 */
         #TopPanel {
             position: fixed;
             margin-top: -3.1vh;
@@ -3099,8 +3246,9 @@
             text-align: end;
         }
 
-        #OpenaButtonsPanel{
-            width: 101px;
+        /* 🍏 */
+        #ReturnButton{
+            width: 40px;
             background-color: #356b4d;
             color: white;
             border-radius: 20px;
@@ -3108,6 +3256,11 @@
             justify-content: center;
             padding-right: 0.7em;
             font-family: MontserratLight;
+        }
+
+        /* 🍏 */
+        #ProductName {
+            margin-top: -0.3em;
         }
 
         #productPrice{

@@ -464,9 +464,10 @@
             {
                 name: 'Glass',
                 src: 'gl3.png',
-                price: 221,
+                price: 58,
                 map: null
             },
+            
         ],
     
         options: {
@@ -492,6 +493,9 @@
             },
             human: {
                 texture: 'human.png'
+            }, 
+            menuicon: {
+                texture: 'SectionMenu.png'
             }, 
             
             shelvesNum: 2,
@@ -945,7 +949,7 @@
             statusHideRoom: 0,
             statusHideHint: 1,
             statusLegs: 0,
-            statusShowDimensions: 0,
+            statusShowDimensions: 1,
     
     
         },
@@ -1011,6 +1015,26 @@
 
                 document.getElementById("buttonCarcassColour").innerHTML = "Carcass Colour";
                 document.getElementById("buttonFrontFacadesColour").innerHTML = "Fronts Colour";
+                //🍏
+                document.getElementById("subProductName").style.display = "none";
+                document.getElementById("productName").innerHTML = "Side Table";
+                document.getElementById("ReturnButton").innerHTML = '<img src="icons/return.png" id="ReturnIcon" style="width:auto; height:55%;padding-left: 6px">';
+
+                document.getElementById("InfoRecessedBack").style.display = "none";
+                document.getElementById("buttonBackPanels").style.width = "100%";
+                document.getElementById("buttonBackPanels").style.marginLeft = "0em";
+                document.getElementById("RecessedBack").style.marginLeft = "0.3em";
+                document.getElementById("RecessedBack").style.width = "calc(100%/ 2";
+                document.getElementById("InfoRecessedBack2").style.display = "flex";
+
+                document.getElementById("CarcassColorSection").style.flexDirection = "row-reverse";
+                document.getElementById("CarcassColorSection").style.justifyContent = "center";
+                document.getElementById("colorsPanelCarcass").parentNode.insertBefore(document.getElementById("choosenColor_CarcassIconBig"), document.getElementById("colorsPanelCarcass").nextSibling);
+
+                document.getElementById("FacadesColorSection").style.flexDirection = "row-reverse";
+                document.getElementById("FacadesColorSection").style.justifyContent = "center";
+                document.getElementById("colorsPanelFacades").parentNode.insertBefore(document.getElementById("choosenColor_DoorIconBig"), document.getElementById("colorsPanelFacades").nextSibling);
+                //🍏
 
             } else {
                 this.camera.position.set(
@@ -1020,6 +1044,11 @@
 
                 document.getElementById("buttonCarcassColour").innerHTML = "Carcass Colour :";
                 document.getElementById("buttonFrontFacadesColour").innerHTML = "Fronts Colour :";
+                //🍏
+                document.getElementById("subProductName").style.display = "block";
+                document.getElementById("productName").innerHTML = "Side Table's Initial Step";
+                document.getElementById("ReturnButton").innerHTML = '<img src="icons/right.png" id="ReturnIcon" style="width:auto; height:75%;padding-left: 6px"> Return to Website';
+
             }
 
             this.camera2 = new THREE.PerspectiveCamera(10,  512 / 512, 1, 1000);
@@ -1193,7 +1222,7 @@
             this.pointer = new THREE.Vector2();
             this.intersects = 0 
     
-    
+            /* 🍏 */
             function onPointerDown( event ) {
                 // calculate pointer position in normalized device coordinates
                 // (-1 to +1) for both components
@@ -1211,8 +1240,9 @@
                                 
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection1_1' || self.intersects[ i ].object.name === 'section1_WireframeMesh1_1') {
 
-                                self.RayCastRecieverSection1_1.material.opacity = 0.2
-                                self.section1_WireframeMesh1_1.material.opacity = 0.2
+                                self.RayCastRecieverSection1_1.material.opacity = 0.5
+                                self.section1_WireframeMesh1_1.material.opacity = 0.5
+                                self.MenuIcon_Mesh1_1.material.opacity = 0
                                 
                                 MenuForMobileVersion1.style.display = 'flex';
                                 VerticalSection1_1.style.animation = 'animShowFromLeft 0.4s';
@@ -1225,24 +1255,28 @@
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1250,30 +1284,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1352,6 +1391,7 @@
                     
                                 self.RayCastRecieverSection1_1.material.opacity = 0
                                 self.section1_WireframeMesh1_1.material.opacity = 0
+                                self.MenuIcon_Mesh1_1.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -1363,8 +1403,10 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection1_2' || self.intersects[ i ].object.name === 'section1_WireframeMesh1_2') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection1_2.material.opacity = 0.2
-                                self.section1_WireframeMesh1_2.material.opacity = 0.2
+                                self.RayCastRecieverSection1_2.material.opacity = 0.5
+                                self.section1_WireframeMesh1_2.material.opacity = 0.5
+                                self.MenuIcon_Mesh1_2.material.opacity = 0
+
     
                                 VerticalSection1_2.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection1_2.style.transform = "translateX(-0%)";
@@ -1375,24 +1417,28 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1400,30 +1446,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1501,6 +1552,7 @@
                     
                                 self.RayCastRecieverSection1_2.material.opacity = 0
                                 self.RayCastRecieverSection1_2.material.opacity = 0
+                                self.MenuIcon_Mesh1_2.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -1512,9 +1564,10 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection1_3' || self.intersects[ i ].object.name === 'section1_WireframeMesh1_3') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection1_3.material.opacity = 0.2
-                                self.section1_WireframeMesh1_3.material.opacity = 0.2
-    
+                                self.RayCastRecieverSection1_3.material.opacity = 0.5
+                                self.section1_WireframeMesh1_3.material.opacity = 0.5
+                                self.MenuIcon_Mesh1_3.material.opacity = 0
+
                                 VerticalSection1_3.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection1_3.style.transform = "translateX(-0%)";
     
@@ -1524,24 +1577,28 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1549,30 +1606,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1650,6 +1712,7 @@
                     
                                 self.RayCastRecieverSection1_3.material.opacity = 0
                                 self.RayCastRecieverSection1_3.material.opacity = 0
+                                self.MenuIcon_Mesh1_3.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -1661,8 +1724,9 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection1_4' || self.intersects[ i ].object.name === 'section1_WireframeMesh1_4') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection1_4.material.opacity = 0.2
-                                self.section1_WireframeMesh1_4.material.opacity = 0.2
+                                self.RayCastRecieverSection1_4.material.opacity = 0.5
+                                self.section1_WireframeMesh1_4.material.opacity = 0.5
+                                self.MenuIcon_Mesh1_4.material.opacity = 0
     
                                 VerticalSection1_4.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection1_4.style.transform = "translateX(-0%)";
@@ -1673,24 +1737,28 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1698,30 +1766,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1799,6 +1872,7 @@
                     
                                 self.RayCastRecieverSection1_4.material.opacity = 0
                                 self.RayCastRecieverSection1_4.material.opacity = 0
+                                self.MenuIcon_Mesh1_4.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -1810,8 +1884,9 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection1_5' || self.intersects[ i ].object.name === 'section1_WireframeMesh1_5') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection1_5.material.opacity = 0.2
-                                self.section1_WireframeMesh1_5.material.opacity = 0.2
+                                self.RayCastRecieverSection1_5.material.opacity = 0.5
+                                self.section1_WireframeMesh1_5.material.opacity = 0.5
+                                self.MenuIcon_Mesh1_5.material.opacity = 0
 
                                 VerticalSection1_5.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection1_5.style.transform = "translateX(-0%)";
@@ -1822,24 +1897,28 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1847,30 +1926,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1951,8 +2035,10 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection2_1' || self.intersects[ i ].object.name === 'section2_WireframeMesh2_1') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection2_1.material.opacity = 0.2
-                                self.section2_WireframeMesh2_1.material.opacity = 0.2
+                                self.RayCastRecieverSection2_1.material.opacity = 0.5
+                                self.section2_WireframeMesh2_1.material.opacity = 0.5
+                                self.MenuIcon_Mesh2_1.material.opacity = 0
+
     
                                 VerticalSection2_1.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection2_1.style.transform = "translateX(-0%)";
@@ -1962,30 +2048,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -1993,24 +2084,28 @@
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2087,6 +2182,7 @@
                     
                                 self.RayCastRecieverSection2_1.material.opacity = 0
                                 self.section2_WireframeMesh2_1.material.opacity = 0
+                                self.MenuIcon_Mesh2_1.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -2097,8 +2193,9 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection2_2' || self.intersects[ i ].object.name === 'section2_WireframeMesh2_2') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection2_2.material.opacity = 0.2
-                                self.section2_WireframeMesh2_2.material.opacity = 0.2
+                                self.RayCastRecieverSection2_2.material.opacity = 0.5
+                                self.section2_WireframeMesh2_2.material.opacity = 0.5
+                                self.MenuIcon_Mesh2_2.material.opacity = 0
     
                                 VerticalSection2_2.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection2_2.style.transform = "translateX(-0%)";
@@ -2109,30 +2206,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2140,24 +2242,28 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2234,6 +2340,7 @@
                     
                                 self.RayCastRecieverSection2_2.material.opacity = 0
                                 self.RayCastRecieverSection2_2.material.opacity = 0
+                                self.MenuIcon_Mesh2_2.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -2245,8 +2352,9 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection2_3' || self.intersects[ i ].object.name === 'section2_WireframeMesh2_3') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection2_3.material.opacity = 0.2
-                                self.section2_WireframeMesh2_3.material.opacity = 0.2
+                                self.RayCastRecieverSection2_3.material.opacity = 0.5
+                                self.section2_WireframeMesh2_3.material.opacity = 0.5
+                                self.MenuIcon_Mesh2_3.material.opacity = 0
     
                                 VerticalSection2_3.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection2_3.style.transform = "translateX(-0%)";
@@ -2256,30 +2364,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2287,24 +2400,28 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2382,6 +2499,7 @@
                     
                                 self.RayCastRecieverSection2_3.material.opacity = 0
                                 self.RayCastRecieverSection2_3.material.opacity = 0
+                                self.MenuIcon_Mesh2_3.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -2393,8 +2511,9 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection2_4' || self.intersects[ i ].object.name === 'section2_WireframeMesh2_4') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection2_4.material.opacity = 0.2
-                                self.section2_WireframeMesh2_4.material.opacity = 0.2
+                                self.RayCastRecieverSection2_4.material.opacity = 0.5
+                                self.section2_WireframeMesh2_4.material.opacity = 0.5
+                                self.MenuIcon_Mesh2_4.material.opacity = 0
     
                                 VerticalSection2_4.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection2_4.style.transform = "translateX(-0%)";
@@ -2405,30 +2524,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2436,24 +2560,28 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2531,6 +2659,7 @@
                     
                                 self.RayCastRecieverSection2_4.material.opacity = 0
                                 self.RayCastRecieverSection2_4.material.opacity = 0
+                                self.MenuIcon_Mesh2_4.material.opacity = 1
                                 self.options.intersectsChooseStatus = 0
                                 
                             });
@@ -2542,8 +2671,9 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection2_5' || self.intersects[ i ].object.name === 'section2_WireframeMesh2_5') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection2_5.material.opacity = 0.2
-                                self.section2_WireframeMesh2_5.material.opacity = 0.2
+                                self.RayCastRecieverSection2_5.material.opacity = 0.5
+                                self.section2_WireframeMesh2_5.material.opacity = 0.5
+                                self.MenuIcon_Mesh2_5.material.opacity = 0
 
                                 VerticalSection2_5.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection2_5.style.transform = "translateX(-0%)";
@@ -2554,30 +2684,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2585,24 +2720,28 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2673,6 +2812,17 @@
                                 self.options.intersectsChooseStatus = 25    
                             } 
     
+                            document.getElementById("closeVerticalSection2_5").addEventListener('click', function() {
+    
+                                VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
+                                VerticalSection2_5.style.transform = "translateX(-150%)";
+                    
+                                self.RayCastRecieverSection2_5.material.opacity = 0
+                                self.RayCastRecieverSection2_5.material.opacity = 0
+                                self.MenuIcon_Mesh2_5.material.opacity = 1
+                                self.options.intersectsChooseStatus = 0
+                                
+                            });
     
                         }
    
@@ -2682,8 +2832,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection3_1' || self.intersects[ i ].object.name === 'section3_WireframeMesh3_1') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection3_1.material.opacity = 0.2
-                                self.section3_WireframeMesh3_1.material.opacity = 0.2
+                                self.RayCastRecieverSection3_1.material.opacity = 0.5
+                                self.section3_WireframeMesh3_1.material.opacity = 0.5
     
                                 VerticalSection3_1.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection3_1.style.transform = "translateX(-0%)";
@@ -2693,30 +2843,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2724,30 +2879,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2829,8 +2989,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection3_2' || self.intersects[ i ].object.name === 'section3_WireframeMesh3_2') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection3_2.material.opacity = 0.2
-                                self.section3_WireframeMesh3_2.material.opacity = 0.2
+                                self.RayCastRecieverSection3_2.material.opacity = 0.5
+                                self.section3_WireframeMesh3_2.material.opacity = 0.5
     
                                 VerticalSection3_2.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection3_2.style.transform = "translateX(-0%)";
@@ -2841,30 +3001,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2872,30 +3037,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -2977,8 +3147,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection3_3' || self.intersects[ i ].object.name === 'section3_WireframeMesh3_3') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection3_3.material.opacity = 0.2
-                                self.section3_WireframeMesh3_3.material.opacity = 0.2
+                                self.RayCastRecieverSection3_3.material.opacity = 0.5
+                                self.section3_WireframeMesh3_3.material.opacity = 0.5
     
                                 VerticalSection3_3.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection3_3.style.transform = "translateX(-0%)";
@@ -2988,30 +3158,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3019,30 +3194,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3125,8 +3305,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection3_4' || self.intersects[ i ].object.name === 'section3_WireframeMesh3_4') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection3_4.material.opacity = 0.2
-                                self.section3_WireframeMesh3_4.material.opacity = 0.2
+                                self.RayCastRecieverSection3_4.material.opacity = 0.5
+                                self.section3_WireframeMesh3_4.material.opacity = 0.5
     
                                 VerticalSection3_4.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection3_4.style.transform = "translateX(-0%)";
@@ -3137,30 +3317,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3168,30 +3353,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3274,8 +3464,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection3_5' || self.intersects[ i ].object.name === 'section3_WireframeMesh3_5') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection3_5.material.opacity = 0.2
-                                self.section3_WireframeMesh3_5.material.opacity = 0.2
+                                self.RayCastRecieverSection3_5.material.opacity = 0.5
+                                self.section3_WireframeMesh3_5.material.opacity = 0.5
 
                                 VerticalSection3_5.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection3_5.style.transform = "translateX(-0%)";
@@ -3286,30 +3476,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3317,30 +3512,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3424,8 +3624,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection4_1' || self.intersects[ i ].object.name === 'section4_WireframeMesh4_1') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection4_1.material.opacity = 0.2
-                                self.section4_WireframeMesh4_1.material.opacity = 0.2
+                                self.RayCastRecieverSection4_1.material.opacity = 0.5
+                                self.section4_WireframeMesh4_1.material.opacity = 0.5
     
                                 VerticalSection4_1.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection4_1.style.transform = "translateX(-0%)";
@@ -3435,30 +3635,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3466,30 +3671,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3570,8 +3780,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection4_2' || self.intersects[ i ].object.name === 'section4_WireframeMesh4_2') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection4_2.material.opacity = 0.2
-                                self.section4_WireframeMesh4_2.material.opacity = 0.2
+                                self.RayCastRecieverSection4_2.material.opacity = 0.5
+                                self.section4_WireframeMesh4_2.material.opacity = 0.5
     
                                 VerticalSection4_2.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection4_2.style.transform = "translateX(-0%)";
@@ -3582,30 +3792,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3613,30 +3828,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3718,8 +3938,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection4_3' || self.intersects[ i ].object.name === 'section4_WireframeMesh4_3') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection4_3.material.opacity = 0.2
-                                self.section4_WireframeMesh4_3.material.opacity = 0.2
+                                self.RayCastRecieverSection4_3.material.opacity = 0.5
+                                self.section4_WireframeMesh4_3.material.opacity = 0.5
     
                                 VerticalSection4_3.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection4_3.style.transform = "translateX(-0%)";
@@ -3729,30 +3949,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3760,30 +3985,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3866,8 +4096,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection4_4' || self.intersects[ i ].object.name === 'section4_WireframeMesh4_4') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection4_4.material.opacity = 0.2
-                                self.section4_WireframeMesh4_4.material.opacity = 0.2
+                                self.RayCastRecieverSection4_4.material.opacity = 0.5
+                                self.section4_WireframeMesh4_4.material.opacity = 0.5
     
                                 VerticalSection4_4.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection4_4.style.transform = "translateX(-0%)";
@@ -3878,30 +4108,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -3909,30 +4144,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -4015,8 +4255,8 @@
                             if ( self.intersects[ i ].object.name === 'RayCastRecieverSection4_5' || self.intersects[ i ].object.name === 'section4_WireframeMesh4_5') {
 
                                 MenuForMobileVersion1.style.display = 'flex';
-                                self.RayCastRecieverSection4_5.material.opacity = 0.2
-                                self.section4_WireframeMesh4_5.material.opacity = 0.2
+                                self.RayCastRecieverSection4_5.material.opacity = 0.5
+                                self.section4_WireframeMesh4_5.material.opacity = 0.5
 
                                 VerticalSection4_5.style.animation = 'animShowFromLeft 0.4s';
                                 VerticalSection4_5.style.transform = "translateX(-0%)";
@@ -4027,30 +4267,35 @@
                                     case 11:
                                         self.RayCastRecieverSection1_1.material.opacity = 0
                                         self.section1_WireframeMesh1_1.material.opacity = 0
+                                        self.MenuIcon_Mesh1_1.material.opacity = 1
                                         VerticalSection1_1.style.transform = "translateX(-150%)";
                                         VerticalSection1_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 12:
                                         self.RayCastRecieverSection1_2.material.opacity = 0
                                         self.section1_WireframeMesh1_2.material.opacity = 0
+                                        self.MenuIcon_Mesh1_2.material.opacity = 1
                                         VerticalSection1_2.style.transform = "translateX(-150%)";
                                         VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 13:
                                         self.RayCastRecieverSection1_3.material.opacity = 0
                                         self.section1_WireframeMesh1_3.material.opacity = 0
+                                        self.MenuIcon_Mesh1_3.material.opacity = 1
                                         VerticalSection1_3.style.transform = "translateX(-150%)";
                                         VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 14:
                                         self.RayCastRecieverSection1_4.material.opacity = 0
                                         self.section1_WireframeMesh1_4.material.opacity = 0
+                                        self.MenuIcon_Mesh1_4.material.opacity = 1
                                         VerticalSection1_4.style.transform = "translateX(-150%)";
                                         VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 15:
                                         self.RayCastRecieverSection1_5.material.opacity = 0
                                         self.section1_WireframeMesh1_5.material.opacity = 0
+                                        self.MenuIcon_Mesh1_5.material.opacity = 1
                                         VerticalSection1_5.style.transform = "translateX(-150%)";
                                         VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -4058,30 +4303,35 @@
                                     case 21:
                                         self.RayCastRecieverSection2_1.material.opacity = 0
                                         self.section2_WireframeMesh2_1.material.opacity = 0
+                                        self.MenuIcon_Mesh2_1.material.opacity = 1
                                         VerticalSection2_1.style.transform = "translateX(-150%)";
                                         VerticalSection2_1.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 22:
                                         self.RayCastRecieverSection2_2.material.opacity = 0
                                         self.section2_WireframeMesh2_2.material.opacity = 0
+                                        self.MenuIcon_Mesh2_2.material.opacity = 1
                                         VerticalSection2_2.style.transform = "translateX(-150%)";
                                         VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 23:
                                         self.RayCastRecieverSection2_3.material.opacity = 0
                                         self.section2_WireframeMesh2_3.material.opacity = 0
+                                        self.MenuIcon_Mesh2_3.material.opacity = 1
                                         VerticalSection2_3.style.transform = "translateX(-150%)";
                                         VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 24:
                                         self.RayCastRecieverSection2_4.material.opacity = 0
                                         self.section2_WireframeMesh2_4.material.opacity = 0
+                                        self.MenuIcon_Mesh2_4.material.opacity = 1
                                         VerticalSection2_4.style.transform = "translateX(-150%)";
                                         VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
                                     break;
                                     case 25:
                                         self.RayCastRecieverSection2_5.material.opacity = 0
                                         self.section2_WireframeMesh2_5.material.opacity = 0
+                                        self.MenuIcon_Mesh2_5.material.opacity = 1
                                         VerticalSection2_5.style.transform = "translateX(-150%)";
                                         VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
                                     break;
@@ -4293,6 +4543,8 @@
     
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                         break;
                         case 2:
@@ -4306,9 +4558,13 @@
                             self.createPillar1();
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection2_1();
                             self.createWireframeBack_section2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                         case 3:
@@ -4324,13 +4580,16 @@
                             self.createPillar1();
                             self.createPillar2();
                             self.createWireframeBack_section1_1();
-                            self.createWireframeBack_section3_1();
-    
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
+                            self.createWireframeBack_section3_1();
                             self.createRayCastRecieverSection3_1();
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
                         break;
                         case 4:
                             self.removeHorizontalDividers();
@@ -4343,7 +4602,8 @@
                             self.createPillar3();
     
                             self.createWireframeBack_section1_1();
-        
+                            self.createMenuIcon_section1_1();
+
                             self.createWireframeBack_section3_1();
                             self.createWireframeBack_section4_1();
     
@@ -4354,6 +4614,8 @@
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
                         break;
                     }
     
@@ -4437,6 +4699,8 @@
     
                            self.createWireframeBack_section1_1();
                            self.createRayCastRecieverSection1_1();
+                           self.createMenuIcon_section1_1();
+
     
                         break;
                         case 2:
@@ -4451,9 +4715,13 @@
                             self.createPillar1();
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection2_1();
                             self.createWireframeBack_section2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                         case 3:
@@ -4470,12 +4738,16 @@
                             self.createPillar2();
                             self.createWireframeBack_section1_1();
                             self.createWireframeBack_section3_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection1_1();
                             self.createRayCastRecieverSection3_1();
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                         case 4:
@@ -4489,6 +4761,8 @@
                             self.createPillar2();
                             self.createPillar3();
                             self.createWireframeBack_section1_1();
+                            self.createMenuIcon_section1_1();
+
         
                             self.createWireframeBack_section3_1();
                             self.createWireframeBack_section4_1();
@@ -4500,6 +4774,8 @@
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                     }
@@ -4585,6 +4861,8 @@
     
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                         break;
                         case 2:
@@ -4598,9 +4876,13 @@
                             self.createPillar1();
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection2_1();
                             self.createWireframeBack_section2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                         case 3:
@@ -4617,12 +4899,15 @@
                             self.createPillar2();
                             self.createWireframeBack_section1_1();
                             self.createWireframeBack_section3_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection1_1();
                             self.createRayCastRecieverSection3_1();
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
     
                         break;
                         case 4:
@@ -4635,6 +4920,8 @@
                             self.createPillar2();
                             self.createPillar3();
                             self.createWireframeBack_section1_1();
+                            self.createMenuIcon_section1_1();
+
         
                             self.createWireframeBack_section3_1();
                             self.createWireframeBack_section4_1();
@@ -4646,6 +4933,8 @@
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                     }
@@ -4951,6 +5240,8 @@
     
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
     
                 }
                 else if ( parseInt(document.getElementById("subdomainWidthCabinet_Dimensions").value, 10) > 45 && parseInt(document.getElementById("subdomainWidthCabinet_Dimensions").value, 10) <= 60 ) 
@@ -5012,7 +5303,8 @@
     
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
-    
+                            self.createMenuIcon_section1_1();
+
     
     
                         break;
@@ -5064,9 +5356,13 @@
     
                             self.createWireframeBack_section1_1();
                             self.createWireframeBack_section2_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection1_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
 
@@ -5244,6 +5540,8 @@
     
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
                             
                         break;
     
@@ -5259,8 +5557,12 @@
                             self.createPillar1();
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
                             self.createRayCastRecieverSection2_1();
                             self.createWireframeBack_section2_1();
+                            self.createMenuIcon_section2_1();
+
                         break;
                         case 3:
                             self.scene.remove(self.pillar2);
@@ -5278,9 +5580,12 @@
     
                             self.createRayCastRecieverSection1_1();
                             self.createWireframeBack_section1_1();
+                            self.createMenuIcon_section1_1();
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                             self.createWireframeBack_section3_1();
                             self.createRayCastRecieverSection3_1();
@@ -5299,7 +5604,8 @@
                             self.createPillar3();
                             self.createRayCastRecieverSection1_1();
                             self.createWireframeBack_section1_1();
-        
+                            self.createMenuIcon_section1_1();
+
                             self.createWireframeBack_section3_1();
                             self.createRayCastRecieverSection3_1();
                             
@@ -5308,6 +5614,8 @@
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
                     }
@@ -5441,6 +5749,8 @@
     
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                         break;
 
@@ -5457,11 +5767,14 @@
             
                             self.createPillar1();
                             self.createWireframeBack_section1_1();
-    
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
                             self.createRayCastRecieverSection2_1();
                             self.createWireframeBack_section2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         break;
     
@@ -6005,6 +6318,8 @@
                     self.removeHorizontalDividers();
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
                   break;
                   case 1:
                     self.removeHorizontalDividers();
@@ -6150,6 +6465,8 @@
                     self.removeHorizontalDividers();
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
                 }
                     
                 if (self.options.statusShowDimensions == 1) {
@@ -6166,6 +6483,8 @@
                     self.removeHorizontalDividers();
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
 
                     VerticalSection1_2.style.transform = "translateX(-150%)";
                     VerticalSection1_2.style.animation = 'animHideFromLeft 0.4s';
@@ -6185,6 +6504,8 @@
                     self.removeHorizontalDividers();
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
 
                     VerticalSection1_3.style.transform = "translateX(-150%)";
                     VerticalSection1_3.style.animation = 'animHideFromLeft 0.4s';
@@ -6203,6 +6524,8 @@
                     self.removeHorizontalDividers();
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
 
                     VerticalSection1_4.style.transform = "translateX(-150%)";
                     VerticalSection1_4.style.animation = 'animHideFromLeft 0.4s';
@@ -6221,6 +6544,8 @@
                     self.removeHorizontalDividers();
                     self.createWireframeBack_section1_1();
                     self.createRayCastRecieverSection1_1();
+                    self.createMenuIcon_section1_1();
+
 
                     VerticalSection1_5.style.transform = "translateX(-150%)";
                     VerticalSection1_5.style.animation = 'animHideFromLeft 0.4s';
@@ -6455,6 +6780,8 @@
                     self.removeHorizontalDividersS2();
                     self.createWireframeBack_section2_1();
                     self.createRayCastRecieverSection2_1();
+                    self.createMenuIcon_section2_1();
+
                   break;
                   case 1:
                     self.removeHorizontalDividersS2();
@@ -6596,6 +6923,8 @@
                     self.removeHorizontalDividersS2();
                     self.createWireframeBack_section2_1();
                     self.createRayCastRecieverSection2_1();
+                    self.createMenuIcon_section2_1();
+
                 }
 
                     
@@ -6613,6 +6942,8 @@
                     self.removeHorizontalDividersS2();
                     self.createWireframeBack_section2_1();
                     self.createRayCastRecieverSection2_1();
+                    self.createMenuIcon_section2_1();
+
 
                     VerticalSection2_2.style.transform = "translateX(-150%)";
                     VerticalSection2_2.style.animation = 'animHideFromLeft 0.4s';
@@ -6632,6 +6963,8 @@
                     self.removeHorizontalDividersS2();
                     self.createWireframeBack_section2_1();
                     self.createRayCastRecieverSection2_1();
+                    self.createMenuIcon_section2_1();
+
 
                     VerticalSection2_3.style.transform = "translateX(-150%)";
                     VerticalSection2_3.style.animation = 'animHideFromLeft 0.4s';
@@ -6651,6 +6984,8 @@
                     self.removeHorizontalDividersS2();
                     self.createWireframeBack_section2_1();
                     self.createRayCastRecieverSection2_1();
+                    self.createMenuIcon_section2_1();
+
 
                     VerticalSection2_4.style.transform = "translateX(-150%)";
                     VerticalSection2_4.style.animation = 'animHideFromLeft 0.4s';
@@ -6670,6 +7005,8 @@
                     self.removeHorizontalDividersS2();
                     self.createWireframeBack_section2_1();
                     self.createRayCastRecieverSection2_1();
+                    self.createMenuIcon_section2_1();
+
 
                     VerticalSection2_5.style.transform = "translateX(-150%)";
                     VerticalSection2_5.style.animation = 'animHideFromLeft 0.4s';
@@ -15975,9 +16312,13 @@
                             
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
             
                             self.createWireframeBack_section1_2();
                             self.createRayCastRecieverSection1_2(); 
+                            self.createMenuIcon_section1_2();
+
 
                             document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16003,9 +16344,13 @@
                         
                         self.createWireframeBack_section1_1();
                         self.createRayCastRecieverSection1_1();
+                        self.createMenuIcon_section1_1();
+
         
                         self.createWireframeBack_section1_2();
                         self.createRayCastRecieverSection1_2(); 
+                        self.createMenuIcon_section1_2();
+
 
                         document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16086,9 +16431,13 @@
                             
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
 
                             self.createWireframeBack_section1_2();
                             self.createRayCastRecieverSection1_2(); 
+                            self.createMenuIcon_section1_2();
+
 
                             document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -16113,9 +16462,13 @@
                         
                         self.createWireframeBack_section1_1();
                         self.createRayCastRecieverSection1_1();
+                        self.createMenuIcon_section1_1();
+
 
                         self.createWireframeBack_section1_2();
                         self.createRayCastRecieverSection1_2(); 
+                        self.createMenuIcon_section1_2();
+
 
                         document.getElementById("Height_HorizontalPartition_S1_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -16194,9 +16547,12 @@
                             
                             self.createWireframeBack_section1_3();
                             self.createRayCastRecieverSection1_3();
+                            self.createMenuIcon_section1_3();
             
                             self.createWireframeBack_section1_2();
                             self.createRayCastRecieverSection1_2(); 
+                            self.createMenuIcon_section1_2();
+
 
                             document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16220,9 +16576,12 @@
                         
                         self.createWireframeBack_section1_3();
                         self.createRayCastRecieverSection1_3();
-        
+                        self.createMenuIcon_section1_3();
+
                         self.createWireframeBack_section1_2();
                         self.createRayCastRecieverSection1_2(); 
+                        self.createMenuIcon_section1_2();
+
 
                         document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16302,9 +16661,12 @@
                             
                             self.createWireframeBack_section1_3();
                             self.createRayCastRecieverSection1_3();
+                            self.createMenuIcon_section1_3();
 
                             self.createWireframeBack_section1_2();
                             self.createRayCastRecieverSection1_2(); 
+                            self.createMenuIcon_section1_2();
+
 
                             document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
                             
@@ -16327,9 +16689,12 @@
                         
                         self.createWireframeBack_section1_3();
                         self.createRayCastRecieverSection1_3();
+                        self.createMenuIcon_section1_3();
 
                         self.createWireframeBack_section1_2();
                         self.createRayCastRecieverSection1_2(); 
+                        self.createMenuIcon_section1_2();
+
 
                         document.getElementById("Height_HorizontalPartition_S1_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_2').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
                         
@@ -16406,10 +16771,12 @@
                             
                             self.createWireframeBack_section1_4();
                             self.createRayCastRecieverSection1_4();
+                            self.createMenuIcon_section1_4();
     
                             self.createWireframeBack_section1_3();
                             self.createRayCastRecieverSection1_3(); 
-    
+                            self.createMenuIcon_section1_3();
+
                             document.getElementById("Height_HorizontalPartition_S1_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
     
                             document.getElementById("Height_HorizontalPartition_S1_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
@@ -16433,10 +16800,12 @@
                         
                         self.createWireframeBack_section1_4();
                         self.createRayCastRecieverSection1_4();
+                        self.createMenuIcon_section1_4();
     
                         self.createWireframeBack_section1_3();
                         self.createRayCastRecieverSection1_3(); 
-    
+                        self.createMenuIcon_section1_3();
+
                         document.getElementById("Height_HorizontalPartition_S1_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
     
                         document.getElementById("Height_HorizontalPartition_S1_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
@@ -16512,9 +16881,11 @@
                             
                             self.createWireframeBack_section1_3();
                             self.createRayCastRecieverSection1_3();
-    
+                            self.createMenuIcon_section1_3();
+
                             self.createWireframeBack_section1_4();
-                            self.createRayCastRecieverSection1_4(); 
+                            self.createRayCastRecieverSection1_4();
+                            self.createMenuIcon_section1_4(); 
     
                             document.getElementById("Height_HorizontalPartition_S1_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
     
@@ -16540,9 +16911,12 @@
                         
                         self.createWireframeBack_section1_3();
                         self.createRayCastRecieverSection1_3();
-    
+                        self.createMenuIcon_section1_3();
+
                         self.createWireframeBack_section1_4();
                         self.createRayCastRecieverSection1_4();
+                        self.createMenuIcon_section1_4();
+
                         
                         document.getElementById("Height_HorizontalPartition_S1_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_3').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
     
@@ -16596,9 +16970,11 @@
                             
                             self.createWireframeBack_section1_4();
                             self.createRayCastRecieverSection1_4();
+                            self.createMenuIcon_section1_4();
 
                             self.createWireframeBack_section1_5();
                             self.createRayCastRecieverSection1_5(); 
+                            self.createMenuIcon_section1_5();
 
                             document.getElementById("Height_HorizontalPartition_S1_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16623,9 +16999,12 @@
                         
                         self.createWireframeBack_section1_4();
                         self.createRayCastRecieverSection1_4();
+                        self.createMenuIcon_section1_4();
 
                         self.createWireframeBack_section1_5();
                         self.createRayCastRecieverSection1_5(); 
+                        self.createMenuIcon_section1_5();
+
 
                         document.getElementById("Height_HorizontalPartition_S1_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16680,9 +17059,12 @@
                             
                             self.createWireframeBack_section1_5();
                             self.createRayCastRecieverSection1_5();
+                            self.createMenuIcon_section1_5();
+
 
                             self.createWireframeBack_section1_4();
                             self.createRayCastRecieverSection1_4(); 
+                            self.createMenuIcon_section1_4();
 
                             document.getElementById("Height_HorizontalPartition_S1_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -16708,10 +17090,12 @@
                         
                         self.createWireframeBack_section1_5();
                         self.createRayCastRecieverSection1_5();
+                        self.createMenuIcon_section1_5();
 
                         self.createWireframeBack_section1_4();
                         self.createRayCastRecieverSection1_4();
-                        
+                        self.createMenuIcon_section1_4();
+
                         document.getElementById("Height_HorizontalPartition_S1_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_4').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
                         document.getElementById("Height_HorizontalPartition_S1_5").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S1_5').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
@@ -16793,9 +17177,12 @@
                             
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
             
                             self.createWireframeBack_section2_2();
                             self.createRayCastRecieverSection2_2(); 
+                            self.createMenuIcon_section2_2();
 
                             document.getElementById("Height_HorizontalPartition_2_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16821,9 +17208,12 @@
                         
                         self.createWireframeBack_section2_1();
                         self.createRayCastRecieverSection2_1();
+                        self.createMenuIcon_section2_1();
+
         
                         self.createWireframeBack_section2_2();
                         self.createRayCastRecieverSection2_2(); 
+                        self.createMenuIcon_section2_2();
 
                         document.getElementById("Height_HorizontalPartition_S2_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -16902,9 +17292,12 @@
                             
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
 
                             self.createWireframeBack_section2_2();
                             self.createRayCastRecieverSection2_2(); 
+                            self.createMenuIcon_section2_2();
 
                             document.getElementById("Height_HorizontalPartition_S2_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -16928,9 +17321,12 @@
                         
                         self.createWireframeBack_section2_1();
                         self.createRayCastRecieverSection2_1();
+                        self.createMenuIcon_section2_1();
+
 
                         self.createWireframeBack_section2_2();
                         self.createRayCastRecieverSection2_2(); 
+                        self.createMenuIcon_section2_2();
 
                         document.getElementById("Height_HorizontalPartition_S2_1").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_1').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -17009,9 +17405,11 @@
                             
                             self.createWireframeBack_section2_3();
                             self.createRayCastRecieverSection2_3();
+                            self.createMenuIcon_section2_3();
             
                             self.createWireframeBack_section2_2();
                             self.createRayCastRecieverSection2_2(); 
+                            self.createMenuIcon_section2_2();
 
                             document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -17035,9 +17433,11 @@
                         
                         self.createWireframeBack_section2_3();
                         self.createRayCastRecieverSection2_3();
+                        self.createMenuIcon_section2_3();
         
                         self.createWireframeBack_section2_2();
                         self.createRayCastRecieverSection2_2(); 
+                        self.createMenuIcon_section2_2();
 
                         document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -17116,9 +17516,11 @@
                             
                             self.createWireframeBack_section2_3();
                             self.createRayCastRecieverSection2_3();
+                            self.createMenuIcon_section2_3();
 
                             self.createWireframeBack_section2_2();
                             self.createRayCastRecieverSection2_2(); 
+                            self.createMenuIcon_section2_2();
 
                             document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -17141,9 +17543,11 @@
                         
                         self.createWireframeBack_section2_3();
                         self.createRayCastRecieverSection2_3();
+                        self.createMenuIcon_section2_3();
 
                         self.createWireframeBack_section2_2();
                         self.createRayCastRecieverSection2_2(); 
+                        self.createMenuIcon_section2_2();
 
                         document.getElementById("Height_HorizontalPartition_S2_2").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_2').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -17197,9 +17601,11 @@
                             
                             self.createWireframeBack_section2_4();
                             self.createRayCastRecieverSection2_4();
+                            self.createMenuIcon_section2_4();
     
                             self.createWireframeBack_section2_3();
                             self.createRayCastRecieverSection2_3(); 
+                            self.createMenuIcon_section2_3();
     
                             document.getElementById("Height_HorizontalPartition_S2_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
     
@@ -17223,9 +17629,11 @@
                         
                         self.createWireframeBack_section2_4();
                         self.createRayCastRecieverSection2_4();
+                        self.createMenuIcon_section2_4();
     
                         self.createWireframeBack_section2_3();
                         self.createRayCastRecieverSection2_3(); 
+                        self.createMenuIcon_section2_3();
     
                         document.getElementById("Height_HorizontalPartition_S2_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
     
@@ -17279,9 +17687,11 @@
                             
                             self.createWireframeBack_section2_3();
                             self.createRayCastRecieverSection2_3();
-    
+                            self.createMenuIcon_section2_3();
+
                             self.createWireframeBack_section2_4();
                             self.createRayCastRecieverSection2_4(); 
+                            self.createMenuIcon_section2_4();
     
                             document.getElementById("Height_HorizontalPartition_S2_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
     
@@ -17307,9 +17717,12 @@
                         
                         self.createWireframeBack_section2_3();
                         self.createRayCastRecieverSection2_3();
-    
+                        self.createMenuIcon_section2_3();
+
                         self.createWireframeBack_section2_4();
                         self.createRayCastRecieverSection2_4(); 
+                        self.createMenuIcon_section2_4();
+
     
                         document.getElementById("Height_HorizontalPartition_S2_3").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_3').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
     
@@ -17362,9 +17775,11 @@
                             
                             self.createWireframeBack_section2_4();
                             self.createRayCastRecieverSection2_4();
+                            self.createMenuIcon_section2_4();
 
                             self.createWireframeBack_section2_5();
                             self.createRayCastRecieverSection2_5(); 
+                            self.createMenuIcon_section2_5();
 
                             document.getElementById("Height_HorizontalPartition_S2_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -17389,9 +17804,11 @@
                         
                         self.createWireframeBack_section2_4();
                         self.createRayCastRecieverSection2_4();
+                        self.createMenuIcon_section2_4();
 
                         self.createWireframeBack_section2_5();
                         self.createRayCastRecieverSection2_5(); 
+                        self.createMenuIcon_section2_5();
 
                         document.getElementById("Height_HorizontalPartition_S2_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) + 1) +"cm";
 
@@ -17446,9 +17863,12 @@
                             
                             self.createWireframeBack_section2_5();
                             self.createRayCastRecieverSection2_5();
+                            self.createMenuIcon_section2_5();
 
                             self.createWireframeBack_section2_4();
                             self.createRayCastRecieverSection2_4(); 
+                            self.createMenuIcon_section2_4();
+
 
                             document.getElementById("Height_HorizontalPartition_S2_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -17474,9 +17894,12 @@
                         
                         self.createWireframeBack_section2_5();
                         self.createRayCastRecieverSection2_5();
+                        self.createMenuIcon_section2_5();
 
                         self.createWireframeBack_section2_4();
                         self.createRayCastRecieverSection2_4();
+                        self.createMenuIcon_section2_4();
+
                         
                         document.getElementById("Height_HorizontalPartition_S2_4").innerHTML = Math.floor(parseFloat(document.getElementById('Height_HorizontalPartition_S2_4').textContent.match(/\d+(\.\d+)?/)[0]) - 1) +"cm";
 
@@ -19112,11 +19535,15 @@
     
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
+                            self.createMenuIcon_section1_1();
+
     
     
                             if (self.options.amountOfSections >= 2) {
                                 self.createWireframeBack_section2_1();
                                 self.createRayCastRecieverSection2_1();
+                                self.createMenuIcon_section2_1();
+
                             }
     
                             self.options.pillar1Position = self.scene.getObjectByName( "pillar1", true ).position.x;
@@ -19147,11 +19574,14 @@
     
                         self.createWireframeBack_section1_1();
                         self.createRayCastRecieverSection1_1();
-    
+                        self.createMenuIcon_section1_1();
+
     
                         if (self.options.amountOfSections >= 2) {
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
                         }
     
                         self.options.pillar1Position = self.scene.getObjectByName( "pillar1", true ).position.x;
@@ -19224,13 +19654,16 @@
                             //
                             self.createWireframeBack_section1_1();
                             self.createRayCastRecieverSection1_1();
-    
+                            self.createMenuIcon_section1_1();
+
                             
                             if (self.options.amountOfSections >= 2) {
                                 self.removeHorizontalDividersS2();
     
                                 self.createWireframeBack_section2_1();
                                 self.createRayCastRecieverSection2_1();
+                                self.createMenuIcon_section2_1();
+
     
                             }
     
@@ -19261,13 +19694,16 @@
                         //
                         self.createWireframeBack_section1_1();
                         self.createRayCastRecieverSection1_1();
-    
+                        self.createMenuIcon_section1_1();
+
                         
                         if (self.options.amountOfSections >= 2) {
                             self.removeHorizontalDividersS2();
     
                             self.createWireframeBack_section2_1();
                             self.createRayCastRecieverSection2_1();
+                            self.createMenuIcon_section2_1();
+
     
                         }
     
@@ -19335,6 +19771,8 @@
     
                             self.createRayCastRecieverSection2_1();
                             self.createRayCastRecieverSection3_1();
+                            self.createMenuIcon_section2_1();
+
     
                             self.options.pillar2Position = self.scene.getObjectByName( "pillar2", true ).position.x;
                             self.options.pillar2ChangedOrNot = true;
@@ -19363,6 +19801,8 @@
     
                         self.createRayCastRecieverSection2_1();
                         self.createRayCastRecieverSection3_1();
+                        self.createMenuIcon_section2_1();
+
     
                         self.options.pillar2Position = self.scene.getObjectByName( "pillar2", true ).position.x;
                         self.options.pillar2ChangedOrNot = true;
@@ -19432,6 +19872,8 @@
     
                             self.createRayCastRecieverSection2_1();
                             self.createRayCastRecieverSection3_1();
+                            self.createMenuIcon_section2_1();
+
     
     
                             self.options.pillar2Position = self.scene.getObjectByName( "pillar2", true ).position.x;
@@ -19457,12 +19899,13 @@
                         self.removeHorizontalDividersS2();
                         self.removeHorizontalDividersS3();
     
-                        //self.createWireframeBack_section1_1();
                         self.createWireframeBack_section2_1();
                         self.createWireframeBack_section3_1();
     
                         self.createRayCastRecieverSection2_1();
                         self.createRayCastRecieverSection3_1();
+                        self.createMenuIcon_section2_1();
+
     
     
                         self.options.pillar2Position = self.scene.getObjectByName( "pillar2", true ).position.x;
@@ -19834,9 +20277,6 @@
                     document.getElementById("subdomainHeightCabinet_Dimensions").value = parseFloat(+params.get('h'));
                     document.getElementById("sliderHeight").value = parseFloat(+params.get('h'));
                     changeHeight();
-                    console.log('height first');
-                    console.log(document.getElementById("typeFeet").value);
-                    console.log(self.options.pillar.height);
                     
                 }
                 if (params.has('d')) {
@@ -19844,14 +20284,31 @@
                     document.getElementById("sliderDepth").value = parseFloat(+params.get('d'));
                     changeDepth();
                 }
+                /* 🍏 */
                 if (params.has('f')) {
-                    let value = params.get('f');
-                    document.getElementById("typeFeet").value = value;
-                    changeLegs();                    
-                    console.log('then legs');
-                    console.log(document.getElementById("typeFeet").value);
-                    console.log(self.options.pillar.height);
+                    self.options.statusLegs = parseFloat(+params.get('f'));
 
+                    switch (self.options.statusLegs) {
+    
+                        case 0: 
+                            document.getElementById("typeFeet").value = "Slider";
+                            self.options.statusLegs = 0;
+                        break;
+            
+                        case 1: 
+                            document.getElementById("typeFeet").value = "Plinth";
+                            self.options.statusLegs = 0;
+                        break;
+            
+                        case 2: 
+                            document.getElementById("typeFeet").value = "MetalLegs";
+                            self.options.statusLegs = 0;
+                        break;
+                        
+                    }
+
+                    changeLegs();
+                                 
                 }
 
                 //verticals
@@ -19877,21 +20334,27 @@
                 if (params.has('cC')) {
                     document.getElementById("choosenColor_Carcass").innerHTML = params.get('cC');
                 } 
+                /* 🍏 */
                 if (params.has('iC')) {
                     document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = params.get('iC');
+                    document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = params.get('iC');
                 } 
                 if (params.has('ihC')) {
                     document.getElementById("choosenColor_CarcassIcon").innerHTML = params.get('ihC');
+                    document.getElementById("choosenColor_CarcassIconBig").innerHTML = params.get('ihC');
                 } 
 
                 if (params.has('cF')) {
                     document.getElementById("choosenColor_Door").innerHTML = params.get('cF');
                 } 
+                /* 🍏 */
                 if (params.has('iF')) {
                     document.getElementById("choosenColor_DoorIcon").style.backgroundColor = params.get('iF');
+                    document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = params.get('iF');
                 } 
                 if (params.has('ihF')) {
                     document.getElementById("choosenColor_DoorIcon").innerHTML = params.get('ihF');
+                    document.getElementById("choosenColor_DoorIconBig").innerHTML = params.get('ihF');
                 } 
 
     
@@ -21345,7 +21808,8 @@
                 params.set('h', parseInt(document.getElementById("subdomainHeightCabinet_Dimensions").value, 10));
                 params.set('d', parseInt(document.getElementById("subdomainDepth_Cabinet_Dimensionsz").value, 10));
     
-                params.set('f', document.getElementById("typeFeet").value);
+                /* 🍏 */
+                params.set('f', self.options.statusLegs);
                 
                 //verticals 
                 params.set('v', parseInt(document.getElementById("subdomainNumberElementCorpus_Cabinet_Dimensionsz").value, 10));
@@ -22234,7 +22698,12 @@
             
             // Attach the confirmation message to the beforeunload event
             window.addEventListener('beforeunload', confirmLeave);
-
+            window.addEventListener('resize', function() {
+                self.engine.setSize(window.innerWidth, window.innerHeight, true);
+                self.camera.aspect = window.innerWidth / window.innerHeight;
+                self.camera.updateProjectionMatrix();
+            });
+            
             function hideLoader() {
                 const loader = document.getElementById('loader');
                 loader.style.display = 'none';
@@ -22254,7 +22723,7 @@
                     hideLoader()
                 }
 
-                Info.style.animation = 'beat .50s infinite alternate, changeColor 1s infinite alternate';
+                /* 🍏 */
                 showHintPanel("Welcome to Sallux Configurator!");
 
             }
@@ -25137,6 +25606,9 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Antracite Grey";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#282d33";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        /* 🍏 */
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#282d33";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 0;
 
@@ -25155,7 +25627,9 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Cashmere";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#c1bbab";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
-                        
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#c1bbab";
+                        document.getElementById("choosenColor_DoorIcoBig").innerHTML = '';
+
                         self.options.doors.texture = 1;
 
                         if (child.name.includes('door')) {
@@ -25171,6 +25645,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Royal White";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#fbfaf8";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#fbfaf8";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
     
                         self.options.doors.texture = 2;
 
@@ -25187,7 +25663,9 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Cuba Libre";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#b69c8d";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
-    
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#b69c8d";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
+
                         self.options.doors.texture = 3;
 
                         if (child.name.includes('door')) {
@@ -25203,6 +25681,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Sage";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#B6C1B0";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#B6C1B0";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 4;
 
@@ -25219,6 +25699,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Zinc Yellow";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#F9E900";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#F9E900";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 5;
                         if (child.name.includes('door')) {
@@ -25234,6 +25716,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Royal Blue";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#332D37";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#332D37";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
     
                         self.options.doors.texture = 6;
                         if (child.name.includes('door')) {
@@ -25248,6 +25732,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Vulcano Black";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#41403E";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#41403E";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 7;
                         if (child.name.includes('door')) {
@@ -25263,6 +25749,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Mimosa";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#EBCDD5";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#EBCDD5";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 8;
                         if (child.name.includes('door')) {
@@ -25278,6 +25766,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Light Grey";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#CECDC9";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#CECDC9";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 9; 
                         if (child.name.includes('door')) {
@@ -25292,7 +25782,9 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Lagoon";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#AAC0BE";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
-    
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#AAC0BE";
+                        document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+
                         self.options.doors.texture = 10;
 
                         if (child.name.includes('door')) {
@@ -25307,6 +25799,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Fjord";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#5D686A";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#5D686A";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 11;
                         if (child.name.includes('door')) {
@@ -25321,6 +25815,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Labrador";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#36483A";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#36483A";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 12;
                         
@@ -25336,6 +25832,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Firenze Ovatta";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#ea835f";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#ea835f";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 13;
                         if (child.name.includes('door')) {
@@ -25350,7 +25848,8 @@
 
                         document.getElementById("choosenColor_Door").innerHTML = "Bianco Vanguard";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/BiancoVanguard.jpg" style="width:150%; height:150%;">';
-                        
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/BiancoVanguard.jpg" style="width:150%; height:150%;">';
+
                         self.options.doors.texture = 16;
 
                         if (child.name.includes('door')) {
@@ -25382,6 +25881,7 @@
 
                         document.getElementById("choosenColor_Door").innerHTML = "Cemento Artstone";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/CementoArtstone.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/CementoArtstone.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 19;
                             if (child.name.includes('door')) {
@@ -25397,6 +25897,7 @@
 
                         document.getElementById("choosenColor_Door").innerHTML = "Mattone Artstone";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/MattoneArtstone.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/MattoneArtstone.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 22;
                             if (child.name.includes('door')) {
@@ -25412,6 +25913,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Red Ovatta";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#95252F";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#95252F";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 25;
                             if (child.name.includes('door')) {
@@ -25427,6 +25930,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Rome Ovatta";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#EBB635";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#EBB635";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 28;
                             if (child.name.includes('door')) {
@@ -25443,6 +25948,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Lipari Ovatta";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#3A373B";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#3A373B";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 31;
                             if (child.name.includes('door')) {
@@ -25458,6 +25965,8 @@
                         document.getElementById("choosenColor_Door").innerHTML = "Cortina Ovatta";
                         document.getElementById("choosenColor_DoorIcon").style.backgroundColor = "#005173";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '';
+                        document.getElementById("choosenColor_DoorIconBig").style.backgroundColor = "#005173";
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '';
 
                         self.options.doors.texture = 34;
                             if (child.name.includes('door')) {
@@ -25472,6 +25981,7 @@
                     if (child instanceof THREE.Mesh) {
                         document.getElementById("choosenColor_Door").innerHTML = "Milano Oak";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/MilanoOak.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/MilanoOak.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 37;
                             if (child.name.includes('door')) {
@@ -25503,6 +26013,7 @@
 
                         document.getElementById("choosenColor_Door").innerHTML = "Ambassador Noce";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/AmbassadorNoce.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/AmbassadorNoce.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 40;
                             if (child.name.includes('door')) {
@@ -25534,6 +26045,7 @@
 
                         document.getElementById("choosenColor_Door").innerHTML = "Chiaro Vanguard ";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/ChiaroVanguard.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/ChiaroVanguard.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 43;
                             if (child.name.includes('door')) {
@@ -25564,6 +26076,7 @@
                     if (child instanceof THREE.Mesh) {
                         document.getElementById("choosenColor_Door").innerHTML = "Uva Vanguard";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/UvaVanguard.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/UvaVanguard.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 46;
                             if (child.name.includes('door')) {
@@ -25594,6 +26107,7 @@
                     if (child instanceof THREE.Mesh) {
                         document.getElementById("choosenColor_Door").innerHTML = "Sailsbury Elm";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/SailsburyElm.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/SailsburyElm.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 49;
                             if (child.name.includes('door')) {
@@ -25624,6 +26138,7 @@
                     if (child instanceof THREE.Mesh) {
                         document.getElementById("choosenColor_Door").innerHTML = "Nero Sherwood";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/NeroSherwood.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/NeroSherwood.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 52;
                             if (child.name.includes('door')) {
@@ -25654,6 +26169,7 @@
                     if (child instanceof THREE.Mesh) {
                         document.getElementById("choosenColor_Door").innerHTML = "Bianco Sherwood";
                         document.getElementById("choosenColor_DoorIcon").innerHTML = '<img src="icons/BiancoSherwood.jpg" style="width:150%; height:150%;">';
+                        document.getElementById("choosenColor_DoorIconBig").innerHTML = '<img src="icons/BiancoSherwood.jpg" style="width:150%; height:150%;">';
 
                         self.options.doors.texture = 55;
                             if (child.name.includes('door')) {
@@ -25687,8 +26203,12 @@
             document.getElementById("AntraciteGrey").addEventListener('click', function() {
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Antracite Grey";
+                
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#282d33";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                /* 🍏 */
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#282d33";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 0;
                 self.options.shelf.texture = 0;
@@ -25726,6 +26246,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Cashmere";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#c1bbab";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#c1bbab";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 1;
                 self.options.shelf.texture = 1;
@@ -25761,6 +26283,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Royal White";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#fbfaf8";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#fbfaf8";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 2;
                 self.options.shelf.texture = 2;
@@ -25797,6 +26321,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Cuba Libre";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#b69c8d";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#b69c8d";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 3;
                 self.options.shelf.texture = 3;
@@ -25832,6 +26358,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Sage";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#B6C1B0";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#B6C1B0";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 4;
                 self.options.shelf.texture = 4;
@@ -25869,6 +26397,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Zinc Yellow";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#F9E900";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#F9E900";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 5;
                 self.options.shelf.texture = 5;
@@ -25905,6 +26435,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Royal Blue";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#332D37";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#332D37";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 6;
                 self.options.shelf.texture = 6;
@@ -25940,6 +26472,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Vulcano Black";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#41403E";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#41403E";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 7;
                 self.options.shelf.texture = 7;
@@ -25976,6 +26510,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Mimosa";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#EBCDD5";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#EBCDD5";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 8;
                 self.options.shelf.texture = 8;
@@ -26012,6 +26548,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Light Grey";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#CECDC9";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#CECDC9";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 9;
                 self.options.shelf.texture = 9;
@@ -26048,6 +26586,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Lagoon";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#AAC0BE";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#AAC0BE";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 10;
                 self.options.shelf.texture = 10;
@@ -26084,6 +26624,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Fjord";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#5D686A";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#5D686A";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 11;
                 self.options.shelf.texture = 11;
@@ -26120,6 +26662,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Labrador";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#36483A";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#36483A";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 12;
                 self.options.shelf.texture = 12;
@@ -26155,6 +26699,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Firenze Ovatta";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#ea835f";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#ea835f";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 13;
                 self.options.shelf.texture = 14;
@@ -26200,6 +26746,7 @@
             document.getElementById("BiancoVanguard").addEventListener('click', function() {
                 document.getElementById("choosenColor_Carcass").innerHTML = "Bianco Vanguard";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/BiancoVanguard.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/BiancoVanguard.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 16;
                 self.options.shelf.texture = 17;
@@ -26247,6 +26794,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Cemento Artstone";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/CementoArtstone.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/CementoArtstone.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 19;
                 self.options.shelf.texture = 20;
@@ -26293,6 +26841,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Mattone Artstone";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/MattoneArtstone.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/MattoneArtstone.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 22;
                 self.options.shelf.texture = 23;
@@ -26340,6 +26889,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Red Ovatta";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#95252F";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#95252F";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 25;
                 self.options.shelf.texture = 26;
@@ -26387,6 +26938,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Rome Ovatta";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#EBB635";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#EBB635";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 28;
                 self.options.shelf.texture = 29;
@@ -26433,6 +26986,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Lipari Ovatta";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#3A373B";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#3A373B";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 31;
                 self.options.shelf.texture = 32;
@@ -26480,6 +27035,8 @@
                 document.getElementById("choosenColor_Carcass").innerHTML = "Cortina Ovatta";
                 document.getElementById("choosenColor_CarcassIcon").style.backgroundColor = "#005173";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '';
+                document.getElementById("choosenColor_CarcassIconBig").style.backgroundColor = "#005173";
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '';
 
                 self.options.pillar.texture = 34;
                 self.options.shelf.texture = 35;
@@ -26526,6 +27083,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Milano Oak";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/MilanoOak.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/MilanoOak.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 37;
                 self.options.shelf.texture = 38;
@@ -26572,6 +27130,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Ambassador Noce";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/AmbassadorNoce.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/AmbassadorNoce.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 40;
                 self.options.shelf.texture = 41;
@@ -26618,6 +27177,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Chiaro Vanguard";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/ChiaroVanguard.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/ChiaroVanguard.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 43;
                 self.options.shelf.texture = 44;
@@ -26664,6 +27224,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Uva Vanguard";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/UvaVanguard.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/UvaVanguard.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 46;
                 self.options.shelf.texture = 47;
@@ -26709,6 +27270,7 @@
             document.getElementById("SailsburyElm").addEventListener('click', function() {
                 document.getElementById("choosenColor_Carcass").innerHTML = "Sailsbury Elm";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/SailsburyElm.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/SailsburyElm.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 49;
                 self.options.shelf.texture = 50;
@@ -26754,6 +27316,7 @@
             document.getElementById("NeroSherwood").addEventListener('click', function() {
                 document.getElementById("choosenColor_Carcass").innerHTML = "Nero Sherwood";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/NeroSherwood.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/NeroSherwood.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 52;
                 self.options.shelf.texture = 53;
@@ -26800,6 +27363,7 @@
 
                 document.getElementById("choosenColor_Carcass").innerHTML = "Bianco Sherwood";
                 document.getElementById("choosenColor_CarcassIcon").innerHTML = '<img src="icons/BiancoSherwood.jpg" style="width:150%; height:150%;">';
+                document.getElementById("choosenColor_CarcassIconBig").innerHTML = '<img src="icons/BiancoSherwood.jpg" style="width:150%; height:150%;">';
 
                 self.options.pillar.texture = 55;
                 self.options.shelf.texture = 56;
@@ -26896,13 +27460,14 @@
             this.createTopPlane();
     
     
-            self.createWireframeBack_section1_1();
-            self.createRayCastRecieverSection1_1();
+            this.createWireframeBack_section1_1();
+            this.createRayCastRecieverSection1_1();
+            this.createMenuIcon_section1_1();
 
     
             this.createBackPlate();
 
-    
+            this.createDimensions();
             this.calculateOutput();
             this.run();
     
@@ -28067,7 +28632,8 @@
     
     
     
-    
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
             //doors
             if (self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) * 1.2  || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) < 26 || self.options.section1Length - 3.6 + 1.8 * ((self.options.amountOfSections-1) / self.options.amountOfSections) > 60 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) < 27 || parseFloat(document.getElementById('Height_HorizontalPartition_S1_1').textContent.match(/\d+(\.\d+)?/)[0]) > 71 ) {
                 self.options.LeftDoor_S1_status = false;
@@ -28078,17 +28644,29 @@
             }
             else{
                 self.options.LeftDoor_S1_status = true;
-                document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Open.jpg";
+                } else {
+                    document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                }
     
                 self.options.RightDoor_S1_status = true;
-                document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoorRight_S1").src="icons/DoorRight_Open.jpg";
+                } else {
+                    document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                }
             }
             if (self.options.LeftDoor_S1_status == true) {
                 document.getElementById("DoorLeft_S1").onmouseover = function() { 
                     document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Open.jpg";
                 };
                 document.getElementById("DoorLeft_S1").onmouseout = function() {
-                    document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Open.jpg";
+                    } else {
+                        document.getElementById("DoorLeft_S1").src="icons/DoorLeft_Close.jpg";
+                    }
                 };
             } else {
                 document.getElementById("DoorLeft_S1").onmouseover = function() { 
@@ -28103,7 +28681,11 @@
                     document.getElementById("DoorRight_S1").src="icons/DoorRight_Open.jpg";
                 };
                 document.getElementById("DoorRight_S1").onmouseout = function() {
-                    document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoorRight_S1").src="icons/DoorRight_Open.jpg";
+                    } else {
+                        document.getElementById("DoorRight_S1").src="icons/DoorRight_Close.jpg";
+                    }
                 };
             } else {
                 document.getElementById("DoorRight_S1").onmouseover = function() { 
@@ -28120,14 +28702,22 @@
             }
             else{
                 self.options.DoubleDoor_S1_status = true;
-                document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Open.jpg";
+                } else {
+                    document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Close.jpg";
+                }
             }
             if (self.options.DoubleDoor_S1_status == true) {
                 document.getElementById("DoubleDoor_S1").onmouseover = function() { 
                     document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Open.jpg";
                 };
                 document.getElementById("DoubleDoor_S1").onmouseout = function() {
-                    document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Open.jpg";
+                    } else {
+                        document.getElementById("DoubleDoor_S1").src="icons/DoubleDoor_Close.jpg";
+                    }
                 };
             } else {
                 document.getElementById("DoubleDoor_S1").onmouseover = function() { 
@@ -28144,7 +28734,11 @@
             }
             else{
                 self.options.Drawer_S1_status = true;
-                document.getElementById("Drawer_S1").src="icons/Drawer_Close.jpg";  
+                if (isMobile) {
+                    document.getElementById("Drawer_S1").src="icons/Drawer_Open.jpg";
+                } else {
+                    document.getElementById("Drawer_S1").src="icons/Drawer_Close.jpg";  
+                } 
             }
 
             if (self.options.Drawer_S1_status == true) {
@@ -28152,7 +28746,11 @@
                     document.getElementById("Drawer_S1").src="icons/Drawer_Open.jpg";
                 };
                 document.getElementById("Drawer_S1").onmouseout = function() {
-                    document.getElementById("Drawer_S1").src="icons/Drawer_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("Drawer_S1").src="icons/Drawer_Open.jpg";
+                    } else {
+                        document.getElementById("Drawer_S1").src="icons/Drawer_Close.jpg";  
+                    }
                 };
             } else {
                 document.getElementById("Drawer_S1").onmouseover = function() { 
@@ -28173,10 +28771,18 @@
             }
             else{
                 self.options.LeftDoor_S1_2_status = true;
-                document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Open.jpg";
+                } else {
+                    document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Close.jpg";
+                }
     
                 self.options.RightDoor_S1_2_status = true;
-                document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Close.jpg";
+                if (isMobile) {
+                    document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Open.jpg";
+                } else {
+                    document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Close.jpg";
+                }
             }
 
             if (self.options.LeftDoor_S1_2_status == true) {
@@ -28184,7 +28790,11 @@
                     document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Open.jpg";
                 };
                 document.getElementById("DoorLeft_S1_2").onmouseout = function() {
-                    document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Open.jpg";
+                    } else {
+                        document.getElementById("DoorLeft_S1_2").src="icons/DoorLeft_Close.jpg";
+                    }
                 };
             } else {
                 document.getElementById("DoorLeft_S1_2").onmouseover = function() { 
@@ -28199,7 +28809,11 @@
                     document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Open.jpg";
                 };
                 document.getElementById("DoorRight_S1_2").onmouseout = function() {
-                    document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Close.jpg";
+                    if (isMobile) {
+                        document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Open.jpg";
+                    } else {
+                        document.getElementById("DoorRight_S1_2").src="icons/DoorRight_Close.jpg";
+                    }
                 };
             } else {
                 document.getElementById("DoorRight_S1_2").onmouseover = function() { 
@@ -29232,8 +29846,7 @@
     
                 window.requestAnimationFrame(render);
     
-                self.engine.render(self.scene, self.camera);
-                
+                self.engine.render(self.scene, self.camera);  
     
             }
             render();
@@ -29514,6 +30127,8 @@
 
                         this.createWireframeBack_section1_1();
                         this.createRayCastRecieverSection1_1();
+                        this.createMenuIcon_section1_1();
+
 
 
                         this.updateDoorButtons();
@@ -29621,9 +30236,12 @@
         
                             this.createWireframeBack_section1_1();
                             this.createRayCastRecieverSection1_1();
+                            this.createMenuIcon_section1_1();
         
                             this.createWireframeBack_section2_1();
                             this.createRayCastRecieverSection2_1();
+                            this.createMenuIcon_section2_1();
+
         
         
                             this.updateDoorButtons();
@@ -29934,6 +30552,7 @@
             
             if (this.section1_WireframeMesh1_1) {
                 this.scene.remove(this.section1_WireframeMesh1_1);
+                this.scene.remove(this.MenuIcon_Mesh1_1);
             }
             if (this.RayCastRecieverSection1_1) {
                 this.scene.remove(this.RayCastRecieverSection1_1);
@@ -29941,6 +30560,7 @@
     
             if (this.section1_WireframeMesh1_2) {
                 this.scene.remove(this.section1_WireframeMesh1_2);
+                this.scene.remove(this.MenuIcon_Mesh1_2);
             }
             if (this.RayCastRecieverSection1_2) {
                 this.scene.remove(this.RayCastRecieverSection1_2);
@@ -29948,6 +30568,7 @@
     
             if (this.section1_WireframeMesh1_3) {
                 this.scene.remove(this.section1_WireframeMesh1_3);
+                this.scene.remove(this.MenuIcon_Mesh1_3);
             }
             if (this.RayCastRecieverSection1_3) {
                 this.scene.remove(this.RayCastRecieverSection1_3);
@@ -29955,6 +30576,7 @@
     
             if (this.section1_WireframeMesh1_4) {
                 this.scene.remove(this.section1_WireframeMesh1_4);
+                this.scene.remove(this.MenuIcon_Mesh1_4);
             }
             if (this.RayCastRecieverSection1_4) {
                 this.scene.remove(this.RayCastRecieverSection1_4);
@@ -29962,6 +30584,7 @@
 
             if (this.section1_WireframeMesh1_5) {
                 this.scene.remove(this.section1_WireframeMesh1_5);
+                this.scene.remove(this.MenuIcon_Mesh1_5);
             }
             if (this.RayCastRecieverSection1_5) {
                 this.scene.remove(this.RayCastRecieverSection1_5);
@@ -30136,6 +30759,7 @@
     
             if (this.section2_WireframeMesh2_1) {
                 this.scene.remove(this.section2_WireframeMesh2_1);
+                this.scene.remove(this.MenuIcon_Mesh2_1);
             }
             if (this.RayCastRecieverSection2_1) {
                 this.scene.remove(this.RayCastRecieverSection2_1);
@@ -30143,6 +30767,7 @@
     
             if (this.section2_WireframeMesh2_2) {
                 this.scene.remove(this.section2_WireframeMesh2_2);
+                this.scene.remove(this.MenuIcon_Mesh2_2);
             }
             if (this.RayCastRecieverSection2_2) {
                 this.scene.remove(this.RayCastRecieverSection2_2);
@@ -30150,6 +30775,7 @@
     
             if (this.section2_WireframeMesh2_3) {
                 this.scene.remove(this.section2_WireframeMesh2_3);
+                this.scene.remove(this.MenuIcon_Mesh2_3);
             }
             if (this.RayCastRecieverSection2_3) {
                 this.scene.remove(this.RayCastRecieverSection2_3);
@@ -30157,6 +30783,7 @@
     
             if (this.section2_WireframeMesh2_4) {
                 this.scene.remove(this.section2_WireframeMesh2_4);
+                this.scene.remove(this.MenuIcon_Mesh2_4);
             }
             if (this.RayCastRecieverSection2_4) {
                 this.scene.remove(this.RayCastRecieverSection2_4);
@@ -30164,6 +30791,7 @@
 
             if (this.section2_WireframeMesh2_5) {
                 this.scene.remove(this.section2_WireframeMesh2_5);
+                this.scene.remove(this.MenuIcon_Mesh2_5);
             }
             if (this.RayCastRecieverSection2_5) {
                 this.scene.remove(this.RayCastRecieverSection2_5);
@@ -30781,19 +31409,6 @@
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
         //divider 1 section
         //1_1
         createHorizontalDividerSection1_1: function(shelfId) {
@@ -30831,15 +31446,21 @@
             if (shelfId == 'savedURL'){
                 self.createRayCastRecieverSection1_1('savedCorrectionURL');
                 self.createWireframeBack_section1_1('savedCorrectionURL');
+                self.createMenuIcon_section1_1();
             
                 self.createWireframeBack_section1_2('savedCorrectionURL');
                 self.createRayCastRecieverSection1_2('savedCorrectionURL'); 
+                self.createMenuIcon_section1_2();
+
             } else {
                 self.createRayCastRecieverSection1_1();
                 self.createWireframeBack_section1_1();
-            
+                self.createMenuIcon_section1_1();
+
                 self.createWireframeBack_section1_2();
                 self.createRayCastRecieverSection1_2(); 
+                self.createMenuIcon_section1_2();
+
             }
     
         },
@@ -30878,17 +31499,21 @@
             
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section1_2('savedCorrectionURL');
-                self.createRayCastRecieverSection1_2('savedCorrectionURL'); 
+                self.createRayCastRecieverSection1_2('savedCorrectionURL');
+                self.createMenuIcon_section1_2();
 
                 self.createWireframeBack_section1_3('savedCorrectionURL');
                 self.createRayCastRecieverSection1_3('savedCorrectionURL');
+                self.createMenuIcon_section1_3();
     
             } else {
                 self.createWireframeBack_section1_2();
                 self.createRayCastRecieverSection1_2();
+                self.createMenuIcon_section1_2();
                 
                 self.createWireframeBack_section1_3();
                 self.createRayCastRecieverSection1_3(); 
+                self.createMenuIcon_section1_3();
             }
         
         },
@@ -30932,16 +31557,21 @@
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section1_3('savedCorrectionURL');
                 self.createRayCastRecieverSection1_3('savedCorrectionURL');
-            
+                self.createMenuIcon_section1_3();
+
                 self.createWireframeBack_section1_4('savedCorrectionURL');
                 self.createRayCastRecieverSection1_4('savedCorrectionURL'); 
+                self.createMenuIcon_section1_4();
     
             } else {
                 self.createWireframeBack_section1_3(); 
                 self.createRayCastRecieverSection1_3();
+                self.createMenuIcon_section1_3();
     
                 self.createWireframeBack_section1_4();
-                self.createRayCastRecieverSection1_4();      
+                self.createRayCastRecieverSection1_4();   
+                self.createMenuIcon_section1_4();
+   
             }
             
         },
@@ -30985,16 +31615,22 @@
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section1_4('savedCorrectionURL');
                 self.createRayCastRecieverSection1_4('savedCorrectionURL');
-            
+                self.createMenuIcon_section1_4();
+
                 self.createWireframeBack_section1_5('savedCorrectionURL');
                 self.createRayCastRecieverSection1_5('savedCorrectionURL'); 
+                self.createMenuIcon_section1_5();
+
     
             } else {
                 self.createWireframeBack_section1_5(); 
                 self.createRayCastRecieverSection1_5();
+                self.createMenuIcon_section1_5();
     
                 self.createWireframeBack_section1_4();
-                self.createRayCastRecieverSection1_4();      
+                self.createRayCastRecieverSection1_4();  
+                self.createMenuIcon_section1_4();
+    
             }
             
         },
@@ -31041,16 +31677,21 @@
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section2_1('savedCorrectionURL');
                 self.createRayCastRecieverSection2_1('savedCorrectionURL');
+                self.createMenuIcon_section2_1();
             
                 self.createWireframeBack_section2_2('savedCorrectionURL');
                 self.createRayCastRecieverSection2_2('savedCorrectionURL'); 
+                self.createMenuIcon_section2_2();
             
             } else {
                 self.createWireframeBack_section2_1();
                 self.createRayCastRecieverSection2_1();
+                self.createMenuIcon_section2_1();
             
                 self.createWireframeBack_section2_2();
                 self.createRayCastRecieverSection2_2(); 
+                self.createMenuIcon_section2_2();
+
             }
     
     
@@ -31091,16 +31732,21 @@
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section2_2('savedCorrectionURL');
                 self.createRayCastRecieverSection2_2('savedCorrectionURL'); 
+                self.createMenuIcon_section2_2();
 
                 self.createWireframeBack_section2_3('savedCorrectionURL');
                 self.createRayCastRecieverSection2_3('savedCorrectionURL');
+                self.createMenuIcon_section2_3();
     
             } else {
                 self.createWireframeBack_section2_2();
                 self.createRayCastRecieverSection2_2();
-                
+                self.createMenuIcon_section2_2();
+
                 self.createWireframeBack_section2_3();
                 self.createRayCastRecieverSection2_3(); 
+                self.createMenuIcon_section2_3();
+
             }
         
         },
@@ -31144,16 +31790,22 @@
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section2_3('savedCorrectionURL');
                 self.createRayCastRecieverSection2_3('savedCorrectionURL');
+                self.createMenuIcon_section2_3();
             
                 self.createWireframeBack_section2_4('savedCorrectionURL');
                 self.createRayCastRecieverSection2_4('savedCorrectionURL'); 
+                self.createMenuIcon_section2_4();
+
     
             } else {
                 self.createWireframeBack_section2_3(); 
                 self.createRayCastRecieverSection2_3();
+                self.createMenuIcon_section2_3();
     
                 self.createWireframeBack_section2_4();
                 self.createRayCastRecieverSection2_4();      
+                self.createMenuIcon_section2_4();
+
             }
             
         },
@@ -31197,16 +31849,23 @@
             if (shelfId == 'savedURL'){
                 self.createWireframeBack_section2_4('savedCorrectionURL');
                 self.createRayCastRecieverSection2_4('savedCorrectionURL');
+                self.createMenuIcon_section2_4();
+
             
                 self.createWireframeBack_section2_5('savedCorrectionURL');
                 self.createRayCastRecieverSection2_5('savedCorrectionURL'); 
+                self.createMenuIcon_section2_5();
+
     
             } else {
                 self.createWireframeBack_section2_5(); 
                 self.createRayCastRecieverSection2_5();
-    
+                self.createMenuIcon_section2_5();
+
                 self.createWireframeBack_section2_4();
-                self.createRayCastRecieverSection2_4();      
+                self.createRayCastRecieverSection2_4();   
+                self.createMenuIcon_section2_4();
+   
             }
           
         },
@@ -31776,7 +32435,7 @@
     
             var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, self.options.sectionHeight_1_1 - self.options.shelf.thickness, self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection1_1 = new THREE.Mesh(geometry, material);
     
             if (savedCorrection == 'savedCorrectionURL'){
@@ -31798,8 +32457,8 @@
             this.RayCastRecieverSection1_1 = RayCastRecieverSection1_1;
     
             if ( self.options.intersectsChooseStatus === 11) {
-                self.RayCastRecieverSection1_1.material.opacity = 0.2
-                self.section1_WireframeMesh1_1.material.opacity = 0.2
+                self.RayCastRecieverSection1_1.material.opacity = 0.5
+                self.section1_WireframeMesh1_1.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection1_1.material.opacity = 0
                 self.section1_WireframeMesh1_1.material.opacity = 0
@@ -31808,26 +32467,33 @@
             this.scene.add(RayCastRecieverSection1_1);
     
         },
-    
+      
         createWireframeBack_section1_1: function(savedCorrection) {
     
             var self = this;
             this.scene.remove(this.section1_WireframeMesh1_1);
     
             var geometry = new THREE.PlaneGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_1 - this.options.shelf.thickness);
-            var material = new THREE.MeshStandardMaterial({color:0x57adff, transparent: true, opacity: 0});
-            var section1_WireframeMesh1_1 = new THREE.Mesh(geometry, material);
-    
-            section1_WireframeMesh1_1.geometry.translate( self.options.section1Length / 2 +0.5, 0, 0 );
+
+
+            //var geometry = new THREE.BoxGeometry(self.options.section1Length, self.options.sectionHeight_1_1 - 4, self.options.shelf.width);
             
-            if (savedCorrection == 'savedCorrectionURL') {
-                section1_WireframeMesh1_1.position.y = parseFloat(self.params.get('WRS1_1_pY'));
-            }  else {
-                section1_WireframeMesh1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2   - this.options.shelf.thickness /2      
-            }  
+            var edges = new THREE.EdgesGeometry( geometry ); 
+            
+            var material = new THREE.MeshStandardMaterial({color:0xff0000, transparent: true, opacity: 0, wireframe: true, linewidth: 2});
+            var section1_WireframeMesh1_1 = new THREE.LineSegments(edges, new THREE.LineBasicMaterial( { color: 0xff0000, transparent: true, opacity: 0, linewidth: 10, } ) ); 
     
-            section1_WireframeMesh1_1.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
-            section1_WireframeMesh1_1.position.z = -999
+            if (savedCorrection == 'savedCorrectionURL'){
+                section1_WireframeMesh1_1.geometry.translate( this.options.section1Length / 2, 2, 0 );
+                section1_WireframeMesh1_1.position.y = parseFloat(self.params.get('RCS1_1_pY'));
+            }   else {
+                section1_WireframeMesh1_1.geometry.translate( this.options.section1Length / 2, 0, 0 );
+                section1_WireframeMesh1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2   - this.options.shelf.thickness /2
+            }      
+            
+            section1_WireframeMesh1_1.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x + 1;
+    
+            section1_WireframeMesh1_1.position.z = -this.options.room.width / 2 + this.options.shelf.width / 2 + 1;
     
             section1_WireframeMesh1_1.name = "section1_WireframeMesh1_1"
             
@@ -31836,6 +32502,47 @@
             this.section1_WireframeMesh1_1 = section1_WireframeMesh1_1;
     
             this.scene.add(section1_WireframeMesh1_1);
+        },
+
+        /* 🍏 */
+        createMenuIcon_section1_1: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh1_1);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh1_1 = new THREE.Mesh(geometry, material);
+
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh1_1.material.needsUpdate = true;
+                MenuIcon_Mesh1_1.material.map = texture;     
+            });
+
+            MenuIcon_Mesh1_1.geometry.translate( self.options.section1Length / 2 , 0, 0 );
+
+            MenuIcon_Mesh1_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_1_1 / 2  - this.options.shelf.thickness /2
+
+            MenuIcon_Mesh1_1.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
+    
+            MenuIcon_Mesh1_1.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh1_1.name = "MenuIcon_Mesh1_1"
+            
+            MenuIcon_Mesh1_1.visible = true;
+            
+            this.MenuIcon_Mesh1_1 = MenuIcon_Mesh1_1;
+
+            if ( this.options.intersectsChooseStatus === 11) {
+                this.MenuIcon_Mesh1_1.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh1_1.material.opacity = 1
+            } 
+    
+            this.scene.add(MenuIcon_Mesh1_1);
         },
     
         // 1_2 cut 1_1
@@ -31846,7 +32553,7 @@
     
             var geometry = new THREE.BoxGeometry(this.options.section1Length + this.options.pillar.thickness/2, this.options.sectionHeight_1_2 - this.options.shelf.thickness, this.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection1_2 = new THREE.Mesh(geometry, material);
     
             RayCastRecieverSection1_2.geometry.translate( this.options.section1Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + this.options.sectionHeight_1_2 / 2 - this.options.shelf.thickness/2, 0 )
@@ -31874,8 +32581,8 @@
             this.RayCastRecieverSection1_2 = RayCastRecieverSection1_2;
     
             if ( self.options.intersectsChooseStatus === 12) {
-                self.RayCastRecieverSection1_2.material.opacity = 0.2
-                self.section1_WireframeMesh1_2.material.opacity = 0.2
+                self.RayCastRecieverSection1_2.material.opacity = 0.5
+                self.section1_WireframeMesh1_2.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection1_2.material.opacity = 0
                 self.section1_WireframeMesh1_2.material.opacity = 0
@@ -31914,6 +32621,46 @@
             this.scene.add(section1_WireframeMesh1_2);
         },
 
+        createMenuIcon_section1_2: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh1_2);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh1_2 = new THREE.Mesh(geometry, material);
+
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh1_2.material.needsUpdate = true;
+                MenuIcon_Mesh1_2.material.map = texture;     
+            });
+
+            MenuIcon_Mesh1_2.geometry.translate( self.options.section1Length / 2 , 0, 0 );
+    
+            MenuIcon_Mesh1_2.position.y = this.scene.getObjectByName( "horizontalDividerSection1_1", true ).position.y + this.options.sectionHeight_1_2 / 2 - this.options.shelf.thickness/2
+    
+            MenuIcon_Mesh1_2.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
+    
+            MenuIcon_Mesh1_2.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh1_2.name = "MenuIcon_Mesh1_2"
+            
+            MenuIcon_Mesh1_2.visible = true;
+            
+            this.MenuIcon_Mesh1_2 = MenuIcon_Mesh1_2;
+    
+            if ( this.options.intersectsChooseStatus === 12) {
+                this.MenuIcon_Mesh1_2.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh1_2.material.opacity = 1
+            } 
+
+            this.scene.add(MenuIcon_Mesh1_2);
+        },
+
         // 1_3 cut 1_2
         createWireframeBack_section1_3: function(savedCorrection) {
             var self = this;
@@ -31949,7 +32696,7 @@
             this.scene.remove(this.RayCastRecieverSection1_3);
             var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_3 - this.options.shelf.thickness, self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
     
             var RayCastRecieverSection1_3 = new THREE.Mesh(geometry, material);
     
@@ -31977,8 +32724,8 @@
             this.RayCastRecieverSection1_3 = RayCastRecieverSection1_3;
     
             if ( self.options.intersectsChooseStatus === 13) {
-                self.RayCastRecieverSection1_3.material.opacity = 0.2
-                self.section1_WireframeMesh1_3.material.opacity = 0.2
+                self.RayCastRecieverSection1_3.material.opacity = 0.5
+                self.section1_WireframeMesh1_3.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection1_3.material.opacity = 0
                 self.section1_WireframeMesh1_3.material.opacity = 0
@@ -31986,6 +32733,46 @@
     
             this.scene.add(RayCastRecieverSection1_3);
     
+        },
+
+        createMenuIcon_section1_3: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh1_3);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh1_3 = new THREE.Mesh(geometry, material);
+
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh1_3.material.needsUpdate = true;
+                MenuIcon_Mesh1_3.material.map = texture;     
+            });
+
+            MenuIcon_Mesh1_3.geometry.translate( self.options.section1Length / 2 , 0, 0 );
+    
+            MenuIcon_Mesh1_3.position.y = this.scene.getObjectByName( "horizontalDividerSection1_2", true ).position.y + this.options.sectionHeight_1_3 / 2 - this.options.shelf.thickness/2
+    
+            MenuIcon_Mesh1_3.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
+    
+            MenuIcon_Mesh1_3.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh1_3.name = "MenuIcon_Mesh1_3"
+            
+            MenuIcon_Mesh1_3.visible = true;
+            
+            this.MenuIcon_Mesh1_3 = MenuIcon_Mesh1_3;
+    
+            if ( this.options.intersectsChooseStatus === 13) {
+                this.MenuIcon_Mesh1_3.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh1_3.material.opacity = 1
+            } 
+
+            this.scene.add(MenuIcon_Mesh1_3);
         },
     
         // 1_4 cut 1_3   
@@ -32022,7 +32809,7 @@
             this.scene.remove(this.RayCastRecieverSection1_4);
             var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_4 - this.options.shelf.thickness, self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0.5});
     
             var RayCastRecieverSection1_4 = new THREE.Mesh(geometry, material);
     
@@ -32043,14 +32830,54 @@
             this.RayCastRecieverSection1_4 = RayCastRecieverSection1_4;
     
             if ( self.options.intersectsChooseStatus === 14) {
-                self.RayCastRecieverSection1_4.material.opacity = 0.2
-                self.section1_WireframeMesh1_4.material.opacity = 0.2
+                self.RayCastRecieverSection1_4.material.opacity = 0.5
+                self.section1_WireframeMesh1_4.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection1_4.material.opacity = 0.0
                 self.section1_WireframeMesh1_4.material.opacity = 0.0
             }
     
             this.scene.add(RayCastRecieverSection1_4);
+        },
+
+        createMenuIcon_section1_4: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh1_4);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh1_4 = new THREE.Mesh(geometry, material);
+
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh1_4.material.needsUpdate = true;
+                MenuIcon_Mesh1_4.material.map = texture;     
+            });
+
+            MenuIcon_Mesh1_4.geometry.translate( self.options.section1Length / 2 , 0, 0 );
+    
+            MenuIcon_Mesh1_4.position.y = this.scene.getObjectByName( "horizontalDividerSection1_3", true ).position.y + this.options.sectionHeight_1_4 / 2 - this.options.shelf.thickness/2
+    
+            MenuIcon_Mesh1_4.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
+    
+            MenuIcon_Mesh1_4.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh1_4.name = "MenuIcon_Mesh1_4"
+            
+            MenuIcon_Mesh1_4.visible = true;
+            
+            this.MenuIcon_Mesh1_4 = MenuIcon_Mesh1_4;
+
+            if ( this.options.intersectsChooseStatus === 14) {
+                this.MenuIcon_Mesh1_4.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh1_4.material.opacity = 1
+            } 
+    
+            this.scene.add(MenuIcon_Mesh1_4);
         },
 
 
@@ -32088,7 +32915,7 @@
                 this.scene.remove(this.RayCastRecieverSection1_5);
                 var geometry = new THREE.BoxGeometry(self.options.section1Length + self.options.pillar.thickness/2, this.options.sectionHeight_1_5 - this.options.shelf.thickness, self.options.shelf.width-1);
         
-                var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+                var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0.5});
         
                 var RayCastRecieverSection1_5 = new THREE.Mesh(geometry, material);
         
@@ -32109,8 +32936,8 @@
                 this.RayCastRecieverSection1_5 = RayCastRecieverSection1_5;
         
                 if ( self.options.intersectsChooseStatus === 15) {
-                    self.RayCastRecieverSection1_5.material.opacity = 0.2
-                    self.section1_WireframeMesh1_5.material.opacity = 0.2
+                    self.RayCastRecieverSection1_5.material.opacity = 0.5
+                    self.section1_WireframeMesh1_5.material.opacity = 0.5
                 } else {
                     self.RayCastRecieverSection1_5.material.opacity = 0.0
                     self.section1_WireframeMesh1_5.material.opacity = 0.0
@@ -32119,7 +32946,45 @@
                 this.scene.add(RayCastRecieverSection1_5);
         },
 
+        createMenuIcon_section1_5: function() {
     
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh1_5);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh1_5 = new THREE.Mesh(geometry, material);
+
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh1_5.material.needsUpdate = true;
+                MenuIcon_Mesh1_5.material.map = texture;     
+            });
+
+            MenuIcon_Mesh1_5.geometry.translate( self.options.section1Length / 2 , 0, 0 );
+    
+            MenuIcon_Mesh1_5.position.y = this.scene.getObjectByName( "horizontalDividerSection1_4", true ).position.y + this.options.sectionHeight_1_5 / 2 - this.options.shelf.thickness/2;
+
+            MenuIcon_Mesh1_5.position.x = this.shelving.getObjectByName( "pillar_0", true ).position.x;
+    
+            MenuIcon_Mesh1_5.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh1_5.name = "MenuIcon_Mesh1_5"
+            
+            MenuIcon_Mesh1_5.visible = true;
+            
+            this.MenuIcon_Mesh1_5 = MenuIcon_Mesh1_5;
+
+            if ( this.options.intersectsChooseStatus === 15) {
+                this.MenuIcon_Mesh1_5.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh1_5.material.opacity = 1
+            } 
+    
+            this.scene.add(MenuIcon_Mesh1_5);
+        },
     
     
     
@@ -32135,7 +33000,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness, this.options.sectionHeight_2_1 - this.options.shelf.thickness, self.options.shelf.width-1);
             } 
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection2_1 = new THREE.Mesh(geometry, material);
     
             if (this.options.amountOfSections === 2 ) {
@@ -32161,8 +33026,8 @@
             this.RayCastRecieverSection2_1 = RayCastRecieverSection2_1;
     
             if ( self.options.intersectsChooseStatus === 21) {
-                self.RayCastRecieverSection2_1.material.opacity = 0.2
-                self.section2_WireframeMesh2_1.material.opacity = 0.2
+                self.RayCastRecieverSection2_1.material.opacity = 0.5
+                self.section2_WireframeMesh2_1.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection2_1.material.opacity = 0
                 self.section2_WireframeMesh2_1.material.opacity = 0
@@ -32207,6 +33072,45 @@
     
             this.scene.add(section2_WireframeMesh2_1);
         },
+
+        createMenuIcon_section2_1: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh2_1);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh2_1 = new THREE.Mesh(geometry, material);
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh2_1.material.needsUpdate = true;
+                MenuIcon_Mesh2_1.material.map = texture;     
+            });
+
+            MenuIcon_Mesh2_1.geometry.translate( self.options.section2Length / 2 , 0, 0 );
+
+            MenuIcon_Mesh2_1.position.y = this.shelving.getObjectByName( "shelf_0_0", true ).position.y + this.options.sectionHeight_2_1 / 2  - this.options.shelf.thickness /2
+
+            MenuIcon_Mesh2_1.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
+    
+            MenuIcon_Mesh2_1.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh2_1.name = "MenuIcon_Mesh2_1"
+            
+            MenuIcon_Mesh2_1.visible = true;
+            
+            this.MenuIcon_Mesh2_1 = MenuIcon_Mesh2_1;
+
+            if ( this.options.intersectsChooseStatus === 21) {
+                this.MenuIcon_Mesh2_1.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh2_1.material.opacity = 1
+            } 
+    
+            this.scene.add(MenuIcon_Mesh2_1);
+        },
     
         // 2_2
         createRayCastRecieverSection2_2: function(savedCorrection) {
@@ -32219,7 +33123,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness, this.options.sectionHeight_2_2 - this.options.shelf.thickness , self.options.shelf.width-1);
             } 
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection2_2 = new THREE.Mesh(geometry, material);
     
             if (this.options.amountOfSections === 2 ) {
@@ -32250,8 +33154,8 @@
             this.RayCastRecieverSection2_2 = RayCastRecieverSection2_2;
     
             if ( self.options.intersectsChooseStatus === 22) {
-                self.RayCastRecieverSection2_2.material.opacity = 0.2
-                self.section2_WireframeMesh2_2.material.opacity = 0.2
+                self.RayCastRecieverSection2_2.material.opacity = 0.5
+                self.section2_WireframeMesh2_2.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection2_2.material.opacity = 0
                 self.section2_WireframeMesh2_2.material.opacity = 0
@@ -32295,6 +33199,45 @@
             this.section2_WireframeMesh2_2 = section2_WireframeMesh2_2;
     
             this.scene.add(section2_WireframeMesh2_2);
+        },
+
+        createMenuIcon_section2_2: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh2_2);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh2_2 = new THREE.Mesh(geometry, material);
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh2_2.material.needsUpdate = true;
+                MenuIcon_Mesh2_2.material.map = texture;     
+            });
+
+            MenuIcon_Mesh2_2.geometry.translate( self.options.section2Length / 2 , 0, 0 );
+
+            MenuIcon_Mesh2_2.position.y = this.scene.getObjectByName( "horizontalDividerSection2_1", true ).position.y + this.options.sectionHeight_2_2 / 2 - this.options.shelf.thickness/2
+
+            MenuIcon_Mesh2_2.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
+    
+            MenuIcon_Mesh2_2.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh2_2.name = "MenuIcon_Mesh2_2"
+            
+            MenuIcon_Mesh2_2.visible = true;
+            
+            this.MenuIcon_Mesh2_2 = MenuIcon_Mesh2_2;
+    
+            if ( this.options.intersectsChooseStatus === 22) {
+                this.MenuIcon_Mesh2_2.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh2_2.material.opacity = 1
+            } 
+
+            this.scene.add(MenuIcon_Mesh2_2);
         },
     
         //2_3 cuts 2_2
@@ -32347,7 +33290,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness, this.options.sectionHeight_2_3 - this.options.shelf.thickness , self.options.shelf.width-1);
             } 
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
     
             var RayCastRecieverSection2_3 = new THREE.Mesh(geometry, material);
     
@@ -32375,8 +33318,8 @@
             this.RayCastRecieverSection2_3 = RayCastRecieverSection2_3;
     
             if ( self.options.intersectsChooseStatus === 23) {
-                self.RayCastRecieverSection2_3.material.opacity = 0.2
-                self.section2_WireframeMesh2_3.material.opacity = 0.2
+                self.RayCastRecieverSection2_3.material.opacity = 0.5
+                self.section2_WireframeMesh2_3.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection2_3.material.opacity = 0
                 self.section2_WireframeMesh2_3.material.opacity = 0
@@ -32386,6 +33329,44 @@
     
         },
     
+        createMenuIcon_section2_3: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh2_3);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh2_3 = new THREE.Mesh(geometry, material);
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh2_3.material.needsUpdate = true;
+                MenuIcon_Mesh2_3.material.map = texture;     
+            });
+
+            MenuIcon_Mesh2_3.geometry.translate( self.options.section2Length / 2 , 0, 0 );
+
+            MenuIcon_Mesh2_3.position.y = this.scene.getObjectByName( "horizontalDividerSection2_2", true ).position.y + this.options.sectionHeight_2_3 / 2 - this.options.shelf.thickness/2
+
+            MenuIcon_Mesh2_3.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
+    
+            MenuIcon_Mesh2_3.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh2_3.name = "MenuIcon_Mesh2_3"
+            
+            MenuIcon_Mesh2_3.visible = true;
+            
+            this.MenuIcon_Mesh2_3 = MenuIcon_Mesh2_3;
+
+            if ( this.options.intersectsChooseStatus === 23) {
+                this.MenuIcon_Mesh2_3.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh2_3.material.opacity = 1
+            } 
+    
+            this.scene.add(MenuIcon_Mesh2_3);
+        },
     
         //2_4 cuts 2_3
         createWireframeBack_section2_4: function(savedCorrection) {
@@ -32436,7 +33417,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section2Length - this.options.pillar.thickness, this.options.sectionHeight_2_4 - this.options.shelf.thickness , self.options.shelf.width-1);
             } 
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0.5});
     
             var RayCastRecieverSection2_4 = new THREE.Mesh(geometry, material);
     
@@ -32460,8 +33441,8 @@
             this.RayCastRecieverSection2_4 = RayCastRecieverSection2_4;
     
             if ( self.options.intersectsChooseStatus === 24) {
-                self.RayCastRecieverSection2_4.material.opacity = 0.2
-                self.section2_WireframeMesh2_4.material.opacity = 0.2
+                self.RayCastRecieverSection2_4.material.opacity = 0.5
+                self.section2_WireframeMesh2_4.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection2_4.material.opacity = 0.0
                 self.section2_WireframeMesh2_4.material.opacity = 0.0
@@ -32470,6 +33451,44 @@
             this.scene.add(RayCastRecieverSection2_4);
         },
     
+        createMenuIcon_section2_4: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh2_4);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh2_4 = new THREE.Mesh(geometry, material);
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh2_4.material.needsUpdate = true;
+                MenuIcon_Mesh2_4.material.map = texture;     
+            });
+
+            MenuIcon_Mesh2_4.geometry.translate( self.options.section2Length / 2 , 0, 0 );
+
+            MenuIcon_Mesh2_4.position.y = this.scene.getObjectByName( "horizontalDividerSection2_3", true ).position.y + this.options.sectionHeight_2_4 / 2 - this.options.shelf.thickness/2
+
+            MenuIcon_Mesh2_4.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
+    
+            MenuIcon_Mesh2_4.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh2_4.name = "MenuIcon_Mesh2_4"
+            
+            MenuIcon_Mesh2_4.visible = true;
+            
+            this.MenuIcon_Mesh2_4 = MenuIcon_Mesh2_4;
+    
+            if ( this.options.intersectsChooseStatus === 24) {
+                this.MenuIcon_Mesh2_4.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh2_4.material.opacity = 1
+            } 
+
+            this.scene.add(MenuIcon_Mesh2_4);
+        },
 
         // 2_5 cut 2_4   
         createWireframeBack_section2_5: function(savedCorrection) {
@@ -32505,7 +33524,7 @@
                 this.scene.remove(this.RayCastRecieverSection2_5);
                 var geometry = new THREE.BoxGeometry(self.options.section2Length + self.options.pillar.thickness/2, this.options.sectionHeight_2_5 - this.options.shelf.thickness, self.options.shelf.width-1);
         
-                var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+                var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0.5});
         
                 var RayCastRecieverSection2_5 = new THREE.Mesh(geometry, material);
         
@@ -32526,8 +33545,8 @@
                 this.RayCastRecieverSection2_5 = RayCastRecieverSection2_5;
         
                 if ( self.options.intersectsChooseStatus === 25) {
-                    self.RayCastRecieverSection2_5.material.opacity = 0.2
-                    self.section2_WireframeMesh2_5.material.opacity = 0.2
+                    self.RayCastRecieverSection2_5.material.opacity = 0.5
+                    self.section2_WireframeMesh2_5.material.opacity = 0.5
                 } else {
                     self.RayCastRecieverSection2_5.material.opacity = 0.0
                     self.section2_WireframeMesh2_5.material.opacity = 0.0
@@ -32536,6 +33555,44 @@
                 this.scene.add(RayCastRecieverSection2_5);
         },    
 
+        createMenuIcon_section2_5: function() {
+    
+            var self = this;
+            this.scene.remove(this.MenuIcon_Mesh2_5);
+    
+            var geometry = new THREE.PlaneGeometry(8, 8);
+
+            var material = new THREE.MeshStandardMaterial({color: this.options.shadow.color, transparent: true, opacity: 1, side: THREE.DoubleSide });
+
+            var MenuIcon_Mesh2_5 = new THREE.Mesh(geometry, material);
+
+            this.textureLoader.load(this.assetsPath + this.options.menuicon.texture, function(texture) {
+                MenuIcon_Mesh2_5.material.needsUpdate = true;
+                MenuIcon_Mesh2_5.material.map = texture;     
+            });
+
+            MenuIcon_Mesh2_5.geometry.translate( self.options.section2Length / 2 , 0, 0 );
+
+            MenuIcon_Mesh2_5.position.y = this.scene.getObjectByName( "horizontalDividerSection2_4", true ).position.y + this.options.sectionHeight_2_5 / 2 - this.options.shelf.thickness/2
+
+            MenuIcon_Mesh2_5.position.x = this.scene.getObjectByName( "pillar1", true ).position.x;
+    
+            MenuIcon_Mesh2_5.position.z = -self.options.room.width / 2 + self.options.shelf.width -0.8
+    
+            MenuIcon_Mesh2_5.name = "MenuIcon_Mesh2_5"
+            
+            MenuIcon_Mesh2_5.visible = true;
+            
+            this.MenuIcon_Mesh2_5 = MenuIcon_Mesh2_5;
+
+            if ( this.options.intersectsChooseStatus === 25) {
+                this.MenuIcon_Mesh2_5.material.opacity = 0
+            } else {
+                this.MenuIcon_Mesh2_5.material.opacity = 1
+            } 
+    
+            this.scene.add(MenuIcon_Mesh2_5);
+        },
 
     
     
@@ -32549,7 +33606,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section3Length - this.options.pillar.thickness, this.options.sectionHeight_3_1 - this.options.shelf.thickness , self.options.shelf.width-1);
             } 
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection3_1 = new THREE.Mesh(geometry, material);
     
             if (this.options.amountOfSections === 4 ) {
@@ -32573,8 +33630,8 @@
             this.RayCastRecieverSection3_1 = RayCastRecieverSection3_1;
     
             if ( self.options.intersectsChooseStatus === 31) {
-                self.RayCastRecieverSection3_1.material.opacity = 0.2
-                self.section3_WireframeMesh3_1.material.opacity = 0.2
+                self.RayCastRecieverSection3_1.material.opacity = 0.5
+                self.section3_WireframeMesh3_1.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection3_1.material.opacity = 0
                 self.section3_WireframeMesh3_1.material.opacity = 0
@@ -32617,7 +33674,7 @@
     
             this.scene.add(section3_WireframeMesh3_1);
         },
-    
+
         // 3_2
         createRayCastRecieverSection3_2: function(savedCorrection) {
             var self = this;
@@ -32629,7 +33686,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section3Length - this.options.pillar.thickness, this.options.sectionHeight_3_2 - this.options.shelf.thickness , self.options.shelf.width-1);
             } 
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection3_2 = new THREE.Mesh(geometry, material);
     
             if (this.options.amountOfSections === 4 ) {
@@ -32660,8 +33717,8 @@
             this.RayCastRecieverSection3_2 = RayCastRecieverSection3_2;
     
             if ( self.options.intersectsChooseStatus === 32) {
-                self.RayCastRecieverSection3_2.material.opacity = 0.2
-                self.section3_WireframeMesh3_2.material.opacity = 0.2
+                self.RayCastRecieverSection3_2.material.opacity = 0.5
+                self.section3_WireframeMesh3_2.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection3_2.material.opacity = 0
                 self.section3_WireframeMesh3_2.material.opacity = 0
@@ -32758,7 +33815,7 @@
             } 
     
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
     
             var RayCastRecieverSection3_3 = new THREE.Mesh(geometry, material);
     
@@ -32786,8 +33843,8 @@
             this.RayCastRecieverSection3_3 = RayCastRecieverSection3_3;
     
             if ( self.options.intersectsChooseStatus === 33) {
-                self.RayCastRecieverSection3_3.material.opacity = 0.2
-                self.section3_WireframeMesh3_3.material.opacity = 0.2
+                self.RayCastRecieverSection3_3.material.opacity = 0.5
+                self.section3_WireframeMesh3_3.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection3_3.material.opacity = 0
                 self.section3_WireframeMesh3_3.material.opacity = 0
@@ -32848,7 +33905,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section3Length - this.options.pillar.thickness, this.options.sectionHeight_3_4 - this.options.shelf.thickness , self.options.shelf.width-1);
             }
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
     
             var RayCastRecieverSection3_4 = new THREE.Mesh(geometry, material);
     
@@ -32872,8 +33929,8 @@
             this.RayCastRecieverSection3_4 = RayCastRecieverSection3_4;
     
             if ( self.options.intersectsChooseStatus === 34) {
-                self.RayCastRecieverSection3_4.material.opacity = 0.2
-                self.section3_WireframeMesh3_4.material.opacity = 0.2
+                self.RayCastRecieverSection3_4.material.opacity = 0.5
+                self.section3_WireframeMesh3_4.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection3_4.material.opacity = 0
                 self.section3_WireframeMesh3_4.material.opacity = 0
@@ -32932,7 +33989,7 @@
                 var geometry = new THREE.BoxGeometry(this.options.section3Length - this.options.pillar.thickness, this.options.sectionHeight_3_5 - this.options.shelf.thickness , self.options.shelf.width-1);
             }
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0.5});
     
             var RayCastRecieverSection3_5 = new THREE.Mesh(geometry, material);
     
@@ -32956,8 +34013,8 @@
             this.RayCastRecieverSection3_5 = RayCastRecieverSection3_5;
     
             if ( self.options.intersectsChooseStatus === 35) {
-                self.RayCastRecieverSection3_5.material.opacity = 0.2
-                self.section3_WireframeMesh3_5.material.opacity = 0.2
+                self.RayCastRecieverSection3_5.material.opacity = 0.5
+                self.section3_WireframeMesh3_5.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection3_5.material.opacity = 0.0
                 self.section3_WireframeMesh3_5.material.opacity = 0.0
@@ -32976,7 +34033,7 @@
             this.scene.remove(this.RayCastRecieverSection4_1);
     
             var geometry = new THREE.BoxGeometry(this.options.section4Length-1, this.options.sectionHeight_4_1 - this.options.shelf.thickness , self.options.shelf.width-1);;
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection4_1 = new THREE.Mesh(geometry, material);
     
             RayCastRecieverSection4_1.geometry.translate( self.options.section4Length / 2 +0.5, 0, 0 );
@@ -32996,8 +34053,8 @@
             this.RayCastRecieverSection4_1 = RayCastRecieverSection4_1;
     
             if ( self.options.intersectsChooseStatus === 41) {
-                self.RayCastRecieverSection4_1.material.opacity = 0.2
-                self.section4_WireframeMesh4_1.material.opacity = 0.2
+                self.RayCastRecieverSection4_1.material.opacity = 0.5
+                self.section4_WireframeMesh4_1.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection4_1.material.opacity = 0
                 self.section4_WireframeMesh4_1.material.opacity = 0
@@ -33039,7 +34096,7 @@
     
             var geometry = new THREE.BoxGeometry(this.options.section4Length-1, this.options.sectionHeight_4_2 - this.options.shelf.thickness , self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
             var RayCastRecieverSection4_2 = new THREE.Mesh(geometry, material);
     
             RayCastRecieverSection4_2.geometry.translate( self.options.section4Length / 2 +0.5, this.scene.getObjectByName( "horizontalDividerSection4_1", true ).position.y + this.options.sectionHeight_4_2 / 2 - this.options.shelf.thickness/2, 0 )
@@ -33066,8 +34123,8 @@
             this.RayCastRecieverSection4_2 = RayCastRecieverSection4_2;
     
             if ( self.options.intersectsChooseStatus === 42) {
-                self.RayCastRecieverSection4_2.material.opacity = 0.2
-                self.section4_WireframeMesh4_2.material.opacity = 0.2
+                self.RayCastRecieverSection4_2.material.opacity = 0.5
+                self.section4_WireframeMesh4_2.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection4_2.material.opacity = 0
                 self.section4_WireframeMesh4_2.material.opacity = 0
@@ -33141,7 +34198,7 @@
     
             var geometry = new THREE.BoxGeometry(this.options.section4Length-1, this.options.sectionHeight_4_3 - this.options.shelf.thickness , self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
     
             var RayCastRecieverSection4_3 = new THREE.Mesh(geometry, material);
     
@@ -33166,8 +34223,8 @@
             this.RayCastRecieverSection4_3 = RayCastRecieverSection4_3;
     
             if ( self.options.intersectsChooseStatus === 43) {
-                self.RayCastRecieverSection4_3.material.opacity = 0.2
-                self.section4_WireframeMesh4_3.material.opacity = 0.2
+                self.RayCastRecieverSection4_3.material.opacity = 0.5
+                self.section4_WireframeMesh4_3.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection4_3.material.opacity = 0
                 self.section4_WireframeMesh4_3.material.opacity = 0
@@ -33215,7 +34272,7 @@
     
             var geometry = new THREE.BoxGeometry(this.options.section4Length-1, this.options.sectionHeight_4_4 - this.options.shelf.thickness , self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0});
     
             var RayCastRecieverSection4_4 = new THREE.Mesh(geometry, material);
     
@@ -33235,8 +34292,8 @@
             this.RayCastRecieverSection4_4 = RayCastRecieverSection4_4;
     
             if ( self.options.intersectsChooseStatus === 44) {
-                self.RayCastRecieverSection4_4.material.opacity = 0.2
-                self.section4_WireframeMesh4_4.material.opacity = 0.2
+                self.RayCastRecieverSection4_4.material.opacity = 0.5
+                self.section4_WireframeMesh4_4.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection4_4.material.opacity = 0
                 self.section4_WireframeMesh4_4.material.opacity = 0
@@ -33282,7 +34339,7 @@
     
             var geometry = new THREE.BoxGeometry(this.options.section4Length-1, this.options.sectionHeight_4_5 - this.options.shelf.thickness , self.options.shelf.width-1);
     
-            var material = new THREE.MeshStandardMaterial({color: 0x3492eb, transparent: true, opacity: 0.5});
+            var material = new THREE.MeshStandardMaterial({color: 0x405DE3, transparent: true, opacity: 0.5});
     
             var RayCastRecieverSection4_5 = new THREE.Mesh(geometry, material);
     
@@ -33302,8 +34359,8 @@
             this.RayCastRecieverSection4_5 = RayCastRecieverSection4_5;
     
             if ( self.options.intersectsChooseStatus === 45) {
-                self.RayCastRecieverSection4_5.material.opacity = 0.2
-                self.section4_WireframeMesh4_5.material.opacity = 0.2
+                self.RayCastRecieverSection4_5.material.opacity = 0.5
+                self.section4_WireframeMesh4_5.material.opacity = 0.5
             } else {
                 self.RayCastRecieverSection4_5.material.opacity = 0.0
                 self.section4_WireframeMesh4_5.material.opacity = 0.0
@@ -33540,10 +34597,11 @@
                     bevelEnabled: false,
                     }
                 )
+                /* 🍏 */
                 var wMain_Mesh = new THREE.Mesh(wMain, self.fontColor);
                 wMain_Mesh.position.set(   
                     self.scene.getObjectByName( "shelf_0_1", true ).position.x / 2 -1.8,
-                    self.options.pillar.height + 3,
+                    self.options.pillar.height + 8,
                     self.shelving.position.z + self.options.shelf.width / 2
                 )
                 dimensionsFontGroup.add(wMain_Mesh);
@@ -33560,9 +34618,10 @@
                     bevelEnabled: false,
                     }
                 )
+                /* 🍏 */
                 var hMain_Mesh = new THREE.Mesh(hMain, self.fontColor);
                 hMain_Mesh.position.set(   
-                    self.scene.getObjectByName( "pillar_0", true ).position.x -6,
+                    self.scene.getObjectByName( "pillar_0", true ).position.x - 10,
                     self.scene.getObjectByName( "pillar_0", true ).position.y ,
                     self.shelving.position.z + self.options.shelf.width / 2
                 )
